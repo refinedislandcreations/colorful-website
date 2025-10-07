@@ -3,10 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* ----------- Default Styles to apply to the whole project  --------- */
 
-@layer base {
+/* @layer base {
 
     body {
         @apply border-8 sm:border-blue md:border-purple lg:border-teal;
@@ -37,12 +36,11 @@
         @apply mb-[0.5em] leading-normal;
     }
 
-  }
-
+  } */
 
 /* ----------- ADDITIONAL COMPONENTS  --------- */
 
-@layer components {
+/* @layer components {
 
     .tag {
         @apply text-sm inline-block p-1 uppercase tracking-wide text-stone-600;
@@ -52,9 +50,9 @@
         @apply inline-block px-4 py-2 uppercase tracking-wide bg-zinc-800 text-white ;
     }
     
-}
+} */
 
-h2,
+/* h2,
 h3,
 a {
     text-transform: uppercase;
@@ -107,4 +105,10 @@ footer h3 {
     font-weight: 800;
     margin-bottom: 3%;
 }
+ */
 
+.michroma-regular {
+  font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
