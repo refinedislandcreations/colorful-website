@@ -1,3 +1,4 @@
+<!-- ✅ GSAP + ScrollTrigger -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
@@ -9,16 +10,20 @@
     <!-- INTRO -->
     <div
       id="intro"
-      class="absolute inset-0 flex items-center justify-center z-0 bg-[#943a21]"
+      class="absolute inset-0 flex items-center justify-center bg-[#69673a] z-0"
     >
       <div class="max-w-7xl text-left px-8">
         <h1
-          class="text-4xl uppercase font-extrabold text-[#f8efc1] leading-tight"
+          class="text-4xl uppercase font-extrabold text-[#f8efc1] leading-tight montserrat-black"
         >
-          Discover tranquility in the city. Urban Oasis Resort blends modern
-          design, smart technology, and natural serenity to create a refined
-          escape.
+          Private Villas Crafted for Quiet Comfort
         </h1>
+        <p class="mt-4 text-lg text-[#f8efc1] dm-sans-regular max-w-xl">
+          Step into your personal haven, where complete privacy and understated
+          elegance converge. Each villa is a secluded sanctuary designed to
+          dissolve the world beyond, offering space to breathe, reconnect, and
+          simply be.
+        </p>
       </div>
     </div>
 
@@ -27,43 +32,39 @@
       class="slide-item absolute inset-0 flex items-center justify-between bg-[#d3a642] px-16 z-10"
     >
       <div class="max-w-xl relative z-20">
-        <h2 class="text-5xl font-bold text-[#943a21] mb-6">
-          Smart Living, Natural Comfort
+        <h2 class="text-5xl font-bold text-[#943a21] mb-6 montserrat-bold">
+          Ocean-View Private Pools
         </h2>
-        <p class="text-lg text-[#943a21] leading-relaxed">
-          Enjoy a seamless balance of innovation and relaxation. Each room
-          features intelligent lighting, adaptive climate control, and calming
-          natural tones. Premium bedding, private green balconies, and soft
-          daylight create an atmosphere of calm — your personal oasis amid the
-          city’s energy.
+        <p class="text-lg text-[#943a21] leading-relaxed dm-sans-regular">
+          Immerse yourself in tranquility with infinity pools that blend
+          seamlessly into the horizon. Each villa features a private oasis where
+          the only sounds are gentle water and distant waves.
         </p>
       </div>
       <img
-        src="/assets/images/smart-room.jpg"
-        alt="Smart Room"
+        src="/assets/images/private-pool.jpg"
+        alt="Private Infinity Pool"
         class="w-[50vw] h-[80vh] object-cover shadow-xl relative z-20"
       />
     </div>
 
     <!-- SLIDE 2 -->
     <div
-      class="slide-item absolute inset-0 flex items-center justify-between px-16 bg-[#69673a] z-20"
+      class="slide-item absolute inset-0 flex items-center justify-between px-16 bg-[#943a21] z-20"
     >
       <div class="max-w-xl relative z-20">
-        <h2 class="text-5xl font-bold text-[#f8efc1] mb-6">
-          Green Innovation & Sustainable Luxury
+        <h2 class="text-5xl font-bold text-[#f8efc1] mb-6 montserrat-bold">
+          Secluded Garden Sanctuaries
         </h2>
-        <p class="text-lg text-[#f8efc1] leading-relaxed">
-          Luxury meets sustainability through eco-smart energy systems, solar
-          panels, and recycled water technology. From the rooftop garden to our
-          organic dining experience, every element reflects care for both guest
-          and planet. Indulge in responsible comfort where modern living
-          nurtures a greener tomorrow.
+        <p class="text-lg text-[#f8efc1] leading-relaxed dm-sans-regular">
+          Discover hidden courtyards and lush tropical gardens designed for
+          complete seclusion. These intimate outdoor spaces offer peaceful
+          retreats for meditation, reading, or quiet contemplation.
         </p>
       </div>
       <img
-        src="/assets/images/eco-friendly.jpg"
-        alt="Eco Friendly Facilities"
+        src="/assets/images/garden-sanctuary.jpg"
+        alt="Secluded Garden Sanctuary"
         class="w-[50vw] h-[80vh] object-cover shadow-xl relative z-20"
       />
     </div>
@@ -73,93 +74,96 @@
       class="slide-item absolute inset-0 flex items-center justify-between px-16 bg-[#b3cdbd] z-30"
     >
       <div class="max-w-xl relative z-20">
-        <h2 class="text-5xl font-bold text-[#69673a] mb-6">
-          Spaces for Balance and Inspiration
+        <h2 class="text-5xl font-bold text-[#69673a] mb-6 montserrat-bold">
+          Customized In-Villa Experiences
         </h2>
-        <p class="text-lg text-[#69673a] leading-relaxed">
-          Immerse yourself in spaces designed for wellness and creativity. Relax
-          at the rooftop infinity pool, revitalize in our urban spa, or focus in
-          smart co-working lounges. Every area, from the digital meditation zone
-          to the art gallery, blends purpose and peace — redefining what it
-          means to live well in the city.
+        <p class="text-lg text-[#69673a] leading-relaxed dm-sans-regular">
+          From private chef dinners under the stars to in-villa spa treatments,
+          we curate personalized moments that transform your stay into an
+          unforgettable journey tailored exclusively to you.
         </p>
       </div>
       <img
-        src="/assets/images/infinity-pool.jpg"
-        alt="infinity pool"
+        src="/assets/images/villa-experience.jpg"
+        alt="Customized Villa Experience"
+        class="w-[50vw] h-[80vh] object-cover shadow-xl relative z-20"
+      />
+    </div>
+
+    <!-- SLIDE 4 -->
+    <div
+      class="slide-item absolute inset-0 flex items-center justify-between px-16 bg-[#f8efc1] z-40"
+    >
+      <div class="max-w-xl relative z-20">
+        <h2 class="text-5xl font-bold text-[#69673a] mb-6 montserrat-bold">
+          24-Hour Private Host Service
+        </h2>
+        <p class="text-lg text-[#69673a] leading-relaxed dm-sans-regular">
+          Your dedicated host ensures every detail is perfected, from morning
+          coffee served at your preferred time to arranging exclusive island
+          excursions. Discreet, attentive care available whenever needed.
+        </p>
+      </div>
+      <img
+        src="/assets/images/host-service.jpg"
+        alt="Private Host Service"
         class="w-[50vw] h-[80vh] object-cover shadow-xl relative z-20"
       />
     </div>
   </div>
 </section>
 
+<!-- ✅ GSAP SCRIPT -->
 <script>
   gsap.registerPlugin(ScrollTrigger);
 
   const slides = gsap.utils.toArray(".slide-item");
   const intro = document.getElementById("intro");
   const scrollSection = document.getElementById("scroll-section");
+  const numSlides = slides.length; // 4 slides
+  const stackGap = 50; // gap between stacked slides
 
-  // Use a variable to track the initial state for responsiveness
-  let initialX = "100%";
+  // Set initial states
+  gsap.set(intro, { y: 0, scale: 1 });
+  gsap.set(slides, { y: "100%", opacity: 1 });
 
-  // --- Initial Setup (Always Runs) ---
-
-  // Set initial state for the text elements (Intro is visible, slides are off-screen)
-  gsap.set(intro, { x: 0, scale: 1 });
-  // Set ALL slides to be initially off-screen to the right
-  gsap.set(slides, { x: initialX, opacity: 1 });
-
-  // --- GSAP MatchMedia for Responsiveness ---
+  // GSAP animation with ScrollTrigger
   gsap.matchMedia().add(
     "(min-width: 768px)",
     () => {
-      const innerWidth = window.innerWidth;
+      const totalScrollUnits = numSlides; // 4 slides
+      const endValue = `+=${totalScrollUnits * 100}%`; // +=400%
 
-      // The total scroll duration remains 7 units.
       let tl = gsap.timeline({
         scrollTrigger: {
           trigger: scrollSection,
           pin: true,
           scrub: 1,
-          // KEEPING 300% as requested (3 sections * 100%)
-          end: "+=300%",
+          end: endValue,
           markers: false,
         },
       });
 
-      // Timeline Actions:
-
-      // 1. Intro movement (Time 0 to 1)
-      tl.to(intro, { scale: 0.95, x: -innerWidth / 10, duration: 1 }, 0);
-
-      // 2. SLIDE-IN ANIMATIONS (Horizontal stacking, Time 1 to 7)
+      // Animate slides stacking one by one
       slides.forEach((slide, i) => {
-        // Slide i comes in, starting at time i + 1. The last slide (index 5)
-        // is fully in place at time 6, and stays pinned until time 7.
-        tl.to(slide, { x: 0, duration: 1 }, i + 1);
+        const targetY = i * stackGap;
+
+        tl.to(
+          slide,
+          {
+            y: targetY,
+            duration: 1,
+            ease: "none",
+          },
+          i // each slide starts animating sequentially
+        );
       });
 
-      // 3. SMOOTH VERTICAL EXIT (New Timing)
-      // We need the exit animation to happen during the last unit of scroll (Time 6 to 7),
-      // effectively covering the moment the last slide is fully visible but hasn't moved yet.
-      // The last horizontal movement finished at time 6. We start the vertical exit at time 6.
-      tl.to(
-        slides[5],
-        {
-          y: "-100vh", // Move the last slide up and off the screen
-          opacity: 0.5, // Optional fade
-          duration: 1, // Duration of 1 unit
-          ease: "power2.in",
-        },
-        6 // START at time 6, FINISHING at time 7 (the end of the scroll trigger)
-      );
-
-      // Return the timeline instance
       return tl;
     },
     () => {
-      // --- Mobile/Small Screen Fallback ---
+      // Fallback for mobile screens
+      gsap.set(intro, { y: 0, opacity: 1 });
       gsap.set(slides, { x: 0, y: 0, opacity: 1 });
     }
   );
