@@ -1,100 +1,90 @@
-<style>
-  /* Apply Titan One font family and ensure full height */
-  body {
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
-  }
-  /* Custom class for the large, thin font style */
-  .hero-text {
-    font-weight: 100;
-    line-height: 0.9;
-    /* Subtle text shadow for contrast against the background image */
-    /* text-shadow: 0 0 5px rgba(0, 0, 0, 0.8); */
-  }
-</style>
-
-<div id="wrapper" class="w-screen h-screen relative overflow-hidden bg-white">
+<section
+  id="hero"
+  class="relative w-screen h-screen overflow-hidden bg-white flex items-center justify-center"
+>
+  <!-- Background with animated clip -->
   <div
     id="clipped-content"
-    class="w-full h-full absolute top-0 left-0 z-0 bg-cover bg-center"
+    class="absolute inset-0 bg-cover bg-center z-0"
     style="
       clip-path: polygon(45% 45%, 55% 45%, 55% 55%, 45% 55%);
       background-image: url('/assets/images/hero-image.jpg');
     "
   ></div>
 
+  <!-- Text content -->
   <div
     id="hero-content"
-    class="absolute z-10 w-full h-full flex flex-col justify-end p-8 opacity-0"
+    class="absolute inset-0 z-10 flex flex-col justify-end px-4 text-white opacity-0"
   >
-    <div class="w-full flex justify-between items-end text-white">
+    <div
+      class="flex flex-col sm:flex-row justify-between items-end gap-6 sm:gap-0"
+    >
       <h1
-        class="text-[10vw] sm:text-[5rem] md:text-[8rem] uppercase tracking-widest hero-text montserrat-black text-left"
+        class="text-[12vw] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] uppercase tracking-tight leading-[0.9] montserrat-black text-left"
       >
         <span class="block font-bold" data-reveal>Amara Isles</span>
       </h1>
 
       <p
-        class="text-lg sm:text-xl md:text-2xl max-w-lg text-right dm-sans-regular"
+        class="text-base sm:text-lg md:text-2xl max-w-sm sm:max-w-md md:max-w-lg text-right dm-sans-regular"
         data-reveal
       >
         An invitation to breathe and return.
       </p>
     </div>
   </div>
-</div>
+</section>
 
+<!-- ✅ GSAP Animation -->
 <script>
+  // Always scroll to top when page loads or refreshes
+  window.history.scrollRestoration = "manual";
+  window.scrollTo(0, 0);
+
   document.addEventListener("DOMContentLoaded", () => {
+    // Lock scroll during intro
+    document.body.style.overflow = "hidden";
+    window.scrollTo(0, 0); // Ensure at top even after DOM loaded
+
     const clippedContent = document.getElementById("clipped-content");
     const heroContent = document.getElementById("hero-content");
     const textLines = document.querySelectorAll("[data-reveal]");
 
-    // Set initial state for the text (hidden, moved down)
+    // Start with text hidden
     gsap.set(textLines, { opacity: 0, y: 30 });
 
-    // 1. Initialize GSAP Timeline for automatic execution
     const tl = gsap.timeline({
       defaults: { ease: "power2.inOut" },
-
-      // When the entire timeline is complete, enable scrolling on the body.
       onComplete: () => {
-        document.body.style.overflow = "auto";
+        // Unlock scroll after animation finishes
+        gsap.to("body", {
+          overflow: "auto",
+          delay: 0.2,
+          duration: 0,
+        });
       },
     });
 
-    // --- STAGE 1: CLIP-PATH ANIMATION ---
-    tl.to(
-      clippedContent,
-      {
-        clipPath: "polygon(0% 45%, 100% 45%, 100% 55%, 0% 55%)",
-        duration: 1.0,
-        ease: "power1.out",
-      },
-      0.5
-    )
-
-      // 3. Expand horizontal band to full screen (ENDS the image animation)
+    tl.to(clippedContent, {
+      clipPath: "polygon(0% 45%, 100% 45%, 100% 55%, 0% 55%)",
+      duration: 1,
+      ease: "power1.out",
+      delay: 0.3,
+    })
       .to(clippedContent, {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
         duration: 1.2,
         ease: "power2.inOut",
       })
-
-      // --- STAGE 2: TEXT REVEAL (Starts after the image is full screen) ---
       .to(
         heroContent,
         {
           opacity: 1,
           duration: 0.8,
         },
-        // MENGGANTI: Menggunakan `>` (atau tidak ada nilai) untuk memulai SEGERA SETELAH langkah sebelumnya selesai.
-        // Jika Anda ingin ada jeda singkat (misalnya 0.2 detik), Anda bisa menggunakan `"+=0.2"`.
         ">"
       )
-
-      // Animate text: fade up to original position
       .to(
         textLines,
         {
@@ -104,7 +94,6 @@
           stagger: 0.15,
           ease: "power3.out",
         },
-        // MENGGANTI: Menggunakan `"<"` untuk memulai animasi teks secara bersamaan dengan `opacity: 1` di atas.
         "<"
       );
   });
