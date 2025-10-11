@@ -10,105 +10,192 @@
     <!-- INTRO -->
     <div
       id="intro"
-      class="absolute inset-0 flex items-center justify-center bg-[#69673a] z-0"
+      class="absolute inset-0 flex flex-col sm:flex-row items-center justify-center bg-[#69673a] z-0 text-center sm:text-left px-6 sm:px-12"
     >
-      <div class="max-w-7xl text-left px-8">
+      <div
+        class="absolute top-4 left-6 text-[#f8efc1] text-2xl font-bold montserrat-bold"
+      >
+        00
+      </div>
+
+      <div class="max-w-3xl sm:max-w-5xl">
         <h1
-          class="text-4xl uppercase font-extrabold text-[#f8efc1] leading-tight montserrat-black"
+          class="text-3xl sm:text-5xl lg:text-6xl uppercase font-extrabold text-[#f8efc1] leading-tight montserrat-black text-left"
         >
-          Private Villas Crafted for Quiet Comfort
+          Your Private Sanctuary Awaits
         </h1>
-        <p class="mt-4 text-lg text-[#f8efc1] dm-sans-regular max-w-xl">
-          Step into your personal haven, where complete privacy and understated
-          elegance converge. Each villa is a secluded sanctuary designed to
-          dissolve the world beyond, offering space to breathe, reconnect, and
-          simply be.
+        <p
+          class="mt-4 text-base sm:text-lg lg:text-xl text-[#f8efc1] dm-sans-regular max-w-xl mx-auto sm:mx-0 text-left"
+        >
+          Discover Amara Isles, where luxury meets seclusion. Our resort offers
+          exclusive experiences designed for complete privacy and serene
+          comfort, creating moments of pure tranquility amidst breathtaking
+          natural beauty.
         </p>
       </div>
     </div>
 
     <!-- SLIDE 1 -->
     <div
-      class="slide-item absolute inset-0 flex items-center justify-between bg-[#d3a642] px-16 z-10"
+      class="slide-item absolute inset-0 flex flex-col lg:flex-row items-start lg:items-center justify-between bg-[#d3a642] px-6 sm:px-10 lg:px-16 py-12 z-10 gap-6 lg:gap-12 text-center lg:text-left"
     >
-      <div class="max-w-xl relative z-20">
-        <h2 class="text-5xl font-bold text-[#943a21] mb-6 montserrat-bold">
-          Ocean-View Private Pools
-        </h2>
-        <p class="text-lg text-[#943a21] leading-relaxed dm-sans-regular">
-          Immerse yourself in tranquility with infinity pools that blend
-          seamlessly into the horizon. Each villa features a private oasis where
-          the only sounds are gentle water and distant waves.
-        </p>
+      <div
+        class="absolute top-4 left-6 text-[#943a21] text-2xl font-bold montserrat-bold"
+      >
+        01
       </div>
-      <img
-        src="/assets/images/private-pool.jpg"
-        alt="Private Infinity Pool"
-        class="w-[50vw] h-[80vh] object-cover shadow-xl relative z-20"
-      />
+
+      <!-- Mobile/Tablet Layout -->
+      <div class="flex flex-col w-full mt-8 lg:hidden">
+        <img
+          src="/assets/images/private-pool.jpg"
+          alt="Private Infinity Pool"
+          class="w-full h-[40vh] object-cover mb-6 shadow-lg"
+        />
+        <div class="md:mt-12">
+          <h2
+            class="text-3xl sm:text-4xl font-bold text-[#943a21] mb-3 montserrat-bold text-left"
+          >
+            Ocean-View Private Pools
+          </h2>
+          <p
+            class="text-base sm:text-lg text-[#943a21] leading-relaxed dm-sans-regular text-left"
+          >
+            Every accommodation at Amara Isles features infinity pools that
+            merge seamlessly with the ocean horizon. Wake up to panoramic views
+            and unwind in your personal aquatic sanctuary surrounded by the
+            sounds of nature.
+          </p>
+        </div>
+      </div>
+
+      <!-- Desktop Layout -->
+      <div class="hidden lg:flex w-full items-center justify-between gap-12">
+        <div class="max-w-lg">
+          <h2 class="text-5xl font-bold text-[#943a21] mb-6 montserrat-bold">
+            Ocean-View Private Pools
+          </h2>
+          <p class="text-lg text-[#943a21] leading-relaxed dm-sans-regular">
+            Every accommodation at Amara Isles features infinity pools that
+            merge seamlessly with the ocean horizon. Wake up to panoramic views
+            and unwind in your personal aquatic sanctuary surrounded by the
+            sounds of nature.
+          </p>
+        </div>
+        <img
+          src="/assets/images/private-pool.jpg"
+          alt="Private Infinity Pool"
+          class="w-[50vw] h-[70vh] object-cover shadow-xl"
+        />
+      </div>
     </div>
 
     <!-- SLIDE 2 -->
     <div
-      class="slide-item absolute inset-0 flex items-center justify-between px-16 bg-[#943a21] z-20"
+      class="slide-item absolute inset-0 flex flex-col lg:flex-row items-start lg:items-center justify-between bg-[#943a21] px-6 sm:px-10 lg:px-16 py-12 z-20 gap-6 lg:gap-12 text-center lg:text-left"
     >
-      <div class="max-w-xl relative z-20">
-        <h2 class="text-5xl font-bold text-[#f8efc1] mb-6 montserrat-bold">
-          Secluded Garden Sanctuaries
-        </h2>
-        <p class="text-lg text-[#f8efc1] leading-relaxed dm-sans-regular">
-          Discover hidden courtyards and lush tropical gardens designed for
-          complete seclusion. These intimate outdoor spaces offer peaceful
-          retreats for meditation, reading, or quiet contemplation.
-        </p>
+      <div
+        class="absolute top-4 left-6 text-[#f8efc1] text-2xl font-bold montserrat-bold"
+      >
+        02
       </div>
-      <img
-        src="/assets/images/garden-sanctuary.jpg"
-        alt="Secluded Garden Sanctuary"
-        class="w-[50vw] h-[80vh] object-cover shadow-xl relative z-20"
-      />
+
+      <!-- Mobile/Tablet -->
+      <div class="flex flex-col w-full mt-8 lg:hidden">
+        <img
+          src="/assets/images/garden-sanctuary.jpg"
+          alt="Secluded Garden Sanctuary"
+          class="w-full h-[40vh] object-cover mb-6 shadow-lg"
+        />
+        <div class="md:mt-12">
+          <h2
+            class="text-3xl sm:text-4xl font-bold text-[#f8efc1] mb-3 montserrat-bold text-left"
+          >
+            Secluded Garden Sanctuaries
+          </h2>
+          <p
+            class="text-base sm:text-lg text-[#f8efc1] leading-relaxed dm-sans-regular text-left"
+          >
+            Wander through our resort’s hidden courtyards and lush tropical
+            gardens, each designed for complete privacy. These serene outdoor
+            spaces provide peaceful retreats for meditation, yoga, or simply
+            being present in nature.
+          </p>
+        </div>
+      </div>
+
+      <!-- Desktop -->
+      <div class="hidden lg:flex w-full items-center justify-between gap-12">
+        <div class="max-w-lg">
+          <h2 class="text-5xl font-bold text-[#f8efc1] mb-6 montserrat-bold">
+            Secluded Garden Sanctuaries
+          </h2>
+          <p class="text-lg text-[#f8efc1] leading-relaxed dm-sans-regular">
+            Wander through our resort’s hidden courtyards and lush tropical
+            gardens, each designed for complete privacy. These serene outdoor
+            spaces provide peaceful retreats for meditation, yoga, or simply
+            being present in nature.
+          </p>
+        </div>
+        <img
+          src="/assets/images/garden-sanctuary.jpg"
+          alt="Secluded Garden Sanctuary"
+          class="w-[50vw] h-[70vh] object-cover shadow-xl"
+        />
+      </div>
     </div>
 
     <!-- SLIDE 3 -->
     <div
-      class="slide-item absolute inset-0 flex items-center justify-between px-16 bg-[#b3cdbd] z-30"
+      class="slide-item absolute inset-0 flex flex-col lg:flex-row items-start lg:items-center justify-between bg-[#b3cdbd] px-6 sm:px-10 lg:px-16 py-12 z-30 gap-6 lg:gap-12 text-center lg:text-left"
     >
-      <div class="max-w-xl relative z-20">
-        <h2 class="text-5xl font-bold text-[#69673a] mb-6 montserrat-bold">
-          Customized In-Villa Experiences
-        </h2>
-        <p class="text-lg text-[#69673a] leading-relaxed dm-sans-regular">
-          From private chef dinners under the stars to in-villa spa treatments,
-          we curate personalized moments that transform your stay into an
-          unforgettable journey tailored exclusively to you.
-        </p>
+      <div
+        class="absolute top-4 left-6 text-[#69673a] text-2xl font-bold montserrat-bold"
+      >
+        03
       </div>
-      <img
-        src="/assets/images/villa-experience.jpg"
-        alt="Customized Villa Experience"
-        class="w-[50vw] h-[80vh] object-cover shadow-xl relative z-20"
-      />
-    </div>
 
-    <!-- SLIDE 4 -->
-    <div
-      class="slide-item absolute inset-0 flex items-center justify-between px-16 bg-[#f8efc1] z-40"
-    >
-      <div class="max-w-xl relative z-20">
-        <h2 class="text-5xl font-bold text-[#69673a] mb-6 montserrat-bold">
-          24-Hour Private Host Service
-        </h2>
-        <p class="text-lg text-[#69673a] leading-relaxed dm-sans-regular">
-          Your dedicated host ensures every detail is perfected, from morning
-          coffee served at your preferred time to arranging exclusive island
-          excursions. Discreet, attentive care available whenever needed.
-        </p>
+      <!-- Mobile/Tablet -->
+      <div class="flex flex-col w-full mt-8 lg:hidden">
+        <img
+          src="/assets/images/resort-experience.jpg"
+          alt="Personalized Resort Experience"
+          class="w-full h-[40vh] object-cover mb-6 shadow-lg"
+        />
+        <div class="md:mt-12">
+          <h2
+            class="text-3xl sm:text-4xl font-bold text-[#69673a] mb-3 montserrat-bold text-left"
+          >
+            Personalized Resort Experiences
+          </h2>
+          <p
+            class="text-base sm:text-lg text-[#69673a] leading-relaxed dm-sans-regular text-left"
+          >
+            From private chef dinners on the beach to bespoke spa treatments in
+            your suite, we craft unforgettable moments throughout the resort.
+            Every experience is tailored to create your perfect island escape.
+          </p>
+        </div>
       </div>
-      <img
-        src="/assets/images/host-service.jpg"
-        alt="Private Host Service"
-        class="w-[50vw] h-[80vh] object-cover shadow-xl relative z-20"
-      />
+
+      <!-- Desktop -->
+      <div class="hidden lg:flex w-full items-center justify-between gap-12">
+        <div class="max-w-lg">
+          <h2 class="text-5xl font-bold text-[#69673a] mb-6 montserrat-bold">
+            Personalized Resort Experiences
+          </h2>
+          <p class="text-lg text-[#69673a] leading-relaxed dm-sans-regular">
+            From private chef dinners on the beach to bespoke spa treatments in
+            your suite, we craft unforgettable moments throughout the resort.
+            Every experience is tailored to create your perfect island escape.
+          </p>
+        </div>
+        <img
+          src="/assets/images/resort-experience.jpg"
+          alt="Personalized Resort Experience"
+          class="w-[50vw] h-[70vh] object-cover shadow-xl"
+        />
+      </div>
     </div>
   </div>
 </section>
@@ -120,51 +207,35 @@
   const slides = gsap.utils.toArray(".slide-item");
   const intro = document.getElementById("intro");
   const scrollSection = document.getElementById("scroll-section");
-  const numSlides = slides.length; // 4 slides
-  const stackGap = 50; // gap between stacked slides
+  const numSlides = slides.length;
+  const stackGap = 50;
 
-  // Set initial states
   gsap.set(intro, { y: 0, scale: 1 });
   gsap.set(slides, { y: "100%", opacity: 1 });
 
-  // GSAP animation with ScrollTrigger
-  gsap.matchMedia().add(
-    "(min-width: 768px)",
-    () => {
-      const totalScrollUnits = numSlides; // 4 slides
-      const endValue = `+=${totalScrollUnits * 100}%`; // +=400%
+  const totalScrollUnits = numSlides;
+  const endValue = `+=${totalScrollUnits * 100}%`;
 
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: scrollSection,
-          pin: true,
-          scrub: 1,
-          end: endValue,
-          markers: false,
-        },
-      });
-
-      // Animate slides stacking one by one
-      slides.forEach((slide, i) => {
-        const targetY = i * stackGap;
-
-        tl.to(
-          slide,
-          {
-            y: targetY,
-            duration: 1,
-            ease: "none",
-          },
-          i // each slide starts animating sequentially
-        );
-      });
-
-      return tl;
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: scrollSection,
+      pin: true,
+      scrub: 1,
+      end: endValue,
+      markers: false,
     },
-    () => {
-      // Fallback for mobile screens
-      gsap.set(intro, { y: 0, opacity: 1 });
-      gsap.set(slides, { x: 0, y: 0, opacity: 1 });
-    }
-  );
+  });
+
+  slides.forEach((slide, i) => {
+    const targetY = i * stackGap;
+    tl.to(
+      slide,
+      {
+        y: targetY,
+        duration: 1,
+        ease: "none",
+      },
+      i
+    );
+  });
 </script>
