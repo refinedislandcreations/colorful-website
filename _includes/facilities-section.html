@@ -1,6 +1,29 @@
-<!-- ✅ GSAP + ScrollTrigger -->
+<!-- ✅ GSAP + ScrollTrigger + SplitType -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/split-type"></script>
+
+<style>
+  /* ✨ Smooth image hover tone effect */
+  .hover-image {
+    transition: all 0.8s ease;
+    filter: brightness(100%) saturate(100%);
+  }
+  .hover-image:hover {
+    filter: brightness(110%) saturate(120%) hue-rotate(10deg);
+  }
+
+  /* 🌟 Initial state for intro text */
+  #split-intro-text .char {
+    opacity: 0.15;
+    transform: translateY(30px);
+  }
+
+  #intro p {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+</style>
 
 <section
   class="relative w-full h-screen overflow-hidden bg-gray-100"
@@ -14,6 +37,7 @@
     >
       <div class="max-w-3xl sm:max-w-5xl">
         <h1
+          id="split-intro-text"
           class="text-3xl sm:text-5xl lg:text-6xl uppercase font-extrabold text-[#f8efc1] leading-tight montserrat-black text-left"
         >
           Your Private Sanctuary Awaits
@@ -29,7 +53,8 @@
       </div>
     </div>
 
-    <!-- SLIDE 1 -->
+    <!-- SLIDES (unchanged) -->
+    <!-- ✅ Slide 1 -->
     <div
       class="slide-item absolute inset-0 flex flex-col lg:flex-row items-start lg:items-center justify-between bg-[#d3a642] px-6 sm:px-10 lg:px-16 py-12 z-10 gap-6 lg:gap-12 text-center lg:text-left"
     >
@@ -39,12 +64,11 @@
         01
       </div>
 
-      <!-- Mobile/Tablet Layout -->
       <div class="flex flex-col w-full mt-8 lg:hidden">
         <img
           src="/assets/images/private-pool.jpg"
           alt="Private Infinity Pool"
-          class="w-full h-[40vh] object-cover mb-6 shadow-lg"
+          class="w-full h-[40vh] object-cover mb-6 shadow-lg hover-image"
         />
         <div class="md:mt-12">
           <h2
@@ -63,7 +87,6 @@
         </div>
       </div>
 
-      <!-- Desktop Layout -->
       <div class="hidden lg:flex w-full items-center justify-between gap-12">
         <div class="max-w-lg">
           <h2 class="text-5xl font-bold text-[#943a21] mb-6 montserrat-bold">
@@ -79,12 +102,12 @@
         <img
           src="/assets/images/private-pool.jpg"
           alt="Private Infinity Pool"
-          class="w-[50vw] h-[70vh] object-cover shadow-xl"
+          class="w-[50vw] h-[70vh] object-cover shadow-xl hover-image"
         />
       </div>
     </div>
 
-    <!-- SLIDE 2 -->
+    <!-- ✅ Slide 2 -->
     <div
       class="slide-item absolute inset-0 flex flex-col lg:flex-row items-start lg:items-center justify-between bg-[#943a21] px-6 sm:px-10 lg:px-16 py-12 z-20 gap-6 lg:gap-12 text-center lg:text-left"
     >
@@ -94,12 +117,11 @@
         02
       </div>
 
-      <!-- Mobile/Tablet -->
       <div class="flex flex-col w-full mt-8 lg:hidden">
         <img
           src="/assets/images/garden-sanctuary.jpg"
           alt="Secluded Garden Sanctuary"
-          class="w-full h-[40vh] object-cover mb-6 shadow-lg"
+          class="w-full h-[40vh] object-cover mb-6 shadow-lg hover-image"
         />
         <div class="md:mt-12">
           <h2
@@ -118,7 +140,6 @@
         </div>
       </div>
 
-      <!-- Desktop -->
       <div class="hidden lg:flex w-full items-center justify-between gap-12">
         <div class="max-w-lg">
           <h2 class="text-5xl font-bold text-[#f8efc1] mb-6 montserrat-bold">
@@ -134,12 +155,12 @@
         <img
           src="/assets/images/garden-sanctuary.jpg"
           alt="Secluded Garden Sanctuary"
-          class="w-[50vw] h-[70vh] object-cover shadow-xl"
+          class="w-[50vw] h-[70vh] object-cover shadow-xl hover-image"
         />
       </div>
     </div>
 
-    <!-- SLIDE 3 -->
+    <!-- ✅ Slide 3 -->
     <div
       class="slide-item absolute inset-0 flex flex-col lg:flex-row items-start lg:items-center justify-between bg-[#b3cdbd] px-6 sm:px-10 lg:px-16 py-12 z-30 gap-6 lg:gap-12 text-center lg:text-left"
     >
@@ -149,12 +170,11 @@
         03
       </div>
 
-      <!-- Mobile/Tablet -->
       <div class="flex flex-col w-full mt-8 lg:hidden">
         <img
           src="/assets/images/resort-experience.jpg"
           alt="Personalized Resort Experience"
-          class="w-full h-[40vh] object-cover mb-6 shadow-lg"
+          class="w-full h-[40vh] object-cover mb-6 shadow-lg hover-image"
         />
         <div class="md:mt-12">
           <h2
@@ -172,7 +192,6 @@
         </div>
       </div>
 
-      <!-- Desktop -->
       <div class="hidden lg:flex w-full items-center justify-between gap-12">
         <div class="max-w-lg">
           <h2 class="text-5xl font-bold text-[#69673a] mb-6 montserrat-bold">
@@ -187,49 +206,79 @@
         <img
           src="/assets/images/resort-experience.jpg"
           alt="Personalized Resort Experience"
-          class="w-[50vw] h-[70vh] object-cover shadow-xl"
+          class="w-[50vw] h-[70vh] object-cover shadow-xl hover-image"
         />
       </div>
     </div>
   </div>
 </section>
 
-<!-- ✅ GSAP SCRIPT -->
+<!-- ✅ GSAP Scroll Animations -->
 <script>
   gsap.registerPlugin(ScrollTrigger);
 
-  const slides = gsap.utils.toArray(".slide-item");
-  const intro = document.getElementById("intro");
-  const scrollSection = document.getElementById("scroll-section");
-  const numSlides = slides.length;
-  const stackGap = 50;
+  document.addEventListener("DOMContentLoaded", () => {
+    const splitText = new SplitType("#split-intro-text", { types: "chars" });
 
-  gsap.set(intro, { y: 0, scale: 1 });
-  gsap.set(slides, { y: "100%", opacity: 1 });
+    // ⚡ Fast but visible scroll animation
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#intro",
+        start: "top 80%", // starts just as text comes into view
+        end: "bottom 70%", // longer scroll range so you see the motion
+        scrub: 0.6, // smooth follow, but not too slow
+        markers: false,
+      },
+    });
 
-  const totalScrollUnits = numSlides;
-  const endValue = `+=${totalScrollUnits * 100}%`;
-
-  let tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: scrollSection,
-      pin: true,
-      scrub: 1,
-      end: endValue,
-      markers: false,
-    },
+    tl.to(splitText.chars, {
+      opacity: 1,
+      y: 0,
+      stagger: 0.015, // balanced speed per character
+      ease: "power3.out",
+      duration: 0.8,
+    }).to(
+      "#intro p",
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power2.out",
+      },
+      "-=0.3"
+    );
   });
 
-  slides.forEach((slide, i) => {
-    const targetY = i * stackGap;
-    tl.to(
-      slide,
-      {
-        y: targetY,
-        duration: 1,
-        ease: "none",
+  // 🌀 Slide scroll stacking
+  window.addEventListener("load", () => {
+    const slides = gsap.utils.toArray(".slide-item");
+    const scrollSection = document.getElementById("scroll-section");
+    const numSlides = slides.length;
+    const stackGap = 50;
+
+    gsap.set(slides, { y: "100%", opacity: 1 });
+    const endValue = `+=${numSlides * 100}%`;
+
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: scrollSection,
+        pin: true,
+        scrub: 1,
+        end: endValue,
+        markers: false,
       },
-      i
-    );
+    });
+
+    slides.forEach((slide, i) => {
+      tl.to(
+        slide,
+        {
+          y: i * stackGap,
+          duration: 1,
+          ease: "none",
+        },
+        i
+      );
+    });
   });
 </script>
