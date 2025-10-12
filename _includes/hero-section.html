@@ -38,30 +38,32 @@
 
 <!-- ✅ GSAP Animation -->
 <script>
-  // Always scroll to top when page loads or refreshes
+  // ✅ Hanya script ini yang mengatur scroll awal
   window.history.scrollRestoration = "manual";
   window.scrollTo(0, 0);
 
   document.addEventListener("DOMContentLoaded", () => {
-    // Lock scroll during intro
+    // Lock scroll selama animasi awal
     document.body.style.overflow = "hidden";
-    window.scrollTo(0, 0); // Ensure at top even after DOM loaded
 
     const clippedContent = document.getElementById("clipped-content");
     const heroContent = document.getElementById("hero-content");
     const textLines = document.querySelectorAll("[data-reveal]");
 
-    // Start with text hidden
+    gsap.registerPlugin(ScrollTrigger);
     gsap.set(textLines, { opacity: 0, y: 30 });
 
     const tl = gsap.timeline({
       defaults: { ease: "power2.inOut" },
       onComplete: () => {
-        // Unlock scroll after animation finishes
+        // Lepas lock scroll setelah animasi selesai
         gsap.to("body", {
           overflow: "auto",
           delay: 0.2,
           duration: 0,
+          onComplete: () => {
+            ScrollTrigger.refresh();
+          },
         });
       },
     });
@@ -77,14 +79,7 @@
         duration: 1.2,
         ease: "power2.inOut",
       })
-      .to(
-        heroContent,
-        {
-          opacity: 1,
-          duration: 0.8,
-        },
-        ">"
-      )
+      .to(heroContent, { opacity: 1, duration: 0.8 }, ">")
       .to(
         textLines,
         {

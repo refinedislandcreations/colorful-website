@@ -1,8 +1,3 @@
-<!-- ✅ GSAP + ScrollTrigger + SplitType -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://unpkg.com/split-type"></script>
-
 <style>
   /* ✨ Smooth image hover tone effect */
   .hover-image {
@@ -220,65 +215,47 @@
   document.addEventListener("DOMContentLoaded", () => {
     const splitText = new SplitType("#split-intro-text", { types: "chars" });
 
-    // ⚡ Fast but visible scroll animation
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#intro",
-        start: "top 80%", // starts just as text comes into view
-        end: "bottom 70%", // longer scroll range so you see the motion
-        scrub: 0.6, // smooth follow, but not too slow
-        markers: false,
+        start: "top 80%",
+        end: "bottom 70%",
+        scrub: 0.6,
       },
     });
 
     tl.to(splitText.chars, {
       opacity: 1,
       y: 0,
-      stagger: 0.015, // balanced speed per character
+      stagger: 0.015,
       ease: "power3.out",
       duration: 0.8,
     }).to(
       "#intro p",
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        ease: "power2.out",
-      },
+      { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
       "-=0.3"
     );
-  });
 
-  // 🌀 Slide scroll stacking
-  window.addEventListener("load", () => {
+    // 🌀 Scroll stack effect
     const slides = gsap.utils.toArray(".slide-item");
     const scrollSection = document.getElementById("scroll-section");
-    const numSlides = slides.length;
     const stackGap = 50;
 
     gsap.set(slides, { y: "100%", opacity: 1 });
-    const endValue = `+=${numSlides * 100}%`;
 
-    let tl = gsap.timeline({
+    const tlSlide = gsap.timeline({
       scrollTrigger: {
         trigger: scrollSection,
         pin: true,
         scrub: 1,
-        end: endValue,
-        markers: false,
+        start: "top top",
+        end: () => `+=${(slides.length - 1) * window.innerHeight}`,
+        anticipatePin: 1,
       },
     });
 
     slides.forEach((slide, i) => {
-      tl.to(
-        slide,
-        {
-          y: i * stackGap,
-          duration: 1,
-          ease: "none",
-        },
-        i
-      );
+      tlSlide.to(slide, { y: i * stackGap, duration: 1, ease: "none" }, i);
     });
   });
 </script>
