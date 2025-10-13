@@ -1,236 +1,246 @@
-<!-- ✨ WELLNESS SECTION with Hover Image -->
-<section
-  id="wellness-section"
-  class="py-20 bg-[#f8f7f2] text-[#69673a] transition-colors duration-700 ease-out"
->
-  <div
-    class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 px-6 md:px-12"
+<!-- ✅ GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<div class="max-w-7xl mx-auto my-24 px-6 md:px-12 space-y-40">
+  <!-- 🌅 SECTION 1 -->
+  <section
+    class="min-h-screen flex flex-col md:flex-row items-center justify-center gap-12"
   >
-    <!-- ✅ Sticky Image with Hover Effect -->
-    <div
-      class="col-span-12 md:col-span-5 md:sticky md:top-24 h-[50vh] sm:h-[60vh] md:h-[80vh] flex items-center justify-center relative"
-    >
+    <div class="md:w-1/2 w-full image-container opacity-0">
       <img
-        id="wellness-image"
         src="/assets/images/morning-yoga.jpeg"
-        alt="Wellness Visual"
-        class="w-full h-[80vh] object-cover shadow-xl hover-image"
+        alt="Morning Practices"
+        class="w-full h-[50vh] md:h-[60vh] lg:h-[70vh] object-cover shadow-xl"
       />
     </div>
 
-    <!-- ✅ Scrollable Text Content -->
-    <div class="col-span-12 md:col-span-7 space-y-28">
-      <!-- 1️⃣ Section -->
-      <section
-        class="min-h-screen flex flex-col justify-center space-y-6"
-        data-image="/assets/images/morning-yoga.jpeg"
-      >
-        <h3 class="text-4xl sm:text-5xl font-bold text-[#943a21]">
-          Morning Practices
-        </h3>
-        <div class="space-y-4">
-          <div>
-            <h4 class="text-xl font-semibold mb-2">
-              Sunrise Yoga with Ocean Salutations
-            </h4>
-            <p>
-              Greet the day with Vinyasa flows synchronized to ocean rhythms.
-            </p>
-          </div>
-          <div>
-            <h4 class="text-xl font-semibold mb-2">
-              Guided Meditation in Cliffside Pavilions
-            </h4>
-            <p>Find profound stillness where ocean meets sky.</p>
-          </div>
-          <div>
-            <h4 class="text-xl font-semibold mb-2">
-              Breathwork Sessions with Sea Breeze
-            </h4>
-            <p>Harness the healing power of ocean air through pranayama.</p>
-          </div>
+    <div class="md:w-1/2 w-full space-y-8 text-center md:text-left">
+      <h3 class="text-4xl sm:text-5xl font-bold text-[#943a21]">
+        Morning Practices
+      </h3>
+      <div class="space-y-6 text-gray-700 leading-relaxed">
+        <div>
+          <h4 class="text-xl font-semibold mb-1">
+            🌅 Sunrise Yoga with Ocean Salutations
+          </h4>
+          <p>Greet the day with Vinyasa flows synchronized to ocean rhythms.</p>
         </div>
-      </section>
-
-      <!-- 2️⃣ Section -->
-      <section
-        class="min-h-screen flex flex-col justify-center space-y-6"
-        data-image="/assets/images/spa-treatment.png"
-      >
-        <h3 class="text-4xl sm:text-5xl font-bold text-[#943a21]">
-          Healing Rituals
-        </h3>
-        <ul class="list-disc pl-6 space-y-3">
-          <li>
-            <strong>Island Spa Treatments:</strong> Coconut scrubs, tropical
-            flower baths, volcanic stones.
-          </li>
-          <li>
-            <strong>Balinese Massage:</strong> Ancient techniques for deep
-            relaxation and energy flow.
-          </li>
-          <li>
-            <strong>Holistic Consultations:</strong> Personalized guidance from
-            our wellness experts.
-          </li>
-        </ul>
-      </section>
-
-      <!-- 3️⃣ Section -->
-      <section
-        class="min-h-screen flex flex-col justify-center space-y-6"
-        data-image="/assets/images/therapy-room.png"
-      >
-        <h3 class="text-4xl sm:text-5xl font-bold text-[#943a21]">
-          Signature Therapies
-        </h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div class="bg-white p-6 shadow-lg rounded-xl">
-            <h4 class="text-xl font-semibold text-[#943a21] mb-2">
-              Ayurvedic Treatments
-            </h4>
-            <p>Ancient Indian healing for mind-body balance.</p>
-          </div>
-          <div class="bg-white p-6 shadow-lg rounded-xl">
-            <h4 class="text-xl font-semibold text-[#943a21] mb-2">
-              Sound Healing
-            </h4>
-            <p>Crystal bowls and ocean frequencies.</p>
-          </div>
-          <div class="bg-white p-6 shadow-lg rounded-xl">
-            <h4 class="text-xl font-semibold text-[#943a21] mb-2">
-              Hot Stone Therapy
-            </h4>
-            <p>Volcanic stones for deep relief.</p>
-          </div>
-          <div class="bg-white p-6 shadow-lg rounded-xl">
-            <h4 class="text-xl font-semibold text-[#943a21] mb-2">
-              Aromatherapy
-            </h4>
-            <p>Local essential oils for sensory healing.</p>
-          </div>
+        <div>
+          <h4 class="text-xl font-semibold mb-1">
+            🧘 Guided Meditation in Cliffside Pavilions
+          </h4>
+          <p>Find profound stillness where ocean meets sky.</p>
         </div>
-      </section>
-
-      <!-- 4️⃣ Section -->
-      <section
-        class="min-h-screen flex flex-col justify-center space-y-6"
-        data-image="/assets/images/wellness-retreat.png"
-      >
-        <h3 class="text-4xl sm:text-5xl font-bold text-[#943a21]">
-          Wellness Programs
-        </h3>
-        <div class="space-y-4">
-          <div>
-            <h4 class="text-xl font-bold">3-Day Mindfulness Reset</h4>
-            <p>Quick rejuvenation for busy lifestyles.</p>
-          </div>
-          <div>
-            <h4 class="text-xl font-bold">5-Day Detox & Renewal</h4>
-            <p>Comprehensive cleansing journey.</p>
-          </div>
-          <div>
-            <h4 class="text-xl font-bold">7-Day Holistic Harmony</h4>
-            <p>Complete mind-body transformation.</p>
-          </div>
-          <div>
-            <h4 class="text-xl font-bold">Corporate Wellness Retreats</h4>
-            <p>Team building through wellness experiences.</p>
-          </div>
+        <div>
+          <h4 class="text-xl font-semibold mb-1">
+            🌬️ Breathwork Sessions with Sea Breeze
+          </h4>
+          <p>Harness the healing power of ocean air through pranayama.</p>
         </div>
-      </section>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- ✅ GSAP + ScrollTrigger -->
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
+  <!-- 💆 SECTION 2 -->
+  <section
+    class="min-h-screen flex flex-col md:flex-row-reverse items-center justify-center gap-12"
+  >
+    <div class="md:w-1/2 w-full image-container opacity-0">
+      <img
+        src="/assets/images/spa-treatment.png"
+        alt="Healing Rituals"
+        class="w-full h-[50vh] md:h-[60vh] lg:h-[70vh] object-cover shadow-xl"
+      />
+    </div>
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const imageEl = document.querySelector("#wellness-image");
-      const sections = document.querySelectorAll("[data-image]");
-      const bgColors = ["#f8f7f2", "#f3f1ea"];
+    <div class="md:w-1/2 w-full space-y-8 text-center md:text-left">
+      <h3 class="text-4xl sm:text-5xl font-bold text-[#943a21]">
+        Healing Rituals
+      </h3>
+      <ul class="list-none space-y-4 text-gray-700 leading-relaxed">
+        <li>
+          <strong>💮 Island Spa Treatments:</strong> Coconut scrubs, tropical
+          flower baths, volcanic stones.
+        </li>
+        <li>
+          <strong>💆 Balinese Massage:</strong> Ancient techniques for deep
+          relaxation and energy flow.
+        </li>
+        <li>
+          <strong>🌺 Holistic Consultations:</strong> Personalized guidance from
+          our wellness experts.
+        </li>
+      </ul>
+    </div>
+  </section>
 
-      // Create a cloned image layer for crossfade
-      const clone = imageEl.cloneNode();
-      clone.id = "wellness-image-clone";
-      clone.style.position = "absolute";
-      clone.style.top = "0";
-      clone.style.left = "0";
-      clone.style.width = "100%";
-      clone.style.height = "100%";
-      clone.style.objectFit = "cover";
-      clone.style.opacity = "0";
-      clone.style.pointerEvents = "none";
-      imageEl.parentNode.appendChild(clone);
+  <!-- 🌿 SECTION 3 -->
+  <section
+    class="min-h-screen flex flex-col md:flex-row items-center justify-center gap-12"
+  >
+    <div class="md:w-1/2 w-full image-container opacity-0">
+      <img
+        src="/assets/images/therapy-room.png"
+        alt="Signature Therapies"
+        class="w-full h-[50vh] md:h-[60vh] lg:h-[70vh] object-cover shadow-xl"
+      />
+    </div>
 
-      let isAnimating = false;
+    <div class="md:w-1/2 w-full space-y-8 text-center md:text-left">
+      <h3 class="text-4xl sm:text-5xl font-bold text-[#943a21]">
+        Signature Therapies
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div
+          class="bg-white/70 backdrop-blur-sm p-6 shadow-md hover:shadow-xl transition rounded-2xl"
+        >
+          <h4 class="text-xl font-semibold text-[#943a21] mb-2">
+            Ayurvedic Treatments
+          </h4>
+          <p>Ancient Indian healing for mind-body balance.</p>
+        </div>
+        <div
+          class="bg-white/70 backdrop-blur-sm p-6 shadow-md hover:shadow-xl transition rounded-2xl"
+        >
+          <h4 class="text-xl font-semibold text-[#943a21] mb-2">
+            Sound Healing
+          </h4>
+          <p>Crystal bowls and ocean frequencies.</p>
+        </div>
+        <div
+          class="bg-white/70 backdrop-blur-sm p-6 shadow-md hover:shadow-xl transition rounded-2xl"
+        >
+          <h4 class="text-xl font-semibold text-[#943a21] mb-2">
+            Hot Stone Therapy
+          </h4>
+          <p>Volcanic stones for deep relief.</p>
+        </div>
+        <div
+          class="bg-white/70 backdrop-blur-sm p-6 shadow-md hover:shadow-xl transition rounded-2xl"
+        >
+          <h4 class="text-xl font-semibold text-[#943a21] mb-2">
+            Aromatherapy
+          </h4>
+          <p>Local essential oils for sensory healing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      function changeImage(newUrl) {
-        if (isAnimating || imageEl.src.includes(newUrl)) return;
-        isAnimating = true;
+  <!-- 🧘 SECTION 4 -->
+  <section
+    class="min-h-screen flex flex-col md:flex-row-reverse items-center justify-center gap-12"
+  >
+    <div class="md:w-1/2 w-full image-container opacity-0">
+      <img
+        src="/assets/images/wellness-retreat.png"
+        alt="Wellness Programs"
+        class="w-full h-[50vh] md:h-[60vh] lg:h-[70vh] object-cover shadow-xl"
+      />
+    </div>
 
-        clone.src = newUrl;
-        gsap.fromTo(
-          clone,
-          { opacity: 0, scale: 1.05 },
-          {
-            opacity: 1,
-            scale: 1,
-            duration: 1,
-            ease: "power2.out",
-            onComplete: () => {
-              imageEl.src = newUrl;
-              gsap.set(clone, { opacity: 0 });
-              isAnimating = false;
-            },
-          }
-        );
-      }
+    <div class="md:w-1/2 w-full space-y-8 text-center md:text-left">
+      <h3 class="text-4xl sm:text-5xl font-bold text-[#943a21]">
+        Wellness Programs
+      </h3>
+      <div class="space-y-4 text-gray-700 leading-relaxed">
+        <div>
+          <h4 class="text-xl font-bold">3-Day Mindfulness Reset</h4>
+          <p>Quick rejuvenation for busy lifestyles.</p>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold">5-Day Detox & Renewal</h4>
+          <p>Comprehensive cleansing journey.</p>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold">7-Day Holistic Harmony</h4>
+          <p>Complete mind-body transformation.</p>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold">Corporate Wellness Retreats</h4>
+          <p>Team building through wellness experiences.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
-      function updateBodyBg(index) {
-        gsap.to(document.body, {
-          backgroundColor: bgColors[index % bgColors.length],
-          duration: 0.8,
-          ease: "power1.out",
+<!-- ✅ GSAP Animation -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("load", () => {
+      gsap.registerPlugin(ScrollTrigger);
+      const ctx = gsap.context(() => {
+        const sections = gsap.utils.toArray("section");
+
+        sections.forEach((section) => {
+          const imgContainer = section.querySelector(".image-container");
+          const img = imgContainer?.querySelector("img");
+          const text = section.querySelector("h3");
+          if (!imgContainer || !img) return;
+
+          gsap
+            .timeline({
+              defaults: { ease: "power3.out" },
+              scrollTrigger: {
+                trigger: section,
+                start: "top 85%",
+                end: "bottom 50%",
+                scrub: 1.5,
+                invalidateOnRefresh: true,
+              },
+            })
+            .to(imgContainer, { autoAlpha: 1, duration: 0.6 })
+            .fromTo(
+              imgContainer,
+              { clipPath: "inset(0 100% 0 0)" },
+              { clipPath: "inset(0 0% 0 0)", duration: 1.2 },
+              "<"
+            )
+            // smoother zoom-out
+            .fromTo(
+              img,
+              { scale: 1.25 },
+              { scale: 1, duration: 1.6, ease: "power3.out" },
+              "<"
+            )
+            // fade in text smoothly
+            .fromTo(
+              text,
+              { y: 40, opacity: 0 },
+              { y: 0, opacity: 1, duration: 1 },
+              "<0.3"
+            );
         });
-      }
-
-      sections.forEach((section, index) => {
-        ScrollTrigger.create({
-          trigger: section,
-          start: "top center",
-          end: "bottom center",
-          onEnter: () => {
-            changeImage(section.dataset.image);
-            updateBodyBg(index);
-          },
-          onEnterBack: () => {
-            changeImage(section.dataset.image);
-            updateBodyBg(index);
-          },
-        });
+        ScrollTrigger.refresh();
       });
+      return () => ctx.revert();
     });
-  </script>
+  });
+</script>
 
-  <style>
-    /* Keep hover tone effect */
-    .hover-image {
-      transition: all 0.8s ease;
-      filter: brightness(100%) saturate(100%);
-      position: relative;
-      z-index: 2;
-    }
+<style>
+  .image-container {
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    will-change: transform, opacity, clip-path;
+  }
 
-    .hover-image:hover {
-      filter: brightness(110%) saturate(120%) hue-rotate(10deg);
-    }
+  body {
+    background: linear-gradient(180deg, #fffaf7 0%, #fff6f3 50%, #fffaf7 100%);
+    font-family: "Inter", sans-serif;
+  }
 
-    /* Clone layer (for crossfade animation) */
-    #wellness-image-clone {
-      z-index: 1;
-      transition: opacity 0.8s ease, transform 1s ease;
+  section img {
+    transform-origin: center center;
+    transition: transform 1s ease-out;
+  }
+
+  @media (max-width: 768px) {
+    section {
+      text-align: center;
     }
-  </style>
-</section>
+  }
+</style>
