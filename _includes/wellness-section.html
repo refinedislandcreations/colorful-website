@@ -142,7 +142,7 @@
     </div>
   </div>
 
-  <!-- ✅ GSAP Image Transition -->
+  <!-- ✅ GSAP + ScrollTrigger -->
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
@@ -151,16 +151,41 @@
       const sections = document.querySelectorAll("[data-image]");
       const bgColors = ["#f8f7f2", "#f3f1ea"];
 
+      // Create a cloned image layer for crossfade
+      const clone = imageEl.cloneNode();
+      clone.id = "wellness-image-clone";
+      clone.style.position = "absolute";
+      clone.style.top = "0";
+      clone.style.left = "0";
+      clone.style.width = "100%";
+      clone.style.height = "100%";
+      clone.style.objectFit = "cover";
+      clone.style.opacity = "0";
+      clone.style.pointerEvents = "none";
+      imageEl.parentNode.appendChild(clone);
+
+      let isAnimating = false;
+
       function changeImage(newUrl) {
-        gsap.to(imageEl, {
-          opacity: 0,
-          duration: 0.6,
-          ease: "power2.out",
-          onComplete: () => {
-            imageEl.src = newUrl;
-            gsap.to(imageEl, { opacity: 1, duration: 0.8, ease: "power2.out" });
-          },
-        });
+        if (isAnimating || imageEl.src.includes(newUrl)) return;
+        isAnimating = true;
+
+        clone.src = newUrl;
+        gsap.fromTo(
+          clone,
+          { opacity: 0, scale: 1.05 },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            ease: "power2.out",
+            onComplete: () => {
+              imageEl.src = newUrl;
+              gsap.set(clone, { opacity: 0 });
+              isAnimating = false;
+            },
+          }
+        );
       }
 
       function updateBodyBg(index) {
@@ -176,7 +201,6 @@
           trigger: section,
           start: "top center",
           end: "bottom center",
-          id: `wellness-${index}`,
           onEnter: () => {
             changeImage(section.dataset.image);
             updateBodyBg(index);
@@ -191,13 +215,22 @@
   </script>
 
   <style>
-    /* ✨ Smooth image hover tone effect */
+    /* Keep hover tone effect */
     .hover-image {
       transition: all 0.8s ease;
       filter: brightness(100%) saturate(100%);
+      position: relative;
+      z-index: 2;
     }
+
     .hover-image:hover {
       filter: brightness(110%) saturate(120%) hue-rotate(10deg);
+    }
+
+    /* Clone layer (for crossfade animation) */
+    #wellness-image-clone {
+      z-index: 1;
+      transition: opacity 0.8s ease, transform 1s ease;
     }
   </style>
 </section>
