@@ -111,21 +111,29 @@ footer h3 {
 .montserrat-regular {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .montserrat-medium {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .montserrat-bold {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .montserrat-black {
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 /* === DM SANS (isi teks & navigasi) === */
@@ -134,6 +142,8 @@ footer h3 {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .dm-sans-medium {
@@ -141,6 +151,8 @@ footer h3 {
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .dm-sans-bold {
@@ -148,6 +160,8 @@ footer h3 {
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .dm-sans-black {
@@ -155,4 +169,6 @@ footer h3 {
   font-optical-sizing: auto;
   font-weight: 900;
   font-style: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
