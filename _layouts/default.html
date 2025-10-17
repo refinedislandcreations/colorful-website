@@ -18,7 +18,6 @@
 
     <style>
       body {
-        background-color: #f7f7f7;
         overflow-x: hidden;
       }
       /* Custom CSS to ensure sticky position works correctly */
@@ -28,6 +27,11 @@
         top: 0; /* Ensures the element sticks to the top of the viewport */
         transform-origin: center center;
       }
+      
+      /* Ensure hero section starts below navbar */
+      .hero-section {
+        margin-top: 0;
+      }
     </style>
 
     <!-- ✅ GSAP + ScrollTrigger + SplitType -->
@@ -36,6 +40,8 @@
     <script src="https://unpkg.com/split-type"></script>
   </head>
   <body>
-    {% include site-header.html %} {{ content }} {% include site-footer.html %}
+    {% include site-header.html %} 
+    {{ content }} 
+    {% include site-footer.html %}
   </body>
 </html>
