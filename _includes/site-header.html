@@ -4,9 +4,75 @@
     pointer-events: none;
     transition: opacity 0.6s ease;
   }
+
   nav#amara-navbar.visible {
     opacity: 1;
     pointer-events: auto;
+  }
+
+  /* Fixed close button styles */
+  #amara-close-menu {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 100;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: rgba(148, 58, 33, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: background-color 0.3s ease;
+  }
+
+  #amara-close-menu:hover {
+    background-color: rgba(148, 58, 33, 0.9);
+  }
+
+  #amara-close-menu .close-icon {
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  #amara-close-menu .close-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #f8efc1;
+    transform-origin: center;
+  }
+
+  /* Initial state - lines are separated */
+  #amara-close-menu .close-line-1 {
+    transform: translateY(-6px) rotate(0deg);
+    opacity: 0;
+  }
+
+  #amara-close-menu .close-line-2 {
+    transform: translateY(6px) rotate(0deg);
+    opacity: 0;
+  }
+
+  /* Animated state - lines form X */
+  #amara-close-menu.animated .close-line-1 {
+    transform: translateY(0) rotate(45deg);
+    opacity: 1;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      opacity 0.3s ease;
+  }
+
+  #amara-close-menu.animated .close-line-2 {
+    transform: translateY(0) rotate(-45deg);
+    opacity: 1;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      opacity 0.3s ease;
   }
 </style>
 
@@ -58,28 +124,13 @@
       class="absolute bg-[#943a21] rounded-full transform scale-0 origin-center"
     ></div>
 
-    <!-- Close Button Wrapper -->
-    <div
-      id="amara-close-menu-wrapper"
-      class="absolute top-8 right-8 z-60 w-12 h-12 rounded-full bg-[#943a21]/50 flex items-center justify-center cursor-pointer"
-    >
-      <button
-        id="amara-close-menu"
-        class="w-8 h-8 flex items-center justify-center group"
-        aria-label="Close menu"
-      >
-        <div class="relative w-8 h-8">
-          <span
-            id="close-line-1"
-            class="absolute top-1/2 left-0 w-8 h-0.5 bg-[#f8efc1] transform -rotate-45 group-hover:scale-110 transition-transform duration-300"
-          ></span>
-          <span
-            id="close-line-2"
-            class="absolute top-1/2 left-0 w-8 h-0.5 bg-[#f8efc1] transform rotate-45 group-hover:scale-110 transition-transform duration-300"
-          ></span>
-        </div>
-      </button>
-    </div>
+    <!-- Fixed Close Button - No wrapper needed -->
+    <button id="amara-close-menu" aria-label="Close menu">
+      <div class="close-icon">
+        <span class="close-line close-line-1"></span>
+        <span class="close-line close-line-2"></span>
+      </div>
+    </button>
 
     <!-- Menu Content -->
     <div
@@ -129,15 +180,11 @@
     "use strict";
 
     const menuTrigger = document.getElementById("amara-mobile-menu-trigger");
-    const closeButtonWrapper = document.getElementById(
-      "amara-close-menu-wrapper"
-    );
+    const closeButton = document.getElementById("amara-close-menu");
     const menuOverlay = document.getElementById("amara-mobile-menu-overlay");
     const menuCircle = document.getElementById("amara-menu-circle");
     const menuBackground = document.getElementById("amara-menu-background");
     const menuContent = document.getElementById("amara-menu-content");
-    const closeLine1 = document.getElementById("close-line-1");
-    const closeLine2 = document.getElementById("close-line-2");
     const menuLinks = menuContent ? [...menuContent.querySelectorAll("a")] : [];
 
     if (
@@ -145,9 +192,7 @@
       !menuOverlay ||
       !menuCircle ||
       !menuContent ||
-      !closeButtonWrapper ||
-      !closeLine1 ||
-      !closeLine2
+      !closeButton
     ) {
       console.warn("Amara Isles navbar elements not found");
       return;
@@ -178,13 +223,14 @@
         transformOrigin: "50% 50%",
       });
 
-      gsap.set([closeLine1, closeLine2], {
-        width: 0,
+      gsap.set(closeButton, {
         opacity: 0,
-        transformOrigin: "center center",
+        pointerEvents: "none",
       });
 
-      gsap.set(closeButtonWrapper, { opacity: 0, pointerEvents: "none" });
+      // Remove animated class on init
+      closeButton.classList.remove("animated");
+
       gsap.set(menuBackground, { opacity: 0 });
       gsap.set(menuContent, { opacity: 0, pointerEvents: "none" });
       gsap.set(menuTrigger, { opacity: 1, pointerEvents: "auto" });
@@ -234,25 +280,18 @@
           "-=0.5"
         )
         .to(
-          closeButtonWrapper,
+          closeButton,
           {
             opacity: 1,
-            pointerEvents: "auto", // <-- enable pointer events here
+            pointerEvents: "auto",
             duration: 0.4,
             ease: "power2.out",
+            onComplete: function () {
+              // Add animated class to trigger the X animation
+              closeButton.classList.add("animated");
+            },
           },
           "-=0.4"
-        )
-        .to(
-          [closeLine1, closeLine2],
-          {
-            width: 32,
-            opacity: 1,
-            duration: 0.3,
-            ease: "power2.out",
-            stagger: 0.1,
-          },
-          "-=0.3"
         )
         .to(
           menuContent,
@@ -282,6 +321,9 @@
       const center = getTriggerCenter();
       const diameter = getCircleDiameter();
 
+      // Remove animated class first to reset animation
+      closeButton.classList.remove("animated");
+
       const tl = gsap.timeline();
       tl.to(menuLinks, {
         opacity: 0,
@@ -302,21 +344,10 @@
           "-=0.15"
         )
         .to(
-          [closeLine1, closeLine2],
-          {
-            width: 0,
-            opacity: 0,
-            duration: 0.25,
-            ease: "power2.in",
-            stagger: 0.1,
-          },
-          "-=0.2"
-        )
-        .to(
-          closeButtonWrapper,
+          closeButton,
           {
             opacity: 0,
-            pointerEvents: "none", // disable pointer events on close button wrapper
+            pointerEvents: "none",
             duration: 0.3,
             ease: "power2.in",
           },
@@ -364,8 +395,9 @@
       openMenu();
     });
 
-    closeButtonWrapper.addEventListener("click", () => {
-      console.log("Close button wrapper clicked");
+    closeButton.addEventListener("click", (e) => {
+      e.stopPropagation(); // Prevent event bubbling
+      console.log("Close button clicked");
       closeMenu();
     });
 
