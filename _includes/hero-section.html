@@ -56,13 +56,18 @@
     const tl = gsap.timeline({
       defaults: { ease: "power2.inOut" },
       onComplete: () => {
-        // Lepas lock scroll setelah animasi selesai
         gsap.to("body", {
           overflow: "auto",
           delay: 0.2,
           duration: 0,
           onComplete: () => {
             ScrollTrigger.refresh();
+
+            // ✅ Fade in navbar immediately after hero animation
+            const navbar = document.getElementById("amara-navbar");
+            if (navbar) {
+              navbar.classList.add("visible");
+            }
           },
         });
       },

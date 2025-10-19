@@ -1,5 +1,17 @@
+<style>
+  nav#amara-navbar {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+  }
+  nav#amara-navbar.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>
+
 <!-- Navbar Component -->
-<nav class="w-full text-[#f8efc1] fixed top-0 left-0 z-50">
+<nav id="amara-navbar" class="w-full text-[#f8efc1] fixed top-0 left-0 z-50">
   <!-- Desktop Navigation -->
   <div class="hidden lg:flex items-start justify-end py-8 px-8">
     <!-- Desktop Menu Items - Vertical Layout on Right -->
@@ -30,7 +42,7 @@
       </a>
       <a
         href="#"
-        class="bg-[#f8efc1] text-[#69673a] px-6 py-2 rounded-full hover:bg-[#69673a] hover:text-[#f8efc1] transition-all duration-300 dm-sans-regular text-center uppercase text-sm"
+        class="bg-[#f8efc1] text-[#69673a] px-6 py-2 rounded-full hover:bg-[#69673a] hover:text-[#f8efc1] transition-all duration-300 dm-sans-regular text-center uppercase text-sm mt-2"
       >
         Book Now
       </a>
