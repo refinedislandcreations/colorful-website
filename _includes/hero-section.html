@@ -2,6 +2,45 @@
   id="hero"
   class="hero-section relative w-screen h-screen overflow-hidden bg-white flex items-center justify-center"
 >
+  <!-- ✅ Desktop Navbar Inside Hero (Top-Right Overlay) -->
+  <div
+    id="desktop-navbar"
+    class="hidden lg:flex absolute top-0 right-0 z-20 py-8 px-8 text-[#f8efc1] opacity-0"
+  >
+    <div class="flex flex-col items-end dm-sans-medium">
+      <a
+        href="#"
+        class="relative group text-right w-full py-1 uppercase text-base transition-all duration-300 hover:opacity-80 group-hover:scale-105 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 group-hover:after:w-full"
+      >
+        Accommodations
+      </a>
+      <a
+        href="#"
+        class="relative group text-right w-full py-1 uppercase text-base transition-all duration-300 hover:opacity-80 group-hover:scale-105 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 group-hover:after:w-full"
+      >
+        Experiences
+      </a>
+      <a
+        href="#"
+        class="relative group text-right w-full py-1 uppercase text-base transition-all duration-300 hover:opacity-80 group-hover:scale-105 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 group-hover:after:w-full"
+      >
+        Dining
+      </a>
+      <a
+        href="#"
+        class="relative group text-right w-full py-1 uppercase text-base transition-all duration-300 hover:opacity-80 group-hover:scale-105 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 group-hover:after:w-full"
+      >
+        Contact
+      </a>
+      <a
+        href="#"
+        class="bg-[#f8efc1] text-[#69673a] px-6 py-2 rounded-full hover:bg-[#69673a] hover:text-[#f8efc1] transition-all duration-300 dm-sans-regular text-center uppercase text-sm mt-2"
+      >
+        Book Now
+      </a>
+    </div>
+  </div>
+
   <!-- Background with animated clip -->
   <div
     id="clipped-content"
@@ -63,10 +102,20 @@
           onComplete: () => {
             ScrollTrigger.refresh();
 
-            // ✅ Fade in navbar immediately after hero animation
+            // ✅ Fade in mobile (external) navbar
             const navbar = document.getElementById("amara-navbar");
             if (navbar) {
               navbar.classList.add("visible");
+            }
+
+            // ✅ Fade in desktop navbar (inside hero)
+            const desktopNavbar = document.getElementById("desktop-navbar");
+            if (desktopNavbar) {
+              gsap.to(desktopNavbar, {
+                opacity: 1,
+                duration: 1,
+                ease: "power2.out",
+              });
             }
           },
         });
