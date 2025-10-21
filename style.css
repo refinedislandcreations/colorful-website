@@ -132,8 +132,8 @@ footer h3 {
 .montserrat-black {
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
-  word-break: break-word;
-  overflow-wrap: break-word;
+  /* word-break: break-word;
+  overflow-wrap: break-word; */
 }
 
 /* === DM SANS (isi teks & navigasi) === */
