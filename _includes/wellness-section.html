@@ -1,246 +1,217 @@
-<!-- ✅ GSAP + ScrollTrigger -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-<div class="max-w-7xl mx-auto my-24 px-6 md:px-12 space-y-40">
-  <!-- 🌅 SECTION 1 -->
+<div class="max-w-full mx-auto">
+  {% for section in include.sections %}
+  <!-- SECTION {{ forloop.index }} -->
   <section
-    class="min-h-screen flex flex-col md:flex-row items-center justify-center gap-12"
+    class="wellness-section min-h-screen flex flex-col md:flex-row items-center justify-center gap-16 {% if section.layout == 'reverse' %}md:flex-row-reverse{% endif %} {{ section.bg_color }} p-12 md:p-20 transition-all duration-500"
+    data-section-index="{{ forloop.index0 }}"
   >
-    <div class="md:w-1/2 w-full image-container opacity-0">
+    <div class="md:w-1/2 w-full wellness-image-container opacity-0">
       <img
-        src="/assets/images/morning-yoga.jpg"
-        alt="Morning Practices"
-        class="w-full h-[50vh] md:h-[60vh] lg:h-[70vh] object-cover shadow-xl"
+        src="{{ section.image }}"
+        alt="{{ section.image_alt }}"
+        class="w-full h-[50vh] md:h-[70vh] object-cover shadow-2xl rounded-lg"
       />
     </div>
 
-    <div class="md:w-1/2 w-full space-y-8 text-center md:text-left">
-      <h3 class="text-4xl sm:text-5xl font-bold text-[#943a21]">
-        Morning Practices
+    <div class="md:w-1/2 w-full space-y-10 text-center md:text-left">
+      <!-- Section Title with Premium Styling -->
+      <h3
+        class="wellness-section-title text-5xl sm:text-6xl md:text-7xl font-light tracking-tight leading-tight {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}text-primary{% else %}text-secondary{% endif %}"
+      >
+        {{ section.title }}
       </h3>
-      <div class="space-y-6 text-gray-700 leading-relaxed">
-        <div>
-          <h4 class="text-xl font-semibold mb-1">
-            🌅 Sunrise Yoga with Ocean Salutations
+
+      {% if section.practices %}
+      <!-- Morning Practices Section -->
+      <div class="space-y-8 leading-relaxed">
+        {% for practice in section.practices %}
+        <div
+          class="border-l-4 {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}border-primary/30{% else %}border-secondary/30{% endif %} pl-6"
+        >
+          <h4
+            class="text-xl font-medium mb-3 tracking-wide uppercase {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}text-primary{% else %}text-secondary{% endif %}"
+          >
+            {{ practice.title }}
           </h4>
-          <p>Greet the day with Vinyasa flows synchronized to ocean rhythms.</p>
+          <p
+            class="text-lg leading-relaxed {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}text-muted-base/90{% else %}text-secondary/90{% endif %}"
+          >
+            {{ practice.description }}
+          </p>
         </div>
-        <div>
-          <h4 class="text-xl font-semibold mb-1">
-            🧘 Guided Meditation in Cliffside Pavilions
-          </h4>
-          <p>Find profound stillness where ocean meets sky.</p>
-        </div>
-        <div>
-          <h4 class="text-xl font-semibold mb-1">
-            🌬️ Breathwork Sessions with Sea Breeze
-          </h4>
-          <p>Harness the healing power of ocean air through pranayama.</p>
-        </div>
+        {% endfor %}
       </div>
-    </div>
-  </section>
 
-  <!-- 💆 SECTION 2 -->
-  <section
-    class="min-h-screen flex flex-col md:flex-row-reverse items-center justify-center gap-12"
-  >
-    <div class="md:w-1/2 w-full image-container opacity-0">
-      <img
-        src="/assets/images/spa-treatment.jpg"
-        alt="Healing Rituals"
-        class="w-full h-[50vh] md:h-[60vh] lg:h-[70vh] object-cover shadow-xl"
-      />
-    </div>
-
-    <div class="md:w-1/2 w-full space-y-8 text-center md:text-left">
-      <h3 class="text-4xl sm:text-5xl font-bold text-[#943a21]">
-        Healing Rituals
-      </h3>
-      <ul class="list-none space-y-4 text-gray-700 leading-relaxed">
-        <li>
-          <strong>💮 Island Spa Treatments:</strong> Coconut scrubs, tropical
-          flower baths, volcanic stones.
-        </li>
-        <li>
-          <strong>💆 Balinese Massage:</strong> Ancient techniques for deep
-          relaxation and energy flow.
-        </li>
-        <li>
-          <strong>🌺 Holistic Consultations:</strong> Personalized guidance from
-          our wellness experts.
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 🌿 SECTION 3 -->
-  <section
-    class="min-h-screen flex flex-col md:flex-row items-center justify-center gap-12"
-  >
-    <div class="md:w-1/2 w-full image-container opacity-0">
-      <img
-        src="/assets/images/signature-therapy.jpg"
-        alt="Signature Therapies"
-        class="w-full h-[50vh] md:h-[60vh] lg:h-[70vh] object-cover shadow-xl"
-      />
-    </div>
-
-    <div class="md:w-1/2 w-full space-y-8 text-center md:text-left">
-      <h3 class="text-4xl sm:text-5xl font-bold text-[#943a21]">
-        Signature Therapies
-      </h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {% elsif section.rituals %}
+      <!-- Healing Rituals Section -->
+      <div class="space-y-6 leading-relaxed">
+        {% for ritual in section.rituals %}
         <div
-          class="bg-white/70 backdrop-blur-sm p-6 shadow-md hover:shadow-xl transition rounded-2xl"
+          class="pb-6 border-b {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}border-primary/20{% else %}border-secondary/20{% endif %} last:border-b-0 last:pb-0"
         >
-          <h4 class="text-xl font-semibold text-[#943a21] mb-2">
-            Ayurvedic Treatments
+          <h4
+            class="text-xl font-medium mb-2 tracking-wide {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}text-primary{% else %}text-secondary{% endif %}"
+          >
+            {{ ritual.title }}
           </h4>
-          <p>Ancient Indian healing for mind-body balance.</p>
+          <p
+            class="text-lg leading-relaxed italic {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}text-muted-base/80{% else %}text-secondary/80{% endif %}"
+          >
+            {{ ritual.description }}
+          </p>
         </div>
-        <div
-          class="bg-white/70 backdrop-blur-sm p-6 shadow-md hover:shadow-xl transition rounded-2xl"
-        >
-          <h4 class="text-xl font-semibold text-[#943a21] mb-2">
-            Sound Healing
-          </h4>
-          <p>Crystal bowls and ocean frequencies.</p>
-        </div>
-        <div
-          class="bg-white/70 backdrop-blur-sm p-6 shadow-md hover:shadow-xl transition rounded-2xl"
-        >
-          <h4 class="text-xl font-semibold text-[#943a21] mb-2">
-            Hot Stone Therapy
-          </h4>
-          <p>Volcanic stones for deep relief.</p>
-        </div>
-        <div
-          class="bg-white/70 backdrop-blur-sm p-6 shadow-md hover:shadow-xl transition rounded-2xl"
-        >
-          <h4 class="text-xl font-semibold text-[#943a21] mb-2">
-            Aromatherapy
-          </h4>
-          <p>Local essential oils for sensory healing.</p>
-        </div>
+        {% endfor %}
       </div>
-    </div>
-  </section>
 
-  <!-- 🧘 SECTION 4 -->
-  <section
-    class="min-h-screen flex flex-col md:flex-row-reverse items-center justify-center gap-12"
-  >
-    <div class="md:w-1/2 w-full image-container opacity-0">
-      <img
-        src="/assets/images/wellness-program.jpg"
-        alt="Wellness Programs"
-        class="w-full h-[50vh] md:h-[60vh] lg:h-[70vh] object-cover shadow-xl"
-      />
-    </div>
-
-    <div class="md:w-1/2 w-full space-y-8 text-center md:text-left">
-      <h3 class="text-4xl sm:text-5xl font-bold text-[#943a21]">
-        Wellness Programs
-      </h3>
-      <div class="space-y-4 text-gray-700 leading-relaxed">
-        <div>
-          <h4 class="text-xl font-bold">3-Day Mindfulness Reset</h4>
-          <p>Quick rejuvenation for busy lifestyles.</p>
+      {% elsif section.therapies %}
+      <!-- Signature Therapies Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {% for therapy in section.therapies %}
+        <div
+          class="{% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}bg-white/90{% else %}bg-black/20{% endif %} p-8 hover:shadow-2xl transition-all duration-500 rounded-lg backdrop-blur-sm border {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}border-primary/10{% else %}border-secondary/10{% endif %} hover:scale-105"
+        >
+          <h4
+            class="text-xl font-medium mb-3 tracking-wide {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}text-primary{% else %}text-secondary{% endif %}"
+          >
+            {{ therapy.title }}
+          </h4>
+          <p
+            class="text-base leading-relaxed {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}text-muted-base/80{% else %}text-secondary/80{% endif %}"
+          >
+            {{ therapy.description }}
+          </p>
         </div>
-        <div>
-          <h4 class="text-xl font-bold">5-Day Detox & Renewal</h4>
-          <p>Comprehensive cleansing journey.</p>
-        </div>
-        <div>
-          <h4 class="text-xl font-bold">7-Day Holistic Harmony</h4>
-          <p>Complete mind-body transformation.</p>
-        </div>
-        <div>
-          <h4 class="text-xl font-bold">Corporate Wellness Retreats</h4>
-          <p>Team building through wellness experiences.</p>
-        </div>
+        {% endfor %}
       </div>
+
+      {% elsif section.programs %}
+      <!-- Wellness Programs Section -->
+      <div class="space-y-6 leading-relaxed">
+        {% for program in section.programs %}
+        <div class="group">
+          <h4
+            class="text-2xl font-light mb-2 tracking-wide border-b {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}border-primary/30{% else %}border-secondary/30{% endif %} pb-2 group-hover:border-primary transition-colors duration-300 {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}text-primary{% else %}text-secondary{% endif %}"
+          >
+            {{ program.title }}
+          </h4>
+          <p
+            class="text-lg leading-relaxed pl-4 {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}text-muted-base/90{% else %}text-secondary/90{% endif %}"
+          >
+            {{ program.description }}
+          </p>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
     </div>
   </section>
+  {% endfor %}
 </div>
 
-<!-- ✅ GSAP Animation -->
+<!-- ✅ Isolated GSAP Script for Wellness Sections -->
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    window.addEventListener("load", () => {
-      gsap.registerPlugin(ScrollTrigger);
-      const ctx = gsap.context(() => {
-        const sections = gsap.utils.toArray("section");
+  (function () {
+    // Wait for DOM and GSAP to be ready
+    function initWellnessSections() {
+      if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+        gsap.registerPlugin(ScrollTrigger);
 
-        sections.forEach((section) => {
-          const imgContainer = section.querySelector(".image-container");
-          const img = imgContainer?.querySelector("img");
-          const text = section.querySelector("h3");
-          if (!imgContainer || !img) return;
+        const wellnessSections = document.querySelectorAll(".wellness-section");
 
-          gsap
-            .timeline({
-              defaults: { ease: "power3.out" },
-              scrollTrigger: {
-                trigger: section,
-                start: "top 85%",
-                end: "bottom 50%",
-                scrub: 1.5,
-                invalidateOnRefresh: true,
-              },
-            })
-            .to(imgContainer, { autoAlpha: 1, duration: 0.6 })
-            .fromTo(
-              imgContainer,
-              { clipPath: "inset(0 100% 0 0)" },
-              { clipPath: "inset(0 0% 0 0)", duration: 1.2 },
-              "<"
-            )
-            // smoother zoom-out
-            .fromTo(
-              img,
-              { scale: 1.25 },
-              { scale: 1, duration: 1.6, ease: "power3.out" },
-              "<"
-            )
-            // fade in text smoothly
-            .fromTo(
-              text,
-              { y: 40, opacity: 0 },
-              { y: 0, opacity: 1, duration: 1 },
-              "<0.3"
+        if (!wellnessSections.length) return;
+
+        const ctx = gsap.context(() => {
+          wellnessSections.forEach((section) => {
+            const imgContainer = section.querySelector(
+              ".wellness-image-container"
             );
+            const img = imgContainer?.querySelector("img");
+            const text = section.querySelector(".wellness-section-title");
+
+            if (!imgContainer || !img) return;
+
+            gsap
+              .timeline({
+                defaults: { ease: "power3.out" },
+                scrollTrigger: {
+                  trigger: section,
+                  start: "top 85%",
+                  end: "bottom 50%",
+                  scrub: 1.5,
+                  invalidateOnRefresh: true,
+                },
+              })
+              .to(imgContainer, { autoAlpha: 1, duration: 0.6 })
+              .fromTo(
+                imgContainer,
+                { clipPath: "inset(0 100% 0 0)" },
+                { clipPath: "inset(0 0% 0 0)", duration: 1.2 },
+                "<"
+              )
+              // smoother zoom-out
+              .fromTo(
+                img,
+                { scale: 1.25 },
+                { scale: 1, duration: 1.6, ease: "power3.out" },
+                "<"
+              )
+              // fade in text smoothly
+              .fromTo(
+                text,
+                { y: 40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1 },
+                "<0.3"
+              );
+          });
+
+          ScrollTrigger.refresh();
         });
-        ScrollTrigger.refresh();
-      });
-      return () => ctx.revert();
-    });
-  });
+
+        // Store context for cleanup if needed
+        window.wellnessSectionsContext = ctx;
+      } else {
+        // Retry if GSAP not loaded yet
+        setTimeout(initWellnessSections, 100);
+      }
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initWellnessSections);
+    } else {
+      initWellnessSections();
+    }
+
+    // Cleanup function if needed
+    window.cleanupWellnessAnimations = function () {
+      if (window.wellnessSectionsContext) {
+        window.wellnessSectionsContext.revert();
+      }
+    };
+  })();
 </script>
 
 <style>
-  .image-container {
+  .wellness-image-container {
     position: relative;
     overflow: hidden;
     opacity: 0;
     will-change: transform, opacity, clip-path;
   }
 
-  body {
-    background: linear-gradient(180deg, #fffaf7 0%, #fff6f3 50%, #fffaf7 100%);
-    font-family: "Inter", sans-serif;
-  }
-
-  section img {
-    transform-origin: center center;
-    transition: transform 1s ease-out;
-  }
+  /* Premium typography enhancements */
+  @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap");
 
   @media (max-width: 768px) {
-    section {
+    .wellness-section {
       text-align: center;
+      padding: 2rem !important;
+      gap: 3rem !important;
+    }
+
+    .wellness-section-title {
+      font-size: 2.5rem !important;
+      line-height: 1.1 !important;
     }
   }
 </style>

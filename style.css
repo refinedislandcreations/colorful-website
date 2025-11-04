@@ -172,3 +172,126 @@ footer h3 {
   word-break: break-word;
   overflow-wrap: break-word;
 }
+
+/* ========================================
+   🎨 Amara Isles – Overall Color System
+   ======================================== */
+
+/* =====================
+   1. Background Colors
+   ===================== */
+.bg-primary-light {
+  background-color: #f8efc1;
+} /* Ivory Cream */
+.bg-warm-accent {
+  background-color: #d3a642;
+} /* Golden Sand */
+.bg-deep-accent {
+  background-color: #943a21;
+} /* Terracotta */
+.bg-natural-accent {
+  background-color: #b3cdbd;
+} /* Soft Sage Green */
+.bg-muted-base {
+  background-color: #69673a;
+} /* Olive Brown */
+
+/* =====================
+   2. Text Colors
+   ===================== */
+.text-primary {
+  color: #943a21;
+} /* Terracotta – on light backgrounds */
+.text-secondary {
+  color: #f8efc1;
+} /* Ivory Cream – on dark backgrounds */
+.text-accent {
+  color: #7a2a1f;
+} /* Dark Terracotta – hover / accents */
+.text-muted {
+  color: #e3d69e;
+} /* Pale Sand Beige – subtle elements */
+
+/* =====================
+   3. Button Styles
+   ===================== */
+
+/* Primary Light Background Button */
+.btn-primary-light {
+  background-color: #f8efc1;
+  color: #943a21;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-primary-light:hover {
+  background-color: #e3d69e;
+  color: #943a21;
+}
+
+/* Warm Accent Background Button */
+.btn-warm-accent {
+  background-color: #d3a642;
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-warm-accent:hover {
+  background-color: #b38b32;
+  color: #ffffff;
+}
+
+/* Deep Accent Background Button */
+.btn-deep-accent {
+  background-color: #943a21;
+  color: #f8efc1;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-deep-accent:hover {
+  background-color: #7a2a1f;
+  color: #f8efc1;
+}
+
+/* Natural Accent Background Button */
+.btn-natural-accent {
+  background-color: #b3cdbd;
+  color: #943a21;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-natural-accent:hover {
+  background-color: #9bb3a4;
+  color: #943a21;
+}
+
+/* Muted Base Background Button */
+.btn-muted-base {
+  background-color: #69673a;
+  color: #f8efc1;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-muted-base:hover {
+  background-color: #56552f;
+  color: #f8efc1;
+}

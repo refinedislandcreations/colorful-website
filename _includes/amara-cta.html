@@ -1,9 +1,9 @@
 <section
   id="cta-section"
-  class="relative w-screen h-screen flex items-center justify-center bg-[#943a21] text-[#f8efc1] overflow-hidden"
+  class="relative w-screen h-screen flex items-center justify-center {{ include.cta_data.bg_color }} {{ include.cta_data.text_color }} overflow-hidden"
 >
   <style>
-    /* ✅ Scoped styles */
+    /* ✅ Scoped styles for CTA section */
     #cta-section .cta-content {
       opacity: 0;
       transform: translateY(40px);
@@ -15,16 +15,16 @@
       transform: translateY(0);
     }
 
-    #cta-section a.cta-button {
-      border: 1px solid #f8efc1;
+    #cta-section .cta-button {
+      border: 1px solid {{ include.cta_data.button.border_color }};
       padding: 0.75rem 2rem;
       border-radius: 9999px;
       transition: all 0.4s ease;
     }
 
-    #cta-section a.cta-button:hover {
-      background-color: #f8efc1;
-      color: #943a21;
+    #cta-section .cta-button:hover {
+      background-color: {{ include.cta_data.button.hover_bg }};
+      color: {{ include.cta_data.button.hover_text }};
       transform: scale(1.05);
     }
   </style>
@@ -33,49 +33,65 @@
     <h2
       class="text-3xl md:text-5xl font-light mb-6 tracking-wide montserrat-bold"
     >
-      Escape to Tranquility
+      {{ include.cta_data.title }}
     </h2>
     <p class="text-base md:text-lg mb-8 leading-relaxed dm-sans-regular">
-      Experience the balance of serenity and indulgence at Amara Isles. Your
-      private retreat awaits.
+      {{ include.cta_data.description }}
     </p>
     <a
-      href="#book"
+      href="{{ include.cta_data.button.url }}"
       class="cta-button inline-block text-base md:text-lg dm-sans-regular"
     >
-      Book Your Stay
+      {{ include.cta_data.button.text }}
     </a>
   </div>
 
+  <!-- ✅ Isolated Script for CTA Section -->
   <script>
-    // ✅ Scoped GSAP animation
-    document.addEventListener("DOMContentLoaded", () => {
-      const section = document.querySelector("#cta-section");
-      const content = section.querySelector(".cta-content");
+    (function () {
+      // Wait for DOM to be ready
+      function initCTASection() {
+        const ctaSection = document.getElementById("cta-section");
+        const ctaContent = ctaSection?.querySelector(".cta-content");
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              content.classList.add("visible");
-              gsap.fromTo(
-                content,
-                { opacity: 0, y: 40 },
-                {
-                  opacity: 1,
-                  y: 0,
-                  duration: 1.2,
-                  ease: "power3.out",
+        if (!ctaSection || !ctaContent) return;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                ctaContent.classList.add("visible");
+
+                // Use GSAP if available, otherwise use CSS transition
+                if (typeof gsap !== "undefined") {
+                  gsap.fromTo(
+                    ctaContent,
+                    { opacity: 0, y: 40 },
+                    {
+                      opacity: 1,
+                      y: 0,
+                      duration: 1.2,
+                      ease: "power3.out",
+                    }
+                  );
                 }
-              );
-              observer.unobserve(section);
-            }
-          });
-        },
-        { threshold: 0.3 }
-      );
 
-      observer.observe(section);
-    });
+                observer.unobserve(ctaSection);
+              }
+            });
+          },
+          { threshold: 0.3 }
+        );
+
+        observer.observe(ctaSection);
+      }
+
+      // Initialize when DOM is ready
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initCTASection);
+      } else {
+        initCTASection();
+      }
+    })();
   </script>
 </section>

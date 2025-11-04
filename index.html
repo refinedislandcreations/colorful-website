@@ -1,10 +1,155 @@
 ---
 layout: default
 title: Home
+
+hero_data:
+  navigation:
+    - name: "Home"
+      url: "/index.html"
+    - name: "Accommodation"
+      url: "/index.html#accommodation"
+    - name: "Dining"
+      url: "/dining.html"
+    - name: "Event"
+      url: "/event-space.html"
+  background_image: "/assets/images/hero-image.jpg"
+  title: "Amara Isles"
+  subtitle: "An invitation to breathe and return."
+  book_now_button:
+    text: "Book Now"
+    bg_color: "#f8efc1"
+    text_color: "#69673a"
+    hover_bg: "#69673a"
+    hover_text: "#f8efc1"
+
+accommodation_data:
+  intro:
+    title: "Your Private Sanctuary Awaits"
+    description: "Discover Amara Isles, where luxury meets seclusion. Our resort offers exclusive experiences designed for complete privacy and serene comfort, creating moments of pure tranquility amidst breathtaking natural beauty."
+  slides:
+    - number: "01"
+      title: "Ocean-View Private Pools"
+      description: "Every accommodation at Amara Isles features infinity pools that merge seamlessly with the ocean horizon. Wake up to panoramic views and unwind in your personal aquatic sanctuary surrounded by the sounds of nature."
+      bg_color: "#d3a642"
+      text_color: "#943a21"
+      image: "/assets/images/ocean-view-private-pool.jpg"
+      image_alt: "Private Infinity Pool"
+    - number: "02"
+      title: "Secluded Garden Sanctuaries"
+      description: "Wander through our resort's hidden courtyards and lush tropical gardens, each designed for complete privacy. These serene outdoor spaces provide peaceful retreats for meditation, yoga, or simply being present in nature."
+      bg_color: "#943a21"
+      text_color: "#f8efc1"
+      image: "/assets/images/garden-sanctuary.jpg"
+      image_alt: "Secluded Garden Sanctuary"
+    - number: "03"
+      title: "Personalized Resort Experiences"
+      description: "From private chef dinners on the beach to bespoke spa treatments in your suite, we craft unforgettable moments throughout the resort. Every experience is tailored to create your perfect island escape."
+      bg_color: "#b3cdbd"
+      text_color: "#69673a"
+      image: "/assets/images/resort-experience.jpg"
+      image_alt: "Personalized Resort Experience"
+
+wellness_data:
+  intro:
+    title: "Restore Balance<br />To Body and Mind"
+    subtitle: "Awaken with the sun in sacred spaces designed for renewal. Our rituals draw from ancient traditions and the healing power of nature."
+  sections:
+    - title: "Morning Practices"
+      image: "/assets/images/morning-yoga.jpg"
+      image_alt: "Morning Practices"
+      bg_color: "bg-primary-light" # Ivory Cream
+      practices:
+        - title: "Sunrise Yoga with Ocean Salutations"
+          description: "Greet the day with Vinyasa flows synchronized to ocean rhythms."
+        - title: "Guided Meditation in Cliffside Pavilions"
+          description: "Find profound stillness where ocean meets sky."
+        - title: "Breathwork Sessions with Sea Breeze"
+          description: "Harness the healing power of ocean air through pranayama."
+    - title: "Healing Rituals"
+      image: "/assets/images/spa-treatment.jpg"
+      image_alt: "Healing Rituals"
+      layout: "reverse"
+      bg_color: "bg-warm-accent" # Golden Sand
+      rituals:
+        - title: "Island Spa Treatments"
+          description: "Coconut scrubs, tropical flower baths, volcanic stones."
+        - title: "Balinese Massage"
+          description: "Ancient techniques for deep relaxation and energy flow."
+        - title: "Holistic Consultations"
+          description: "Personalized guidance from our wellness experts."
+    - title: "Signature Therapies"
+      image: "/assets/images/signature-therapy.jpg"
+      image_alt: "Signature Therapies"
+      bg_color: "bg-deep-accent" # Terracotta
+      therapies:
+        - title: "Ayurvedic Treatments"
+          description: "Ancient Indian healing for mind-body balance."
+        - title: "Sound Healing"
+          description: "Crystal bowls and ocean frequencies."
+        - title: "Hot Stone Therapy"
+          description: "Volcanic stones for deep relief."
+        - title: "Aromatherapy"
+          description: "Local essential oils for sensory healing."
+    - title: "Wellness Programs"
+      image: "/assets/images/wellness-program.jpg"
+      image_alt: "Wellness Programs"
+      layout: "reverse"
+      bg_color: "bg-natural-accent" # Soft Sage Green
+      programs:
+        - title: "3-Day Mindfulness Reset"
+          description: "Quick rejuvenation for busy lifestyles."
+        - title: "5-Day Detox & Renewal"
+          description: "Comprehensive cleansing journey."
+        - title: "7-Day Holistic Harmony"
+          description: "Complete mind-body transformation."
+        - title: "Corporate Wellness Retreats"
+          description: "Team building through wellness experiences."
+
+explore_data:
+  intro:
+    title: "Discover experiences that awaken your senses."
+    bg_color: "bg-muted-base" # Olive Brown
+    text_color: "text-muted" # Pale Sand Beige
+  slides:
+    - number: "01"
+      title: "Savor Coastal Flavors"
+      description: "Discover our farm-to-table dining experiences"
+      link_url: "/dining.html"
+      bg_color: "bg-warm-accent" # Golden Sand
+      text_color: "text-primary" # Terracotta
+      hover_image: "/assets/images/dining-hall.jpg"
+    - number: "02"
+      title: "Celebrate Together"
+      description: "Explore intimate gathering spaces"
+      link_url: "/event-space.html"
+      bg_color: "bg-natural-accent" # Soft Sage Green
+      text_color: "text-muted" # Olive Brown
+      hover_image: "/assets/images/ocean-terrace.jpg"
+
+cta_data:
+  bg_color: "bg-deep-accent" # Terracotta
+  text_color: "text-secondary" # Ivory Cream
+  title: "Escape to Tranquility"
+  description: "Experience the balance of serenity and indulgence at Amara Isles. Your private retreat awaits."
+  button:
+    text: "Book Your Stay"
+    url: "#book"
+    border_color: "#f8efc1"
+    hover_bg: "#f8efc1"
+    hover_text: "#943a21"
 ---
 
-{% include hero-section.html %}
+{% include hero-section.html navigation=page.hero_data.navigation
+background_image=page.hero_data.background_image title=page.hero_data.title
+subtitle=page.hero_data.subtitle book_now_button=page.hero_data.book_now_button
+%}
 
-<div id="accommodation">{% include facilities-section.html %}</div>
-{% include wellness-intro.html %} {% include wellness-section.html %} {% include
-explore-section.html %} {% include amara-cta.html %}
+<div id="accommodation">
+  {% include accommodation-section.html intro=page.accommodation_data.intro
+  slides=page.accommodation_data.slides %}
+</div>
+
+{% include wellness-intro.html intro=page.wellness_data.intro %} {% include
+wellness-section.html sections=page.wellness_data.sections %} {% include
+explore-section.html explore_data=page.explore_data %} {% include amara-cta.html
+cta_data=page.cta_data %}

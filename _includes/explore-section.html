@@ -6,76 +6,62 @@
     <!-- INTRO -->
     <div
       id="explore-intro"
-      class="explore-intro absolute inset-0 flex h-screen w-screen flex-col items-center justify-center bg-[#69673a] px-6 text-center sm:px-12 z-0"
+      class="explore-intro absolute inset-0 flex h-screen w-screen flex-col items-center justify-center {{ include.explore_data.intro.bg_color }} px-6 text-center sm:px-12 z-0"
     >
       <div class="max-w-3xl sm:max-w-5xl">
         <h1
           id="explore-intro-text"
-          class="text-3xl sm:text-5xl lg:text-6xl uppercase font-extrabold text-[#f8efc1] leading-tight montserrat-black"
+          class="text-3xl sm:text-5xl lg:text-6xl uppercase font-extrabold {{ include.explore_data.intro.text_color }} leading-tight montserrat-black"
         >
-          Discover experiences that awaken your senses.
+          {{ include.explore_data.intro.title }}
         </h1>
       </div>
     </div>
 
-    <!-- SLIDE 1 -->
+    <!-- SLIDES -->
+    {% for slide in include.explore_data.slides %}
     <div
-      class="explore-slide absolute inset-0 flex h-screen w-screen flex-col items-center justify-center bg-[#d3a642] px-6 py-12 text-center sm:px-10 lg:px-16 z-10"
+      class="explore-slide absolute inset-0 flex h-screen w-screen flex-col items-center justify-center {{ slide.bg_color }} px-6 py-12 text-center sm:px-10 lg:px-16 z-{{ forloop.index | times:10 }}"
+      data-slide-index="{{ forloop.index0 }}"
     >
-      <div class="absolute top-6 left-8 text-[#943a21] text-2xl font-bold">
-        01
+      <div
+        class="absolute top-6 left-8 {{ slide.text_color }} text-2xl font-bold"
+      >
+        {{ slide.number }}
       </div>
       <div class="flex flex-col w-full max-w-7xl mt-8 items-center text-center">
         <h2
-          class="explore-h2 text-4xl md:text-6xl font-bold text-[#943a21] mb-6 montserrat-bold"
+          class="explore-h2 text-4xl md:text-6xl font-bold {{ slide.text_color }} mb-6 montserrat-bold"
         >
-          Savor Coastal Flavors
+          {{ slide.title }}
         </h2>
         <a
-          href="/dining.html"
-          data-hover-img="/assets/images/dining-hall.jpg"
-          class="dm-sans-regular text-[#943a21] text-base lg:text-lg relative inline-block font-semibold no-underline after:absolute after:left-0 after:bottom-[-3px] after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full"
-          >Discover our farm-to-table dining experiences</a
+          href="{{ slide.link_url }}"
+          data-hover-img="{{ slide.hover_image }}"
+          class="dm-sans-regular {{ slide.text_color }} text-base lg:text-lg relative inline-block font-semibold no-underline after:absolute after:left-0 after:bottom-[-3px] after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full explore-link"
         >
+          {{ slide.description }}
+        </a>
       </div>
     </div>
-
-    <!-- SLIDE 2 -->
-    <div
-      class="explore-slide absolute inset-0 flex h-screen w-screen flex-col items-center justify-center bg-[#b3cdbd] px-6 py-12 text-center sm:px-10 lg:px-16 z-20"
-    >
-      <div class="absolute top-6 left-8 text-[#69673a] text-2xl font-bold">
-        02
-      </div>
-      <div class="flex flex-col w-full max-w-7xl mt-8 items-center text-center">
-        <h2
-          class="explore-h2 text-4xl md:text-6xl font-bold text-[#69673a] mb-6 montserrat-bold"
-        >
-          Celebrate Together
-        </h2>
-        <a
-          href="/event-space.html"
-          data-hover-img="/assets/images/ocean-terrace.jpg"
-          class="dm-sans-regular text-[#69673a] text-base lg:text-lg relative inline-block font-semibold no-underline after:absolute after:left-0 after:bottom-[-3px] after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full"
-          >Explore intimate gathering spaces</a
-        >
-      </div>
-    </div>
+    {% endfor %}
   </div>
 
   <!-- Hover Reveal (scoped to explore-section) -->
   <div
     id="explore-hover"
-    class="hover-reveal fixed pointer-events-none z-[99] opacity-0 w-[200px] h-[280px]"
+    class="explore-hover-reveal fixed pointer-events-none z-[99] opacity-0 w-[200px] h-[280px]"
   >
-    <div class="hover-reveal__inner overflow-hidden w-full h-full">
-      <div class="hover-reveal__img w-full h-full bg-cover bg-center"></div>
+    <div class="explore-hover-reveal__inner overflow-hidden w-full h-full">
+      <div
+        class="explore-hover-reveal__img w-full h-full bg-cover bg-center"
+      ></div>
     </div>
   </div>
 
   <style>
     /* ✅ Scoped hover image styling */
-    #explore-section .hover-reveal {
+    #explore-section .explore-hover-reveal {
       top: 0;
       left: 0;
       transform: translate(-50%, -50%);
@@ -83,143 +69,191 @@
     }
   </style>
 
+  <!-- ✅ Isolated GSAP Script for Explore Section -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      if (!window.gsap || !window.ScrollTrigger || !window.SplitType) return;
-      gsap.registerPlugin(ScrollTrigger);
+    (function () {
+      // Wait for DOM and GSAP to be ready
+      function initExploreSection() {
+        if (
+          typeof gsap !== "undefined" &&
+          typeof ScrollTrigger !== "undefined" &&
+          typeof SplitType !== "undefined"
+        ) {
+          gsap.registerPlugin(ScrollTrigger);
 
-      const ctx = gsap.context(() => {
-        const section = document.querySelector("#explore-section");
-        const slides = Array.from(section.querySelectorAll(".explore-slide"));
-        const hover = section.querySelector("#explore-hover");
-        const hoverImg = hover.querySelector(".hover-reveal__img");
+          const exploreSection = document.getElementById("explore-section");
+          if (!exploreSection) return;
 
-        // ✅ Start hidden but display:block (not hidden)
-        gsap.set(hover, { autoAlpha: 0, xPercent: -50, yPercent: -50 });
+          const ctx = gsap.context(() => {
+            const slides = Array.from(
+              exploreSection.querySelectorAll(".explore-slide")
+            );
+            const hover = exploreSection.querySelector("#explore-hover");
+            const hoverImg = hover.querySelector(".explore-hover-reveal__img");
 
-        let setX, setY;
-        const align = (e) => {
-          setX(e.clientX);
-          setY(e.clientY);
-        };
+            // ✅ Start hidden but display:block (not hidden)
+            gsap.set(hover, { autoAlpha: 0, xPercent: -50, yPercent: -50 });
 
-        const startFollow = () => document.addEventListener("mousemove", align);
-        const stopFollow = () =>
-          document.removeEventListener("mousemove", align);
+            let setX, setY;
+            const align = (e) => {
+              setX(e.clientX);
+              setY(e.clientY);
+            };
 
-        const fade = gsap.to(hover, {
-          autoAlpha: 1,
-          duration: 0.3,
-          paused: true,
-          onReverseComplete: stopFollow,
-        });
+            const startFollow = () =>
+              document.addEventListener("mousemove", align);
+            const stopFollow = () =>
+              document.removeEventListener("mousemove", align);
 
-        const scaleTl = gsap.timeline({ paused: true });
-        scaleTl.fromTo(
-          hover.querySelector(".hover-reveal__inner"),
-          { scale: 0.3 },
-          { scale: 1, duration: 0.8, ease: "expo.out" }
-        );
-        scaleTl.fromTo(
-          hoverImg,
-          { scale: 2 },
-          { scale: 1, duration: 0.8, ease: "expo.out" },
-          0
-        );
+            const fade = gsap.to(hover, {
+              autoAlpha: 1,
+              duration: 0.3,
+              paused: true,
+              onReverseComplete: stopFollow,
+            });
 
-        function handleEnter(e, el) {
-          const imgSrc = el.getAttribute("data-hover-img");
-          if (!imgSrc) return;
-          gsap.set(hoverImg, { backgroundImage: `url(${imgSrc})` });
+            const scaleTl = gsap.timeline({ paused: true });
+            scaleTl.fromTo(
+              hover.querySelector(".explore-hover-reveal__inner"),
+              { scale: 0.3 },
+              { scale: 1, duration: 0.8, ease: "expo.out" }
+            );
+            scaleTl.fromTo(
+              hoverImg,
+              { scale: 2 },
+              { scale: 1, duration: 0.8, ease: "expo.out" },
+              0
+            );
 
-          fade.play();
-          startFollow();
+            function handleEnter(e, el) {
+              const imgSrc = el.getAttribute("data-hover-img");
+              if (!imgSrc) return;
+              gsap.set(hoverImg, { backgroundImage: `url(${imgSrc})` });
 
-          setX = gsap.quickTo(hover, "x", { duration: 0.8, ease: "expo.out" });
-          setY = gsap.quickTo(hover, "y", { duration: 0.8, ease: "expo.out" });
-          align(e);
-          scaleTl.play();
-        }
+              fade.play();
+              startFollow();
 
-        function handleLeave() {
-          fade.reverse();
-          scaleTl.timeScale(2).reverse();
-        }
+              setX = gsap.quickTo(hover, "x", {
+                duration: 0.8,
+                ease: "expo.out",
+              });
+              setY = gsap.quickTo(hover, "y", {
+                duration: 0.8,
+                ease: "expo.out",
+              });
+              align(e);
+              scaleTl.play();
+            }
 
-        // Attach hover events to <a> tags only
-        section.querySelectorAll("a[data-hover-img]").forEach((a) => {
-          a.addEventListener("mouseenter", (e) => handleEnter(e, a));
-          a.addEventListener("mouseleave", handleLeave);
-        });
+            function handleLeave() {
+              fade.reverse();
+              scaleTl.timeScale(2).reverse();
+            }
 
-        /* --- Existing ScrollTrigger Animations (unchanged) --- */
-        const splitIntro = new SplitType("#explore-intro-text", {
-          types: "chars",
-        });
-        gsap.to(splitIntro.chars, {
-          scrollTrigger: {
-            trigger: "#explore-intro",
-            start: "top 80%",
-            end: "bottom 60%",
-            scrub: 0.6,
-          },
-          opacity: 1,
-          y: 0,
-          stagger: 0.015,
-          ease: "power3.out",
-        });
+            // Attach hover events to explore links only
+            exploreSection.querySelectorAll(".explore-link").forEach((a) => {
+              a.addEventListener("mouseenter", (e) => handleEnter(e, a));
+              a.addEventListener("mouseleave", handleLeave);
+            });
 
-        slides.forEach((slide) => {
-          const h2 = slide.querySelector(".explore-h2");
-          const link = slide.querySelector("a");
-          if (h2) {
-            const splitH2 = new SplitType(h2, { types: "chars" });
-            gsap.to(splitH2.chars, {
-              scrollTrigger: { trigger: slide, start: "top 80%", once: true },
+            /* --- ScrollTrigger Animations --- */
+            const splitIntro = new SplitType("#explore-intro-text", {
+              types: "chars",
+            });
+            gsap.to(splitIntro.chars, {
+              scrollTrigger: {
+                trigger: "#explore-intro",
+                start: "top 80%",
+                end: "bottom 60%",
+                scrub: 0.6,
+              },
               opacity: 1,
               y: 0,
-              stagger: 0.02,
-              duration: 0.7,
+              stagger: 0.015,
               ease: "power3.out",
             });
-          }
-          if (link) {
-            const splitLink = new SplitType(link, { types: "chars" });
-            gsap.to(splitLink.chars, {
-              scrollTrigger: { trigger: slide, start: "top 80%", once: true },
-              opacity: 1,
-              y: 0,
-              stagger: 0.02,
-              duration: 0.7,
-              ease: "power3.out",
-              delay: 0.3,
+
+            slides.forEach((slide) => {
+              const h2 = slide.querySelector(".explore-h2");
+              const link = slide.querySelector(".explore-link");
+              if (h2) {
+                const splitH2 = new SplitType(h2, { types: "chars" });
+                gsap.to(splitH2.chars, {
+                  scrollTrigger: {
+                    trigger: slide,
+                    start: "top 80%",
+                    once: true,
+                  },
+                  opacity: 1,
+                  y: 0,
+                  stagger: 0.02,
+                  duration: 0.7,
+                  ease: "power3.out",
+                });
+              }
+              if (link) {
+                const splitLink = new SplitType(link, { types: "chars" });
+                gsap.to(splitLink.chars, {
+                  scrollTrigger: {
+                    trigger: slide,
+                    start: "top 80%",
+                    once: true,
+                  },
+                  opacity: 1,
+                  y: 0,
+                  stagger: 0.02,
+                  duration: 0.7,
+                  ease: "power3.out",
+                  delay: 0.3,
+                });
+              }
             });
-          }
-        });
 
-        const stackGap = 60;
-        gsap.set(slides, { y: "100%" });
-        gsap
-          .timeline({
-            scrollTrigger: {
-              trigger: section,
-              pin: true,
-              scrub: 1,
-              start: "top top",
-              end: () => `+=${(slides.length - 1) * window.innerHeight}`,
-              pinSpacing: true,
-              anticipatePin: 1,
-            },
-          })
-          .to(slides, {
-            y: (i) => i * stackGap,
-            duration: 1,
-            ease: "none",
-            stagger: 1,
-          });
-      }, "#explore-section");
+            const stackGap = 60;
+            gsap.set(slides, { y: "100%" });
+            gsap
+              .timeline({
+                scrollTrigger: {
+                  trigger: exploreSection,
+                  pin: true,
+                  scrub: 1,
+                  start: "top top",
+                  end: () => `+=${(slides.length - 1) * window.innerHeight}`,
+                  pinSpacing: true,
+                  anticipatePin: 1,
+                },
+              })
+              .to(slides, {
+                y: (i) => i * stackGap,
+                duration: 1,
+                ease: "none",
+                stagger: 1,
+              });
+          }, exploreSection);
 
-      window.addEventListener("resize", () => ScrollTrigger.refresh());
-    });
+          // Store context for cleanup if needed
+          window.exploreSectionContext = ctx;
+
+          window.addEventListener("resize", () => ScrollTrigger.refresh());
+        } else {
+          // Retry if GSAP not loaded yet
+          setTimeout(initExploreSection, 100);
+        }
+      }
+
+      // Initialize when DOM is ready
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initExploreSection);
+      } else {
+        initExploreSection();
+      }
+
+      // Cleanup function if needed
+      window.cleanupExploreAnimations = function () {
+        if (window.exploreSectionContext) {
+          window.exploreSectionContext.revert();
+        }
+      };
+    })();
   </script>
 </section>
