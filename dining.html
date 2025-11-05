@@ -2,6 +2,25 @@
 layout: default
 title: Dining Experiences
 
+hero_data:
+  navigation:
+    - name: "Home"
+      url: "/index.html"
+    - name: "Accommodation"
+      url: "/index.html#accommodation"
+    - name: "Dining"
+      url: "/dining.html"
+    - name: "Event"
+      url: "/event-space.html"
+  background_image: "/assets/images/dining-hall.jpg"
+  title: "Dining Experiences"
+  book_now_button:
+    text: "Book Now"
+    bg_color: "#f8efc1"
+    text_color: "#69673a"
+    hover_bg: "#69673a"
+    hover_text: "#f8efc1"
+
 menu_categories:
   - name: "Appetizers"
     items:
@@ -58,4 +77,6 @@ menu_categories:
         tags: ["Vegan", "Gluten Free"]
 ---
 
-{% include dining-hero.html %} {% include menu.html %}
+{% include hero-section.html navigation=page.hero_data.navigation
+background_image=page.hero_data.background_image title=page.hero_data.title
+book_now_button=page.hero_data.book_now_button %} {% include menu.html %}

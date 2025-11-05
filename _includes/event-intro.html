@@ -22,7 +22,7 @@
         <div class="flex items-center mb-8 opacity-0" id="decorative-line">
           <div class="w-12 h-px bg-[#943a21]/30 mr-4"></div>
           <span class="text-sm font-medium tracking-wider text-[#69673a]/60"
-            >WELCOME</span
+            >{{ include.event_intro_data.decorative_text }}</span
           >
         </div>
 
@@ -30,18 +30,16 @@
           class="text-4xl lg:text-6xl font-light mb-8 leading-tight opacity-0"
           id="main-heading"
         >
-          Gather,
-          <span class="block mt-2">Celebrate,</span>
-          <span class="block mt-2">Connect</span>
+          {% for line in include.event_intro_data.heading_lines %}
+          <span class="block mt-2">{{ line }}</span>
+          {% endfor %}
         </h1>
 
         <p
           class="text-lg lg:text-xl leading-relaxed text-[#69673a]/90 mb-8 opacity-0"
           id="main-text"
         >
-          Amara Isles offers a serene setting for unforgettable occasions — from
-          intimate celebrations to elegant gatherings by the sea. Our natural
-          spaces invite connection, creativity, and quiet joy.
+          {{ include.event_intro_data.description }}
         </p>
 
         <!-- CTA Button -->
@@ -49,7 +47,7 @@
           <button
             class="group relative px-8 py-4 bg-transparent border border-[#69673a]/30 rounded-full text-[#69673a] font-medium transition-all duration-500 hover:border-[#69673a]/60 hover:pl-12"
           >
-            <span>Explore Events</span>
+            <span>{{ include.event_intro_data.button_text }}</span>
             <svg
               class="w-5 h-5 ml-2 inline-block opacity-0 group-hover:opacity-100 group-hover:ml-3 transition-all duration-300"
               fill="none"
@@ -79,8 +77,8 @@
           id="image-container"
         >
           <img
-            src="/assets/images/garden-sanctuary.jpg"
-            alt="Luxurious event space at Amara Isles with elegant decor and natural lighting"
+            src="{{ include.event_intro_data.image.src }}"
+            alt="{{ include.event_intro_data.image.alt }}"
             class="w-full h-full object-cover object-center scale-110"
             id="main-image"
           />
@@ -94,9 +92,12 @@
             class="absolute bottom-8 left-8 bg-white/90 backdrop-blur-sm rounded-2xl p-6 max-w-xs shadow-xl opacity-0"
             id="info-card"
           >
-            <h3 class="font-semibold text-[#69673a] mb-2">Garden Sanctuary</h3>
-            <p class="text-sm text-[#69673a]/70">Capacity: 50 guests</p>
-            <p class="text-sm text-[#69673a]/70">Outdoor & Indoor options</p>
+            <h3 class="font-semibold text-[#69673a] mb-2">
+              {{ include.event_intro_data.info_card.title }}
+            </h3>
+            {% for detail in include.event_intro_data.info_card.details %}
+            <p class="text-sm text-[#69673a]/70">{{ detail }}</p>
+            {% endfor %}
           </div>
         </div>
       </div>
@@ -105,108 +106,122 @@
 
   <script>
     (function () {
-      const section = document.querySelector("#event-intro");
-      if (!section) return;
+      // Wait for DOM and GSAP to be ready
+      function initEventIntro() {
+        if (
+          typeof gsap !== "undefined" &&
+          typeof ScrollTrigger !== "undefined"
+        ) {
+          const section = document.querySelector("#event-intro");
+          if (!section) return;
 
-      const ctx = gsap.context(() => {
-        // Master timeline for coordinated animations
-        const masterTL = gsap.timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            end: "bottom top",
-            toggleActions: "play none none reverse",
-          },
-        });
+          const ctx = gsap.context(() => {
+            // Master timeline for coordinated animations
+            const masterTL = gsap.timeline({
+              scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                end: "bottom top",
+                toggleActions: "play none none reverse",
+              },
+            });
 
-        // Text elements sequential animation
-        masterTL
-          .to("#decorative-line", {
-            opacity: 1,
-            duration: 0.8,
-            ease: "power2.out",
-          })
-          .to(
-            "#main-heading",
-            { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" },
-            "-=0.4"
-          )
-          .to(
-            "#main-text",
-            { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
-            "-=0.6"
-          )
-          .to(
-            "#cta-button",
-            { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
-            "-=0.4"
-          );
+            // Text elements sequential animation
+            masterTL
+              .to("#decorative-line", {
+                opacity: 1,
+                duration: 0.8,
+                ease: "power2.out",
+              })
+              .to(
+                "#main-heading",
+                { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" },
+                "-=0.4"
+              )
+              .to(
+                "#main-text",
+                { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
+                "-=0.6"
+              )
+              .to(
+                "#cta-button",
+                { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+                "-=0.4"
+              );
 
-        // Image container entrance
-        gsap.to("#image-container", {
-          opacity: 1,
-          duration: 1.5,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: "#image-container",
-            start: "top 85%",
-            toggleActions: "play none none reverse",
-          },
-        });
+            // Image container entrance
+            gsap.to("#image-container", {
+              opacity: 1,
+              duration: 1.5,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: "#image-container",
+                start: "top 85%",
+                toggleActions: "play none none reverse",
+              },
+            });
 
-        // Image scale animation on scroll
-        gsap.to("#main-image", {
-          scale: 1,
-          duration: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: section,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          },
-        });
+            // Image scale animation on scroll
+            gsap.to("#main-image", {
+              scale: 1,
+              duration: 1,
+              ease: "none",
+              scrollTrigger: {
+                trigger: section,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true,
+              },
+            });
 
-        // Info card animation
-        gsap.to("#info-card", {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          delay: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: "#image-container",
-            start: "top 70%",
-            toggleActions: "play none none reverse",
-          },
-        });
+            // Info card animation
+            gsap.to("#info-card", {
+              opacity: 1,
+              y: 0,
+              duration: 1,
+              delay: 1,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: "#image-container",
+                start: "top 70%",
+                toggleActions: "play none none reverse",
+              },
+            });
 
-        // Scroll indicator animation
-        gsap.to("#scroll-indicator", {
-          opacity: 1,
-          duration: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 90%",
-            toggleActions: "play none none reverse",
-          },
-        });
+            // Parallax effect for background elements
+            gsap.to(".absolute.inset-0 .absolute", {
+              y: (i, target) => (i === 0 ? -100 : 100),
+              ease: "none",
+              scrollTrigger: {
+                trigger: section,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true,
+              },
+            });
+          }, section);
 
-        // Parallax effect for background elements
-        gsap.to(".absolute.inset-0 .absolute", {
-          y: (i, target) => (i === 0 ? -100 : 100),
-          ease: "none",
-          scrollTrigger: {
-            trigger: section,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          },
-        });
-      }, section);
+          // Store context for cleanup
+          window.eventIntroContext = ctx;
+        } else {
+          // Retry if GSAP not loaded yet
+          setTimeout(initEventIntro, 100);
+        }
+      }
 
-      return () => ctx.revert();
+      // Initialize when DOM is ready
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initEventIntro);
+      } else {
+        initEventIntro();
+      }
+
+      // Cleanup function
+      window.cleanupEventIntro = function () {
+        if (window.eventIntroContext) {
+          window.eventIntroContext.revert();
+        }
+      };
     })();
   </script>
 </section>

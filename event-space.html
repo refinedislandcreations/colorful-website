@@ -1,7 +1,46 @@
 ---
 layout: default
 title: Event Space
+
+hero_data:
+  navigation:
+    - name: "Home"
+      url: "/index.html"
+    - name: "Accommodation"
+      url: "/index.html#accommodation"
+    - name: "Dining"
+      url: "/dining.html"
+    - name: "Event"
+      url: "/event-space.html"
+  background_image: "/assets/images/ocean-terrace.jpg"
+  title: "Event Space"
+  book_now_button:
+    text: "Book Now"
+    bg_color: "#f8efc1"
+    text_color: "#69673a"
+    hover_bg: "#69673a"
+    hover_text: "#f8efc1"
+
+event_intro_data:
+  decorative_text: "WELCOME"
+  heading_lines:
+    - "Gather,"
+    - "Celebrate,"
+    - "Connect"
+  description: "Amara Isles offers a serene setting for unforgettable occasions — from intimate celebrations to elegant gatherings by the sea. Our natural spaces invite connection, creativity, and quiet joy."
+  button_text: "Explore Events"
+  image:
+    src: "/assets/images/garden-sanctuary.jpg"
+    alt: "Luxurious event space at Amara Isles with elegant decor and natural lighting"
+  info_card:
+    title: "Garden Sanctuary"
+    details:
+      - "Capacity: 50 guests"
+      - "Outdoor & Indoor options"
 ---
 
-{% include event-hero.html %} {% include event-intro.html %} {% include
-event-gallery.html %} {% include event-cta.html %}
+{% include hero-section.html navigation=page.hero_data.navigation
+background_image=page.hero_data.background_image title=page.hero_data.title
+book_now_button=page.hero_data.book_now_button %} {% include event-intro.html
+event_intro_data=page.event_intro_data %} {% include event-gallery.html %} {%
+include event-cta.html %}
