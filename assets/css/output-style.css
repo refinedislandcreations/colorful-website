@@ -2220,6 +2220,14 @@ footer h3 {
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
+  .md\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .md\:py-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
   .md\:text-left {
     text-align: left;
   }
