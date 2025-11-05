@@ -211,6 +211,9 @@ footer h3 {
 .text-muted {
   color: #e3d69e;
 } /* Pale Sand Beige – subtle elements */
+.text-natural {
+  color: #56552f;
+} /* Dark Olive Brown – natural accents */
 
 /* =====================
    3. Button Styles

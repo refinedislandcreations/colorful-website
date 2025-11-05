@@ -26,7 +26,7 @@
       <div class="space-y-8 leading-relaxed">
         {% for practice in section.practices %}
         <div
-          class="border-l-4 {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}border-primary/30{% else %}border-secondary/30{% endif %} pl-6"
+          class="border-l-4 {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}border-[#943a21]/30{% else %}border-secondary/30{% endif %} pl-6"
         >
           <h4
             class="text-xl font-medium mb-3 tracking-wide uppercase {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}text-primary{% else %}text-secondary{% endif %}"
@@ -47,7 +47,7 @@
       <div class="space-y-6 leading-relaxed">
         {% for ritual in section.rituals %}
         <div
-          class="pb-6 border-b {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}border-primary/20{% else %}border-secondary/20{% endif %} last:border-b-0 last:pb-0"
+          class="pb-6 border-b {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}border-primary/20{% else %}border-[#f8efc1]{% endif %} last:border-b-0 last:pb-0"
         >
           <h4
             class="text-xl font-medium mb-2 tracking-wide {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}text-primary{% else %}text-secondary{% endif %}"
@@ -76,7 +76,7 @@
             {{ therapy.title }}
           </h4>
           <p
-            class="text-base leading-relaxed {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}text-muted-base/80{% else %}text-secondary/80{% endif %}"
+            class="text-base leading-relaxed {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}text-muted/80{% else %}text-secondary{% endif %}"
           >
             {{ therapy.description }}
           </p>
@@ -90,7 +90,7 @@
         {% for program in section.programs %}
         <div class="group">
           <h4
-            class="text-2xl font-light mb-2 tracking-wide border-b {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}border-primary/30{% else %}border-secondary/30{% endif %} pb-2 group-hover:border-primary transition-colors duration-300 {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}text-primary{% else %}text-secondary{% endif %}"
+            class="text-2xl font-light mb-2 tracking-wide border-b {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}border-[#56552f]/50{% else %}border-secondary/30{% endif %} pb-2 group-hover:border-primary transition-colors duration-300 {% if section.bg_color == 'bg-primary-light' or section.bg_color == 'bg-natural-accent' %}text-primary{% else %}text-secondary{% endif %}"
           >
             {{ program.title }}
           </h4>
