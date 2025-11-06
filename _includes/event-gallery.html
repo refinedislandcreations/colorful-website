@@ -29,7 +29,7 @@
       >
         <div class="w-8 h-px bg-[#f8efc1]/40"></div>
         <span class="text-sm font-medium tracking-widest text-[#f8efc1]/60"
-          >EXPLORE OUR SPACES</span
+          >{{ include.event_gallery_data.header.decorative_text }}</span
         >
         <div class="w-8 h-px bg-[#f8efc1]/40"></div>
       </div>
@@ -38,170 +38,55 @@
         class="text-5xl lg:text-7xl font-light mb-8 leading-tight opacity-0"
         id="gallery-main-heading"
       >
-        Venues That
-        <span class="block text-[#f8efc1]/80">Create Memories</span>
+        {% for line in include.event_gallery_data.header.heading_lines %}
+        <span
+          class="block {% if forloop.index0 == 1 %}text-[#f8efc1]/80{% endif %}"
+          >{{ line }}</span
+        >
+        {% endfor %}
       </h2>
 
       <p
         class="text-xl lg:text-2xl leading-relaxed text-[#f8efc1]/80 opacity-0"
         id="gallery-main-text"
       >
-        Discover the perfect backdrop for your special moments, where every
-        space tells a story
+        {{ include.event_gallery_data.header.description }}
       </p>
     </div>
 
     <!-- Gallery Grid -->
     <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-20">
-      <!-- Card 1 -->
+      <!-- Venue Cards -->
+      {% for venue in include.event_gallery_data.venues %}
       <div
         class="group relative h-96 rounded-3xl overflow-hidden opacity-0 translate-y-8"
-        id="gallery-card-1"
+        id="gallery-card-{{ forloop.index }}"
       >
         <div
           class="absolute inset-0 bg-gradient-to-t from-[#943a21] via-transparent to-transparent z-10"
         ></div>
         <img
-          src="/assets/images/ocean-terrace.jpg"
-          alt="Ocean Terrace"
+          src="{{ venue.image }}"
+          alt="{{ venue.alt }}"
           class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
         <div
           class="absolute bottom-0 left-0 right-0 p-8 z-20 transform translate-y-4 transition-transform duration-500 group-hover:translate-y-0"
         >
           <div class="flex items-center justify-between mb-3">
-            <h3 class="text-2xl font-light">Ocean Terrace</h3>
+            <h3 class="text-2xl font-light">{{ venue.name }}</h3>
             <span class="text-sm bg-[#f8efc1]/20 px-3 py-1 rounded-full"
-              >80 Guests</span
+              >{{ venue.capacity }}</span
             >
           </div>
           <p
             class="text-[#f8efc1]/80 text-sm leading-relaxed opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0"
           >
-            Breathtaking views with direct ocean access
+            {{ venue.description }}
           </p>
         </div>
       </div>
-
-      <!-- Card 2 -->
-      <div
-        class="group relative h-96 rounded-3xl overflow-hidden opacity-0 translate-y-8"
-        id="gallery-card-2"
-      >
-        <div
-          class="absolute inset-0 bg-gradient-to-t from-[#943a21] via-transparent to-transparent z-10"
-        ></div>
-        <img
-          src="/assets/images/garden-sanctuary.jpg"
-          alt="Garden Sanctuary"
-          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-        <div
-          class="absolute bottom-0 left-0 right-0 p-8 z-20 transform translate-y-4 transition-transform duration-500 group-hover:translate-y-0"
-        >
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="text-2xl font-light">Garden Sanctuary</h3>
-            <span class="text-sm bg-[#f8efc1]/20 px-3 py-1 rounded-full"
-              >50 Guests</span
-            >
-          </div>
-          <p
-            class="text-[#f8efc1]/80 text-sm leading-relaxed opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0"
-          >
-            Lush tropical gardens with natural ambiance
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div
-        class="group relative h-96 rounded-3xl overflow-hidden opacity-0 translate-y-8"
-        id="gallery-card-3"
-      >
-        <div
-          class="absolute inset-0 bg-gradient-to-t from-[#943a21] via-transparent to-transparent z-10"
-        ></div>
-        <img
-          src="/assets/images/grand-ballroom.jpg"
-          alt="Grand Ballroom"
-          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-        <div
-          class="absolute bottom-0 left-0 right-0 p-8 z-20 transform translate-y-4 transition-transform duration-500 group-hover:translate-y-0"
-        >
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="text-2xl font-light">Grand Ballroom</h3>
-            <span class="text-sm bg-[#f8efc1]/20 px-3 py-1 rounded-full"
-              >200 Guests</span
-            >
-          </div>
-          <p
-            class="text-[#f8efc1]/80 text-sm leading-relaxed opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0"
-          >
-            Elegant indoor space with crystal chandeliers
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div
-        class="group relative h-96 rounded-3xl overflow-hidden opacity-0 translate-y-8"
-        id="gallery-card-4"
-      >
-        <div
-          class="absolute inset-0 bg-gradient-to-t from-[#943a21] via-transparent to-transparent z-10"
-        ></div>
-        <img
-          src="/assets/images/poolside-pavilion.jpg"
-          alt="Poolside Pavilion"
-          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-        <div
-          class="absolute bottom-0 left-0 right-0 p-8 z-20 transform translate-y-4 transition-transform duration-500 group-hover:translate-y-0"
-        >
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="text-2xl font-light">Poolside Pavilion</h3>
-            <span class="text-sm bg-[#f8efc1]/20 px-3 py-1 rounded-full"
-              >60 Guests</span
-            >
-          </div>
-          <p
-            class="text-[#f8efc1]/80 text-sm leading-relaxed opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0"
-          >
-            Intimate gatherings by the infinity pool
-          </p>
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div
-        class="group relative h-96 rounded-3xl overflow-hidden opacity-0 translate-y-8"
-        id="gallery-card-5"
-      >
-        <div
-          class="absolute inset-0 bg-gradient-to-t from-[#943a21] via-transparent to-transparent z-10"
-        ></div>
-        <img
-          src="/assets/images/beachfront-deck.jpg"
-          alt="Beachfront Deck"
-          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-        <div
-          class="absolute bottom-0 left-0 right-0 p-8 z-20 transform translate-y-4 transition-transform duration-500 group-hover:translate-y-0"
-        >
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="text-2xl font-light">Beachfront Deck</h3>
-            <span class="text-sm bg-[#f8efc1]/20 px-3 py-1 rounded-full"
-              >100 Guests</span
-            >
-          </div>
-          <p
-            class="text-[#f8efc1]/80 text-sm leading-relaxed opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0"
-          >
-            Direct beach access with sunset ceremonies
-          </p>
-        </div>
-      </div>
+      {% endfor %}
 
       <!-- CTA Card -->
       <div
@@ -232,14 +117,16 @@
                 />
               </svg>
             </div>
-            <h3 class="text-2xl font-light mb-4">Start Planning</h3>
+            <h3 class="text-2xl font-light mb-4">
+              {{ include.event_gallery_data.cta_card.title }}
+            </h3>
             <p class="text-[#f8efc1]/80 mb-6 leading-relaxed">
-              Ready to create unforgettable memories? Let's discuss your vision.
+              {{ include.event_gallery_data.cta_card.description }}
             </p>
             <button
               class="px-8 py-3 bg-[#f8efc1] text-[#943a21] rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
-              Contact Us
+              {{ include.event_gallery_data.cta_card.button_text }}
             </button>
           </div>
         </div>
@@ -250,28 +137,14 @@
     <div
       class="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto text-center"
     >
-      <div class="opacity-0 translate-y-8" id="stat-1">
+      {% for stat in include.event_gallery_data.stats %}
+      <div class="opacity-0 translate-y-8" id="stat-{{ forloop.index }}">
         <div class="text-3xl lg:text-4xl font-light text-[#f8efc1] mb-2">
-          50+
+          {{ stat.number }}
         </div>
-        <div class="text-sm text-[#f8efc1]/60">Events Hosted</div>
+        <div class="text-sm text-[#f8efc1]/60">{{ stat.label }}</div>
       </div>
-      <div class="opacity-0 translate-y-8" id="stat-2">
-        <div class="text-3xl lg:text-4xl font-light text-[#f8efc1] mb-2">5</div>
-        <div class="text-sm text-[#f8efc1]/60">Unique Venues</div>
-      </div>
-      <div class="opacity-0 translate-y-8" id="stat-3">
-        <div class="text-3xl lg:text-4xl font-light text-[#f8efc1] mb-2">
-          200
-        </div>
-        <div class="text-sm text-[#f8efc1]/60">Max Capacity</div>
-      </div>
-      <div class="opacity-0 translate-y-8" id="stat-4">
-        <div class="text-3xl lg:text-4xl font-light text-[#f8efc1] mb-2">
-          24/7
-        </div>
-        <div class="text-sm text-[#f8efc1]/60">Support</div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 

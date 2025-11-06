@@ -37,10 +37,57 @@ event_intro_data:
     details:
       - "Capacity: 50 guests"
       - "Outdoor & Indoor options"
+
+event_gallery_data:
+  header:
+    decorative_text: "EXPLORE OUR SPACES"
+    heading_lines:
+      - "Venues That"
+      - "Create Memories"
+    description: "Discover the perfect backdrop for your special moments, where every space tells a story"
+  venues:
+    - name: "Ocean Terrace"
+      capacity: "80 Guests"
+      description: "Breathtaking views with direct ocean access"
+      image: "/assets/images/ocean-terrace.jpg"
+      alt: "Ocean Terrace"
+    - name: "Garden Sanctuary"
+      capacity: "50 Guests"
+      description: "Lush tropical gardens with natural ambiance"
+      image: "/assets/images/garden-sanctuary.jpg"
+      alt: "Garden Sanctuary"
+    - name: "Grand Ballroom"
+      capacity: "200 Guests"
+      description: "Elegant indoor space with crystal chandeliers"
+      image: "/assets/images/grand-ballroom.jpg"
+      alt: "Grand Ballroom"
+    - name: "Poolside Pavilion"
+      capacity: "60 Guests"
+      description: "Intimate gatherings by the infinity pool"
+      image: "/assets/images/poolside-pavilion.jpg"
+      alt: "Poolside Pavilion"
+    - name: "Beachfront Deck"
+      capacity: "100 Guests"
+      description: "Direct beach access with sunset ceremonies"
+      image: "/assets/images/beachfront-deck.jpg"
+      alt: "Beachfront Deck"
+  cta_card:
+    title: "Start Planning"
+    description: "Ready to create unforgettable memories? Let's discuss your vision."
+    button_text: "Contact Us"
+  stats:
+    - number: "50+"
+      label: "Events Hosted"
+    - number: "5"
+      label: "Unique Venues"
+    - number: "200"
+      label: "Max Capacity"
+    - number: "24/7"
+      label: "Support"
 ---
 
 {% include hero-section.html navigation=page.hero_data.navigation
 background_image=page.hero_data.background_image title=page.hero_data.title
 book_now_button=page.hero_data.book_now_button %} {% include event-intro.html
-event_intro_data=page.event_intro_data %} {% include event-gallery.html %} {%
-include event-cta.html %}
+event_intro_data=page.event_intro_data %} {% include event-gallery.html
+event_gallery_data=page.event_gallery_data %} {% include event-cta.html %}
