@@ -30,7 +30,7 @@
       id="intro"
       class="absolute inset-0 flex flex-col sm:flex-row items-center justify-center bg-[#69673a] z-0 text-center sm:text-left px-6 sm:px-12"
     >
-      <div class="max-w-3xl sm:max-w-5xl">
+      <div class="max-w-7xl">
         <h1
           id="split-intro-text"
           class="text-3xl sm:text-5xl lg:text-6xl uppercase font-extrabold text-[#f8efc1] leading-tight montserrat-black text-left"
@@ -38,7 +38,7 @@
           {{ include.intro.title }}
         </h1>
         <p
-          class="mt-4 text-base sm:text-lg lg:text-xl text-[#f8efc1] dm-sans-regular max-w-xl mx-auto sm:mx-0 text-left"
+          class="mt-4 text-base sm:text-lg lg:text-xl text-[#f8efc1] dm-sans-regular mx-auto sm:mx-0 text-left"
         >
           {{ include.intro.description }}
         </p>
@@ -113,7 +113,7 @@
   gsap.registerPlugin(ScrollTrigger);
 
   document.addEventListener("DOMContentLoaded", () => {
-    const splitText = new SplitType("#split-intro-text", { types: "chars" });
+    const splitText = new SplitType("#split-intro-text", { types: "words" });
 
     const tl = gsap.timeline({
       scrollTrigger: {

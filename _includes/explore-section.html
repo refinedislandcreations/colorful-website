@@ -158,9 +158,9 @@
 
             /* --- ScrollTrigger Animations --- */
             const splitIntro = new SplitType("#explore-intro-text", {
-              types: "chars",
+              types: "words",
             });
-            gsap.to(splitIntro.chars, {
+            gsap.to(splitIntro.words, {
               scrollTrigger: {
                 trigger: "#explore-intro",
                 start: "top 80%",
@@ -177,8 +177,8 @@
               const h2 = slide.querySelector(".explore-h2");
               const link = slide.querySelector(".explore-link");
               if (h2) {
-                const splitH2 = new SplitType(h2, { types: "chars" });
-                gsap.to(splitH2.chars, {
+                const splitH2 = new SplitType(h2, { types: "words" });
+                gsap.to(splitH2.words, {
                   scrollTrigger: {
                     trigger: slide,
                     start: "top 80%",
@@ -192,8 +192,8 @@
                 });
               }
               if (link) {
-                const splitLink = new SplitType(link, { types: "chars" });
-                gsap.to(splitLink.chars, {
+                const splitLink = new SplitType(link, { types: "words" });
+                gsap.to(splitLink.words, {
                   scrollTrigger: {
                     trigger: slide,
                     start: "top 80%",

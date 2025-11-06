@@ -40,7 +40,7 @@
 
         if (!wellnessIntroSection || !wellnessIntroTitle) return;
 
-        const split = new SplitType(wellnessIntroTitle, { types: "chars" });
+        const split = new SplitType(wellnessIntroTitle, { types: "words" });
 
         gsap.set(split.chars, { opacity: 0, y: 50 });
 
