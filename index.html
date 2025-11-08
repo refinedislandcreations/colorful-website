@@ -1,155 +1,306 @@
----
-layout: default
-title: Home
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-hero_data:
-  navigation:
-    - name: "Home"
-      url: "/index.html"
-    - name: "Accommodation"
-      url: "/index.html#accommodation"
-    - name: "Dining"
-      url: "/dining.html"
-    - name: "Event"
-      url: "/event-space.html"
-  background_image: "/assets/images/hero-image.jpg"
-  title: "Amara Isles"
-  subtitle: "An invitation to breathe and return."
-  book_now_button:
-    text: "Book Now"
-    bg_color: "#f8efc1"
-    text_color: "#69673a"
-    hover_bg: "#69673a"
-    hover_text: "#f8efc1"
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&family=Titan+One&display=swap"
+      rel="stylesheet"
+    />
 
-accommodation_data:
-  intro:
-    title: "Your Private Sanctuary Awaits"
-    description: "Discover Amara Isles, where luxury meets seclusion. Our resort offers exclusive experiences designed for complete privacy and serene comfort, creating moments of pure tranquility amidst breathtaking natural beauty."
-  slides:
-    - number: "01"
-      title: "Ocean-View Private Pools"
-      description: "Every accommodation at Amara Isles features infinity pools that merge seamlessly with the ocean horizon. Wake up to panoramic views and unwind in your personal aquatic sanctuary surrounded by the sounds of nature."
-      bg_color: "#d3a642"
-      text_color: "#943a21"
-      image: "/assets/images/ocean-view-private-pool.jpg"
-      image_alt: "Private Infinity Pool"
-    - number: "02"
-      title: "Secluded Garden Sanctuaries"
-      description: "Wander through our resort's hidden courtyards and lush tropical gardens, each designed for complete privacy. These serene outdoor spaces provide peaceful retreats for meditation, yoga, or simply being present in nature."
-      bg_color: "#943a21"
-      text_color: "#f8efc1"
-      image: "/assets/images/garden-sanctuary.jpg"
-      image_alt: "Secluded Garden Sanctuary"
-    - number: "03"
-      title: "Personalized Resort Experiences"
-      description: "From private chef dinners on the beach to bespoke spa treatments in your suite, we craft unforgettable moments throughout the resort. Every experience is tailored to create your perfect island escape."
-      bg_color: "#b3cdbd"
-      text_color: "#69673a"
-      image: "/assets/images/resort-experience.jpg"
-      image_alt: "Personalized Resort Experience"
+    <title>Document</title>
 
-wellness_data:
-  intro:
-    title: "Restore Balance<br />To Body and Mind"
-    subtitle: "Awaken with the sun in sacred spaces designed for renewal. Our rituals draw from ancient traditions and the healing power of nature."
-  sections:
-    - title: "Morning Practices"
-      image: "/assets/images/morning-yoga.jpg"
-      image_alt: "Morning Practices"
-      bg_color: "bg-primary-light" # Ivory Cream
-      practices:
-        - title: "Sunrise Yoga with Ocean Salutations"
-          description: "Greet the day with Vinyasa flows synchronized to ocean rhythms."
-        - title: "Guided Meditation in Cliffside Pavilions"
-          description: "Find profound stillness where ocean meets sky."
-        - title: "Breathwork Sessions with Sea Breeze"
-          description: "Harness the healing power of ocean air through pranayama."
-    - title: "Healing Rituals"
-      image: "/assets/images/spa-treatment.jpg"
-      image_alt: "Healing Rituals"
-      layout: "reverse"
-      bg_color: "bg-warm-accent" # Golden Sand
-      rituals:
-        - title: "Island Spa Treatments"
-          description: "Coconut scrubs, tropical flower baths, volcanic stones."
-        - title: "Balinese Massage"
-          description: "Ancient techniques for deep relaxation and energy flow."
-        - title: "Holistic Consultations"
-          description: "Personalized guidance from our wellness experts."
-    - title: "Signature Therapies"
-      image: "/assets/images/signature-therapy.jpg"
-      image_alt: "Signature Therapies"
-      bg_color: "bg-deep-accent" # Terracotta
-      therapies:
-        - title: "Ayurvedic Treatments"
-          description: "Ancient Indian healing for mind-body balance."
-        - title: "Sound Healing"
-          description: "Crystal bowls and ocean frequencies."
-        - title: "Hot Stone Therapy"
-          description: "Volcanic stones for deep relief."
-        - title: "Aromatherapy"
-          description: "Local essential oils for sensory healing."
-    - title: "Wellness Programs"
-      image: "/assets/images/wellness-program.jpg"
-      image_alt: "Wellness Programs"
-      layout: "reverse"
-      bg_color: "bg-natural-accent" # Soft Sage Green
-      programs:
-        - title: "3-Day Mindfulness Reset"
-          description: "Quick rejuvenation for busy lifestyles."
-        - title: "5-Day Detox & Renewal"
-          description: "Comprehensive cleansing journey."
-        - title: "7-Day Holistic Harmony"
-          description: "Complete mind-body transformation."
-        - title: "Corporate Wellness Retreats"
-          description: "Team building through wellness experiences."
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/css/output-style.css" />
+  </head>
+  <body>
+    <!----------------HEADER---------------------->
 
-explore_data:
-  intro:
-    title: "Discover experiences that awaken your senses"
-    bg_color: "bg-muted-base" # Olive Brown
-    text_color: "text-muted" # Pale Sand Beige
-  slides:
-    - number: "01"
-      title: "Savor Coastal Flavors"
-      description: "Discover our farm-to-table dining experiences"
-      link_url: "/dining.html"
-      bg_color: "bg-warm-accent"
-      text_color: "text-primary"
-      hover_image: "/assets/images/dining-hall.jpg"
-    - number: "02"
-      title: "Celebrate Together"
-      description: "Explore intimate gathering spaces"
-      link_url: "/event-space.html"
-      bg_color: "bg-natural-accent"
-      text_color: "text-natural"
-      hover_image: "/assets/images/ocean-terrace.jpg"
+    <header
+      class="flex justify-center items-center min-h-[65vh] sm:min-h-screen bg-top bg-cover text-white bg-center"
+      style="background-image: url('/assets/images/hero-image.jpg')"
+    >
+      <nav class="absolute top-4 left-4">
+        <a href="#" class="mx-8"> Logo </a>
+        <!-----
+            <a href="#" class="mx-5"> Nav 1 </a>
+            <a href="#" class="mx-5"> Nav 2 </a>
+            <a href="#" class="mx-5"> Nav 3 </a>
+            ----->
+      </nav>
+      <a
+        href="#"
+        class="absolute top-4 right-4 border-2 rounded-full px-4 py-1"
+      >
+        Contact us
+      </a>
 
-cta_data:
-  bg_color: "bg-deep-accent" # Terracotta
-  text_color: "text-secondary" # Ivory Cream
-  title: "Escape to Tranquility"
-  description: "Experience the balance of serenity and indulgence at Amara Isles. Your private retreat awaits."
-  button:
-    text: "Book Your Stay"
-    url: "#book"
-    border_color: "#f8efc1"
-    hover_bg: "#f8efc1"
-    hover_text: "#943a21"
----
+      <div class="text-center">
+        <h1 class="text-6xl sm:text-9xl">
+          This is a <br />
+          heading
+        </h1>
+        <h2 class="text-xl sm:text-3xl text-black p-[3%]">Subheading</h2>
+        <a href="#" class="bg-black text-white rounded-full px-4 py-1">
+          Book now
+        </a>
+      </div>
 
-{% include hero-section.html navigation=page.hero_data.navigation
-background_image=page.hero_data.background_image title=page.hero_data.title
-subtitle=page.hero_data.subtitle book_now_button=page.hero_data.book_now_button
-%}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1440"
+        height="111"
+        viewBox="0 0 1440 111"
+        fill="none"
+        class="absolute bottom-[28.9%;] sm:bottom-[-4.2%;] left-0 w-full rotate-180"
+      >
+        <path
+          d="M1816 31.6148C1724.67 31.6148 1724.67 111 1633.31 111C1541.96 111 1541.98 31.6148 1450.63 31.6148C1359.27 31.6148 1359.29 111 1267.96 111C1176.63 111 1176.63 31.6148 1085.29 31.6148C993.959 31.6148 993.959 111 902.626 111C811.293 111 811.293 31.6148 719.959 31.6148C628.626 31.6148 628.626 111 537.293 111C445.959 111 445.959 31.6148 354.626 31.6148C263.293 31.6148 263.293 111 171.959 111C80.6261 111 80.6261 31.6148 -10.7072 31.6148C-102.041 31.6148 -102.041 111 -193.354 111C-284.667 111 -284.667 31.6148 -376 31.6148V0H720H1816V31.6148Z"
+          fill="#EEC1DC"
+        />
+      </svg>
+    </header>
 
-<div id="accommodation">
-  {% include accommodation-section.html intro=page.accommodation_data.intro
-  slides=page.accommodation_data.slides %}
-</div>
+    <!----------------3 WINDOW SECTION---------------------->
 
-{% include wellness-intro.html intro=page.wellness_data.intro %} {% include
-wellness-section.html sections=page.wellness_data.sections %} {% include
-explore-section.html explore_data=page.explore_data %} {% include amara-cta.html
-cta_data=page.cta_data %}
+    <section class="bg-[#EEC1DC] p-[5%] text-center">
+      <h2 class="mt-10 sm:mt-0">Duis Aute Irure</h2>
+
+      <div class="sm:grid sm:grid-cols-3 sm:gap-4 mt-14">
+        <div>
+          <img
+            src="/assets/images/bold-2-cut.jpg"
+            alt="pillow sofa"
+            class="rounded-t-[45vw] sm:rounded-t-[20vw] rounded-b-[5rem]"
+          />
+          <p class="py-10 sm:pt-10">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
+            provident, repellat facere natus consequatur suscipit incidunt unde
+            illo inventore explicabo, in sunt dolores dolore odio excepturi,
+            architecto eveniet. Dignissimos, quod!
+          </p>
+        </div>
+
+        <div>
+          <img
+            src="/assets/images/bold-3-cut.jpg"
+            alt="lamp"
+            class="rounded-t-[45vw] sm:rounded-t-[20vw] rounded-b-[5rem]"
+          />
+          <p class="py-10 sm:pt-10">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
+            provident, repellat facere natus consequatur suscipit incidunt unde
+            illo inventore explicabo, in sunt dolores dolore odio excepturi,
+            architecto eveniet. Dignissimos, quod!
+          </p>
+        </div>
+
+        <div>
+          <img
+            src="/assets/images/bold-4-cut.jpg"
+            alt="sofa"
+            class="rounded-t-[45vw] sm:rounded-t-[20vw] rounded-b-[5rem]"
+          />
+          <p class="py-10 sm:pt-10">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
+            provident, repellat facere natus consequatur suscipit incidunt unde
+            illo inventore explicabo, in sunt dolores dolore odio excepturi,
+            architecto eveniet. Dignissimos, quod!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!----------------OVERLAPPING RAINBOW---------------------->
+
+    <section class="sm:grid sm:grid-cols-2 gap-2 bg-[#EEC1DC]">
+      <div class="mb-14">
+        <img
+          src="/assets/images/bold-5-cut.jpg"
+          alt="rainbow wall"
+          class="rounded-r-full sm:w-[120%] sm:max-w-[120%]"
+        />
+      </div>
+
+      <div class="self-center p-5p sm:p-0 sm:pb-5p pb-15p">
+        <h2 class="mt-[-8rem] sm:mt-0">Duis aute irure</h2>
+        <p class="py-5">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
+          provident, repellat facere natus consequatur suscipit incidunt unde
+          illo inventore explicabo, in sunt dolores dolore odio excepturi,
+          architecto eveniet. Dignissimos, quod!
+        </p>
+        <a href="#" class="bg-[#FE953D] rounded-full px-6 py-1"> Sign up </a>
+      </div>
+    </section>
+
+    <!----------------YELLOW ORANGE SECTION---------------------->
+
+    <section class="md:grid md:grid-cols-2 bg-[#FE953D]">
+      <div class="bg-[#FEC001] pt-28 px-24 hidden md:block">
+        <img
+          src="/assets/images/bold-6-cut.jpg"
+          alt="door"
+          class="rounded-t-full"
+        />
+      </div>
+
+      <div class="self-end p-[10%] text-center md:text-left">
+        <h2 class="text-white">Duis aute irure</h2>
+        <p class="py-5">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
+          provident, repellat facere natus consequatur suscipit incidunt unde
+          illo inventore explicabo, in sunt dolores dolore odio excepturi,
+          architecto eveniet. Dignissimos, quod!
+        </p>
+        <a href="#" class="bg-[#EEC1DC] rounded-full px-6 py-1"> Buy now </a>
+      </div>
+    </section>
+
+    <!----------------LONG LAMP---------------------->
+
+    <section
+      class="grid grid-cols-4 gap-8 bg-[#EEC1DC] py-8 md:py-16 items-center"
+    >
+      <div class="col-span-2 aspect-[2] relative">
+        <img
+          src="/assets/images/bold-7-cut.jpg"
+          alt="lamp"
+          class="rounded-r-full absolute inset-0 h-full w-full object-cover"
+        />
+      </div>
+
+      <div class="aspect-square relative">
+        <img
+          src="/assets/images/bold-8.jpg"
+          alt="shadow"
+          class="rounded-full absolute inset-0 h-full w-full object-cover"
+        />
+      </div>
+
+      <div class="aspect-square relative">
+        <img
+          src="/assets/images/bold-9-cut.jpg"
+          alt="bag"
+          class="rounded-l-full absolute inset-0 h-full w-full object-cover"
+        />
+      </div>
+    </section>
+
+    <!----------------CONTACT FORM---------------------->
+
+    <section
+      class="md:grid md:grid-cols-4 gap-2 bg-[#FE953D] px-[4%] py-[8%] relative"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1440"
+        height="111"
+        viewBox="0 0 1440 111"
+        fill="none"
+        class="absolute top-[-8.2%] md:top-[-5.2%] left-0 w-full"
+      >
+        <path
+          d="M1816 31.6148C1724.67 31.6148 1724.67 111 1633.31 111C1541.96 111 1541.98 31.6148 1450.63 31.6148C1359.27 31.6148 1359.29 111 1267.96 111C1176.63 111 1176.63 31.6148 1085.29 31.6148C993.959 31.6148 993.959 111 902.626 111C811.293 111 811.293 31.6148 719.959 31.6148C628.626 31.6148 628.626 111 537.293 111C445.959 111 445.959 31.6148 354.626 31.6148C263.293 31.6148 263.293 111 171.959 111C80.6261 111 80.6261 31.6148 -10.7072 31.6148C-102.041 31.6148 -102.041 111 -193.354 111C-284.667 111 -284.667 31.6148 -376 31.6148V0H720H1816V31.6148Z"
+          fill="#EEC1DC"
+        />
+      </svg>
+
+      <div class="col-span-2">
+        <h2 class="uppercase">Contact us</h2>
+        <p class="pr-[36%] pt-[4%]">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit quam,
+          ipsum magnam quaerat cupiditate commodi natus autem consequuntur
+          distinctio eos saepe nam quisquam ex nulla, porro aliquam officia quis
+          dolores?
+        </p>
+      </div>
+
+      <div class="col-span-2 uppercase">
+        <label for="_name"> Name </label>
+        <input
+          type="text"
+          name="_name"
+          id="_name"
+          placeholder=" "
+          class="rounded-3xl bg-[#EEC1DC]"
+        />
+
+        <label for="_replyto"> Email </label>
+        <input
+          type="email"
+          name="_replyto"
+          id="_replyto"
+          placeholder=" "
+          class="rounded-3xl bg-[#EEC1DC]"
+        />
+
+        <label for="message"> Message </label>
+        <textarea
+          name="message"
+          id="message"
+          placeholder=" "
+          class="rounded-3xl bg-[#EEC1DC]"
+        ></textarea>
+
+        <input
+          href="#"
+          type="submit"
+          class="bg-black text-white rounded-full px-4 py-1 ml-auto w-min"
+          value="send"
+        />
+      </div>
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1440"
+        height="111"
+        viewBox="0 0 1440 111"
+        fill="none"
+        class="absolute bottom-[-5.2%] left-0 w-full rotate-180"
+      >
+        <path
+          d="M1816 31.6148C1724.67 31.6148 1724.67 111 1633.31 111C1541.96 111 1541.98 31.6148 1450.63 31.6148C1359.27 31.6148 1359.29 111 1267.96 111C1176.63 111 1176.63 31.6148 1085.29 31.6148C993.959 31.6148 993.959 111 902.626 111C811.293 111 811.293 31.6148 719.959 31.6148C628.626 31.6148 628.626 111 537.293 111C445.959 111 445.959 31.6148 354.626 31.6148C263.293 31.6148 263.293 111 171.959 111C80.6261 111 80.6261 31.6148 -10.7072 31.6148C-102.041 31.6148 -102.041 111 -193.354 111C-284.667 111 -284.667 31.6148 -376 31.6148V0H720H1816V31.6148Z"
+          fill="#EEC1DC"
+        />
+      </svg>
+    </section>
+
+    <!----------------FOOTER---------------------->
+
+    <footer class="grid grid-cols-5 gap-12 bg-[#EEC1DC] uppercase p-[4%]">
+      <div>
+        <h3>Lorem Ipsum</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+      </div>
+
+      <div>
+        <h3>Lorem Ipsum</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+      </div>
+
+      <div>
+        <h3>Lorem Ipsum</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+      </div>
+
+      <div class="col-span-2 text-right">
+        <h3>Subscribe to our newsletter</h3>
+        <input
+          type="email"
+          name="_replyto"
+          id="_replyto"
+          placeholder=" "
+          class="rounded-3xl bg-[#FE953D] ml-auto w-[50%]"
+        />
+        <a href="#" class="bg-black text-white rounded-full px-4 py-1">
+          Subscribe
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>
