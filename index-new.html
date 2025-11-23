@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&family=Titan+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Modern Interior Design</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "brand-pink": "#EEC1DC",
+              "brand-orange": "#FE953D",
+              "brand-yellow": "#FEC001",
+            },
+            fontFamily: {
+              "titan-one": ["Titan One", "cursive"],
+              montserrat: ["Montserrat", "sans-serif"],
+            },
+            spacing: {
+              "5p": "5%",
+              "10p": "10%",
+              "15p": "15%",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- GSAP Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  </head>
+  <body class="font-montserrat">
+    <!---------------- HEADER SECTION - GSAP ANIMATION READY ---------------->
+    <header
+      class="flex justify-center items-center min-h-[65vh] sm:min-h-screen bg-top bg-cover text-white bg-center relative overflow-hidden"
+      style="background-image: url('/assets/images/hero-image.jpg')"
+    >
+      <!-- Navigation -->
+      <nav class="absolute top-4 left-4 z-10">
+        <a href="#" class="mx-8 text-xl font-bold opacity-0" id="logo">Logo</a>
+      </nav>
+
+      <a
+        href="#"
+        class="absolute top-4 right-4 border-2 rounded-full px-4 py-1 opacity-0 hover:bg-white hover:text-black transition-colors duration-300"
+        id="contact-btn"
+      >
+        Contact us
+      </a>
+
+      <!-- Hero Content -->
+      <div class="text-center z-10">
+        <h1
+          class="text-6xl sm:text-9xl font-titan-one opacity-0"
+          id="hero-heading"
+        >
+          This is a <br />
+          <span class="opacity-0" id="hero-heading-2">heading</span>
+        </h1>
+        <h2
+          class="text-xl sm:text-3xl text-black p-5p opacity-0"
+          id="hero-subheading"
+        >
+          Subheading
+        </h2>
+        <a
+          href="#"
+          class="bg-black text-white rounded-full px-6 py-2 opacity-0 hover:bg-white hover:text-black transition-colors duration-300"
+          id="hero-cta"
+        >
+          Book now
+        </a>
+      </div>
+
+      <!-- Wave SVG -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1440"
+        height="111"
+        viewBox="0 0 1440 111"
+        fill="none"
+        class="absolute bottom-[28.9%] sm:bottom-[-4.2%] left-0 w-full rotate-180 z-0 opacity-0"
+        id="header-wave"
+      >
+        <path
+          d="M1816 31.6148C1724.67 31.6148 1724.67 111 1633.31 111C1541.96 111 1541.98 31.6148 1450.63 31.6148C1359.27 31.6148 1359.29 111 1267.96 111C1176.63 111 1176.63 31.6148 1085.29 31.6148C993.959 31.6148 993.959 111 902.626 111C811.293 111 811.293 31.6148 719.959 31.6148C628.626 31.6148 628.626 111 537.293 111C445.959 111 445.959 31.6148 354.626 31.6148C263.293 31.6148 263.293 111 171.959 111C80.6261 111 80.6261 31.6148 -10.7072 31.6148C-102.041 31.6148 -102.041 111 -193.354 111C-284.667 111 -284.667 31.6148 -376 31.6148V0H720H1816V31.6148Z"
+          fill="#EEC1DC"
+        />
+      </svg>
+    </header>
+
+    <!---------------- 3 WINDOW SECTION - GSAP SCROLL TRIGGER READY ---------------->
+    <section class="bg-brand-pink p-5p text-center overflow-hidden">
+      <h2
+        class="mt-10 sm:mt-0 text-3xl font-bold opacity-0"
+        id="section-heading"
+      >
+        Duis Aute Irure
+      </h2>
+
+      <div class="sm:grid sm:grid-cols-3 sm:gap-8 mt-14">
+        <!-- Card 1 -->
+        <div class="opacity-0 translate-y-10" id="card-1">
+          <div
+            class="overflow-hidden rounded-t-[45vw] sm:rounded-t-[20vw] rounded-b-[5rem]"
+          >
+            <img
+              src="/assets/images/bold-2-cut.jpg"
+              alt="pillow sofa"
+              class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+            />
+          </div>
+          <p class="py-10 sm:pt-10">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
+            provident, repellat facere natus consequatur suscipit incidunt unde
+            illo inventore explicabo, in sunt dolores dolore odio excepturi,
+            architecto eveniet. Dignissimos, quod!
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="opacity-0 translate-y-10" id="card-2">
+          <div
+            class="overflow-hidden rounded-t-[45vw] sm:rounded-t-[20vw] rounded-b-[5rem]"
+          >
+            <img
+              src="/assets/images/bold-3-cut.jpg"
+              alt="lamp"
+              class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+            />
+          </div>
+          <p class="py-10 sm:pt-10">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
+            provident, repellat facere natus consequatur suscipit incidunt unde
+            illo inventore explicabo, in sunt dolores dolore odio excepturi,
+            architecto eveniet. Dignissimos, quod!
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="opacity-0 translate-y-10" id="card-3">
+          <div
+            class="overflow-hidden rounded-t-[45vw] sm:rounded-t-[20vw] rounded-b-[5rem]"
+          >
+            <img
+              src="/assets/images/bold-4-cut.jpg"
+              alt="sofa"
+              class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+            />
+          </div>
+          <p class="py-10 sm:pt-10">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
+            provident, repellat facere natus consequatur suscipit incidunt unde
+            illo inventore explicabo, in sunt dolores dolore odio excepturi,
+            architecto eveniet. Dignissimos, quod!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!---------------- OVERLAPPING RAINBOW SECTION - GSAP SCROLL TRIGGER READY ---------------->
+    <section class="sm:grid sm:grid-cols-2 gap-8 bg-brand-pink overflow-hidden">
+      <div class="mb-14 opacity-0 -translate-x-10" id="rainbow-image">
+        <div class="overflow-hidden rounded-r-full sm:w-[120%] sm:max-w-[120%]">
+          <img
+            src="/assets/images/bold-5-cut.jpg"
+            alt="rainbow wall"
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+
+      <div
+        class="self-center p-5p sm:p-0 sm:pb-5p pb-15p opacity-0 translate-x-10"
+        id="rainbow-content"
+      >
+        <h2 class="mt-[-8rem] sm:mt-0 text-3xl font-bold">Duis aute irure</h2>
+        <p class="py-5">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
+          provident, repellat facere natus consequatur suscipit incidunt unde
+          illo inventore explicabo, in sunt dolores dolore odio excepturi,
+          architecto eveniet. Dignissimos, quod!
+        </p>
+        <a
+          href="#"
+          class="bg-brand-orange rounded-full px-6 py-2 inline-block hover:bg-black hover:text-white transition-colors duration-300"
+        >
+          Sign up
+        </a>
+      </div>
+    </section>
+
+    <!---------------- YELLOW ORANGE SECTION - GSAP SCROLL TRIGGER READY ---------------->
+    <section class="md:grid md:grid-cols-2 bg-brand-orange overflow-hidden">
+      <div
+        class="bg-brand-yellow pt-28 px-24 hidden md:block opacity-0 -translate-x-10"
+        id="door-image"
+      >
+        <div class="overflow-hidden rounded-t-full">
+          <img
+            src="/assets/images/bold-6-cut.jpg"
+            alt="door"
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+
+      <div
+        class="self-end p-10p text-center md:text-left opacity-0 translate-x-10"
+        id="door-content"
+      >
+        <h2 class="text-white text-3xl font-bold">Duis aute irure</h2>
+        <p class="py-5">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
+          provident, repellat facere natus consequatur suscipit incidunt unde
+          illo inventore explicabo, in sunt dolores dolore odio excepturi,
+          architecto eveniet. Dignissimos, quod!
+        </p>
+        <a
+          href="#"
+          class="bg-brand-pink rounded-full px-6 py-2 inline-block hover:bg-black hover:text-white transition-colors duration-300"
+        >
+          Buy now
+        </a>
+      </div>
+    </section>
+
+    <!---------------- LONG LAMP SECTION - GSAP SCROLL TRIGGER READY ---------------->
+    <section
+      class="grid grid-cols-4 gap-8 bg-brand-pink py-8 md:py-16 items-center overflow-hidden"
+      id="lamp-section"
+    >
+      <div
+        class="col-span-2 aspect-[2] relative opacity-0 -translate-x-10"
+        id="lamp-image"
+      >
+        <div
+          class="overflow-hidden rounded-r-full absolute inset-0 h-full w-full"
+        >
+          <img
+            src="/assets/images/bold-7-cut.jpg"
+            alt="lamp"
+            class="h-full w-full object-cover"
+          />
+        </div>
+      </div>
+
+      <div
+        class="aspect-square relative opacity-0 translate-y-10"
+        id="shadow-image"
+      >
+        <div
+          class="overflow-hidden rounded-full absolute inset-0 h-full w-full"
+        >
+          <img
+            src="/assets/images/bold-8.jpg"
+            alt="shadow"
+            class="h-full w-full object-cover"
+          />
+        </div>
+      </div>
+
+      <div
+        class="aspect-square relative opacity-0 translate-y-10"
+        id="bag-image"
+      >
+        <div
+          class="overflow-hidden rounded-l-full absolute inset-0 h-full w-full"
+        >
+          <img
+            src="/assets/images/bold-9-cut.jpg"
+            alt="bag"
+            class="h-full w-full object-cover"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!---------------- CONTACT FORM SECTION - GSAP SCROLL TRIGGER READY ---------------->
+    <section
+      class="md:grid md:grid-cols-4 gap-8 bg-brand-orange px-5p py-10p relative overflow-hidden"
+      id="contact-section"
+    >
+      <!-- Top Wave -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1440"
+        height="111"
+        viewBox="0 0 1440 111"
+        fill="none"
+        class="absolute top-[-8.2%] md:top-[-5.2%] left-0 w-full opacity-0"
+        id="contact-top-wave"
+      >
+        <path
+          d="M1816 31.6148C1724.67 31.6148 1724.67 111 1633.31 111C1541.96 111 1541.98 31.6148 1450.63 31.6148C1359.27 31.6148 1359.29 111 1267.96 111C1176.63 111 1176.63 31.6148 1085.29 31.6148C993.959 31.6148 993.959 111 902.626 111C811.293 111 811.293 31.6148 719.959 31.6148C628.626 31.6148 628.626 111 537.293 111C445.959 111 445.959 31.6148 354.626 31.6148C263.293 31.6148 263.293 111 171.959 111C80.6261 111 80.6261 31.6148 -10.7072 31.6148C-102.041 31.6148 -102.041 111 -193.354 111C-284.667 111 -284.667 31.6148 -376 31.6148V0H720H1816V31.6148Z"
+          fill="#EEC1DC"
+        />
+      </svg>
+
+      <!-- Contact Content -->
+      <div class="col-span-2 opacity-0 -translate-x-10" id="contact-info">
+        <h2 class="uppercase text-3xl font-bold">Contact us</h2>
+        <p class="pr-10p pt-5p">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit quam,
+          ipsum magnam quaerat cupiditate commodi natus autem consequuntur
+          distinctio eos saepe nam quisquam ex nulla, porro aliquam officia quis
+          dolores?
+        </p>
+      </div>
+
+      <!-- Contact Form -->
+      <div
+        class="col-span-2 uppercase opacity-0 translate-x-10"
+        id="contact-form"
+      >
+        <div class="mb-4">
+          <label for="_name" class="block mb-2">Name</label>
+          <input
+            type="text"
+            name="_name"
+            id="_name"
+            placeholder=" "
+            class="rounded-3xl bg-brand-pink w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+          />
+        </div>
+
+        <div class="mb-4">
+          <label for="_replyto" class="block mb-2">Email</label>
+          <input
+            type="email"
+            name="_replyto"
+            id="_replyto"
+            placeholder=" "
+            class="rounded-3xl bg-brand-pink w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+          />
+        </div>
+
+        <div class="mb-6">
+          <label for="message" class="block mb-2">Message</label>
+          <textarea
+            name="message"
+            id="message"
+            placeholder=" "
+            class="rounded-3xl bg-brand-pink w-full px-4 py-2 h-32 focus:outline-none focus:ring-2 focus:ring-black"
+          ></textarea>
+        </div>
+
+        <input
+          type="submit"
+          class="bg-black text-white rounded-full px-6 py-2 cursor-pointer hover:bg-white hover:text-black transition-colors duration-300"
+          value="Send"
+        />
+      </div>
+
+      <!-- Bottom Wave -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1440"
+        height="111"
+        viewBox="0 0 1440 111"
+        fill="none"
+        class="absolute bottom-[-5.2%] left-0 w-full rotate-180 opacity-0"
+        id="contact-bottom-wave"
+      >
+        <path
+          d="M1816 31.6148C1724.67 31.6148 1724.67 111 1633.31 111C1541.96 111 1541.98 31.6148 1450.63 31.6148C1359.27 31.6148 1359.29 111 1267.96 111C1176.63 111 1176.63 31.6148 1085.29 31.6148C993.959 31.6148 993.959 111 902.626 111C811.293 111 811.293 31.6148 719.959 31.6148C628.626 31.6148 628.626 111 537.293 111C445.959 111 445.959 31.6148 354.626 31.6148C263.293 31.6148 263.293 111 171.959 111C80.6261 111 80.6261 31.6148 -10.7072 31.6148C-102.041 31.6148 -102.041 111 -193.354 111C-284.667 111 -284.667 31.6148 -376 31.6148V0H720H1816V31.6148Z"
+          fill="#EEC1DC"
+        />
+      </svg>
+    </section>
+
+    <!---------------- FOOTER SECTION ---------------->
+    <footer class="grid grid-cols-5 gap-12 bg-brand-pink uppercase p-5p">
+      <div>
+        <h3 class="font-bold mb-2">Lorem Ipsum</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+      </div>
+
+      <div>
+        <h3 class="font-bold mb-2">Lorem Ipsum</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+      </div>
+
+      <div>
+        <h3 class="font-bold mb-2">Lorem Ipsum</h3>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+      </div>
+
+      <div class="col-span-2 text-right">
+        <h3 class="font-bold mb-2">Subscribe to our newsletter</h3>
+        <div class="flex justify-end items-center gap-4">
+          <input
+            type="email"
+            name="_replyto"
+            id="footer-email"
+            placeholder="Email address"
+            class="rounded-3xl bg-brand-orange px-4 py-2 w-1/2 focus:outline-none focus:ring-2 focus:ring-black"
+          />
+          <a
+            href="#"
+            class="bg-black text-white rounded-full px-4 py-2 hover:bg-white hover:text-black transition-colors duration-300"
+          >
+            Subscribe
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- GSAP Animation Script -->
+    <script>
+      // Register ScrollTrigger plugin
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Wait for DOM to load
+      document.addEventListener("DOMContentLoaded", function () {
+        // ========== HERO SECTION ANIMATIONS ==========
+        const heroTimeline = gsap.timeline();
+
+        heroTimeline
+          .fromTo(
+            "#logo",
+            { opacity: 0, y: -20 },
+            { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
+          )
+          .fromTo(
+            "#contact-btn",
+            { opacity: 0, y: -20 },
+            { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+            "-=0.6"
+          )
+          .fromTo(
+            "#hero-heading",
+            { opacity: 0, y: 50 },
+            { opacity: 1, y: 0, duration: 1, ease: "power2.out" }
+          )
+          .fromTo(
+            "#hero-heading-2",
+            { opacity: 0, scale: 0.8 },
+            { opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.7)" },
+            "-=0.5"
+          )
+          .fromTo(
+            "#hero-subheading",
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+            "-=0.3"
+          )
+          .fromTo(
+            "#hero-cta",
+            { opacity: 0, scale: 0.8 },
+            { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.7)" }
+          )
+          .fromTo(
+            "#header-wave",
+            { opacity: 0, y: 50 },
+            { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
+            "-=0.5"
+          );
+
+        // ========== SCROLL TRIGGER ANIMATIONS ==========
+
+        // 3 Window Section
+        gsap.fromTo(
+          "#section-heading",
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            scrollTrigger: {
+              trigger: "#section-heading",
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+
+        // Animate cards with stagger
+        gsap.fromTo(
+          ["#card-1", "#card-2", "#card-3"],
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            scrollTrigger: {
+              trigger: ".sm\\:grid-cols-3",
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+
+        // Rainbow Section
+        gsap.fromTo(
+          "#rainbow-image",
+          { opacity: 0, x: -50 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            scrollTrigger: {
+              trigger: "#rainbow-image",
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+
+        gsap.fromTo(
+          "#rainbow-content",
+          { opacity: 0, x: 50 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            scrollTrigger: {
+              trigger: "#rainbow-content",
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+
+        // Yellow Orange Section
+        gsap.fromTo(
+          "#door-image",
+          { opacity: 0, x: -50 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            scrollTrigger: {
+              trigger: "#door-image",
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+
+        gsap.fromTo(
+          "#door-content",
+          { opacity: 0, x: 50 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            scrollTrigger: {
+              trigger: "#door-content",
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+
+        // Lamp Section
+        const lampTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#lamp-section",
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        });
+
+        lampTimeline
+          .fromTo(
+            "#lamp-image",
+            { opacity: 0, x: -50 },
+            { opacity: 1, x: 0, duration: 1 }
+          )
+          .fromTo(
+            "#shadow-image",
+            { opacity: 0, y: 50 },
+            { opacity: 1, y: 0, duration: 0.8 },
+            "-=0.5"
+          )
+          .fromTo(
+            "#bag-image",
+            { opacity: 0, y: 50 },
+            { opacity: 1, y: 0, duration: 0.8 },
+            "-=0.3"
+          );
+
+        // Contact Section
+        const contactTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#contact-section",
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        });
+
+        contactTimeline
+          .fromTo(
+            "#contact-top-wave",
+            { opacity: 0, y: -30 },
+            { opacity: 1, y: 0, duration: 1 }
+          )
+          .fromTo(
+            "#contact-info",
+            { opacity: 0, x: -50 },
+            { opacity: 1, x: 0, duration: 1 },
+            "-=0.5"
+          )
+          .fromTo(
+            "#contact-form",
+            { opacity: 0, x: 50 },
+            { opacity: 1, x: 0, duration: 1 },
+            "-=0.5"
+          )
+          .fromTo(
+            "#contact-bottom-wave",
+            { opacity: 0, y: 30 },
+            { opacity: 1, y: 0, duration: 1 },
+            "-=0.5"
+          );
+
+        // ========== MICRO-INTERACTIONS ==========
+
+        // Add hover animations to buttons
+        const buttons = document.querySelectorAll('a, input[type="submit"]');
+        buttons.forEach((button) => {
+          button.addEventListener("mouseenter", () => {
+            gsap.to(button, { scale: 1.05, duration: 0.2, ease: "power2.out" });
+          });
+
+          button.addEventListener("mouseleave", () => {
+            gsap.to(button, { scale: 1, duration: 0.2, ease: "power2.out" });
+          });
+        });
+
+        // Add subtle parallax to hero background
+        gsap.to("header", {
+          backgroundPosition: "50% 100%",
+          ease: "none",
+          scrollTrigger: {
+            trigger: "header",
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
