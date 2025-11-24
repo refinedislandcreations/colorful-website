@@ -12,7 +12,7 @@
       rel="stylesheet"
     />
 
-    <title>Modern Interior Design</title>
+    <title>Cloudora Hotel | Boutique Hotel Experience</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -43,19 +43,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   </head>
   <body class="font-montserrat">
-    <!---------------- HEADER SECTION - GSAP ANIMATION READY ---------------->
+    <!---------------- HERO SECTION - HOTEL THEME ---------------->
     <header
       class="flex justify-center items-center min-h-[65vh] sm:min-h-screen bg-top bg-cover text-white bg-center relative overflow-hidden"
       style="background-image: url('/assets/images/hero-image.jpg')"
     >
       <!-- Navigation -->
       <nav class="absolute top-4 left-4 z-10">
-        <a href="#" class="mx-8 text-xl font-bold opacity-0" id="logo">Logo</a>
+        <a href="#" class="mx-8 text-xl font-bold opacity-0" id="logo"
+          >Cloudora Hotel</a
+        >
       </nav>
 
       <a
-        href="#"
-        class="absolute top-4 right-4 border-2 rounded-full px-4 py-1 opacity-0 hover:bg-white hover:text-black transition-colors duration-300"
+        href="#contact"
+        class="absolute top-4 right-4 border-2 border-white rounded-full px-4 py-1 opacity-0 hover:bg-white hover:text-black transition-colors duration-300"
         id="contact-btn"
       >
         Contact us
@@ -67,21 +69,21 @@
           class="text-6xl sm:text-9xl font-titan-one opacity-0"
           id="hero-heading"
         >
-          This is a <br />
-          <span class="opacity-0" id="hero-heading-2">heading</span>
+          Cloudora <br />
+          <span class="opacity-0" id="hero-heading-2">Hotel</span>
         </h1>
         <h2
-          class="text-xl sm:text-3xl text-black p-5p opacity-0"
+          class="text-xl sm:text-3xl text-white p-5p opacity-0"
           id="hero-subheading"
         >
-          Subheading
+          Luxury Boutique Hotel & Spa
         </h2>
         <a
-          href="#"
-          class="bg-black text-white rounded-full px-6 py-2 opacity-0 hover:bg-white hover:text-black transition-colors duration-300"
+          href="#reservations"
+          class="bg-white text-black rounded-full px-6 py-2 opacity-0 hover:bg-black hover:text-white transition-colors duration-300"
           id="hero-cta"
         >
-          Book now
+          Book Your Stay
         </a>
       </div>
 
@@ -102,13 +104,13 @@
       </svg>
     </header>
 
-    <!---------------- 3 WINDOW SECTION - GSAP SCROLL TRIGGER READY ---------------->
+    <!---------------- SIGNATURE SUITES SECTION ---------------->
     <section class="bg-brand-pink p-5p text-center overflow-hidden">
       <h2
         class="mt-10 sm:mt-0 text-3xl font-bold opacity-0"
         id="section-heading"
       >
-        Duis Aute Irure
+        Our Signature Suites
       </h2>
 
       <div class="sm:grid sm:grid-cols-3 sm:gap-8 mt-14">
@@ -119,16 +121,19 @@
           >
             <img
               src="/assets/images/bold-2-cut.jpg"
-              alt="pillow sofa"
+              alt="Luxury suite with comfortable seating"
               class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
             />
           </div>
-          <p class="py-10 sm:pt-10">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
-            provident, repellat facere natus consequatur suscipit incidunt unde
-            illo inventore explicabo, in sunt dolores dolore odio excepturi,
-            architecto eveniet. Dignissimos, quod!
+          <h3 class="text-xl font-bold mt-6">Executive Suite</h3>
+          <p class="py-6 sm:pt-6">
+            Spacious accommodations with premium amenities, designed for both
+            comfort and productivity. Features a separate living area and
+            beautiful views.
           </p>
+          <a href="#" class="text-brand-orange font-bold hover:underline"
+            >View Details</a
+          >
         </div>
 
         <!-- Card 2 -->
@@ -138,16 +143,19 @@
           >
             <img
               src="/assets/images/bold-3-cut.jpg"
-              alt="lamp"
+              alt="Ambient lighting in hotel room"
               class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
             />
           </div>
-          <p class="py-10 sm:pt-10">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
-            provident, repellat facere natus consequatur suscipit incidunt unde
-            illo inventore explicabo, in sunt dolores dolore odio excepturi,
-            architecto eveniet. Dignissimos, quod!
+          <h3 class="text-xl font-bold mt-6">Deluxe Room</h3>
+          <p class="py-6 sm:pt-6">
+            Experience refined comfort with our thoughtfully designed rooms.
+            Each features custom furnishings, premium linens, and ambient
+            lighting.
           </p>
+          <a href="#" class="text-brand-orange font-bold hover:underline"
+            >View Details</a
+          >
         </div>
 
         <!-- Card 3 -->
@@ -157,27 +165,30 @@
           >
             <img
               src="/assets/images/bold-4-cut.jpg"
-              alt="sofa"
+              alt="Modern hotel lounge area"
               class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
             />
           </div>
-          <p class="py-10 sm:pt-10">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
-            provident, repellat facere natus consequatur suscipit incidunt unde
-            illo inventore explicabo, in sunt dolores dolore odio excepturi,
-            architecto eveniet. Dignissimos, quod!
+          <h3 class="text-xl font-bold mt-6">Presidential Suite</h3>
+          <p class="py-6 sm:pt-6">
+            Our most exclusive offering with separate living and dining areas,
+            private balcony, and personalized concierge service for the ultimate
+            luxury experience.
           </p>
+          <a href="#" class="text-brand-orange font-bold hover:underline"
+            >View Details</a
+          >
         </div>
       </div>
     </section>
 
-    <!---------------- OVERLAPPING RAINBOW SECTION - GSAP SCROLL TRIGGER READY ---------------->
+    <!---------------- HOTEL AMENITIES SECTION ---------------->
     <section class="sm:grid sm:grid-cols-2 gap-8 bg-brand-pink overflow-hidden">
       <div class="mb-14 opacity-0 -translate-x-10" id="rainbow-image">
         <div class="overflow-hidden rounded-r-full sm:w-[120%] sm:max-w-[120%]">
           <img
             src="/assets/images/bold-5-cut.jpg"
-            alt="rainbow wall"
+            alt="Hotel spa and wellness area"
             class="w-full h-full object-cover"
           />
         </div>
@@ -187,23 +198,28 @@
         class="self-center p-5p sm:p-0 sm:pb-5p pb-15p opacity-0 translate-x-10"
         id="rainbow-content"
       >
-        <h2 class="mt-[-8rem] sm:mt-0 text-3xl font-bold">Duis aute irure</h2>
+        <h2 class="mt-[-8rem] sm:mt-0 text-3xl font-bold">Hotel Amenities</h2>
         <p class="py-5">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
-          provident, repellat facere natus consequatur suscipit incidunt unde
-          illo inventore explicabo, in sunt dolores dolore odio excepturi,
-          architecto eveniet. Dignissimos, quod!
+          Indulge in our world-class facilities designed for your comfort and
+          relaxation. From our award-winning spa to the infinity pool, every
+          detail is crafted for an unforgettable stay.
         </p>
+        <ul class="list-disc pl-5 mb-6">
+          <li>Full-service luxury spa & wellness center</li>
+          <li>Infinity pool with beautiful views</li>
+          <li>24-hour fitness center with personal trainers</li>
+          <li>Fine dining restaurant & rooftop lounge</li>
+        </ul>
         <a
-          href="#"
+          href="#amenities"
           class="bg-brand-orange rounded-full px-6 py-2 inline-block hover:bg-black hover:text-white transition-colors duration-300"
         >
-          Sign up
+          Explore Amenities
         </a>
       </div>
     </section>
 
-    <!---------------- YELLOW ORANGE SECTION - GSAP SCROLL TRIGGER READY ---------------->
+    <!---------------- DINING EXPERIENCE SECTION ---------------->
     <section class="md:grid md:grid-cols-2 bg-brand-orange overflow-hidden">
       <div
         class="bg-brand-yellow pt-28 px-24 hidden md:block opacity-0 -translate-x-10"
@@ -212,7 +228,7 @@
         <div class="overflow-hidden rounded-t-full">
           <img
             src="/assets/images/bold-6-cut.jpg"
-            alt="door"
+            alt="Hotel restaurant entrance"
             class="w-full h-full object-cover"
           />
         </div>
@@ -222,23 +238,27 @@
         class="self-end p-10p text-center md:text-left opacity-0 translate-x-10"
         id="door-content"
       >
-        <h2 class="text-white text-3xl font-bold">Duis aute irure</h2>
+        <h2 class="text-white text-3xl font-bold">Dining Experience</h2>
         <p class="py-5">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
-          provident, repellat facere natus consequatur suscipit incidunt unde
-          illo inventore explicabo, in sunt dolores dolore odio excepturi,
-          architecto eveniet. Dignissimos, quod!
+          Savor exceptional cuisine at our signature restaurant, where our
+          executive chef creates seasonal menus using locally sourced
+          ingredients. Enjoy beautiful views from our rooftop lounge.
         </p>
+        <div class="mb-6">
+          <h3 class="text-white font-bold mb-2">Restaurant Hours:</h3>
+          <p class="text-white">Breakfast: 7:00 AM - 11:00 AM</p>
+          <p class="text-white">Dinner: 6:00 PM - 10:30 PM</p>
+        </div>
         <a
-          href="#"
+          href="#dining"
           class="bg-brand-pink rounded-full px-6 py-2 inline-block hover:bg-black hover:text-white transition-colors duration-300"
         >
-          Buy now
+          View Menu
         </a>
       </div>
     </section>
 
-    <!---------------- LONG LAMP SECTION - GSAP SCROLL TRIGGER READY ---------------->
+    <!---------------- HOTEL GALLERY SECTION ---------------->
     <section
       class="grid grid-cols-4 gap-8 bg-brand-pink py-8 md:py-16 items-center overflow-hidden"
       id="lamp-section"
@@ -252,7 +272,7 @@
         >
           <img
             src="/assets/images/bold-7-cut.jpg"
-            alt="lamp"
+            alt="Hotel lobby with elegant lighting"
             class="h-full w-full object-cover"
           />
         </div>
@@ -267,7 +287,7 @@
         >
           <img
             src="/assets/images/bold-8.jpg"
-            alt="shadow"
+            alt="Hotel spa treatment room"
             class="h-full w-full object-cover"
           />
         </div>
@@ -282,14 +302,14 @@
         >
           <img
             src="/assets/images/bold-9-cut.jpg"
-            alt="bag"
+            alt="Luxury hotel bathroom"
             class="h-full w-full object-cover"
           />
         </div>
       </div>
     </section>
 
-    <!---------------- CONTACT FORM SECTION - GSAP SCROLL TRIGGER READY ---------------->
+    <!---------------- CONTACT & RESERVATIONS SECTION ---------------->
     <section
       class="md:grid md:grid-cols-4 gap-8 bg-brand-orange px-5p py-10p relative overflow-hidden"
       id="contact-section"
@@ -312,56 +332,68 @@
 
       <!-- Contact Content -->
       <div class="col-span-2 opacity-0 -translate-x-10" id="contact-info">
-        <h2 class="uppercase text-3xl font-bold">Contact us</h2>
+        <h2 class="uppercase text-3xl font-bold">Reservations & Inquiries</h2>
         <p class="pr-10p pt-5p">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit quam,
-          ipsum magnam quaerat cupiditate commodi natus autem consequuntur
-          distinctio eos saepe nam quisquam ex nulla, porro aliquam officia quis
-          dolores?
+          Our concierge team is available to assist with reservations, special
+          requests, or any questions about your stay. Contact us directly or use
+          the form to send an inquiry.
         </p>
+        <div class="mt-6">
+          <p class="font-bold">Cloudora Hotel</p>
+          <p>123 Luxury Avenue, Metropolitan City</p>
+          <p class="mt-2">Phone: +1 (555) 123-CLOUDORA</p>
+          <p>Email: reservations@cloudorahotel.com</p>
+        </div>
       </div>
 
       <!-- Contact Form -->
-      <div
-        class="col-span-2 uppercase opacity-0 translate-x-10"
-        id="contact-form"
-      >
+      <div class="col-span-2 opacity-0 translate-x-10" id="contact-form">
         <div class="mb-4">
-          <label for="_name" class="block mb-2">Name</label>
+          <label for="_name" class="block mb-2">Full Name</label>
           <input
             type="text"
             name="_name"
             id="_name"
-            placeholder=" "
+            placeholder="Enter your name"
             class="rounded-3xl bg-brand-pink w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
           />
         </div>
 
         <div class="mb-4">
-          <label for="_replyto" class="block mb-2">Email</label>
+          <label for="_replyto" class="block mb-2">Email Address</label>
           <input
             type="email"
             name="_replyto"
             id="_replyto"
-            placeholder=" "
+            placeholder="your.email@example.com"
+            class="rounded-3xl bg-brand-pink w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+          />
+        </div>
+
+        <div class="mb-4">
+          <label for="checkin" class="block mb-2">Check-in Date</label>
+          <input
+            type="date"
+            name="checkin"
+            id="checkin"
             class="rounded-3xl bg-brand-pink w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
           />
         </div>
 
         <div class="mb-6">
-          <label for="message" class="block mb-2">Message</label>
+          <label for="message" class="block mb-2">Special Requests</label>
           <textarea
             name="message"
             id="message"
-            placeholder=" "
+            placeholder="Tell us about any special requirements or requests..."
             class="rounded-3xl bg-brand-pink w-full px-4 py-2 h-32 focus:outline-none focus:ring-2 focus:ring-black"
           ></textarea>
         </div>
 
         <input
           type="submit"
-          class="bg-black text-white rounded-full px-6 py-2 cursor-pointer hover:bg-white hover:text-black transition-colors duration-300"
-          value="Send"
+          class="bg-black text-white rounded-full px-6 py-2 cursor-pointer hover:bg-white hover:text-black transition-colors duration-300 w-full"
+          value="Submit Inquiry"
         />
       </div>
 
@@ -383,39 +415,73 @@
     </section>
 
     <!---------------- FOOTER SECTION ---------------->
-    <footer class="grid grid-cols-5 gap-12 bg-brand-pink uppercase p-5p">
-      <div>
-        <h3 class="font-bold mb-2">Lorem Ipsum</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+    <footer class="grid grid-cols-1 md:grid-cols-5 gap-8 bg-brand-pink p-5p">
+      <div class="md:col-span-2">
+        <h3 class="font-bold mb-2 text-xl">Cloudora Hotel</h3>
+        <p>
+          Luxury boutique hotel offering exceptional accommodations, fine
+          dining, and world-class amenities in the heart of the city.
+        </p>
+        <div class="mt-4">
+          <p class="font-semibold">Address:</p>
+          <p>123 Luxury Avenue<br />Metropolitan City, MC 12345</p>
+        </div>
       </div>
 
       <div>
-        <h3 class="font-bold mb-2">Lorem Ipsum</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        <h3 class="font-bold mb-2">Quick Links</h3>
+        <ul class="space-y-1">
+          <li>
+            <a href="#" class="hover:text-brand-orange">Rooms & Suites</a>
+          </li>
+          <li><a href="#" class="hover:text-brand-orange">Dining</a></li>
+          <li><a href="#" class="hover:text-brand-orange">Amenities</a></li>
+          <li>
+            <a href="#" class="hover:text-brand-orange">Special Offers</a>
+          </li>
+        </ul>
       </div>
 
       <div>
-        <h3 class="font-bold mb-2">Lorem Ipsum</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+        <h3 class="font-bold mb-2">Guest Services</h3>
+        <ul class="space-y-1">
+          <li><a href="#" class="hover:text-brand-orange">Concierge</a></li>
+          <li>
+            <a href="#" class="hover:text-brand-orange">Spa & Wellness</a>
+          </li>
+          <li><a href="#" class="hover:text-brand-orange">Event Spaces</a></li>
+          <li><a href="#" class="hover:text-brand-orange">Gallery</a></li>
+        </ul>
       </div>
 
-      <div class="col-span-2 text-right">
-        <h3 class="font-bold mb-2">Subscribe to our newsletter</h3>
-        <div class="flex justify-end items-center gap-4">
+      <div>
+        <h3 class="font-bold mb-2">Newsletter</h3>
+        <p class="mb-2 text-sm">Subscribe for exclusive offers and updates</p>
+        <div class="flex flex-col gap-2">
           <input
             type="email"
             name="_replyto"
             id="footer-email"
-            placeholder="Email address"
-            class="rounded-3xl bg-brand-orange px-4 py-2 w-1/2 focus:outline-none focus:ring-2 focus:ring-black"
+            placeholder="Your email address"
+            class="rounded-3xl bg-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black w-full"
           />
           <a
             href="#"
-            class="bg-black text-white rounded-full px-4 py-2 hover:bg-white hover:text-black transition-colors duration-300"
+            class="bg-black text-white rounded-full px-4 py-2 text-center hover:bg-brand-orange transition-colors duration-300"
           >
             Subscribe
           </a>
         </div>
+      </div>
+
+      <div
+        class="md:col-span-5 border-t border-gray-300 mt-6 pt-6 text-center text-sm"
+      >
+        <p>
+          &copy; 2023 Cloudora Hotel. All rights reserved. |
+          <a href="#" class="hover:text-brand-orange">Privacy Policy</a> |
+          <a href="#" class="hover:text-brand-orange">Terms of Service</a>
+        </p>
       </div>
     </footer>
 
@@ -424,8 +490,8 @@
       // Register ScrollTrigger plugin
       gsap.registerPlugin(ScrollTrigger);
 
-      // Wait for DOM to load
-      document.addEventListener("DOMContentLoaded", function () {
+      // Initialize all animations
+      function initAnimations() {
         // ========== HERO SECTION ANIMATIONS ==========
         const heroTimeline = gsap.timeline();
 
@@ -472,7 +538,7 @@
 
         // ========== SCROLL TRIGGER ANIMATIONS ==========
 
-        // 3 Window Section
+        // Signature Suites Section
         gsap.fromTo(
           "#section-heading",
           { opacity: 0, y: 30 },
@@ -485,6 +551,7 @@
               start: "top 80%",
               end: "bottom 20%",
               toggleActions: "play none none reverse",
+              markers: false, // Set to true for debugging
             },
           }
         );
@@ -507,7 +574,7 @@
           }
         );
 
-        // Rainbow Section
+        // Hotel Amenities Section
         gsap.fromTo(
           "#rainbow-image",
           { opacity: 0, x: -50 },
@@ -540,7 +607,7 @@
           }
         );
 
-        // Yellow Orange Section
+        // Dining Experience Section
         gsap.fromTo(
           "#door-image",
           { opacity: 0, x: -50 },
@@ -573,7 +640,7 @@
           }
         );
 
-        // Lamp Section
+        // Hotel Gallery Section
         const lampTimeline = gsap.timeline({
           scrollTrigger: {
             trigger: "#lamp-section",
@@ -662,6 +729,16 @@
             scrub: true,
           },
         });
+      }
+
+      // Wait for DOM to load
+      document.addEventListener("DOMContentLoaded", function () {
+        initAnimations();
+      });
+
+      // Refresh ScrollTrigger on resize
+      window.addEventListener("resize", function () {
+        ScrollTrigger.refresh();
       });
     </script>
   </body>
