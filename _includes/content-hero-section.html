@@ -1,0 +1,81 @@
+<!-- _includes/rooms-hero-section.html -->
+<!---------------- HERO SECTION - DIFFERENT STYLE ---------------->
+<header
+  class="flex justify-center items-center min-h-[65vh] sm:min-h-screen bg-top bg-cover text-white bg-center relative overflow-hidden"
+  style="background-image: url('{{ include.section.background_image }}')"
+>
+  <!-- Navigation -->
+  <nav class="absolute top-4 left-4 z-10">
+    <a
+      href="{{ include.section.logo_url }}"
+      class="mx-8 text-xl font-bold opacity-0"
+      id="logo"
+      >{{ include.section.logo_text }}</a
+    >
+  </nav>
+
+  <a
+    href="{{ include.section.contact_url }}"
+    class="absolute top-4 right-4 border-2 border-white rounded-full px-4 py-1 opacity-0 hover:bg-white hover:text-black transition-colors duration-300"
+    id="contact-btn"
+  >
+    {{ include.section.contact_button }}
+  </a>
+
+  <!-- Hero Content - Different Layout -->
+  <div class="text-center z-10 w-full max-w-6xl px-4">
+    <h1
+      class="text-5xl sm:text-8xl font-titan-one opacity-0 mb-6"
+      id="hero-heading"
+    >
+      {{ include.section.heading }}
+    </h1>
+    <div
+      class="w-24 h-1 bg-white mx-auto mb-8 opacity-0"
+      id="hero-divider"
+    ></div>
+    <h2
+      class="text-xl sm:text-2xl text-white mb-10 opacity-0"
+      id="hero-subheading"
+    >
+      {{ include.section.subheading }}
+    </h2>
+    <div
+      class="flex flex-col sm:flex-row gap-4 justify-center opacity-0"
+      id="hero-buttons"
+    >
+      {% for button in include.section.buttons %} {% if button.style ==
+      "primary" %}
+      <a
+        href="{{ button.url }}"
+        class="bg-white text-black rounded-full px-8 py-3 hover:bg-black hover:text-white transition-colors duration-300 font-bold"
+      >
+        {{ button.text }}
+      </a>
+      {% else %}
+      <a
+        href="{{ button.url }}"
+        class="border-2 border-white text-white rounded-full px-8 py-3 hover:bg-white hover:text-black transition-colors duration-300 font-bold"
+      >
+        {{ button.text }}
+      </a>
+      {% endif %} {% endfor %}
+    </div>
+  </div>
+
+  <!-- Wave SVG -->
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1440"
+    height="111"
+    viewBox="0 0 1440 111"
+    fill="none"
+    class="absolute bottom-[-10%] sm:bottom-[-4.2%] left-0 w-full rotate-180 z-0 opacity-0"
+    id="header-wave"
+  >
+    <path
+      d="M1816 31.6148C1724.67 31.6148 1724.67 111 1633.31 111C1541.96 111 1541.98 31.6148 1450.63 31.6148C1359.27 31.6148 1359.29 111 1267.96 111C1176.63 111 1176.63 31.6148 1085.29 31.6148C993.959 31.6148 993.959 111 902.626 111C811.293 111 811.293 31.6148 719.959 31.6148C628.626 31.6148 628.626 111 537.293 111C445.959 111 445.959 31.6148 354.626 31.6148C263.293 31.6148 263.293 111 171.959 111C80.6261 111 80.6261 31.6148 -10.7072 31.6148C-102.041 31.6148 -102.041 111 -193.354 111C-284.667 111 -284.667 31.6148 -376 31.6148V0H720H1816V31.6148Z"
+      fill="#EEC1DC"
+    />
+  </svg>
+</header>
