@@ -1,6 +1,6 @@
 <!-- _includes/restaurants-section.html -->
 <!---------------- RESTAURANTS - DIFFERENT CARD STYLE ---------------->
-<section class="bg-white py-20 overflow-hidden" id="restaurants">
+<section class="bg-brand-pink py-20 overflow-hidden" id="restaurants">
   <div class="container mx-auto px-4">
     <h2
       class="text-4xl font-bold text-center mb-16 opacity-0"
@@ -13,7 +13,7 @@
       {% for restaurant in include.section.items %}
       <!-- Restaurant {{ forloop.index }} -->
       <div
-        class="bg-brand-pink rounded-3xl overflow-hidden shadow-2xl opacity-0 {% if forloop.index == 1 %}-translate-x-10{% else %}translate-x-10{% endif %}"
+        class="bg-white rounded-3xl overflow-hidden shadow-2xl opacity-0 {% if forloop.index == 1 %}-translate-x-10{% else %}translate-x-10{% endif %}"
         id="restaurant-{{ forloop.index }}"
       >
         <div class="h-80 overflow-hidden">

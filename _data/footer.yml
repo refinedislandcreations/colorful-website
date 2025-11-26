@@ -5,6 +5,8 @@ address: >
   Metropolitan City, MC 12345
 
 quick_links:
+  - text: "Home"
+    url: "/index.html"
   - text: "Rooms & Suites"
     url: "/rooms.html"
   - text: "Dining"

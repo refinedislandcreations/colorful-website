@@ -1,306 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+---
+layout: default
+title: "Cloudora Hotel | Boutique Hotel Experience"
+description: "Experience luxury boutique hotel accommodations with world-class amenities, fine dining, and exceptional service at Cloudora Hotel."
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&family=Titan+One&display=swap"
-      rel="stylesheet"
-    />
+seo:
+  title: "Cloudora Hotel | Luxury Boutique Hotel & Spa"
+  description: "Discover exceptional accommodations, fine dining, and world-class amenities at Cloudora Hotel - your perfect luxury getaway."
+  image: "/assets/images/hero-image.jpg"
+  url: "{{ site.url }}{{ page.url }}"
+  keywords: "luxury hotel, boutique hotel, spa, fine dining, luxury accommodations, hotel suites"
 
-    <title>Document</title>
+hero:
+  background_image: "/assets/images/hero-image.jpg"
+  logo_text: "Cloudora Hotel"
+  contact_button: "Contact us"
+  contact_url: "#contact"
+  heading_line1: "Cloudora"
+  heading_line2: "Hotel"
+  subheading: "Luxury Boutique Hotel & Spa"
+  cta_button: "Book Your Stay"
+  cta_url: "#reservations"
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/assets/css/output-style.css" />
-  </head>
-  <body>
-    <!----------------HEADER---------------------->
+signature_suites:
+  heading: "Our Signature Suites"
+  suites:
+    - title: "Executive Suite"
+      image: "/assets/images/bold-2-cut.jpg"
+      alt: "Luxury suite with comfortable seating"
+      description: "Spacious accommodations with premium amenities, designed for both comfort and productivity. Features a separate living area and beautiful views."
+      link_text: "View Details"
+      link_url: "#"
+    - title: "Deluxe Room"
+      image: "/assets/images/bold-3-cut.jpg"
+      alt: "Ambient lighting in hotel room"
+      description: "Experience refined comfort with our thoughtfully designed rooms. Each features custom furnishings, premium linens, and ambient lighting."
+      link_text: "View Details"
+      link_url: "#"
+    - title: "Presidential Suite"
+      image: "/assets/images/bold-4-cut.jpg"
+      alt: "Modern hotel lounge area"
+      description: "Our most exclusive offering with separate living and dining areas, private balcony, and personalized concierge service for the ultimate luxury experience."
+      link_text: "View Details"
+      link_url: "#"
 
-    <header
-      class="flex justify-center items-center min-h-[65vh] sm:min-h-screen bg-top bg-cover text-white bg-center"
-      style="background-image: url('/assets/images/hero-image.jpg')"
-    >
-      <nav class="absolute top-4 left-4">
-        <a href="#" class="mx-8"> Logo </a>
-        <!-----
-            <a href="#" class="mx-5"> Nav 1 </a>
-            <a href="#" class="mx-5"> Nav 2 </a>
-            <a href="#" class="mx-5"> Nav 3 </a>
-            ----->
-      </nav>
-      <a
-        href="#"
-        class="absolute top-4 right-4 border-2 rounded-full px-4 py-1"
-      >
-        Contact us
-      </a>
+amenities:
+  image: "/assets/images/bold-5-cut.jpg"
+  alt: "Hotel spa and wellness area"
+  heading: "Hotel Amenities"
+  description: "Indulge in our world-class facilities designed for your comfort and relaxation. From our award-winning spa to the infinity pool, every detail is crafted for an unforgettable stay."
+  features:
+    - "Full-service luxury spa & wellness center"
+    - "Infinity pool with beautiful views"
+    - "24-hour fitness center with personal trainers"
+    - "Fine dining restaurant & rooftop lounge"
+  cta_button: "Explore Amenities"
+  cta_url: "#amenities"
 
-      <div class="text-center">
-        <h1 class="text-6xl sm:text-9xl">
-          This is a <br />
-          heading
-        </h1>
-        <h2 class="text-xl sm:text-3xl text-black p-[3%]">Subheading</h2>
-        <a href="#" class="bg-black text-white rounded-full px-4 py-1">
-          Book now
-        </a>
-      </div>
+dining:
+  image: "/assets/images/bold-6-cut.jpg"
+  alt: "Hotel restaurant entrance"
+  heading: "Dining Experience"
+  description: "Savor exceptional cuisine at our signature restaurant, where our executive chef creates seasonal menus using locally sourced ingredients. Enjoy beautiful views from our rooftop lounge."
+  hours:
+    breakfast: "Breakfast: 7:00 AM - 11:00 AM"
+    dinner: "Dinner: 6:00 PM - 10:30 PM"
+  cta_button: "View Menu"
+  cta_url: "#dining"
 
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="1440"
-        height="111"
-        viewBox="0 0 1440 111"
-        fill="none"
-        class="absolute bottom-[28.9%;] sm:bottom-[-4.2%;] left-0 w-full rotate-180"
-      >
-        <path
-          d="M1816 31.6148C1724.67 31.6148 1724.67 111 1633.31 111C1541.96 111 1541.98 31.6148 1450.63 31.6148C1359.27 31.6148 1359.29 111 1267.96 111C1176.63 111 1176.63 31.6148 1085.29 31.6148C993.959 31.6148 993.959 111 902.626 111C811.293 111 811.293 31.6148 719.959 31.6148C628.626 31.6148 628.626 111 537.293 111C445.959 111 445.959 31.6148 354.626 31.6148C263.293 31.6148 263.293 111 171.959 111C80.6261 111 80.6261 31.6148 -10.7072 31.6148C-102.041 31.6148 -102.041 111 -193.354 111C-284.667 111 -284.667 31.6148 -376 31.6148V0H720H1816V31.6148Z"
-          fill="#EEC1DC"
-        />
-      </svg>
-    </header>
+gallery:
+  images:
+    - src: "/assets/images/bold-7-cut.jpg"
+      alt: "Hotel lobby with elegant lighting"
+      id: "lamp-image"
+    - src: "/assets/images/bold-8.jpg"
+      alt: "Hotel spa treatment room"
+      id: "shadow-image"
+    - src: "/assets/images/bold-9-cut.jpg"
+      alt: "Luxury hotel bathroom"
+      id: "bag-image"
 
-    <!----------------3 WINDOW SECTION---------------------->
+contact:
+  heading: "Reservations & Inquiries"
+  description: "Our concierge team is available to assist with reservations, special requests, or any questions about your stay. Contact us directly or use the form to send an inquiry."
+  hotel_name: "Cloudora Hotel"
+  address: "123 Luxury Avenue, Metropolitan City"
+  phone: "+1 (555) 123-CLOUDORA"
+  email: "reservations@cloudorahotel.com"
+---
 
-    <section class="bg-[#EEC1DC] p-[5%] text-center">
-      <h2 class="mt-10 sm:mt-0">Duis Aute Irure</h2>
+{% include hero-section.html section=page.hero %} {% include
+signature-suites-section.html section=page.signature_suites %} {% include
+amenities-section.html section=page.amenities %} {% include dining-section.html
+section=page.dining %} {% include gallery-section.html section=page.gallery %}
+{% include contact-section.html section=page.contact %}
 
-      <div class="sm:grid sm:grid-cols-3 sm:gap-4 mt-14">
-        <div>
-          <img
-            src="/assets/images/bold-2-cut.jpg"
-            alt="pillow sofa"
-            class="rounded-t-[45vw] sm:rounded-t-[20vw] rounded-b-[5rem]"
-          />
-          <p class="py-10 sm:pt-10">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
-            provident, repellat facere natus consequatur suscipit incidunt unde
-            illo inventore explicabo, in sunt dolores dolore odio excepturi,
-            architecto eveniet. Dignissimos, quod!
-          </p>
-        </div>
-
-        <div>
-          <img
-            src="/assets/images/bold-3-cut.jpg"
-            alt="lamp"
-            class="rounded-t-[45vw] sm:rounded-t-[20vw] rounded-b-[5rem]"
-          />
-          <p class="py-10 sm:pt-10">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
-            provident, repellat facere natus consequatur suscipit incidunt unde
-            illo inventore explicabo, in sunt dolores dolore odio excepturi,
-            architecto eveniet. Dignissimos, quod!
-          </p>
-        </div>
-
-        <div>
-          <img
-            src="/assets/images/bold-4-cut.jpg"
-            alt="sofa"
-            class="rounded-t-[45vw] sm:rounded-t-[20vw] rounded-b-[5rem]"
-          />
-          <p class="py-10 sm:pt-10">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
-            provident, repellat facere natus consequatur suscipit incidunt unde
-            illo inventore explicabo, in sunt dolores dolore odio excepturi,
-            architecto eveniet. Dignissimos, quod!
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!----------------OVERLAPPING RAINBOW---------------------->
-
-    <section class="sm:grid sm:grid-cols-2 gap-2 bg-[#EEC1DC]">
-      <div class="mb-14">
-        <img
-          src="/assets/images/bold-5-cut.jpg"
-          alt="rainbow wall"
-          class="rounded-r-full sm:w-[120%] sm:max-w-[120%]"
-        />
-      </div>
-
-      <div class="self-center p-5p sm:p-0 sm:pb-5p pb-15p">
-        <h2 class="mt-[-8rem] sm:mt-0">Duis aute irure</h2>
-        <p class="py-5">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
-          provident, repellat facere natus consequatur suscipit incidunt unde
-          illo inventore explicabo, in sunt dolores dolore odio excepturi,
-          architecto eveniet. Dignissimos, quod!
-        </p>
-        <a href="#" class="bg-[#FE953D] rounded-full px-6 py-1"> Sign up </a>
-      </div>
-    </section>
-
-    <!----------------YELLOW ORANGE SECTION---------------------->
-
-    <section class="md:grid md:grid-cols-2 bg-[#FE953D]">
-      <div class="bg-[#FEC001] pt-28 px-24 hidden md:block">
-        <img
-          src="/assets/images/bold-6-cut.jpg"
-          alt="door"
-          class="rounded-t-full"
-        />
-      </div>
-
-      <div class="self-end p-[10%] text-center md:text-left">
-        <h2 class="text-white">Duis aute irure</h2>
-        <p class="py-5">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
-          provident, repellat facere natus consequatur suscipit incidunt unde
-          illo inventore explicabo, in sunt dolores dolore odio excepturi,
-          architecto eveniet. Dignissimos, quod!
-        </p>
-        <a href="#" class="bg-[#EEC1DC] rounded-full px-6 py-1"> Buy now </a>
-      </div>
-    </section>
-
-    <!----------------LONG LAMP---------------------->
-
-    <section
-      class="grid grid-cols-4 gap-8 bg-[#EEC1DC] py-8 md:py-16 items-center"
-    >
-      <div class="col-span-2 aspect-[2] relative">
-        <img
-          src="/assets/images/bold-7-cut.jpg"
-          alt="lamp"
-          class="rounded-r-full absolute inset-0 h-full w-full object-cover"
-        />
-      </div>
-
-      <div class="aspect-square relative">
-        <img
-          src="/assets/images/bold-8.jpg"
-          alt="shadow"
-          class="rounded-full absolute inset-0 h-full w-full object-cover"
-        />
-      </div>
-
-      <div class="aspect-square relative">
-        <img
-          src="/assets/images/bold-9-cut.jpg"
-          alt="bag"
-          class="rounded-l-full absolute inset-0 h-full w-full object-cover"
-        />
-      </div>
-    </section>
-
-    <!----------------CONTACT FORM---------------------->
-
-    <section
-      class="md:grid md:grid-cols-4 gap-2 bg-[#FE953D] px-[4%] py-[8%] relative"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="1440"
-        height="111"
-        viewBox="0 0 1440 111"
-        fill="none"
-        class="absolute top-[-8.2%] md:top-[-5.2%] left-0 w-full"
-      >
-        <path
-          d="M1816 31.6148C1724.67 31.6148 1724.67 111 1633.31 111C1541.96 111 1541.98 31.6148 1450.63 31.6148C1359.27 31.6148 1359.29 111 1267.96 111C1176.63 111 1176.63 31.6148 1085.29 31.6148C993.959 31.6148 993.959 111 902.626 111C811.293 111 811.293 31.6148 719.959 31.6148C628.626 31.6148 628.626 111 537.293 111C445.959 111 445.959 31.6148 354.626 31.6148C263.293 31.6148 263.293 111 171.959 111C80.6261 111 80.6261 31.6148 -10.7072 31.6148C-102.041 31.6148 -102.041 111 -193.354 111C-284.667 111 -284.667 31.6148 -376 31.6148V0H720H1816V31.6148Z"
-          fill="#EEC1DC"
-        />
-      </svg>
-
-      <div class="col-span-2">
-        <h2 class="uppercase">Contact us</h2>
-        <p class="pr-[36%] pt-[4%]">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit quam,
-          ipsum magnam quaerat cupiditate commodi natus autem consequuntur
-          distinctio eos saepe nam quisquam ex nulla, porro aliquam officia quis
-          dolores?
-        </p>
-      </div>
-
-      <div class="col-span-2 uppercase">
-        <label for="_name"> Name </label>
-        <input
-          type="text"
-          name="_name"
-          id="_name"
-          placeholder=" "
-          class="rounded-3xl bg-[#EEC1DC]"
-        />
-
-        <label for="_replyto"> Email </label>
-        <input
-          type="email"
-          name="_replyto"
-          id="_replyto"
-          placeholder=" "
-          class="rounded-3xl bg-[#EEC1DC]"
-        />
-
-        <label for="message"> Message </label>
-        <textarea
-          name="message"
-          id="message"
-          placeholder=" "
-          class="rounded-3xl bg-[#EEC1DC]"
-        ></textarea>
-
-        <input
-          href="#"
-          type="submit"
-          class="bg-black text-white rounded-full px-4 py-1 ml-auto w-min"
-          value="send"
-        />
-      </div>
-
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="1440"
-        height="111"
-        viewBox="0 0 1440 111"
-        fill="none"
-        class="absolute bottom-[-5.2%] left-0 w-full rotate-180"
-      >
-        <path
-          d="M1816 31.6148C1724.67 31.6148 1724.67 111 1633.31 111C1541.96 111 1541.98 31.6148 1450.63 31.6148C1359.27 31.6148 1359.29 111 1267.96 111C1176.63 111 1176.63 31.6148 1085.29 31.6148C993.959 31.6148 993.959 111 902.626 111C811.293 111 811.293 31.6148 719.959 31.6148C628.626 31.6148 628.626 111 537.293 111C445.959 111 445.959 31.6148 354.626 31.6148C263.293 31.6148 263.293 111 171.959 111C80.6261 111 80.6261 31.6148 -10.7072 31.6148C-102.041 31.6148 -102.041 111 -193.354 111C-284.667 111 -284.667 31.6148 -376 31.6148V0H720H1816V31.6148Z"
-          fill="#EEC1DC"
-        />
-      </svg>
-    </section>
-
-    <!----------------FOOTER---------------------->
-
-    <footer class="grid grid-cols-5 gap-12 bg-[#EEC1DC] uppercase p-[4%]">
-      <div>
-        <h3>Lorem Ipsum</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-      </div>
-
-      <div>
-        <h3>Lorem Ipsum</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-      </div>
-
-      <div>
-        <h3>Lorem Ipsum</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-      </div>
-
-      <div class="col-span-2 text-right">
-        <h3>Subscribe to our newsletter</h3>
-        <input
-          type="email"
-          name="_replyto"
-          id="_replyto"
-          placeholder=" "
-          class="rounded-3xl bg-[#FE953D] ml-auto w-[50%]"
-        />
-        <a href="#" class="bg-black text-white rounded-full px-4 py-1">
-          Subscribe
-        </a>
-      </div>
-    </footer>
-  </body>
-</html>
+<!-- GSAP Animation Script -->
+<script src="/assets/js/animations.js"></script>
