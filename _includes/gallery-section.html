@@ -1,0 +1,42 @@
+<!-- _includes/gallery-section.html -->
+<!---------------- HOTEL GALLERY SECTION ---------------->
+<section
+  class="grid grid-cols-4 gap-8 bg-brand-pink py-8 md:py-16 items-center overflow-hidden"
+  id="lamp-section"
+>
+  <div
+    class="col-span-2 aspect-[2] relative opacity-0 -translate-x-10"
+    id="lamp-image"
+  >
+    <div class="overflow-hidden rounded-r-full absolute inset-0 h-full w-full">
+      <img
+        src="{{ include.section.images[0].src }}"
+        alt="{{ include.section.images[0].alt }}"
+        class="h-full w-full object-cover"
+      />
+    </div>
+  </div>
+
+  <div
+    class="aspect-square relative opacity-0 translate-y-10"
+    id="shadow-image"
+  >
+    <div class="overflow-hidden rounded-full absolute inset-0 h-full w-full">
+      <img
+        src="{{ include.section.images[1].src }}"
+        alt="{{ include.section.images[1].alt }}"
+        class="h-full w-full object-cover"
+      />
+    </div>
+  </div>
+
+  <div class="aspect-square relative opacity-0 translate-y-10" id="bag-image">
+    <div class="overflow-hidden rounded-l-full absolute inset-0 h-full w-full">
+      <img
+        src="{{ include.section.images[2].src }}"
+        alt="{{ include.section.images[2].alt }}"
+        class="h-full w-full object-cover"
+      />
+    </div>
+  </div>
+</section>

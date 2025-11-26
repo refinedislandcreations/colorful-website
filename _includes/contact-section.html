@@ -1,0 +1,101 @@
+<!-- _includes/contact-section.html -->
+<!---------------- CONTACT & RESERVATIONS SECTION ---------------->
+<section
+  class="md:grid md:grid-cols-4 gap-8 bg-brand-orange px-5p py-10p relative overflow-hidden"
+  id="contact-section"
+>
+  <!-- Top Wave -->
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1440"
+    height="111"
+    viewBox="0 0 1440 111"
+    fill="none"
+    class="absolute top-[-8.2%] md:top-[-5.2%] left-0 w-full opacity-0"
+    id="contact-top-wave"
+  >
+    <path
+      d="M1816 31.6148C1724.67 31.6148 1724.67 111 1633.31 111C1541.96 111 1541.98 31.6148 1450.63 31.6148C1359.27 31.6148 1359.29 111 1267.96 111C1176.63 111 1176.63 31.6148 1085.29 31.6148C993.959 31.6148 993.959 111 902.626 111C811.293 111 811.293 31.6148 719.959 31.6148C628.626 31.6148 628.626 111 537.293 111C445.959 111 445.959 31.6148 354.626 31.6148C263.293 31.6148 263.293 111 171.959 111C80.6261 111 80.6261 31.6148 -10.7072 31.6148C-102.041 31.6148 -102.041 111 -193.354 111C-284.667 111 -284.667 31.6148 -376 31.6148V0H720H1816V31.6148Z"
+      fill="#EEC1DC"
+    />
+  </svg>
+
+  <!-- Contact Content -->
+  <div class="col-span-2 opacity-0 -translate-x-10" id="contact-info">
+    <h2 class="uppercase text-3xl font-bold">{{ include.section.heading }}</h2>
+    <p class="pr-10p pt-5p">{{ include.section.description }}</p>
+    <div class="mt-6">
+      <p class="font-bold">{{ include.section.hotel_name }}</p>
+      <p>{{ include.section.address }}</p>
+      <p class="mt-2">Phone: {{ include.section.phone }}</p>
+      <p>Email: {{ include.section.email }}</p>
+    </div>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="col-span-2 opacity-0 translate-x-10" id="contact-form">
+    <div class="mb-4">
+      <label for="_name" class="block mb-2">Full Name</label>
+      <input
+        type="text"
+        name="_name"
+        id="_name"
+        placeholder="Enter your name"
+        class="rounded-3xl bg-brand-pink w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+      />
+    </div>
+
+    <div class="mb-4">
+      <label for="_replyto" class="block mb-2">Email Address</label>
+      <input
+        type="email"
+        name="_replyto"
+        id="_replyto"
+        placeholder="your.email@example.com"
+        class="rounded-3xl bg-brand-pink w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+      />
+    </div>
+
+    <div class="mb-4">
+      <label for="checkin" class="block mb-2">Check-in Date</label>
+      <input
+        type="date"
+        name="checkin"
+        id="checkin"
+        class="rounded-3xl bg-brand-pink w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+      />
+    </div>
+
+    <div class="mb-6">
+      <label for="message" class="block mb-2">Special Requests</label>
+      <textarea
+        name="message"
+        id="message"
+        placeholder="Tell us about any special requirements or requests..."
+        class="rounded-3xl bg-brand-pink w-full px-4 py-2 h-32 focus:outline-none focus:ring-2 focus:ring-black"
+      ></textarea>
+    </div>
+
+    <input
+      type="submit"
+      class="bg-black text-white rounded-full px-6 py-2 cursor-pointer hover:bg-white hover:text-black transition-colors duration-300 w-full"
+      value="Submit Inquiry"
+    />
+  </div>
+
+  <!-- Bottom Wave -->
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1440"
+    height="111"
+    viewBox="0 0 1440 111"
+    fill="none"
+    class="absolute bottom-[-5.2%] left-0 w-full rotate-180 opacity-0"
+    id="contact-bottom-wave"
+  >
+    <path
+      d="M1816 31.6148C1724.67 31.6148 1724.67 111 1633.31 111C1541.96 111 1541.98 31.6148 1450.63 31.6148C1359.27 31.6148 1359.29 111 1267.96 111C1176.63 111 1176.63 31.6148 1085.29 31.6148C993.959 31.6148 993.959 111 902.626 111C811.293 111 811.293 31.6148 719.959 31.6148C628.626 31.6148 628.626 111 537.293 111C445.959 111 445.959 31.6148 354.626 31.6148C263.293 31.6148 263.293 111 171.959 111C80.6261 111 80.6261 31.6148 -10.7072 31.6148C-102.041 31.6148 -102.041 111 -193.354 111C-284.667 111 -284.667 31.6148 -376 31.6148V0H720H1816V31.6148Z"
+      fill="#EEC1DC"
+    />
+  </svg>
+</section>

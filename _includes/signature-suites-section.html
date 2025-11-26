@@ -1,0 +1,31 @@
+<!-- _includes/signature-suites-section.html -->
+<!---------------- SIGNATURE SUITES SECTION ---------------->
+<section class="bg-brand-pink p-5p text-center overflow-hidden">
+  <h2 class="mt-10 sm:mt-0 text-3xl font-bold opacity-0" id="section-heading">
+    {{ include.section.heading }}
+  </h2>
+
+  <div class="sm:grid sm:grid-cols-3 sm:gap-8 mt-14">
+    {% for suite in include.section.suites %}
+    <!-- Card {{ forloop.index }} -->
+    <div class="opacity-0 translate-y-10" id="card-{{ forloop.index }}">
+      <div
+        class="overflow-hidden rounded-t-[45vw] sm:rounded-t-[20vw] rounded-b-[5rem]"
+      >
+        <img
+          src="{{ suite.image }}"
+          alt="{{ suite.alt }}"
+          class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+        />
+      </div>
+      <h3 class="text-xl font-bold mt-6">{{ suite.title }}</h3>
+      <p class="py-6 sm:pt-6">{{ suite.description }}</p>
+      <a
+        href="{{ suite.link_url }}"
+        class="text-brand-orange font-bold hover:underline"
+        >{{ suite.link_text }}</a
+      >
+    </div>
+    {% endfor %}
+  </div>
+</section>

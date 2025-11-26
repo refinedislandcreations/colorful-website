@@ -1,0 +1,37 @@
+description: "Luxury boutique hotel offering exceptional accommodations, fine dining, and world-class amenities in the heart of the city."
+
+address: >
+  123 Luxury Avenue<br />
+  Metropolitan City, MC 12345
+
+quick_links:
+  - text: "Rooms & Suites"
+    url: "/rooms.html"
+  - text: "Dining"
+    url: "/dining.html"
+  - text: "Amenities"
+    url: "/amenities.html"
+  - text: "Special Offers"
+    url: "/offers.html"
+
+guest_services:
+  - text: "Concierge"
+    url: "#"
+  - text: "Spa & Wellness"
+    url: "#"
+  - text: "Event Spaces"
+    url: "#"
+  - text: "Gallery"
+    url: "#"
+
+newsletter_text: "Subscribe for exclusive offers and updates"
+
+copyright: "Cloudora Hotel. All rights reserved."
+
+privacy_policy:
+  text: "Privacy Policy"
+  url: "#"
+
+terms_of_service:
+  text: "Terms of Service"
+  url: "#"
