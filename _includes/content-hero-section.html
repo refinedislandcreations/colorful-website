@@ -40,6 +40,16 @@
     >
       {{ include.section.subheading }}
     </h2>
+
+    {% if include.section.badge_text %}
+    <div
+      class="bg-black bg-opacity-50 rounded-2xl p-6 mb-8 opacity-0"
+      id="hero-badge"
+    >
+      <p class="text-lg">{{ include.section.badge_text }}</p>
+    </div>
+    {% endif %}
+
     <div
       class="flex flex-wrap justify-center gap-4 opacity-0"
       id="hero-buttons"

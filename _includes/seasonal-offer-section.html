@@ -1,0 +1,73 @@
+<!-- _includes/seasonal-offer-section.html -->
+<!---------------- SEASONAL OFFER - DIFFERENT LAYOUT ---------------->
+<section class="bg-brand-orange py-20 overflow-hidden">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col lg:flex-row items-center gap-12">
+      <!-- Content -->
+      <div
+        class="lg:w-1/2 text-white opacity-0 -translate-x-10"
+        id="seasonal-content"
+      >
+        <div class="bg-white bg-opacity-20 rounded-2xl p-6 mb-8">
+          <span class="text-2xl font-bold">{{ include.section.badge }}</span>
+        </div>
+        <h2 class="text-4xl font-bold mb-6">{{ include.section.title }}</h2>
+        <p class="text-xl mb-8">{{ include.section.description }}</p>
+        <ul class="space-y-3 mb-8">
+          {% for feature in include.section.features %}
+          <li class="flex items-center">
+            <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
+            {{ feature }}
+          </li>
+          {% endfor %}
+        </ul>
+        <div class="flex items-center gap-6">
+          <div>
+            <span class="text-4xl font-bold"
+              >{{ include.section.discount }}</span
+            >
+            <p class="text-sm">{{ include.section.valid_until }}</p>
+          </div>
+          <a
+            href="{{ include.section.button_url }}"
+            class="bg-white text-brand-orange px-8 py-3 rounded-full font-bold hover:bg-black hover:text-white transition-colors"
+          >
+            {{ include.section.button_text }}
+          </a>
+        </div>
+      </div>
+
+      <!-- Countdown & Image -->
+      <div class="lg:w-1/2 opacity-0 translate-x-10" id="seasonal-side">
+        <div class="bg-white rounded-2xl p-6 mb-6 text-center">
+          <h3 class="text-xl font-bold mb-4">Offer Ends In:</h3>
+          <div class="grid grid-cols-4 gap-4">
+            <div class="bg-brand-pink rounded-xl p-3">
+              <div class="text-2xl font-bold" id="days">45</div>
+              <div class="text-sm">Days</div>
+            </div>
+            <div class="bg-brand-pink rounded-xl p-3">
+              <div class="text-2xl font-bold" id="hours">12</div>
+              <div class="text-sm">Hours</div>
+            </div>
+            <div class="bg-brand-pink rounded-xl p-3">
+              <div class="text-2xl font-bold" id="minutes">30</div>
+              <div class="text-sm">Minutes</div>
+            </div>
+            <div class="bg-brand-pink rounded-xl p-3">
+              <div class="text-2xl font-bold" id="seconds">15</div>
+              <div class="text-sm">Seconds</div>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-3xl overflow-hidden shadow-2xl">
+          <img
+            src="{{ include.section.countdown_image }}"
+            alt="{{ include.section.countdown_alt }}"
+            class="w-full h-64 object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
