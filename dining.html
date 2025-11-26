@@ -1,614 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+---
+layout: default
+title: "Dining | Cloudora Hotel"
+description: "Experience award-winning dining at Cloudora Hotel. Fine dining restaurants, sophisticated lounges, and exceptional culinary experiences by Chef Marco Rossi."
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&family=Titan+One&display=swap"
-      rel="stylesheet"
-    />
+seo:
+  title: "Dining | Cloudora Hotel - Culinary Excellence"
+  description: "Discover our award-winning restaurants and bars at Cloudora Hotel. Fine dining, crafted cocktails, and unforgettable culinary experiences."
+  image: "/assets/images/dining-hero.jpg"
+  url: "{{ site.url }}{{ page.url }}"
+  keywords: "fine dining, hotel restaurants, chef marco rossi, culinary experiences, private dining, rooftop lounge"
 
-    <title>Dining | Cloudora Hotel</title>
+hero:
+  background_image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+  logo_text: "Cloudora Hotel"
+  logo_url: "index.html"
+  contact_button: "Contact us"
+  contact_url: "#contact"
+  heading: "Culinary Excellence"
+  subheading: "Award-winning dining experiences by Chef Marco Rossi"
+  divider_color: "bg-brand-orange"
+  buttons:
+    - text: "Our Restaurants"
+      url: "#restaurants"
+      style: "primary"
+    - text: "View Menu"
+      url: "#menu"
+      style: "secondary"
+    - text: "Make Reservation"
+      url: "#reservations"
+      style: "primary"
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              "brand-pink": "#EEC1DC",
-              "brand-orange": "#FE953D",
-              "brand-yellow": "#FEC001",
-            },
-            fontFamily: {
-              "titan-one": ["Titan One", "cursive"],
-              montserrat: ["Montserrat", "sans-serif"],
-            },
-            spacing: {
-              "5p": "5%",
-              "10p": "10%",
-              "15p": "15%",
-            },
-          },
-        },
-      };
-    </script>
+restaurants:
+  heading: "Our Restaurants & Bars"
+  items:
+    - name: "Skyline Restaurant"
+      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+      alt: "Skyline Restaurant"
+      description: "Fine dining with contemporary cuisine and an extensive wine list. Our signature restaurant offers an unforgettable culinary journey."
+      hours: "6:00 PM - 10:30 PM"
+      dress_code: "Smart Casual"
+      reservations: "Recommended"
+      buttons:
+        - text: "View Menu"
+          url: "#"
+          style: "primary"
+        - text: "Reserve Table"
+          url: "#"
+          style: "secondary"
+    - name: "Terrace Lounge"
+      image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80"
+      alt: "Terrace Lounge"
+      description: "Relax with crafted cocktails and light bites in our sophisticated lounge. Perfect for pre-dinner drinks or evening socializing."
+      hours: "4:00 PM - 1:00 AM"
+      live_music: "Wednesday-Saturday"
+      happy_hour: "4:00 PM - 6:00 PM"
+      buttons:
+        - text: "View Menu"
+          url: "#"
+          style: "primary"
+        - text: "Reserve Table"
+          url: "#"
+          style: "secondary"
 
-    <!-- GSAP Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  </head>
-  <body class="font-montserrat">
-    <!---------------- HERO SECTION - DIFFERENT STYLE ---------------->
-    <header
-      class="flex justify-center items-center min-h-[65vh] sm:min-h-screen bg-top bg-cover text-white bg-center relative overflow-hidden"
-      style="
-        background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-      "
-    >
-      <!-- Navigation -->
-      <nav class="absolute top-4 left-4 z-10">
-        <a href="index.html" class="mx-8 text-xl font-bold opacity-0" id="logo"
-          >Cloudora Hotel</a
-        >
-      </nav>
+chef_section:
+  image: "https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+  alt: "Executive Chef Marco Rossi"
+  title: "Executive Chef Marco Rossi"
+  description: "Meet our award-winning executive chef who brings over 20 years of culinary expertise to Cloudora Hotel. His passion for seasonal ingredients and innovative techniques creates unforgettable dining experiences."
+  features:
+    - "James Beard Award Winner 2021"
+    - "Specializes in Mediterranean cuisine"
+    - "Focus on locally sourced ingredients"
+    - "Personalized tasting menus available"
+  button_text: "Chef's Table Experience"
+  button_url: "#"
 
-      <a
-        href="#contact"
-        class="absolute top-4 right-4 border-2 border-white rounded-full px-4 py-1 opacity-0 hover:bg-white hover:text-black transition-colors duration-300"
-        id="contact-btn"
-      >
-        Contact us
-      </a>
+private_dining:
+  heading: "Private Dining & Events"
+  items:
+    - name: "The Boardroom"
+      icon: "👥"
+      description: "Intimate setting for up to 12 guests, perfect for business meetings"
+      capacity: "Up to 12 Guests"
+    - name: "The Garden Room"
+      icon: "🌿"
+      description: "Elegant space for up to 30 guests with natural lighting"
+      capacity: "Up to 30 Guests"
+    - name: "The Grand Salon"
+      icon: "🎉"
+      description: "Spacious venue for up to 80 guests, ideal for celebrations"
+      capacity: "Up to 80 Guests"
+  cta_text: "Inquire About Private Events"
+  cta_url: "#"
+---
 
-      <!-- Hero Content - Different Layout -->
-      <div class="text-center z-10 w-full max-w-4xl px-4">
-        <h1
-          class="text-5xl sm:text-7xl font-titan-one opacity-0 mb-6"
-          id="hero-heading"
-        >
-          Culinary Excellence
-        </h1>
-        <div
-          class="w-32 h-1 bg-brand-orange mx-auto mb-8 opacity-0"
-          id="hero-divider"
-        ></div>
-        <h2
-          class="text-xl sm:text-2xl text-white mb-12 opacity-0"
-          id="hero-subheading"
-        >
-          Award-winning dining experiences by Chef Marco Rossi
-        </h2>
-        <div
-          class="flex flex-wrap justify-center gap-4 opacity-0"
-          id="hero-buttons"
-        >
-          <a
-            href="#restaurants"
-            class="bg-brand-orange text-white rounded-full px-8 py-3 hover:bg-black transition-colors duration-300 font-bold"
-          >
-            Our Restaurants
-          </a>
-          <a
-            href="#menu"
-            class="border-2 border-white text-white rounded-full px-8 py-3 hover:bg-white hover:text-black transition-colors duration-300 font-bold"
-          >
-            View Menu
-          </a>
-          <a
-            href="#reservations"
-            class="bg-white text-black rounded-full px-8 py-3 hover:bg-black hover:text-white transition-colors duration-300 font-bold"
-          >
-            Make Reservation
-          </a>
-        </div>
-      </div>
+{% include content-hero-section.html section=page.hero %} {% include
+restaurants-section.html section=page.restaurants %} {% include
+chef-section.html section=page.chef_section %} {% include
+private-dining-section.html section=page.private_dining %}
 
-      <!-- Wave SVG -->
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="1440"
-        height="111"
-        viewBox="0 0 1440 111"
-        fill="none"
-        class="absolute bottom-[28.9%] sm:bottom-[-4.2%] left-0 w-full rotate-180 z-0 opacity-0"
-        id="header-wave"
-      >
-        <path
-          d="M1816 31.6148C1724.67 31.6148 1724.67 111 1633.31 111C1541.96 111 1541.98 31.6148 1450.63 31.6148C1359.27 31.6148 1359.29 111 1267.96 111C1176.63 111 1176.63 31.6148 1085.29 31.6148C993.959 31.6148 993.959 111 902.626 111C811.293 111 811.293 31.6148 719.959 31.6148C628.626 31.6148 628.626 111 537.293 111C445.959 111 445.959 31.6148 354.626 31.6148C263.293 31.6148 263.293 111 171.959 111C80.6261 111 80.6261 31.6148 -10.7072 31.6148C-102.041 31.6148 -102.041 111 -193.354 111C-284.667 111 -284.667 31.6148 -376 31.6148V0H720H1816V31.6148Z"
-          fill="#EEC1DC"
-        />
-      </svg>
-    </header>
-
-    <!---------------- RESTAURANTS - DIFFERENT CARD STYLE ---------------->
-    <section class="bg-white py-20 overflow-hidden" id="restaurants">
-      <div class="container mx-auto px-4">
-        <h2
-          class="text-4xl font-bold text-center mb-16 opacity-0"
-          id="section-heading"
-        >
-          Our Restaurants & Bars
-        </h2>
-
-        <div class="grid lg:grid-cols-2 gap-12">
-          <!-- Restaurant 1 -->
-          <div
-            class="bg-brand-pink rounded-3xl overflow-hidden shadow-2xl opacity-0 -translate-x-10"
-            id="restaurant-1"
-          >
-            <div class="h-80 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                alt="Skyline Restaurant"
-                class="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-              />
-            </div>
-            <div class="p-8">
-              <h3 class="text-3xl font-bold mb-4">Skyline Restaurant</h3>
-              <p class="text-gray-700 mb-6 text-lg">
-                Fine dining with contemporary cuisine and an extensive wine
-                list. Our signature restaurant offers an unforgettable culinary
-                journey.
-              </p>
-              <div class="space-y-3 mb-6">
-                <div class="flex justify-between">
-                  <span class="font-semibold">Hours:</span>
-                  <span>6:00 PM - 10:30 PM</span>
-                </div>
-                <div class="flex justify-between">
-                  <span class="font-semibold">Dress Code:</span>
-                  <span>Smart Casual</span>
-                </div>
-                <div class="flex justify-between">
-                  <span class="font-semibold">Reservations:</span>
-                  <span>Recommended</span>
-                </div>
-              </div>
-              <div class="flex gap-4">
-                <a
-                  href="#"
-                  class="bg-brand-orange text-white px-6 py-3 rounded-full hover:bg-black transition-colors flex-1 text-center"
-                >
-                  View Menu
-                </a>
-                <a
-                  href="#"
-                  class="border-2 border-brand-orange text-brand-orange px-6 py-3 rounded-full hover:bg-brand-orange hover:text-white transition-colors flex-1 text-center"
-                >
-                  Reserve Table
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Restaurant 2 -->
-          <div
-            class="bg-brand-pink rounded-3xl overflow-hidden shadow-2xl opacity-0 translate-x-10"
-            id="restaurant-2"
-          >
-            <div class="h-80 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80"
-                alt="Terrace Lounge"
-                class="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-              />
-            </div>
-            <div class="p-8">
-              <h3 class="text-3xl font-bold mb-4">Terrace Lounge</h3>
-              <p class="text-gray-700 mb-6 text-lg">
-                Relax with crafted cocktails and light bites in our
-                sophisticated lounge. Perfect for pre-dinner drinks or evening
-                socializing.
-              </p>
-              <div class="space-y-3 mb-6">
-                <div class="flex justify-between">
-                  <span class="font-semibold">Hours:</span>
-                  <span>4:00 PM - 1:00 AM</span>
-                </div>
-                <div class="flex justify-between">
-                  <span class="font-semibold">Live Music:</span>
-                  <span>Wednesday-Saturday</span>
-                </div>
-                <div class="flex justify-between">
-                  <span class="font-semibold">Happy Hour:</span>
-                  <span>4:00 PM - 6:00 PM</span>
-                </div>
-              </div>
-              <div class="flex gap-4">
-                <a
-                  href="#"
-                  class="bg-brand-orange text-white px-6 py-3 rounded-full hover:bg-black transition-colors flex-1 text-center"
-                >
-                  View Menu
-                </a>
-                <a
-                  href="#"
-                  class="border-2 border-brand-orange text-brand-orange px-6 py-3 rounded-full hover:bg-brand-orange hover:text-white transition-colors flex-1 text-center"
-                >
-                  Reserve Table
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!---------------- CHEF'S SIGNATURE - DIFFERENT LAYOUT ---------------->
-    <section class="bg-brand-orange py-20 overflow-hidden">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col lg:flex-row items-center gap-12">
-          <!-- Image -->
-          <div class="lg:w-1/2 opacity-0 -translate-x-10" id="chef-image">
-            <div class="rounded-3xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                alt="Executive Chef Marco Rossi"
-                class="w-full h-96 object-cover"
-              />
-            </div>
-          </div>
-
-          <!-- Content -->
-          <div
-            class="lg:w-1/2 text-white opacity-0 translate-x-10"
-            id="chef-content"
-          >
-            <h2 class="text-4xl font-bold mb-6">Executive Chef Marco Rossi</h2>
-            <p class="text-xl mb-8">
-              Meet our award-winning executive chef who brings over 20 years of
-              culinary expertise to Cloudora Hotel. His passion for seasonal
-              ingredients and innovative techniques creates unforgettable dining
-              experiences.
-            </p>
-            <div class="grid md:grid-cols-2 gap-6 mb-8">
-              <div class="flex items-center">
-                <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
-                James Beard Award Winner 2021
-              </div>
-              <div class="flex items-center">
-                <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
-                Specializes in Mediterranean cuisine
-              </div>
-              <div class="flex items-center">
-                <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
-                Focus on locally sourced ingredients
-              </div>
-              <div class="flex items-center">
-                <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
-                Personalized tasting menus available
-              </div>
-            </div>
-            <a
-              href="#"
-              class="bg-white text-brand-orange px-8 py-3 rounded-full font-bold hover:bg-black hover:text-white transition-colors inline-block"
-            >
-              Chef's Table Experience
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!---------------- PRIVATE DINING - DIFFERENT STYLE ---------------->
-    <section class="bg-brand-pink py-20 overflow-hidden">
-      <div class="container mx-auto px-4">
-        <h2
-          class="text-4xl font-bold text-center mb-16 opacity-0"
-          id="private-dining-heading"
-        >
-          Private Dining & Events
-        </h2>
-
-        <div class="grid md:grid-cols-3 gap-8">
-          <!-- Event 1 -->
-          <div class="text-center opacity-0 scale-90" id="event-1">
-            <div class="bg-white rounded-2xl p-8 shadow-lg h-full">
-              <div
-                class="w-20 h-20 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-6"
-              >
-                <span class="text-white text-3xl">👥</span>
-              </div>
-              <h3 class="text-2xl font-bold mb-4">The Boardroom</h3>
-              <p class="text-gray-600 mb-6">
-                Intimate setting for up to 12 guests, perfect for business
-                meetings
-              </p>
-              <div class="text-brand-orange font-bold text-lg">
-                Up to 12 Guests
-              </div>
-            </div>
-          </div>
-
-          <!-- Event 2 -->
-          <div class="text-center opacity-0 scale-90" id="event-2">
-            <div class="bg-white rounded-2xl p-8 shadow-lg h-full">
-              <div
-                class="w-20 h-20 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-6"
-              >
-                <span class="text-white text-3xl">🌿</span>
-              </div>
-              <h3 class="text-2xl font-bold mb-4">The Garden Room</h3>
-              <p class="text-gray-600 mb-6">
-                Elegant space for up to 30 guests with natural lighting
-              </p>
-              <div class="text-brand-orange font-bold text-lg">
-                Up to 30 Guests
-              </div>
-            </div>
-          </div>
-
-          <!-- Event 3 -->
-          <div class="text-center opacity-0 scale-90" id="event-3">
-            <div class="bg-white rounded-2xl p-8 shadow-lg h-full">
-              <div
-                class="w-20 h-20 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-6"
-              >
-                <span class="text-white text-3xl">🎉</span>
-              </div>
-              <h3 class="text-2xl font-bold mb-4">The Grand Salon</h3>
-              <p class="text-gray-600 mb-6">
-                Spacious venue for up to 80 guests, ideal for celebrations
-              </p>
-              <div class="text-brand-orange font-bold text-lg">
-                Up to 80 Guests
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center mt-12 opacity-0" id="event-cta">
-          <a
-            href="#"
-            class="bg-brand-orange text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-black transition-colors inline-block"
-          >
-            Inquire About Private Events
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer (same as index.html) -->
-    <footer class="grid grid-cols-1 md:grid-cols-5 gap-8 bg-brand-pink p-5p">
-      <div class="md:col-span-2">
-        <h3 class="font-bold mb-2 text-xl">Cloudora Hotel</h3>
-        <p>
-          Luxury boutique hotel offering exceptional accommodations, fine
-          dining, and world-class amenities in the heart of the city.
-        </p>
-        <div class="mt-4">
-          <p class="font-semibold">Address:</p>
-          <p>123 Luxury Avenue<br />Metropolitan City, MC 12345</p>
-        </div>
-      </div>
-
-      <div>
-        <h3 class="font-bold mb-2">Quick Links</h3>
-        <ul class="space-y-1">
-          <li>
-            <a href="rooms.html" class="hover:text-brand-orange"
-              >Rooms & Suites</a
-            >
-          </li>
-          <li>
-            <a href="dining.html" class="hover:text-brand-orange">Dining</a>
-          </li>
-          <li>
-            <a href="amenities.html" class="hover:text-brand-orange"
-              >Amenities</a
-            >
-          </li>
-          <li>
-            <a href="offers.html" class="hover:text-brand-orange"
-              >Special Offers</a
-            >
-          </li>
-        </ul>
-      </div>
-
-      <div>
-        <h3 class="font-bold mb-2">Guest Services</h3>
-        <ul class="space-y-1">
-          <li><a href="#" class="hover:text-brand-orange">Concierge</a></li>
-          <li>
-            <a href="#" class="hover:text-brand-orange">Spa & Wellness</a>
-          </li>
-          <li><a href="#" class="hover:text-brand-orange">Event Spaces</a></li>
-          <li><a href="#" class="hover:text-brand-orange">Gallery</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h3 class="font-bold mb-2">Newsletter</h3>
-        <p class="mb-2 text-sm">Subscribe for exclusive offers and updates</p>
-        <div class="flex flex-col gap-2">
-          <input
-            type="email"
-            name="_replyto"
-            id="footer-email"
-            placeholder="Your email address"
-            class="rounded-3xl bg-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black w-full"
-          />
-          <a
-            href="#"
-            class="bg-black text-white rounded-full px-4 py-2 text-center hover:bg-brand-orange transition-colors duration-300"
-          >
-            Subscribe
-          </a>
-        </div>
-      </div>
-
-      <div
-        class="md:col-span-5 border-t border-gray-300 mt-6 pt-6 text-center text-sm"
-      >
-        <p>
-          &copy; 2023 Cloudora Hotel. All rights reserved. |
-          <a href="#" class="hover:text-brand-orange">Privacy Policy</a> |
-          <a href="#" class="hover:text-brand-orange">Terms of Service</a>
-        </p>
-      </div>
-    </footer>
-
-    <!-- GSAP Animations -->
-    <script>
-      gsap.registerPlugin(ScrollTrigger);
-
-      function initAnimations() {
-        // Hero animations
-        const heroTimeline = gsap.timeline();
-        heroTimeline
-          .fromTo(
-            "#logo",
-            { opacity: 0, y: -20 },
-            { opacity: 1, y: 0, duration: 0.8 }
-          )
-          .fromTo(
-            "#contact-btn",
-            { opacity: 0, y: -20 },
-            { opacity: 1, y: 0, duration: 0.8 },
-            "-=0.6"
-          )
-          .fromTo(
-            "#hero-heading",
-            { opacity: 0, y: 50 },
-            { opacity: 1, y: 0, duration: 1 }
-          )
-          .fromTo(
-            "#hero-divider",
-            { opacity: 0, scaleX: 0 },
-            { opacity: 1, scaleX: 1, duration: 0.8 },
-            "-=0.5"
-          )
-          .fromTo(
-            "#hero-subheading",
-            { opacity: 0, y: 20 },
-            { opacity: 1, y: 0, duration: 0.8 }
-          )
-          .fromTo(
-            "#hero-buttons",
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.8 }
-          )
-          .fromTo(
-            "#header-wave",
-            { opacity: 0, y: 50 },
-            { opacity: 1, y: 0, duration: 1 },
-            "-=0.5"
-          );
-
-        // Restaurants
-        gsap.fromTo(
-          "#section-heading",
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            scrollTrigger: { trigger: "#section-heading", start: "top 80%" },
-          }
-        );
-
-        gsap.fromTo(
-          "#restaurant-1",
-          { opacity: 0, x: -50 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 1,
-            scrollTrigger: { trigger: "#restaurant-1", start: "top 80%" },
-          }
-        );
-
-        gsap.fromTo(
-          "#restaurant-2",
-          { opacity: 0, x: 50 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 1,
-            scrollTrigger: { trigger: "#restaurant-2", start: "top 80%" },
-          }
-        );
-
-        // Chef section
-        gsap.fromTo(
-          "#chef-image",
-          { opacity: 0, x: -50 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 1,
-            scrollTrigger: { trigger: "#chef-image", start: "top 80%" },
-          }
-        );
-
-        gsap.fromTo(
-          "#chef-content",
-          { opacity: 0, x: 50 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 1,
-            scrollTrigger: { trigger: "#chef-content", start: "top 80%" },
-          }
-        );
-
-        // Private dining
-        gsap.fromTo(
-          "#private-dining-heading",
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            scrollTrigger: {
-              trigger: "#private-dining-heading",
-              start: "top 80%",
-            },
-          }
-        );
-
-        gsap.fromTo(
-          ["#event-1", "#event-2", "#event-3"],
-          { opacity: 0, scale: 0.9 },
-          {
-            opacity: 1,
-            scale: 1,
-            duration: 0.6,
-            stagger: 0.2,
-            scrollTrigger: { trigger: ".grid-cols-3", start: "top 80%" },
-          }
-        );
-
-        gsap.fromTo(
-          "#event-cta",
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            scrollTrigger: { trigger: "#event-cta", start: "top 80%" },
-          }
-        );
-
-        // Button hover effects
-        document.querySelectorAll("a, button").forEach((button) => {
-          button.addEventListener("mouseenter", () => {
-            gsap.to(button, { scale: 1.05, duration: 0.2 });
-          });
-          button.addEventListener("mouseleave", () => {
-            gsap.to(button, { scale: 1, duration: 0.2 });
-          });
-        });
-      }
-
-      document.addEventListener("DOMContentLoaded", initAnimations);
-      window.addEventListener("resize", () => ScrollTrigger.refresh());
-    </script>
-  </body>
-</html>
+<!-- GSAP Animation Script -->
+<script src="/assets/js/dining-animations.js"></script>

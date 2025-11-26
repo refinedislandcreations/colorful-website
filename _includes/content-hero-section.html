@@ -1,4 +1,4 @@
-<!-- _includes/rooms-hero-section.html -->
+<!-- _includes/content-hero-section.html -->
 <!---------------- HERO SECTION - DIFFERENT STYLE ---------------->
 <header
   class="flex justify-center items-center min-h-[65vh] sm:min-h-screen bg-top bg-cover text-white bg-center relative overflow-hidden"
@@ -23,25 +23,25 @@
   </a>
 
   <!-- Hero Content - Different Layout -->
-  <div class="text-center z-10 w-full max-w-6xl px-4">
+  <div class="text-center z-10 w-full max-w-4xl px-4">
     <h1
-      class="text-5xl sm:text-8xl font-titan-one opacity-0 mb-6"
+      class="text-5xl sm:text-7xl font-titan-one opacity-0 mb-6"
       id="hero-heading"
     >
       {{ include.section.heading }}
     </h1>
     <div
-      class="w-24 h-1 bg-white mx-auto mb-8 opacity-0"
+      class="w-32 h-1 {% if include.section.divider_color %}{{ include.section.divider_color }}{% else %}bg-white{% endif %} mx-auto mb-8 opacity-0"
       id="hero-divider"
     ></div>
     <h2
-      class="text-xl sm:text-2xl text-white mb-10 opacity-0"
+      class="text-xl sm:text-2xl text-white mb-12 opacity-0"
       id="hero-subheading"
     >
       {{ include.section.subheading }}
     </h2>
     <div
-      class="flex flex-col sm:flex-row gap-4 justify-center opacity-0"
+      class="flex flex-wrap justify-center gap-4 opacity-0"
       id="hero-buttons"
     >
       {% for button in include.section.buttons %} {% if button.style ==
@@ -70,7 +70,7 @@
     height="111"
     viewBox="0 0 1440 111"
     fill="none"
-    class="absolute bottom-[-10%] sm:bottom-[-4.2%] left-0 w-full rotate-180 z-0 opacity-0"
+    class="absolute bottom-[28.9%] sm:bottom-[-4.2%] left-0 w-full rotate-180 z-0 opacity-0"
     id="header-wave"
   >
     <path

@@ -1,0 +1,44 @@
+<!-- _includes/private-dining-section.html -->
+<!---------------- PRIVATE DINING - DIFFERENT STYLE ---------------->
+<section class="bg-brand-pink py-20 overflow-hidden">
+  <div class="container mx-auto px-4">
+    <h2
+      class="text-4xl font-bold text-center mb-16 opacity-0"
+      id="private-dining-heading"
+    >
+      {{ include.section.heading }}
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {% for event in include.section.items %}
+      <!-- Event {{ forloop.index }} -->
+      <div
+        class="text-center opacity-0 scale-90"
+        id="event-{{ forloop.index }}"
+      >
+        <div class="bg-white rounded-2xl p-8 shadow-lg h-full">
+          <div
+            class="w-20 h-20 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-6"
+          >
+            <span class="text-white text-3xl">{{ event.icon }}</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">{{ event.name }}</h3>
+          <p class="text-gray-600 mb-6">{{ event.description }}</p>
+          <div class="text-brand-orange font-bold text-lg">
+            {{ event.capacity }}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="text-center mt-12 opacity-0" id="event-cta">
+      <a
+        href="{{ include.section.cta_url }}"
+        class="bg-brand-orange text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-black transition-colors inline-block"
+      >
+        {{ include.section.cta_text }}
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+<!-- _includes/chef-section.html -->
+<!---------------- CHEF'S SIGNATURE - DIFFERENT LAYOUT ---------------->
+<section class="bg-brand-orange py-20 overflow-hidden">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col lg:flex-row items-center gap-12">
+      <!-- Image -->
+      <div class="lg:w-1/2 opacity-0 -translate-x-10" id="chef-image">
+        <div class="rounded-3xl overflow-hidden shadow-2xl">
+          <img
+            src="{{ include.section.image }}"
+            alt="{{ include.section.alt }}"
+            class="w-full h-96 object-cover"
+          />
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div
+        class="lg:w-1/2 text-white opacity-0 translate-x-10"
+        id="chef-content"
+      >
+        <h2 class="text-4xl font-bold mb-6">{{ include.section.title }}</h2>
+        <p class="text-xl mb-8">{{ include.section.description }}</p>
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+          {% for feature in include.section.features %}
+          <div class="flex items-center">
+            <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
+            {{ feature }}
+          </div>
+          {% endfor %}
+        </div>
+        <a
+          href="{{ include.section.button_url }}"
+          class="bg-white text-brand-orange px-8 py-3 rounded-full font-bold hover:bg-black hover:text-white transition-colors inline-block"
+        >
+          {{ include.section.button_text }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
