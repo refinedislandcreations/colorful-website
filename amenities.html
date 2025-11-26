@@ -1,680 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+---
+layout: default
+title: "Amenities | Cloudora Hotel"
+description: "Discover world-class amenities at Cloudora Hotel. Luxury spa, fitness center, infinity pool, business services, and exceptional concierge services."
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&family=Titan+One&display=swap"
-      rel="stylesheet"
-    />
+seo:
+  title: "Amenities | Cloudora Hotel - World-Class Facilities"
+  description: "Experience premium amenities including luxury spa, 24/7 fitness center, infinity pool, business services, and personalized concierge at Cloudora Hotel."
+  image: "/assets/images/amenities-hero.jpg"
+  url: "{{ site.url }}{{ page.url }}"
+  keywords: "hotel amenities, luxury spa, fitness center, infinity pool, business services, concierge"
 
-    <title>Amenities | Cloudora Hotel</title>
+hero:
+  background_image: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+  logo_text: "Cloudora Hotel"
+  logo_url: "index.html"
+  contact_button: "Contact us"
+  contact_url: "#contact"
+  heading: "Hotel Amenities"
+  subheading: "World-Class Facilities for Your Ultimate Comfort"
+  divider_color: "bg-brand-yellow"
+  buttons:
+    - text: "Spa & Wellness"
+      url: "#spa"
+      style: "primary"
+    - text: "Fitness Center"
+      url: "#fitness"
+      style: "secondary"
+    - text: "Infinity Pool"
+      url: "#pool"
+      style: "primary"
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              "brand-pink": "#EEC1DC",
-              "brand-orange": "#FE953D",
-              "brand-yellow": "#FEC001",
-            },
-            fontFamily: {
-              "titan-one": ["Titan One", "cursive"],
-              montserrat: ["Montserrat", "sans-serif"],
-            },
-            spacing: {
-              "5p": "5%",
-              "10p": "10%",
-              "15p": "15%",
-            },
-          },
-        },
-      };
-    </script>
+featured_amenities:
+  heading: "Premium Facilities"
+  amenities:
+    - title: "Serenity Spa"
+      image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+      alt: "Serenity Spa"
+      description: "Indulge in rejuvenating treatments at our award-winning spa with massage therapy and holistic wellness services."
+      hours: "9:00 AM - 9:00 PM"
+      appointments: "Recommended"
+      button_text: "Book Treatment"
+      button_url: "#"
+    - title: "Fitness Center"
+      image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+      alt: "Fitness Center"
+      description: "State-of-the-art fitness facility with cardio equipment, free weights, and personal training services."
+      hours: "24/7 Access"
+      training: "By Appointment"
+      button_text: "View Equipment"
+      button_url: "#"
+    - title: "Infinity Pool"
+      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+      alt: "Infinity Pool"
+      description: "Relax in our heated infinity pool with stunning views, poolside service, and comfortable loungers."
+      hours: "7:00 AM - 10:00 PM"
+      seasonal: "Year-round Heated"
+      button_text: "Pool Rules"
+      button_url: "#"
 
-    <!-- GSAP Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  </head>
-  <body class="font-montserrat">
-    <!---------------- HERO SECTION - DIFFERENT STYLE ---------------->
-    <header
-      class="flex justify-center items-center min-h-[65vh] sm:min-h-screen bg-top bg-cover text-white bg-center relative overflow-hidden"
-      style="
-        background-image: url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-      "
-    >
-      <!-- Navigation -->
-      <nav class="absolute top-4 left-4 z-10">
-        <a href="index.html" class="mx-8 text-xl font-bold opacity-0" id="logo"
-          >Cloudora Hotel</a
-        >
-      </nav>
+spa_section:
+  title: "Serenity Spa Experience"
+  description: "Our 10,000 square foot luxury spa offers a sanctuary of relaxation and rejuvenation. Experience world-class treatments in an environment designed to soothe the senses and restore balance."
+  price: "Packages starting at $150"
+  button_text: "Book Spa Package"
+  button_url: "#"
+  features:
+    - "12 treatment rooms including couples suites"
+    - "Steam room, sauna, and experiential showers"
+    - "Full-service salon and nail bar"
+    - "Private relaxation lounges"
+  images:
+    - src: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+      alt: "Spa Treatment Room"
+    - src: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+      alt: "Spa Relaxation Area"
+    - src: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
+      alt: "Spa Sauna"
+    - src: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+      alt: "Spa Pool"
 
-      <a
-        href="#contact"
-        class="absolute top-4 right-4 border-2 border-white rounded-full px-4 py-1 opacity-0 hover:bg-white hover:text-black transition-colors duration-300"
-        id="contact-btn"
-      >
-        Contact us
-      </a>
+business_services:
+  heading: "Business & Concierge Services"
+  services:
+    - title: "Business Center"
+      items:
+        - icon: "💻"
+          title: "24/7 Computer Access"
+          description: "High-speed workstations with printing services"
+        - icon: "📞"
+          title: "Meeting Rooms"
+          description: "Private spaces for business meetings"
+        - icon: "📠"
+          title: "Printing & Copying"
+          description: "Professional document services"
+        - icon: "🌐"
+          title: "High-Speed Internet"
+          description: "Secure connectivity throughout the hotel"
+    - title: "Concierge Services"
+      items:
+        - icon: "🎭"
+          title: "Event Tickets"
+          description: "Theater, concerts, and local events"
+        - icon: "🚗"
+          title: "Transportation"
+          description: "Car service and local arrangements"
+        - icon: "🍽️"
+          title: "Restaurant Reservations"
+          description: "Priority bookings at top restaurants"
+        - icon: "🎯"
+          title: "Local Experiences"
+          description: "Tours and unique local activities"
+---
 
-      <!-- Hero Content - Different Layout -->
-      <div class="text-center z-10 w-full max-w-4xl px-4">
-        <h1
-          class="text-5xl sm:text-7xl font-titan-one opacity-0 mb-6"
-          id="hero-heading"
-        >
-          Hotel Amenities
-        </h1>
-        <div
-          class="w-24 h-1 bg-brand-yellow mx-auto mb-8 opacity-0"
-          id="hero-divider"
-        ></div>
-        <h2
-          class="text-xl sm:text-2xl text-white mb-12 opacity-0"
-          id="hero-subheading"
-        >
-          World-Class Facilities for Your Ultimate Comfort
-        </h2>
-        <div
-          class="flex flex-wrap justify-center gap-4 opacity-0"
-          id="hero-buttons"
-        >
-          <a
-            href="#spa"
-            class="bg-brand-yellow text-black rounded-full px-8 py-3 hover:bg-black hover:text-white transition-colors duration-300 font-bold"
-          >
-            Spa & Wellness
-          </a>
-          <a
-            href="#fitness"
-            class="border-2 border-white text-white rounded-full px-8 py-3 hover:bg-white hover:text-black transition-colors duration-300 font-bold"
-          >
-            Fitness Center
-          </a>
-          <a
-            href="#pool"
-            class="bg-white text-black rounded-full px-8 py-3 hover:bg-black hover:text-white transition-colors duration-300 font-bold"
-          >
-            Infinity Pool
-          </a>
-        </div>
-      </div>
+{% include content-hero-section.html section=page.hero %} {% include
+featured-amenities-section.html section=page.featured_amenities %} {% include
+spa-section.html section=page.spa_section %} {% include
+business-services-section.html section=page.business_services %}
 
-      <!-- Wave SVG -->
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="1440"
-        height="111"
-        viewBox="0 0 1440 111"
-        fill="none"
-        class="absolute bottom-[28.9%] sm:bottom-[-4.2%] left-0 w-full rotate-180 z-0 opacity-0"
-        id="header-wave"
-      >
-        <path
-          d="M1816 31.6148C1724.67 31.6148 1724.67 111 1633.31 111C1541.96 111 1541.98 31.6148 1450.63 31.6148C1359.27 31.6148 1359.29 111 1267.96 111C1176.63 111 1176.63 31.6148 1085.29 31.6148C993.959 31.6148 993.959 111 902.626 111C811.293 111 811.293 31.6148 719.959 31.6148C628.626 31.6148 628.626 111 537.293 111C445.959 111 445.959 31.6148 354.626 31.6148C263.293 31.6148 263.293 111 171.959 111C80.6261 111 80.6261 31.6148 -10.7072 31.6148C-102.041 31.6148 -102.041 111 -193.354 111C-284.667 111 -284.667 31.6148 -376 31.6148V0H720H1816V31.6148Z"
-          fill="#EEC1DC"
-        />
-      </svg>
-    </header>
-
-    <!---------------- FEATURED AMENITIES - DIFFERENT CARD STYLE ---------------->
-    <section class="bg-white py-20 overflow-hidden">
-      <div class="container mx-auto px-4">
-        <h2
-          class="text-4xl font-bold text-center mb-16 opacity-0"
-          id="section-heading"
-        >
-          Premium Facilities
-        </h2>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Amenity 1 -->
-          <div
-            class="group relative bg-brand-pink rounded-3xl overflow-hidden shadow-xl opacity-0 rotate-y-90"
-            id="amenity-1"
-          >
-            <div class="h-64 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                alt="Serenity Spa"
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-            </div>
-            <div class="p-8">
-              <h3 class="text-2xl font-bold mb-4">Serenity Spa</h3>
-              <p class="text-gray-700 mb-6">
-                Indulge in rejuvenating treatments at our award-winning spa with
-                massage therapy and holistic wellness services.
-              </p>
-              <div class="space-y-2 mb-6">
-                <div class="flex justify-between text-sm">
-                  <span class="font-semibold">Hours:</span>
-                  <span>9:00 AM - 9:00 PM</span>
-                </div>
-                <div class="flex justify-between text-sm">
-                  <span class="font-semibold">Appointments:</span>
-                  <span>Recommended</span>
-                </div>
-              </div>
-              <a
-                href="#"
-                class="bg-brand-orange text-white px-6 py-3 rounded-full hover:bg-black transition-colors inline-block w-full text-center"
-              >
-                Book Treatment
-              </a>
-            </div>
-          </div>
-
-          <!-- Amenity 2 -->
-          <div
-            class="group relative bg-brand-pink rounded-3xl overflow-hidden shadow-xl opacity-0 rotate-y-90"
-            id="amenity-2"
-          >
-            <div class="h-64 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                alt="Fitness Center"
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-            </div>
-            <div class="p-8">
-              <h3 class="text-2xl font-bold mb-4">Fitness Center</h3>
-              <p class="text-gray-700 mb-6">
-                State-of-the-art fitness facility with cardio equipment, free
-                weights, and personal training services.
-              </p>
-              <div class="space-y-2 mb-6">
-                <div class="flex justify-between text-sm">
-                  <span class="font-semibold">Hours:</span>
-                  <span>24/7 Access</span>
-                </div>
-                <div class="flex justify-between text-sm">
-                  <span class="font-semibold">Training:</span>
-                  <span>By Appointment</span>
-                </div>
-              </div>
-              <a
-                href="#"
-                class="bg-brand-orange text-white px-6 py-3 rounded-full hover:bg-black transition-colors inline-block w-full text-center"
-              >
-                View Equipment
-              </a>
-            </div>
-          </div>
-
-          <!-- Amenity 3 -->
-          <div
-            class="group relative bg-brand-pink rounded-3xl overflow-hidden shadow-xl opacity-0 rotate-y-90"
-            id="amenity-3"
-          >
-            <div class="h-64 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                alt="Infinity Pool"
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-            </div>
-            <div class="p-8">
-              <h3 class="text-2xl font-bold mb-4">Infinity Pool</h3>
-              <p class="text-gray-700 mb-6">
-                Relax in our heated infinity pool with stunning views, poolside
-                service, and comfortable loungers.
-              </p>
-              <div class="space-y-2 mb-6">
-                <div class="flex justify-between text-sm">
-                  <span class="font-semibold">Hours:</span>
-                  <span>7:00 AM - 10:00 PM</span>
-                </div>
-                <div class="flex justify-between text-sm">
-                  <span class="font-semibold">Seasonal:</span>
-                  <span>Year-round Heated</span>
-                </div>
-              </div>
-              <a
-                href="#"
-                class="bg-brand-orange text-white px-6 py-3 rounded-full hover:bg-black transition-colors inline-block w-full text-center"
-              >
-                Pool Rules
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!---------------- SPA DETAILS - DIFFERENT LAYOUT ---------------->
-    <section class="bg-brand-orange py-20 overflow-hidden" id="spa">
-      <div class="container mx-auto px-4">
-        <div class="flex flex-col lg:flex-row items-center gap-12">
-          <!-- Content -->
-          <div
-            class="lg:w-1/2 text-white opacity-0 -translate-x-10"
-            id="spa-content"
-          >
-            <h2 class="text-4xl font-bold mb-6">Serenity Spa Experience</h2>
-            <p class="text-xl mb-8">
-              Our 10,000 square foot luxury spa offers a sanctuary of relaxation
-              and rejuvenation. Experience world-class treatments in an
-              environment designed to soothe the senses and restore balance.
-            </p>
-            <div class="grid md:grid-cols-2 gap-6 mb-8">
-              <div class="flex items-center">
-                <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
-                12 treatment rooms including couples suites
-              </div>
-              <div class="flex items-center">
-                <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
-                Steam room, sauna, and experiential showers
-              </div>
-              <div class="flex items-center">
-                <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
-                Full-service salon and nail bar
-              </div>
-              <div class="flex items-center">
-                <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
-                Private relaxation lounges
-              </div>
-            </div>
-            <div class="flex items-center gap-6">
-              <span class="text-2xl font-bold">Packages starting at $150</span>
-              <a
-                href="#"
-                class="bg-white text-brand-orange px-8 py-3 rounded-full font-bold hover:bg-black hover:text-white transition-colors"
-              >
-                Book Spa Package
-              </a>
-            </div>
-          </div>
-
-          <!-- Image -->
-          <div class="lg:w-1/2 opacity-0 translate-x-10" id="spa-image">
-            <div class="grid grid-cols-2 gap-4">
-              <div class="space-y-4">
-                <div class="rounded-2xl overflow-hidden shadow-2xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                    alt="Spa Treatment Room"
-                    class="w-full h-48 object-cover"
-                  />
-                </div>
-                <div class="rounded-2xl overflow-hidden shadow-2xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                    alt="Spa Relaxation Area"
-                    class="w-full h-32 object-cover"
-                  />
-                </div>
-              </div>
-              <div class="space-y-4 pt-8">
-                <div class="rounded-2xl overflow-hidden shadow-2xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
-                    alt="Spa Sauna"
-                    class="w-full h-32 object-cover"
-                  />
-                </div>
-                <div class="rounded-2xl overflow-hidden shadow-2xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                    alt="Spa Pool"
-                    class="w-full h-48 object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!---------------- BUSINESS SERVICES - DIFFERENT STYLE ---------------->
-    <section class="bg-brand-pink py-20 overflow-hidden">
-      <div class="container mx-auto px-4">
-        <h2
-          class="text-4xl font-bold text-center mb-16 opacity-0"
-          id="business-heading"
-        >
-          Business & Concierge Services
-        </h2>
-
-        <div class="grid md:grid-cols-2 gap-12">
-          <!-- Business Center -->
-          <div
-            class="bg-white rounded-3xl p-8 shadow-2xl opacity-0 -translate-x-10"
-            id="business-center"
-          >
-            <h3 class="text-3xl font-bold mb-6 text-center">Business Center</h3>
-            <div class="space-y-4">
-              <div class="flex items-center p-4 bg-brand-pink rounded-xl">
-                <span class="text-2xl mr-4">💻</span>
-                <div>
-                  <h4 class="font-bold">24/7 Computer Access</h4>
-                  <p class="text-sm text-gray-600">
-                    High-speed workstations with printing services
-                  </p>
-                </div>
-              </div>
-              <div class="flex items-center p-4 bg-brand-pink rounded-xl">
-                <span class="text-2xl mr-4">📞</span>
-                <div>
-                  <h4 class="font-bold">Meeting Rooms</h4>
-                  <p class="text-sm text-gray-600">
-                    Private spaces for business meetings
-                  </p>
-                </div>
-              </div>
-              <div class="flex items-center p-4 bg-brand-pink rounded-xl">
-                <span class="text-2xl mr-4">📠</span>
-                <div>
-                  <h4 class="font-bold">Printing & Copying</h4>
-                  <p class="text-sm text-gray-600">
-                    Professional document services
-                  </p>
-                </div>
-              </div>
-              <div class="flex items-center p-4 bg-brand-pink rounded-xl">
-                <span class="text-2xl mr-4">🌐</span>
-                <div>
-                  <h4 class="font-bold">High-Speed Internet</h4>
-                  <p class="text-sm text-gray-600">
-                    Secure connectivity throughout the hotel
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Concierge Services -->
-          <div
-            class="bg-white rounded-3xl p-8 shadow-2xl opacity-0 translate-x-10"
-            id="concierge-services"
-          >
-            <h3 class="text-3xl font-bold mb-6 text-center">
-              Concierge Services
-            </h3>
-            <div class="space-y-4">
-              <div class="flex items-center p-4 bg-brand-pink rounded-xl">
-                <span class="text-2xl mr-4">🎭</span>
-                <div>
-                  <h4 class="font-bold">Event Tickets</h4>
-                  <p class="text-sm text-gray-600">
-                    Theater, concerts, and local events
-                  </p>
-                </div>
-              </div>
-              <div class="flex items-center p-4 bg-brand-pink rounded-xl">
-                <span class="text-2xl mr-4">🚗</span>
-                <div>
-                  <h4 class="font-bold">Transportation</h4>
-                  <p class="text-sm text-gray-600">
-                    Car service and local arrangements
-                  </p>
-                </div>
-              </div>
-              <div class="flex items-center p-4 bg-brand-pink rounded-xl">
-                <span class="text-2xl mr-4">🍽️</span>
-                <div>
-                  <h4 class="font-bold">Restaurant Reservations</h4>
-                  <p class="text-sm text-gray-600">
-                    Priority bookings at top restaurants
-                  </p>
-                </div>
-              </div>
-              <div class="flex items-center p-4 bg-brand-pink rounded-xl">
-                <span class="text-2xl mr-4">🎯</span>
-                <div>
-                  <h4 class="font-bold">Local Experiences</h4>
-                  <p class="text-sm text-gray-600">
-                    Tours and unique local activities
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer (same as index.html) -->
-    <footer class="grid grid-cols-1 md:grid-cols-5 gap-8 bg-brand-pink p-5p">
-      <div class="md:col-span-2">
-        <h3 class="font-bold mb-2 text-xl">Cloudora Hotel</h3>
-        <p>
-          Luxury boutique hotel offering exceptional accommodations, fine
-          dining, and world-class amenities in the heart of the city.
-        </p>
-        <div class="mt-4">
-          <p class="font-semibold">Address:</p>
-          <p>123 Luxury Avenue<br />Metropolitan City, MC 12345</p>
-        </div>
-      </div>
-
-      <div>
-        <h3 class="font-bold mb-2">Quick Links</h3>
-        <ul class="space-y-1">
-          <li>
-            <a href="rooms.html" class="hover:text-brand-orange"
-              >Rooms & Suites</a
-            >
-          </li>
-          <li>
-            <a href="dining.html" class="hover:text-brand-orange">Dining</a>
-          </li>
-          <li>
-            <a href="amenities.html" class="hover:text-brand-orange"
-              >Amenities</a
-            >
-          </li>
-          <li>
-            <a href="offers.html" class="hover:text-brand-orange"
-              >Special Offers</a
-            >
-          </li>
-        </ul>
-      </div>
-
-      <div>
-        <h3 class="font-bold mb-2">Guest Services</h3>
-        <ul class="space-y-1">
-          <li><a href="#" class="hover:text-brand-orange">Concierge</a></li>
-          <li>
-            <a href="#" class="hover:text-brand-orange">Spa & Wellness</a>
-          </li>
-          <li><a href="#" class="hover:text-brand-orange">Event Spaces</a></li>
-          <li><a href="#" class="hover:text-brand-orange">Gallery</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h3 class="font-bold mb-2">Newsletter</h3>
-        <p class="mb-2 text-sm">Subscribe for exclusive offers and updates</p>
-        <div class="flex flex-col gap-2">
-          <input
-            type="email"
-            name="_replyto"
-            id="footer-email"
-            placeholder="Your email address"
-            class="rounded-3xl bg-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black w-full"
-          />
-          <a
-            href="#"
-            class="bg-black text-white rounded-full px-4 py-2 text-center hover:bg-brand-orange transition-colors duration-300"
-          >
-            Subscribe
-          </a>
-        </div>
-      </div>
-
-      <div
-        class="md:col-span-5 border-t border-gray-300 mt-6 pt-6 text-center text-sm"
-      >
-        <p>
-          &copy; 2023 Cloudora Hotel. All rights reserved. |
-          <a href="#" class="hover:text-brand-orange">Privacy Policy</a> |
-          <a href="#" class="hover:text-brand-orange">Terms of Service</a>
-        </p>
-      </div>
-    </footer>
-
-    <!-- GSAP Animations -->
-    <script>
-      gsap.registerPlugin(ScrollTrigger);
-
-      function initAnimations() {
-        // Hero animations
-        const heroTimeline = gsap.timeline();
-        heroTimeline
-          .fromTo(
-            "#logo",
-            { opacity: 0, y: -20 },
-            { opacity: 1, y: 0, duration: 0.8 }
-          )
-          .fromTo(
-            "#contact-btn",
-            { opacity: 0, y: -20 },
-            { opacity: 1, y: 0, duration: 0.8 },
-            "-=0.6"
-          )
-          .fromTo(
-            "#hero-heading",
-            { opacity: 0, y: 50 },
-            { opacity: 1, y: 0, duration: 1 }
-          )
-          .fromTo(
-            "#hero-divider",
-            { opacity: 0, scaleX: 0 },
-            { opacity: 1, scaleX: 1, duration: 0.8 },
-            "-=0.5"
-          )
-          .fromTo(
-            "#hero-subheading",
-            { opacity: 0, y: 20 },
-            { opacity: 1, y: 0, duration: 0.8 }
-          )
-          .fromTo(
-            "#hero-buttons",
-            { opacity: 0, y: 30 },
-            { opacity: 1, y: 0, duration: 0.8 }
-          )
-          .fromTo(
-            "#header-wave",
-            { opacity: 0, y: 50 },
-            { opacity: 1, y: 0, duration: 1 },
-            "-=0.5"
-          );
-
-        // Featured amenities
-        gsap.fromTo(
-          "#section-heading",
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            scrollTrigger: { trigger: "#section-heading", start: "top 80%" },
-          }
-        );
-
-        gsap.fromTo(
-          ["#amenity-1", "#amenity-2", "#amenity-3"],
-          { opacity: 0, rotationY: 90 },
-          {
-            opacity: 1,
-            rotationY: 0,
-            duration: 1,
-            stagger: 0.2,
-            scrollTrigger: { trigger: ".grid-cols-3", start: "top 80%" },
-          }
-        );
-
-        // Spa section
-        gsap.fromTo(
-          "#spa-content",
-          { opacity: 0, x: -50 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 1,
-            scrollTrigger: { trigger: "#spa-content", start: "top 80%" },
-          }
-        );
-
-        gsap.fromTo(
-          "#spa-image",
-          { opacity: 0, x: 50 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 1,
-            scrollTrigger: { trigger: "#spa-image", start: "top 80%" },
-          }
-        );
-
-        // Business services
-        gsap.fromTo(
-          "#business-heading",
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            scrollTrigger: { trigger: "#business-heading", start: "top 80%" },
-          }
-        );
-
-        gsap.fromTo(
-          "#business-center",
-          { opacity: 0, x: -50 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 1,
-            scrollTrigger: { trigger: "#business-center", start: "top 80%" },
-          }
-        );
-
-        gsap.fromTo(
-          "#concierge-services",
-          { opacity: 0, x: 50 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 1,
-            scrollTrigger: { trigger: "#concierge-services", start: "top 80%" },
-          }
-        );
-
-        // Button hover effects
-        document.querySelectorAll("a, button").forEach((button) => {
-          button.addEventListener("mouseenter", () => {
-            gsap.to(button, { scale: 1.05, duration: 0.2 });
-          });
-          button.addEventListener("mouseleave", () => {
-            gsap.to(button, { scale: 1, duration: 0.2 });
-          });
-        });
-
-        // Card hover effects
-        document.querySelectorAll(".group").forEach((card) => {
-          card.addEventListener("mouseenter", () => {
-            gsap.to(card, { y: -10, duration: 0.3 });
-          });
-          card.addEventListener("mouseleave", () => {
-            gsap.to(card, { y: 0, duration: 0.3 });
-          });
-        });
-      }
-
-      document.addEventListener("DOMContentLoaded", initAnimations);
-      window.addEventListener("resize", () => ScrollTrigger.refresh());
-    </script>
-  </body>
-</html>
+<!-- GSAP Animation Script -->
+<script src="/assets/js/amenities-animations.js"></script>
