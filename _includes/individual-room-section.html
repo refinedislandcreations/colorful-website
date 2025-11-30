@@ -1,0 +1,55 @@
+<!---------------- INDIVIDUAL ROOM SECTION ---------------->
+<section
+  class="{{ include.section.bg_color }} py-20 overflow-hidden"
+  id="{{ include.section.title | slugify }}"
+>
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col lg:flex-row items-center gap-12">
+      <!-- Image -->
+      <div
+        class="lg:w-1/2 opacity-0 translate-x-10"
+        id="{{ include.section.title | slugify }}-image"
+      >
+        <div class="rounded-3xl overflow-hidden shadow-2xl">
+          <img
+            src="{{ include.section.image }}"
+            alt="{{ include.section.alt }}"
+            class="w-full h-96 object-cover transition-transform duration-700 hover:scale-105"
+          />
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div
+        class="lg:w-1/2 text-gray-800 opacity-0 -translate-x-10"
+        id="{{ include.section.title | slugify }}-content"
+      >
+        <h2 class="text-4xl font-bold mb-6">{{ include.section.title }}</h2>
+        <p class="text-xl mb-6">{{ include.section.description }}</p>
+
+        <!-- Features List -->
+        <ul class="space-y-3 mb-8">
+          {% for feature in include.section.features %}
+          <li class="flex items-center">
+            <span class="w-2 h-2 bg-brand-orange rounded-full mr-3"></span>
+            {{ feature }}
+          </li>
+          {% endfor %}
+        </ul>
+
+        <!-- Price and Button -->
+        <div class="flex items-center gap-6">
+          <span class="text-3xl font-bold text-brand-orange"
+            >{{ include.section.price }}</span
+          >
+          <a
+            href="{{ include.section.button_url }}"
+            class="bg-brand-orange text-white px-8 py-3 rounded-full font-bold hover:bg-black transition-colors"
+          >
+            {{ include.section.button_text }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

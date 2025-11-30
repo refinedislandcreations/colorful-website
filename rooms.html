@@ -11,7 +11,7 @@ seo:
   keywords: "hotel rooms, luxury suites, accommodations, executive suite, deluxe room, presidential suite"
 
 hero:
-  background_image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+  background_image: "https://images.unsplash.com/photo-1619110457577-316b0a7457e5?q=80&w=2050&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   logo_text: "Cloudora Hotel"
   logo_url: "index.html"
   contact_button: "Contact us"
@@ -26,36 +26,63 @@ hero:
       url: "#reservations"
       style: "secondary"
 
-room_categories:
-  heading: "Accommodation Categories"
-  rooms:
-    - title: "Standard Room"
-      image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-      alt: "Standard Room"
-      description: "Elegantly appointed rooms with premium amenities, perfect for business or leisure travelers."
-      price: "From $199"
-      button_text: "Details"
-      button_url: "#"
-    - title: "Deluxe Room"
-      image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-      alt: "Deluxe Room"
-      description: "Spacious accommodations with separate seating area and enhanced amenities for extended stays."
-      price: "From $299"
-      button_text: "Details"
-      button_url: "#"
-    - title: "Executive Suite"
-      image: "https://images.unsplash.com/photo-1582582621959-48d27397dc69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
-      alt: "Executive Suite"
-      description: "Premium suite with separate living area, exclusive lounge access, and premium amenities."
-      price: "From $499"
-      button_text: "Details"
-      button_url: "#"
+standard_room:
+  title: "Standard Room"
+  bg_color: "bg-brand-pink"
+  image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+  alt: "Standard Room"
+  description: "Elegantly appointed rooms with premium amenities, perfect for business or leisure travelers. Our Standard Rooms feature custom furnishings, premium linens, and thoughtful details for a comfortable stay."
+  price: "From $199/night"
+  button_text: "Book Now"
+  button_url: "#"
+  features:
+    - "King-size bed or twin beds"
+    - '55" Smart TV with streaming'
+    - "Premium bathroom amenities"
+    - "Complimentary high-speed WiFi"
+    - "In-room safe and mini-bar"
+    - "Work desk with ergonomic chair"
 
-featured_suite:
+deluxe_room:
+  title: "Deluxe Room"
+  bg_color: "bg-white"
+  image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+  alt: "Deluxe Room"
+  description: "Spacious accommodations with separate seating area and enhanced amenities for extended stays. Enjoy additional space and upgraded features for ultimate comfort."
+  price: "From $299/night"
+  button_text: "Book Now"
+  button_url: "#"
+  features:
+    - "Separate seating area"
+    - "Enhanced workspace"
+    - "Upgraded bathroom with rainfall shower"
+    - "Nespresso coffee machine"
+    - "Premium mini-bar selection"
+    - "Evening turndown service"
+
+executive_suite:
+  title: "Executive Suite"
+  bg_color: "bg-brand-pink"
+  image: "https://images.unsplash.com/photo-1582582621959-48d27397dc69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
+  alt: "Executive Suite"
+  description: "Premium suite with separate living area, exclusive lounge access, and premium amenities. Ideal for business travelers or those seeking enhanced luxury."
+  price: "From $499/night"
+  button_text: "Book Now"
+  button_url: "#"
+  features:
+    - "Separate living room and bedroom"
+    - "Executive lounge access"
+    - "Enhanced workspace with printer"
+    - "Marble bathroom with soaking tub"
+    - "Personalized concierge service"
+    - "Complimentary pressing service"
+
+presidential_suite:
   title: "Presidential Suite"
-  description: "Experience unparalleled luxury in our most exclusive accommodation. The Presidential Suite offers expansive living spaces, private dining area, and personalized butler service."
+  bg_color: "bg-brand-white"
   image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80"
   alt: "Presidential Suite"
+  description: "Experience unparalleled luxury in our most exclusive accommodation. The Presidential Suite offers expansive living spaces, private dining area, and personalized butler service for the ultimate luxury experience."
   price: "$899/night"
   button_text: "Book Suite"
   button_url: "#"
@@ -64,6 +91,8 @@ featured_suite:
     - "Private balcony with panoramic views"
     - "Master bedroom with king-sized bed"
     - "Marble bathroom with soaking tub"
+    - "Personal butler service"
+    - "Private check-in and check-out"
 
 amenities:
   heading: "Room Amenities"
@@ -80,11 +109,25 @@ amenities:
     - title: "Coffee Station"
       icon: "☕"
       description: "Nespresso machine with premium coffee selection"
+    - title: "High-Speed WiFi"
+      icon: "📶"
+      description: "Complimentary high-speed internet access"
+    - title: "Mini-Bar"
+      icon: "🍷"
+      description: "Curated selection of beverages and snacks"
+    - title: "In-Room Safe"
+      icon: "🔒"
+      description: "Digital safe for your valuables"
+    - title: "Climate Control"
+      icon: "❄️"
+      description: "Individual temperature control system"
 ---
 
 {% include content-hero-section.html section=page.hero %} {% include
-room-categories-section.html section=page.room_categories %} {% include
-featured-suite-section.html section=page.featured_suite %} {% include
+individual-room-section.html section=page.standard_room %} {% include
+individual-room-section.html section=page.deluxe_room %} {% include
+individual-room-section.html section=page.executive_suite %} {% include
+individual-room-section.html section=page.presidential_suite %} {% include
 room-amenities-section.html section=page.amenities %}
 
 <!-- GSAP Animation Script -->
