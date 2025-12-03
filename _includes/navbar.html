@@ -1,0 +1,609 @@
+<nav
+  class="nav-container py-4 px-6 z-50 fixed w-full top-0 left-0 transition-transform duration-300"
+>
+  <div class="max-w-7xl mx-auto flex items-center justify-between relative">
+    <!-- Hamburger Button (Left - Always Visible) -->
+    <button
+      id="hamburgerBtn"
+      class="hamburger w-12 h-12 flex flex-col items-center justify-center gap-1 z-50"
+    >
+      <div
+        class="hamburger-line w-10 h-0.5 bg-white rounded-full transition-all duration-300"
+      ></div>
+      <div
+        class="hamburger-line w-10 h-0.5 bg-white rounded-full transition-all duration-300"
+      ></div>
+      <div
+        class="hamburger-line w-10 h-0.5 bg-white rounded-full transition-all duration-300"
+      ></div>
+    </button>
+
+    <!-- Book Now Button (Right - Always Visible) -->
+    <div class="flex items-center z-50 book-now-container">
+      <button
+        class="book-now-btn text-white font-medium py-2.5 px-6 rounded-full transition-all duration-300 shadow-lg border border-white hover:bg-white hover:text-[#E6397C]"
+      >
+        <a href="#">Book Now</a>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Wave Container with Menu - FIXED POSITION -->
+<div
+  id="waveContainer"
+  class="wave-container fixed top-0 left-0 w-full h-0 z-40 overflow-hidden"
+>
+  <!-- SVG Waves -->
+  <svg
+    class="absolute w-full h-full"
+    viewBox="0 0 800 800"
+    preserveAspectRatio="xMidYMid slice"
+  >
+    <!-- Wave 2 (Secondary) -->
+    <path
+      id="wave2"
+      class="wave-path-secondary"
+      d="M-1671.3,976.5c0,0,125.4-190.2,414.9-192s186.7,148.1,506.5,153.6S-441.8,775.4-108,766.2
+          c333.8-9.1,212.4,199.3,508.9,201.2C697.3,969.2,610.9,742.5,800,737L783.7,0h-2455V976.5z"
+      fill="#F7D9E7"
+    />
+
+    <!-- Wave 1 (Primary) -->
+    <path
+      id="wave"
+      class="wave-path"
+      d="M0,976.5c0,0,98.6-190.2,326-192s146.7,148.1,398,153.6s242.1-162.8,504.4-171.9
+          c262.3-9.1,166.9,199.3,399.9,201.2c233,1.8,165.1-224.9,313.7-230.4L1929.2,0H0V976.5z"
+      fill="#F7E7EE"
+    />
+  </svg>
+
+  <!-- Full Menu (shown when wave is active) -->
+  <div
+    id="mobileMenu"
+    class="w-full h-full bg-[#F7E7EE] p-6 overflow-y-auto mt-6 md:mt-12"
+  >
+    <div class="container mx-auto py-8 max-w-6xl">
+      <!-- Logo Section -->
+      <div class="mb-8 md:mb-12">
+        <h1 class="text-4xl md:text-5xl text-[#E6397C] font-bold mb-2">
+          Cloudora Hotel
+        </h1>
+        <p class="text-[#D81B60] text-lg">Luxury Boutique Hotel & Spa</p>
+      </div>
+
+      <!-- Menu Grid -->
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
+      >
+        <!-- Home -->
+        <a
+          href="{{ '/' | relative_url }}"
+          class="menu-item group relative overflow-hidden rounded-xl border-2 border-[#E6397C] p-6 md:p-8 flex flex-col justify-center min-h-[160px] transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:border-[#D81B60]"
+        >
+          <span
+            class="absolute -right-3 -bottom-3 text-[80px] font-black text-[#F7D9E7] leading-none opacity-60 group-hover:opacity-80 transition-opacity"
+          >
+            01
+          </span>
+          <div class="relative z-10">
+            <h3
+              class="text-2xl md:text-3xl font-bold text-[#E6397C] mb-2 group-hover:text-[#D81B60] transition-colors"
+            >
+              Home
+            </h3>
+            <p
+              class="text-[#D81B60] text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              Welcome to Cloudora
+            </p>
+          </div>
+          <div
+            class="absolute inset-0 bg-[#E6397C] opacity-0 group-hover:opacity-5 transition-opacity duration-300"
+          ></div>
+        </a>
+
+        <!-- Rooms & Suites -->
+        <a
+          href="{{ '/rooms/' | relative_url }}"
+          class="menu-item group relative overflow-hidden rounded-xl border-2 border-[#E6397C] p-6 md:p-8 flex flex-col justify-center min-h-[160px] transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:border-[#D81B60]"
+        >
+          <span
+            class="absolute -right-3 -bottom-3 text-[80px] font-black text-[#F7D9E7] leading-none opacity-60 group-hover:opacity-80 transition-opacity"
+          >
+            02
+          </span>
+          <div class="relative z-10">
+            <h3
+              class="text-2xl md:text-3xl font-bold text-[#E6397C] mb-2 group-hover:text-[#D81B60] transition-colors"
+            >
+              Rooms & Suites
+            </h3>
+            <p
+              class="text-[#D81B60] text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              Luxury accommodations
+            </p>
+          </div>
+          <div
+            class="absolute inset-0 bg-[#E6397C] opacity-0 group-hover:opacity-5 transition-opacity duration-300"
+          ></div>
+        </a>
+
+        <!-- Dining -->
+        <a
+          href="{{ '/dining/' | relative_url }}"
+          class="menu-item group relative overflow-hidden rounded-xl border-2 border-[#E6397C] p-6 md:p-8 flex flex-col justify-center min-h-[160px] transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:border-[#D81B60]"
+        >
+          <span
+            class="absolute -right-3 -bottom-3 text-[80px] font-black text-[#F7D9E7] leading-none opacity-60 group-hover:opacity-80 transition-opacity"
+          >
+            03
+          </span>
+          <div class="relative z-10">
+            <h3
+              class="text-2xl md:text-3xl font-bold text-[#E6397C] mb-2 group-hover:text-[#D81B60] transition-colors"
+            >
+              Dining
+            </h3>
+            <p
+              class="text-[#D81B60] text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              Culinary experiences
+            </p>
+          </div>
+          <div
+            class="absolute inset-0 bg-[#E6397C] opacity-0 group-hover:opacity-5 transition-opacity duration-300"
+          ></div>
+        </a>
+
+        <!-- Amenities -->
+        <a
+          href="{{ '/amenities/' | relative_url }}"
+          class="menu-item group relative overflow-hidden rounded-xl border-2 border-[#E6397C] p-6 md:p-8 flex flex-col justify-center min-h-[160px] transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:border-[#D81B60]"
+        >
+          <span
+            class="absolute -right-3 -bottom-3 text-[80px] font-black text-[#F7D9E7] leading-none opacity-60 group-hover:opacity-80 transition-opacity"
+          >
+            04
+          </span>
+          <div class="relative z-10">
+            <h3
+              class="text-2xl md:text-3xl font-bold text-[#E6397C] mb-2 group-hover:text-[#D81B60] transition-colors"
+            >
+              Amenities
+            </h3>
+            <p
+              class="text-[#D81B60] text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              Spa & facilities
+            </p>
+          </div>
+          <div
+            class="absolute inset-0 bg-[#E6397C] opacity-0 group-hover:opacity-5 transition-opacity duration-300"
+          ></div>
+        </a>
+
+        <!-- Special Offers -->
+        <a
+          href="{{ '/offers/' | relative_url }}"
+          class="menu-item group relative overflow-hidden rounded-xl border-2 border-[#E6397C] p-6 md:p-8 flex flex-col justify-center min-h-[160px] transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:border-[#D81B60]"
+        >
+          <span
+            class="absolute -right-3 -bottom-3 text-[80px] font-black text-[#F7D9E7] leading-none opacity-60 group-hover:opacity-80 transition-opacity"
+          >
+            05
+          </span>
+          <div class="relative z-10">
+            <h3
+              class="text-2xl md:text-3xl font-bold text-[#E6397C] mb-2 group-hover:text-[#D81B60] transition-colors"
+            >
+              Special Offers
+            </h3>
+            <p
+              class="text-[#D81B60] text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              Exclusive deals
+            </p>
+          </div>
+          <div
+            class="absolute inset-0 bg-[#E6397C] opacity-0 group-hover:opacity-5 transition-opacity duration-300"
+          ></div>
+        </a>
+
+        <!-- Contact Us -->
+        <a
+          href="{{ '/contact/' | relative_url }}"
+          class="menu-item group relative overflow-hidden rounded-xl border-2 border-[#E6397C] p-6 md:p-8 flex flex-col justify-center min-h-[160px] transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:border-[#D81B60]"
+        >
+          <span
+            class="absolute -right-3 -bottom-3 text-[80px] font-black text-[#F7D9E7] leading-none opacity-60 group-hover:opacity-80 transition-opacity"
+          >
+            06
+          </span>
+          <div class="relative z-10">
+            <h3
+              class="text-2xl md:text-3xl font-bold text-[#E6397C] mb-2 group-hover:text-[#D81B60] transition-colors"
+            >
+              Contact Us
+            </h3>
+            <p
+              class="text-[#D81B60] text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              Get in touch
+            </p>
+          </div>
+          <div
+            class="absolute inset-0 bg-[#E6397C] opacity-0 group-hover:opacity-5 transition-opacity duration-300"
+          ></div>
+        </a>
+      </div>
+
+      <!-- Bottom Book Now Button -->
+      <div class="mt-12 flex justify-center">
+        <button
+          class="menu-item text-[#E6397C] font-bold py-3 px-6 md:py-6 md:px-12 rounded-full transition duration-300 shadow-xl text-lg border-2 border-[#E6397C] hover:bg-[#E6397C] hover:text-white hover:shadow-2xl"
+        >
+          Book Now
+        </button>
+      </div>
+
+      <!-- Contact Info (Optional) -->
+      <div class="mt-12 pt-8 border-t border-[#F7D9E7] text-center">
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-6 text-[#D81B60] text-sm"
+        >
+          <div>
+            <h4 class="font-bold mb-1">Address</h4>
+            <p>123 Luxury Avenue</p>
+            <p>Metropolitan City, MC 12345</p>
+          </div>
+          <div>
+            <h4 class="font-bold mb-1">Phone</h4>
+            <p>(+62)812-3456-7890</p>
+          </div>
+          <div>
+            <h4 class="font-bold mb-1">Email</h4>
+            <p>hello@cloudorahotel.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Navbar - Transparent with white text */
+  .nav-container {
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+    border-bottom: none;
+  }
+
+  /* Hamburger Animation */
+  .hamburger.active .hamburger-line:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+    background-color: #e6397c;
+  }
+
+  .hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .hamburger-line:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+    background-color: #e6397c;
+  }
+
+  /* Book Now Button - Hide when menu is open */
+  .wave-container.open ~ .nav-container .book-now-container {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+
+  /* Book Now Button - Normal state */
+  .book-now-container {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+
+  /* Menu Item Animations */
+  .menu-item {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .wave-container.active .menu-item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Responsive Improvements */
+  @media (max-width: 768px) {
+    .wave-container .container {
+      padding-bottom: 100px;
+    }
+
+    .menu-item {
+      min-height: 140px;
+    }
+  }
+
+  /* Hide navbar on scroll down, show on scroll up */
+  .nav-container.hidden {
+    transform: translateY(-100%);
+  }
+
+  .nav-container.visible {
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  // State
+  let isOpen = false;
+  let lastScrollY = window.scrollY;
+  let isNavbarHidden = false;
+
+  // DOM Elements
+  const hamburgerBtn = document.getElementById("hamburgerBtn");
+  const waveContainer = document.getElementById("waveContainer");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const menuItems = document.querySelectorAll(".menu-item");
+  const navContainer = document.querySelector(".nav-container");
+  const bookNowContainer = document.querySelector(".book-now-container");
+
+  // Create wave animation timeline
+  const waveTimeline = gsap.timeline({
+    paused: true,
+    onReverseComplete: () => {
+      // When reverse animation finishes, close container
+      closeContainer();
+    },
+    onComplete: () => {
+      // When wave animation completes, show menu with staggered items
+      showMenuItems();
+    },
+  });
+
+  // Set initial positions for waves (starting off-screen at top)
+  gsap.set("#wave", { y: -1200, x: -1600 });
+  gsap.set("#wave2", { y: -1200, x: 1600 });
+
+  // REVERSED Wave animations - waves now move from top to bottom
+  waveTimeline
+    .to("#wave", {
+      duration: 1.5,
+      x: 0, // End at original position
+      y: 0, // End at original position
+      ease: "power2.inOut",
+    })
+    .to(
+      "#wave2",
+      {
+        duration: 1.5,
+        x: 0, // End at original position
+        y: 0, // End at original position
+        ease: "power2.inOut",
+      },
+      0
+    );
+
+  // Function to show menu items with staggered animation
+  function showMenuItems() {
+    // Hide Book Now button in navbar when menu opens
+    if (bookNowContainer) {
+      bookNowContainer.style.opacity = "0";
+      bookNowContainer.style.visibility = "hidden";
+    }
+
+    // Add open class to wave container
+    waveContainer.classList.add("open");
+
+    // First show the menu container
+    gsap.to(mobileMenu, {
+      duration: 0.3,
+      opacity: 1,
+      y: 0,
+      ease: "power2.out",
+      onComplete: () => {
+        mobileMenu.classList.add("active");
+
+        // Then animate each menu item with a staggered effect
+        gsap.to(menuItems, {
+          duration: 0.5,
+          opacity: 1,
+          y: 0,
+          stagger: 0.08,
+          ease: "back.out(1.7)",
+        });
+      },
+    });
+  }
+
+  // Function to hide menu items with staggered animation
+  function hideMenuItems() {
+    // Show Book Now button in navbar when menu closes
+    if (bookNowContainer) {
+      bookNowContainer.style.opacity = "1";
+      bookNowContainer.style.visibility = "visible";
+    }
+
+    // Remove open class from wave container
+    waveContainer.classList.remove("open");
+
+    // First hide menu items in reverse order
+    gsap.to(menuItems, {
+      duration: 0.3,
+      opacity: 0,
+      y: 20,
+      stagger: 0.05,
+      ease: "power2.in",
+      onComplete: () => {
+        // Then hide the menu container
+        gsap.to(mobileMenu, {
+          duration: 0.2,
+          opacity: 0,
+          y: -20,
+          ease: "power2.in",
+          onComplete: () => {
+            mobileMenu.classList.remove("active");
+          },
+        });
+      },
+    });
+  }
+
+  // Container open/close animations
+  const openContainer = () => {
+    gsap.to(waveContainer, {
+      duration: 0.5,
+      height: "100vh",
+      opacity: 1,
+      y: 0,
+      ease: "power2.out",
+      onStart: () => {
+        // Show navbar when menu opens
+        navContainer.classList.remove("hidden");
+        navContainer.classList.add("visible");
+      },
+      onComplete: () => {
+        // Prevent body scrolling when menu is open
+        document.body.style.overflow = "hidden";
+      },
+    });
+  };
+
+  const closeContainer = () => {
+    gsap.to(waveContainer, {
+      duration: 0.4,
+      height: "0px",
+      opacity: 0,
+      y: -50,
+      ease: "power2.in",
+      onComplete: () => {
+        // Re-enable body scrolling when menu is closed
+        document.body.style.overflow = "auto";
+      },
+    });
+  };
+
+  // Hamburger click handler
+  hamburgerBtn.addEventListener("click", () => {
+    if (!isOpen) {
+      // Open container and play animation forward (top to bottom)
+      hamburgerBtn.classList.add("active");
+      openContainer();
+      waveTimeline.play();
+      isOpen = true;
+    } else {
+      // First hide menu items, then reverse wave animation
+      hideMenuItems();
+
+      // Add a delay before reversing the wave animation
+      setTimeout(() => {
+        waveTimeline.reverse();
+        hamburgerBtn.classList.remove("active");
+        isOpen = false;
+      }, 300); // Match this delay with the hideMenuItems duration
+    }
+  });
+
+  // Close menu when clicking on a menu link
+  const menuLinks = document.querySelectorAll("#mobileMenu a");
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      // First hide menu items, then reverse wave animation
+      hideMenuItems();
+
+      setTimeout(() => {
+        waveTimeline.reverse();
+        hamburgerBtn.classList.remove("active");
+        isOpen = false;
+      }, 300);
+    });
+  });
+
+  // Close menu when clicking the Book Now button in menu
+  const mobileBookNowBtn = document.querySelector("#mobileMenu button");
+  if (mobileBookNowBtn) {
+    mobileBookNowBtn.addEventListener("click", () => {
+      hideMenuItems();
+
+      setTimeout(() => {
+        waveTimeline.reverse();
+        hamburgerBtn.classList.remove("active");
+        isOpen = false;
+      }, 300);
+    });
+  }
+
+  // Close menu when clicking outside on mobile
+  waveContainer.addEventListener("click", (e) => {
+    if (e.target === waveContainer || e.target.closest("svg")) {
+      hideMenuItems();
+
+      setTimeout(() => {
+        waveTimeline.reverse();
+        hamburgerBtn.classList.remove("active");
+        isOpen = false;
+      }, 300);
+    }
+  });
+
+  // Set initial container height
+  gsap.set(waveContainer, { height: "0px" });
+
+  // Set initial state for menu items
+  gsap.set(menuItems, { opacity: 0, y: 20 });
+
+  // Set initial state for mobile menu
+  gsap.set(mobileMenu, { opacity: 0, y: -20 });
+
+  // Scroll hide/show functionality
+  function handleScroll() {
+    const currentScrollY = window.scrollY;
+
+    // Don't hide navbar if menu is open
+    if (isOpen) return;
+
+    // Hide navbar when scrolling down, show when scrolling up
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      // Scrolling down
+      if (!isNavbarHidden) {
+        navContainer.classList.add("hidden");
+        navContainer.classList.remove("visible");
+        isNavbarHidden = true;
+      }
+    } else if (currentScrollY < lastScrollY) {
+      // Scrolling up
+      if (isNavbarHidden) {
+        navContainer.classList.remove("hidden");
+        navContainer.classList.add("visible");
+        isNavbarHidden = false;
+      }
+    }
+
+    lastScrollY = currentScrollY;
+  }
+
+  // Throttle scroll events for better performance
+  let scrollTimeout;
+  window.addEventListener("scroll", () => {
+    if (!scrollTimeout) {
+      scrollTimeout = setTimeout(() => {
+        handleScroll();
+        scrollTimeout = null;
+      }, 100);
+    }
+  });
+
+  // Show navbar on page load
+  window.addEventListener("load", () => {
+    navContainer.classList.add("visible");
+  });
+</script>
