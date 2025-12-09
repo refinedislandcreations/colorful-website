@@ -1,0 +1,96 @@
+<!-- Opening Section -->
+<section
+  id="opening-section"
+  class="relative flex items-center justify-center min-h-screen w-full px-6 py-24 md:py-32 overflow-hidden"
+  style="background-color: #fe953d"
+>
+  <div class="w-full max-w-6xl mx-auto">
+    <div class="max-w-2xl mx-auto px-4 lg:px-0">
+      <p
+        id="animated-text"
+        class="opening-text text-center font-[350] leading-[1.75] md:leading-[1.8] tracking-wide text-[clamp(1.25rem,2.25vw,1.75rem)] lg:text-[clamp(1.5rem,2vw,1.875rem)]"
+      >
+        As you step onto the guest floors, each room greets you with the same
+        calm, minimalist style—smooth surfaces, soft pastels, and gentle
+        lighting that make every space feel open, comfortable, and easy to relax
+        in.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const text = document.getElementById("animated-text");
+    const split = new SplitType(text, { types: "words" });
+    const words = text.querySelectorAll(".word");
+
+    /* Initial states */
+    gsap.set(words, {
+      opacity: 0,
+      y: 20,
+      filter: "blur(4px)",
+    });
+
+    /* Cascade Glow Reveal */
+    gsap.to(words, {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      duration: 0.7,
+      ease: "power2.out",
+      stagger: 0.035,
+      scrollTrigger: {
+        trigger: "#opening-section",
+        start: "top 85%",
+      },
+    });
+
+    /* Soft Shine Sweep */
+    gsap.to(words, {
+      "--shinePos": "100%",
+      duration: 2,
+      ease: "none",
+      stagger: 0.02,
+      scrollTrigger: {
+        trigger: "#opening-section",
+        start: "top 85%",
+        end: "top 20%",
+        scrub: 1.1,
+      },
+    });
+  });
+</script>
+
+<style>
+  .opening-text {
+    color: transparent;
+  }
+
+  /* Each word gets its own shine highlight animation */
+  .word {
+    display: inline-block;
+    background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(255, 255, 255, 1) 50%,
+          rgba(255, 255, 255, 0.1) 100%
+        )
+        var(--shinePos, 0%) / 200% no-repeat,
+      linear-gradient(to right, #fe953d, #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  /* Reduced Motion Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .word {
+      animation: none !important;
+      transition: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
