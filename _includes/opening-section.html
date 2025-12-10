@@ -2,77 +2,21 @@
   id="opening-section"
   class="relative flex items-center justify-center min-h-screen w-full bg-[#f7e7ee] px-6 py-20 md:py-32 overflow-hidden"
 >
-  <!-- Dark overlay for images only (optional) -->
   <div
     class="overlay absolute inset-0 bg-black transition-all duration-300 pointer-events-none z-20 opacity-0"
   ></div>
 
-  <!-- Image containers for each word -->
+  <!-- Follow-Cursor Image -->
   <div
-    class="image-container absolute top-0 left-0 w-full h-full pointer-events-none z-30"
+    id="hover-image"
+    class="pointer-events-none fixed w-64 h-96 opacity-0 transition-opacity duration-200 z-[9999]"
   >
-    <!-- Images for "clean" -->
-    <div
-      class="image-group clean-group absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-all duration-300 pointer-events-none"
-    >
-      <img
-        src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-        alt="Clean design 1"
-        class="absolute w-48 h-64 object-cover rounded-lg shadow-xl transform -translate-x-24 -translate-y-8 rotate-[-5deg] hover:scale-105 transition-transform duration-300"
-      />
-      <img
-        src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-        alt="Clean design 2"
-        class="absolute w-48 h-64 object-cover rounded-lg shadow-xl transform translate-y-4 hover:scale-105 transition-transform duration-300"
-      />
-      <img
-        src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-        alt="Clean design 3"
-        class="absolute w-48 h-64 object-cover rounded-lg shadow-xl transform translate-x-24 -translate-y-8 rotate-[5deg] hover:scale-105 transition-transform duration-300"
-      />
-    </div>
-
-    <!-- Images for "pastels" -->
-    <div
-      class="image-group pastels-group absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-all duration-300 pointer-events-none"
-    >
-      <img
-        src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-        alt="Pastel colors 1"
-        class="absolute w-48 h-64 object-cover rounded-lg shadow-xl transform -translate-x-24 -translate-y-8 rotate-[-5deg] hover:scale-105 transition-transform duration-300"
-      />
-      <img
-        src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-        alt="Pastel colors 2"
-        class="absolute w-48 h-64 object-cover rounded-lg shadow-xl transform translate-y-4 hover:scale-105 transition-transform duration-300"
-      />
-      <img
-        src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-        alt="Pastel colors 3"
-        class="absolute w-48 h-64 object-cover rounded-lg shadow-xl transform translate-x-24 -translate-y-8 rotate-[5deg] hover:scale-105 transition-transform duration-300"
-      />
-    </div>
-
-    <!-- Images for "lighting" -->
-    <div
-      class="image-group lighting-group absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-all duration-300 pointer-events-none"
-    >
-      <img
-        src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-        alt="Gentle lighting 1"
-        class="absolute w-48 h-64 object-cover rounded-lg shadow-xl transform -translate-x-24 -translate-y-8 rotate-[-5deg] hover:scale-105 transition-transform duration-300"
-      />
-      <img
-        src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-        alt="Gentle lighting 2"
-        class="absolute w-48 h-64 object-cover rounded-lg shadow-xl transform translate-y-4 hover:scale-105 transition-transform duration-300"
-      />
-      <img
-        src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-        alt="Gentle lighting 3"
-        class="absolute w-48 h-64 object-cover rounded-lg shadow-xl transform translate-x-24 -translate-y-8 rotate-[5deg] hover:scale-105 transition-transform duration-300"
-      />
-    </div>
+    <img
+      id="hover-image-src"
+      src=""
+      alt="Preview"
+      class="w-full h-full object-cover rounded-t-full rounded-b-xl shadow-2xl"
+    />
   </div>
 
   <div class="max-w-3xl mx-auto text-center relative z-40">
@@ -83,18 +27,18 @@
       Each room category embraces a calm, open atmosphere—highlighted by
       <span
         class="underline text-[#0033FF] decoration-2 underline-offset-4 cursor-pointer hover-word transition-colors duration-300"
-        data-hover="clean"
+        data-img="https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=600&q=80"
         >clean</span
       >
       lines,
       <span
         class="underline text-[#0033FF] decoration-2 underline-offset-4 cursor-pointer hover-word transition-colors duration-300"
-        data-hover="pastels"
+        data-img="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80"
         >pastels</span
       >, and gentle
       <span
         class="underline text-[#0033FF] decoration-2 underline-offset-4 cursor-pointer hover-word transition-colors duration-300"
-        data-hover="lighting"
+        data-img="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=600&q=80"
         >lighting</span
       >.
     </p>
@@ -105,7 +49,6 @@
   #main-paragraph {
     color: #d9336c;
   }
-
   .hover-word {
     color: #0033ff;
     transition: color 0.3s;
@@ -113,58 +56,73 @@
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", () => {
     const hoverWords = document.querySelectorAll(".hover-word");
-    const overlay = document.querySelector(".overlay");
-    const imageGroups = document.querySelectorAll(".image-group");
-    const paragraph = document.querySelector("#main-paragraph");
+    const hoverImage = document.getElementById("hover-image");
+    const hoverImageSrc = document.getElementById("hover-image-src");
+    const paragraph = document.getElementById("main-paragraph");
 
     const originalParagraphColor = "#d9336c";
     const originalSpanColor = "#0033FF";
     const softGreyColor = "#999";
 
+    const IMAGE_WIDTH = 260; // px
+    const IMAGE_HEIGHT = 380; // px
+
+    // SMART POSITIONING LOGIC
+    document.addEventListener("mousemove", (e) => {
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+
+      let posX = e.clientX + 40; // default right side
+      let posY = e.clientY - IMAGE_HEIGHT - 20; // default above cursor
+
+      const spaceAbove = e.clientY;
+      const spaceBelow = viewportHeight - e.clientY;
+      const spaceRight = viewportWidth - e.clientX;
+      const spaceLeft = e.clientX;
+
+      // If small space above → place below
+      if (spaceAbove < IMAGE_HEIGHT + 30) {
+        posY = e.clientY + 30;
+      }
+
+      // If small space on right → place left side
+      if (spaceRight < IMAGE_WIDTH + 40) {
+        posX = e.clientX - IMAGE_WIDTH - 40;
+      }
+
+      // If small space both above & below, clamp to stay in view
+      posY = Math.max(20, Math.min(posY, viewportHeight - IMAGE_HEIGHT - 20));
+
+      hoverImage.style.left = posX + "px";
+      hoverImage.style.top = posY + "px";
+    });
+
     hoverWords.forEach((word) => {
       word.addEventListener("mouseenter", function () {
-        const hoverType = this.getAttribute("data-hover");
+        hoverImageSrc.src = this.dataset.img;
+        hoverImage.style.opacity = "1";
 
-        // DO NOT change overlay opacity → background stays pink
-        // overlay.style.opacity = "0.7"; // REMOVE
-
-        // Grey out paragraph text
         paragraph.style.color = softGreyColor;
 
-        // Grey out other spans, keep hovered blue
         hoverWords.forEach((span) => {
           span.style.color = span === this ? originalSpanColor : softGreyColor;
         });
-
-        // Hide all images
-        imageGroups.forEach((group) => {
-          group.style.opacity = "0";
-          group.style.pointerEvents = "none";
-        });
-
-        // Show corresponding image group
-        const targetGroup = document.querySelector(`.${hoverType}-group`);
-        if (targetGroup) targetGroup.style.opacity = "1";
       });
 
       word.addEventListener("mouseleave", resetAll);
     });
 
     function resetAll() {
+      hoverImage.style.opacity = "0";
       paragraph.style.color = originalParagraphColor;
-      hoverWords.forEach((span) => (span.style.color = originalSpanColor));
-      imageGroups.forEach((group) => {
-        group.style.opacity = "0";
-        group.style.pointerEvents = "none";
-      });
 
-      // Keep overlay hidden to preserve pink background
-      overlay.style.opacity = "0";
+      hoverWords.forEach((span) => {
+        span.style.color = originalSpanColor;
+      });
     }
 
-    // Optional: reset on click outside
     document.addEventListener("click", (e) => {
       if (!e.target.closest(".hover-word")) resetAll();
     });
