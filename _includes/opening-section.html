@@ -1,96 +1,172 @@
-<!-- Opening Section -->
 <section
   id="opening-section"
-  class="relative flex items-center justify-center min-h-screen w-full px-6 py-24 md:py-32 overflow-hidden"
-  style="background-color: #fe953d"
+  class="relative flex items-center justify-center min-h-screen w-full bg-[#f7e7ee] px-6 py-20 md:py-32 overflow-hidden"
 >
-  <div class="w-full max-w-6xl mx-auto">
-    <div class="max-w-2xl mx-auto px-4 lg:px-0">
-      <p
-        id="animated-text"
-        class="opening-text text-center font-[350] leading-[1.75] md:leading-[1.8] tracking-wide text-[clamp(1.25rem,2.25vw,1.75rem)] lg:text-[clamp(1.5rem,2vw,1.875rem)]"
-      >
-        As you step onto the guest floors, each room greets you with the same
-        calm, minimalist style—smooth surfaces, soft pastels, and gentle
-        lighting that make every space feel open, comfortable, and easy to relax
-        in.
-      </p>
+  <!-- Dark overlay for images only (optional) -->
+  <div
+    class="overlay absolute inset-0 bg-black transition-all duration-300 pointer-events-none z-20 opacity-0"
+  ></div>
+
+  <!-- Image containers for each word -->
+  <div
+    class="image-container absolute top-0 left-0 w-full h-full pointer-events-none z-30"
+  >
+    <!-- Images for "clean" -->
+    <div
+      class="image-group clean-group absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-all duration-300 pointer-events-none"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        alt="Clean design 1"
+        class="absolute w-48 h-64 object-cover rounded-lg shadow-xl transform -translate-x-24 -translate-y-8 rotate-[-5deg] hover:scale-105 transition-transform duration-300"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        alt="Clean design 2"
+        class="absolute w-48 h-64 object-cover rounded-lg shadow-xl transform translate-y-4 hover:scale-105 transition-transform duration-300"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        alt="Clean design 3"
+        class="absolute w-48 h-64 object-cover rounded-lg shadow-xl transform translate-x-24 -translate-y-8 rotate-[5deg] hover:scale-105 transition-transform duration-300"
+      />
     </div>
+
+    <!-- Images for "pastels" -->
+    <div
+      class="image-group pastels-group absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-all duration-300 pointer-events-none"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        alt="Pastel colors 1"
+        class="absolute w-48 h-64 object-cover rounded-lg shadow-xl transform -translate-x-24 -translate-y-8 rotate-[-5deg] hover:scale-105 transition-transform duration-300"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        alt="Pastel colors 2"
+        class="absolute w-48 h-64 object-cover rounded-lg shadow-xl transform translate-y-4 hover:scale-105 transition-transform duration-300"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1613545325278-f24b0cae1224?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        alt="Pastel colors 3"
+        class="absolute w-48 h-64 object-cover rounded-lg shadow-xl transform translate-x-24 -translate-y-8 rotate-[5deg] hover:scale-105 transition-transform duration-300"
+      />
+    </div>
+
+    <!-- Images for "lighting" -->
+    <div
+      class="image-group lighting-group absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 transition-all duration-300 pointer-events-none"
+    >
+      <img
+        src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        alt="Gentle lighting 1"
+        class="absolute w-48 h-64 object-cover rounded-lg shadow-xl transform -translate-x-24 -translate-y-8 rotate-[-5deg] hover:scale-105 transition-transform duration-300"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        alt="Gentle lighting 2"
+        class="absolute w-48 h-64 object-cover rounded-lg shadow-xl transform translate-y-4 hover:scale-105 transition-transform duration-300"
+      />
+      <img
+        src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+        alt="Gentle lighting 3"
+        class="absolute w-48 h-64 object-cover rounded-lg shadow-xl transform translate-x-24 -translate-y-8 rotate-[5deg] hover:scale-105 transition-transform duration-300"
+      />
+    </div>
+  </div>
+
+  <div class="max-w-3xl mx-auto text-center relative z-40">
+    <p
+      id="main-paragraph"
+      class="text-[#d9336c] font-semibold leading-relaxed text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] transition-colors duration-300"
+    >
+      Each room category embraces a calm, open atmosphere—highlighted by
+      <span
+        class="underline text-[#0033FF] decoration-2 underline-offset-4 cursor-pointer hover-word transition-colors duration-300"
+        data-hover="clean"
+        >clean</span
+      >
+      lines,
+      <span
+        class="underline text-[#0033FF] decoration-2 underline-offset-4 cursor-pointer hover-word transition-colors duration-300"
+        data-hover="pastels"
+        >pastels</span
+      >, and gentle
+      <span
+        class="underline text-[#0033FF] decoration-2 underline-offset-4 cursor-pointer hover-word transition-colors duration-300"
+        data-hover="lighting"
+        >lighting</span
+      >.
+    </p>
   </div>
 </section>
 
+<style>
+  #main-paragraph {
+    color: #d9336c;
+  }
+
+  .hover-word {
+    color: #0033ff;
+    transition: color 0.3s;
+  }
+</style>
+
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    gsap.registerPlugin(ScrollTrigger);
+  document.addEventListener("DOMContentLoaded", function () {
+    const hoverWords = document.querySelectorAll(".hover-word");
+    const overlay = document.querySelector(".overlay");
+    const imageGroups = document.querySelectorAll(".image-group");
+    const paragraph = document.querySelector("#main-paragraph");
 
-    const text = document.getElementById("animated-text");
-    const split = new SplitType(text, { types: "words" });
-    const words = text.querySelectorAll(".word");
+    const originalParagraphColor = "#d9336c";
+    const originalSpanColor = "#0033FF";
+    const softGreyColor = "#999";
 
-    /* Initial states */
-    gsap.set(words, {
-      opacity: 0,
-      y: 20,
-      filter: "blur(4px)",
+    hoverWords.forEach((word) => {
+      word.addEventListener("mouseenter", function () {
+        const hoverType = this.getAttribute("data-hover");
+
+        // DO NOT change overlay opacity → background stays pink
+        // overlay.style.opacity = "0.7"; // REMOVE
+
+        // Grey out paragraph text
+        paragraph.style.color = softGreyColor;
+
+        // Grey out other spans, keep hovered blue
+        hoverWords.forEach((span) => {
+          span.style.color = span === this ? originalSpanColor : softGreyColor;
+        });
+
+        // Hide all images
+        imageGroups.forEach((group) => {
+          group.style.opacity = "0";
+          group.style.pointerEvents = "none";
+        });
+
+        // Show corresponding image group
+        const targetGroup = document.querySelector(`.${hoverType}-group`);
+        if (targetGroup) targetGroup.style.opacity = "1";
+      });
+
+      word.addEventListener("mouseleave", resetAll);
     });
 
-    /* Cascade Glow Reveal */
-    gsap.to(words, {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      duration: 0.7,
-      ease: "power2.out",
-      stagger: 0.035,
-      scrollTrigger: {
-        trigger: "#opening-section",
-        start: "top 85%",
-      },
-    });
+    function resetAll() {
+      paragraph.style.color = originalParagraphColor;
+      hoverWords.forEach((span) => (span.style.color = originalSpanColor));
+      imageGroups.forEach((group) => {
+        group.style.opacity = "0";
+        group.style.pointerEvents = "none";
+      });
 
-    /* Soft Shine Sweep */
-    gsap.to(words, {
-      "--shinePos": "100%",
-      duration: 2,
-      ease: "none",
-      stagger: 0.02,
-      scrollTrigger: {
-        trigger: "#opening-section",
-        start: "top 85%",
-        end: "top 20%",
-        scrub: 1.1,
-      },
+      // Keep overlay hidden to preserve pink background
+      overlay.style.opacity = "0";
+    }
+
+    // Optional: reset on click outside
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".hover-word")) resetAll();
     });
   });
 </script>
-
-<style>
-  .opening-text {
-    color: transparent;
-  }
-
-  /* Each word gets its own shine highlight animation */
-  .word {
-    display: inline-block;
-    background: linear-gradient(
-          90deg,
-          rgba(255, 255, 255, 0.1) 0%,
-          rgba(255, 255, 255, 1) 50%,
-          rgba(255, 255, 255, 0.1) 100%
-        )
-        var(--shinePos, 0%) / 200% no-repeat,
-      linear-gradient(to right, #fe953d, #ffffff);
-    -webkit-background-clip: text;
-    background-clip: text;
-  }
-
-  /* Reduced Motion Accessibility */
-  @media (prefers-reduced-motion: reduce) {
-    .word {
-      animation: none !important;
-      transition: none !important;
-      opacity: 1 !important;
-      transform: none !important;
-    }
-  }
-</style>
