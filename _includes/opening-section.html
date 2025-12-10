@@ -9,7 +9,8 @@
   <!-- Follow-Cursor Image -->
   <div
     id="hover-image"
-    class="pointer-events-none fixed w-64 h-96 opacity-0 transition-opacity duration-200 z-[9999]"
+    class="pointer-events-none fixed opacity-0 transition-opacity duration-200 z-[9999]"
+    style="width: 260px; height: 380px"
   >
     <img
       id="hover-image-src"
@@ -26,18 +27,18 @@
     >
       Each room category embraces a calm, open atmosphere—highlighted by
       <span
-        class="underline text-[#0033FF] decoration-2 underline-offset-4 cursor-pointer hover-word transition-colors duration-300"
+        class="underline text-[#0033FF] decoration-2 underline-offset-4 cursor-pointer hover-word"
         data-img="https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&w=600&q=80"
         >clean</span
       >
       lines,
       <span
-        class="underline text-[#0033FF] decoration-2 underline-offset-4 cursor-pointer hover-word transition-colors duration-300"
+        class="underline text-[#0033FF] decoration-2 underline-offset-4 cursor-pointer hover-word"
         data-img="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=600&q=80"
         >pastels</span
       >, and gentle
       <span
-        class="underline text-[#0033FF] decoration-2 underline-offset-4 cursor-pointer hover-word transition-colors duration-300"
+        class="underline text-[#0033FF] decoration-2 underline-offset-4 cursor-pointer hover-word"
         data-img="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=600&q=80"
         >lighting</span
       >.
@@ -53,6 +54,20 @@
     color: #0033ff;
     transition: color 0.3s;
   }
+
+  /* Responsive image container */
+  @media (max-width: 1024px) {
+    #hover-image {
+      width: 220px !important;
+      height: 320px !important;
+    }
+  }
+  @media (max-width: 640px) {
+    #hover-image {
+      width: 160px !important;
+      height: 240px !important;
+    }
+  }
 </style>
 
 <script>
@@ -66,41 +81,44 @@
     const originalSpanColor = "#0033FF";
     const softGreyColor = "#999";
 
-    const IMAGE_WIDTH = 260; // px
-    const IMAGE_HEIGHT = 380; // px
+    function getImageSize() {
+      const w = hoverImage.offsetWidth;
+      const h = hoverImage.offsetHeight;
+      return { w, h };
+    }
 
-    // SMART POSITIONING LOGIC
-    document.addEventListener("mousemove", (e) => {
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
+    function positionImage(e) {
+      const { w, h } = getImageSize();
 
-      let posX = e.clientX + 40; // default right side
-      let posY = e.clientY - IMAGE_HEIGHT - 20; // default above cursor
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
 
       const spaceAbove = e.clientY;
-      const spaceBelow = viewportHeight - e.clientY;
-      const spaceRight = viewportWidth - e.clientX;
-      const spaceLeft = e.clientX;
+      const spaceBelow = vh - e.clientY;
+      const spaceRight = vw - e.clientX;
 
-      // If small space above → place below
-      if (spaceAbove < IMAGE_HEIGHT + 30) {
+      let posX = e.clientX + 30;
+      let posY = e.clientY - h - 20;
+
+      if (spaceAbove < h + 30) {
         posY = e.clientY + 30;
       }
-
-      // If small space on right → place left side
-      if (spaceRight < IMAGE_WIDTH + 40) {
-        posX = e.clientX - IMAGE_WIDTH - 40;
+      if (spaceRight < w + 40) {
+        posX = e.clientX - w - 30;
       }
 
-      // If small space both above & below, clamp to stay in view
-      posY = Math.max(20, Math.min(posY, viewportHeight - IMAGE_HEIGHT - 20));
+      posY = Math.max(20, Math.min(posY, vh - h - 20));
 
       hoverImage.style.left = posX + "px";
       hoverImage.style.top = posY + "px";
-    });
+    }
 
+    // MOUSEMOVE (desktop / laptop)
+    document.addEventListener("mousemove", positionImage);
+
+    // HOVER IN
     hoverWords.forEach((word) => {
-      word.addEventListener("mouseenter", function () {
+      function showImage() {
         hoverImageSrc.src = this.dataset.img;
         hoverImage.style.opacity = "1";
 
@@ -109,22 +127,31 @@
         hoverWords.forEach((span) => {
           span.style.color = span === this ? originalSpanColor : softGreyColor;
         });
-      });
+      }
 
-      word.addEventListener("mouseleave", resetAll);
+      function hideImage() {
+        hoverImage.style.opacity = "0";
+        paragraph.style.color = originalParagraphColor;
+
+        hoverWords.forEach((span) => (span.style.color = originalSpanColor));
+      }
+
+      // Desktop hover
+      word.addEventListener("mouseenter", showImage);
+      word.addEventListener("mouseleave", hideImage);
+
+      // Touch devices → tap to show
+      word.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        showImage.call(word);
+      });
     });
 
-    function resetAll() {
-      hoverImage.style.opacity = "0";
-      paragraph.style.color = originalParagraphColor;
-
-      hoverWords.forEach((span) => {
-        span.style.color = originalSpanColor;
-      });
-    }
-
-    document.addEventListener("click", (e) => {
-      if (!e.target.closest(".hover-word")) resetAll();
+    // Touch devices → tap elsewhere to hide
+    document.addEventListener("touchstart", (e) => {
+      if (!e.target.closest(".hover-word")) {
+        hoverImage.style.opacity = "0";
+      }
     });
   });
 </script>
