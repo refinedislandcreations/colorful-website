@@ -613,6 +613,27 @@ video {
 .top-20 {
   top: 5rem;
 }
+.-right-12 {
+  right: -3rem;
+}
+.-top-12 {
+  top: -3rem;
+}
+.left-5 {
+  left: 1.25rem;
+}
+.-bottom-16 {
+  bottom: -4rem;
+}
+.-left-16 {
+  left: -4rem;
+}
+.-right-16 {
+  right: -4rem;
+}
+.-top-16 {
+  top: -4rem;
+}
 .z-0 {
   z-index: 0;
 }
@@ -654,6 +675,10 @@ video {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 .-mb-px {
   margin-bottom: -1px;
@@ -741,6 +766,12 @@ video {
 }
 .mb-32 {
   margin-bottom: 8rem;
+}
+.mt-16 {
+  margin-top: 4rem;
+}
+.mt-24 {
+  margin-top: 6rem;
 }
 .block {
   display: block;
@@ -862,6 +893,18 @@ video {
 .h-72 {
   height: 18rem;
 }
+.h-\[50vh\] {
+  height: 50vh;
+}
+.h-4 {
+  height: 1rem;
+}
+.h-\[60vh\] {
+  height: 60vh;
+}
+.max-h-\[420px\] {
+  max-height: 420px;
+}
 .min-h-\[160px\] {
   min-height: 160px;
 }
@@ -947,6 +990,9 @@ video {
 .w-1 {
   width: 0.25rem;
 }
+.w-4 {
+  width: 1rem;
+}
 .max-w-3xl {
   max-width: 48rem;
 }
@@ -970,6 +1016,9 @@ video {
 }
 .max-w-lg {
   max-width: 32rem;
+}
+.max-w-xl {
+  max-width: 36rem;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -1311,6 +1360,9 @@ video {
 .p-5 {
   padding: 1.25rem;
 }
+.p-10 {
+  padding: 2.5rem;
+}
 .px-24 {
   padding-left: 6rem;
   padding-right: 6rem;
@@ -1398,6 +1450,10 @@ video {
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
+}
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 .pb-15p {
   padding-bottom: 15%;
@@ -1988,6 +2044,11 @@ footer h3 {
   --tw-scale-y: 1.02;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+.hover\:scale-\[1\.04\]:hover {
+  --tw-scale-x: 1.04;
+  --tw-scale-y: 1.04;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
 .hover\:border-\[\#D81B60\]:hover {
   --tw-border-opacity: 1;
   border-color: rgb(216 27 96 / var(--tw-border-opacity, 1));
@@ -2180,6 +2241,18 @@ footer h3 {
   .md\:top-12 {
     top: 3rem;
   }
+  .md\:-right-24 {
+    right: -6rem;
+  }
+  .md\:-top-24 {
+    top: -6rem;
+  }
+  .md\:left-10 {
+    left: 2.5rem;
+  }
+  .md\:bottom-0 {
+    bottom: 0px;
+  }
   .md\:col-span-2 {
     grid-column: span 2 / span 2;
   }
@@ -2210,6 +2283,15 @@ footer h3 {
   .md\:mb-48 {
     margin-bottom: 12rem;
   }
+  .md\:mb-8 {
+    margin-bottom: 2rem;
+  }
+  .md\:mt-20 {
+    margin-top: 5rem;
+  }
+  .md\:mb-40 {
+    margin-bottom: 10rem;
+  }
   .md\:block {
     display: block;
   }
@@ -2228,6 +2310,12 @@ footer h3 {
   .md\:h-96 {
     height: 24rem;
   }
+  .md\:h-64 {
+    height: 16rem;
+  }
+  .md\:h-\[55vh\] {
+    height: 55vh;
+  }
   .md\:w-1\/2 {
     width: 50%;
   }
@@ -2236,6 +2324,12 @@ footer h3 {
   }
   .md\:w-3\/5 {
     width: 60%;
+  }
+  .md\:w-64 {
+    width: 16rem;
+  }
+  .md\:w-96 {
+    width: 24rem;
   }
   .md\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2267,6 +2361,9 @@ footer h3 {
   .md\:p-12 {
     padding: 3rem;
   }
+  .md\:p-14 {
+    padding: 3.5rem;
+  }
   .md\:px-12 {
     padding-left: 3rem;
     padding-right: 3rem;
@@ -2294,6 +2391,14 @@ footer h3 {
   .md\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+  .md\:py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+  .md\:py-20 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
   .md\:text-left {
     text-align: left;
@@ -2350,6 +2455,21 @@ footer h3 {
   .lg\:order-1 {
     order: 1;
   }
+  .lg\:mb-0 {
+    margin-bottom: 0px;
+  }
+  .lg\:mb-20 {
+    margin-bottom: 5rem;
+  }
+  .lg\:mb-32 {
+    margin-bottom: 8rem;
+  }
+  .lg\:mt-20 {
+    margin-top: 5rem;
+  }
+  .lg\:mb-48 {
+    margin-bottom: 12rem;
+  }
   .lg\:block {
     display: block;
   }
@@ -2358,6 +2478,9 @@ footer h3 {
   }
   .lg\:h-96 {
     height: 24rem;
+  }
+  .lg\:h-\[65vh\] {
+    height: 65vh;
   }
   .lg\:w-1\/2 {
     width: 50%;
@@ -2392,6 +2515,17 @@ footer h3 {
   .lg\:gap-16 {
     gap: 4rem;
   }
+  .lg\:p-12 {
+    padding: 3rem;
+  }
+  .lg\:py-24 {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+  .lg\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
   .lg\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
@@ -2414,5 +2548,9 @@ footer h3 {
   .lg\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+  .lg\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 }

@@ -15,7 +15,7 @@
     ></div>
   </div>
 
-  <!-- FLOATING IMAGE WRAPPER (absolute, not fixed!) -->
+  <!-- FLOATING IMAGE WRAPPER -->
   <div class="absolute inset-0 pointer-events-none z-20" id="floating-wrapper">
     <div id="moving-image" class="absolute opacity-0 will-change-transform">
       <img
@@ -40,13 +40,6 @@
       <div class="story-step mb-32 md:mb-48" id="step1">
         <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
           <div class="lg:w-1/2">
-            <!-- <span class="story-step-number">
-              <span class="step-circle">1</span>
-              ARRIVAL
-            </span>
-            <h3 class="font-serif text-3xl md:text-4xl text-gray-800 mt-4 mb-6">
-              Step Into Serenity
-            </h3> -->
             <p class="text-gray-700 leading-relaxed">
               As you step inside, a warm and inviting atmosphere welcomes you, instantly making you feel at ease and ready to unwind
             </p>
@@ -71,13 +64,6 @@
           class="flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-16"
         >
           <div class="lg:w-1/2">
-            <!-- <span class="story-step-number">
-              <span class="step-circle">2</span>
-              INTERIOR
-            </span>
-            <h3 class="font-serif text-3xl md:text-4xl text-gray-800 mt-4 mb-6">
-              Your Personal Sanctuary
-            </h3> -->
             <p class="text-gray-700 leading-relaxed">
              The room is simple and comfortable, with soft lighting and uncluttered spaces. It’s a quiet retreat where you can relax and recharge.
             </p>
@@ -100,12 +86,6 @@
       <div class="story-step mb-32" id="step3">
         <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
           <div class="lg:w-1/2">
-            <!-- <span class="story-step-number">
-              <span class="step-circle">3</span>
-              BATHROOM
-            </span>
-            <h3 class="font-serif text-3xl md:text-4xl text-gray-800 mt-4 mb-6">
-              A Clean, Minimalist Retreat -->
             </h3>
             <p class="text-gray-700 leading-relaxed">
               The bathroom continues the minimalist, comfortable feel with a
@@ -127,20 +107,34 @@
       </div>
 
       <!-- CTA -->
-      <div class="bg-white rounded-2xl p-8 md:p-12 shadow-lg mt-20">
-        <div class="text-center">
-          <h3 class="font-serif text-3xl md:text-4xl text-gray-800 mb-4">
-            Experience It Yourself
-          </h3>
-          <p class="text-gray-700 mb-8 max-w-2xl mx-auto">
-            Experience a room designed for simplicity, comfort, and rest. Every detail supports a calm, effortless stay—reserve your room today.
-          </p>
-          <button
-            class="px-8 py-3 rounded-full text-white font-medium transition-all duration-300 hover:scale-105 active:scale-95"
-            style="background-color: #d89cc1"
-          >
-            Book Now
-          </button>
+      <div
+        class="bg-white/90 backdrop-blur-sm rounded-3xl p-6 md:p-8 lg:p-12 shadow-xl mt-16 md:mt-20 border border-white/20"
+      >
+        <div class="text-center max-w-2xl mx-auto">
+          <div class="mb-6">
+            <h3
+              class="text-2xl md:text-3xl lg:text-4xl text-gray-800 mb-3"
+            >
+              Ready to Unwind?
+            </h3>
+            <p class="text-gray-600 text-base md:text-lg">
+              Experience a room designed for simplicity, comfort, and rest.
+            </p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              class="group relative px-8 py-4 rounded-full text-white font-medium transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
+              style="
+                background: linear-gradient(135deg, #d89cc1 0%, #c976a7 100%);
+              "
+            >
+              <span class="relative z-10">Reserve Your Room</span>
+              <div
+                class="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              ></div>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -211,7 +205,6 @@
       });
     });
 
-    // Prevent fade out after last anchor (keep floating image visible)
     const lastAnchor = anchors[anchors.length - 1];
     ScrollTrigger.create({
       trigger: lastAnchor,
@@ -235,10 +228,6 @@
 
 <!-- Styling -->
 <style>
-  .story-step-number {
-    @apply inline-flex items-center text-sm font-medium text-gray-700 mb-3;
-  }
-
   .step-circle {
     @apply flex w-8 h-8 rounded-full mr-3 justify-center items-center text-white;
     background-color: #d89cc1;
