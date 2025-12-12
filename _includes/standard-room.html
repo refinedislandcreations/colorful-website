@@ -1,0 +1,272 @@
+<section
+  class="relative overflow-hidden py-16 md:py-24"
+  style="background-color: #eec1dc"
+  id="standard-room-section"
+>
+  <!-- Background decorative circles -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div
+      class="absolute -top-24 -right-24 w-64 h-64 rounded-full opacity-20"
+      style="background-color: #d89cc1"
+    ></div>
+    <div
+      class="absolute bottom-0 left-10 w-96 h-96 rounded-full opacity-10"
+      style="background-color: #d89cc1"
+    ></div>
+  </div>
+
+  <!-- FLOATING IMAGE WRAPPER (absolute, not fixed!) -->
+  <div class="absolute inset-0 pointer-events-none z-20" id="floating-wrapper">
+    <div id="moving-image" class="absolute opacity-0 will-change-transform">
+      <img
+        src="https://images.unsplash.com/photo-1756314164620-27fd6ccad7ea?q=80&w=1287&auto=format&fit=crop"
+        alt="Floating visual"
+        class="w-full h-full object-cover rounded-t-full rounded-b-xl shadow-2xl"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 md:px-8 relative z-10">
+    <div class="text-center mb-12 md:mb-20">
+      <h2 class="text-4xl md:text-5xl font-serif text-gray-800 mb-4">
+        The Standard Room
+      </h2>
+      <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+        A Visual Journey to Restful Comfort
+      </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto relative">
+      <!-- Step 1 -->
+      <div class="story-step mb-32 md:mb-48" id="step1">
+        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+          <div class="lg:w-1/2">
+            <span class="story-step-number">
+              <span class="step-circle">1</span>
+              ARRIVAL
+            </span>
+            <h3 class="font-serif text-3xl md:text-4xl text-gray-800 mt-4 mb-6">
+              Step Into Serenity
+            </h3>
+            <p class="text-gray-700 leading-relaxed">
+              Your journey begins at our minimalist exterior, where clean lines
+              and natural materials create a sense of calm before you even
+              enter.
+            </p>
+          </div>
+
+          <div class="lg:w-1/2">
+            <div
+              class="image-anchor"
+              data-image="https://images.unsplash.com/photo-1756314164620-27fd6ccad7ea?q=80&w=1000"
+            >
+              <div
+                class="w-full h-[65vh] rounded-b-xl rounded-t-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center"
+              >
+                <p class="text-gray-400">Image preview: Arrival</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="story-step mb-32 md:mb-48" id="step2">
+        <div
+          class="flex flex-col lg:flex-row-reverse items-center gap-8 lg:gap-16"
+        >
+          <div class="lg:w-1/2">
+            <span class="story-step-number">
+              <span class="step-circle">2</span>
+              INTERIOR
+            </span>
+            <h3 class="font-serif text-3xl md:text-4xl text-gray-800 mt-4 mb-6">
+              Your Personal Sanctuary
+            </h3>
+            <p class="text-gray-700 leading-relaxed">
+              Stepping into the standard room reveals a curated space promoting
+              relaxation and comfort.
+            </p>
+          </div>
+
+          <div class="lg:w-1/2">
+            <div
+              class="image-anchor"
+              data-image="https://images.unsplash.com/photo-1505691723518-36a5ac3be353?q=80&w=1000"
+            >
+              <div
+                class="w-full h-[65vh] rounded-b-xl rounded-t-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center"
+              >
+                <p class="text-gray-400">Image preview: Interior</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="story-step mb-32" id="step3">
+        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+          <div class="lg:w-1/2">
+            <span class="story-step-number">
+              <span class="step-circle">3</span>
+              BATHROOM
+            </span>
+            <h3 class="font-serif text-3xl md:text-4xl text-gray-800 mt-4 mb-6">
+              A Clean, Minimalist Retreat
+            </h3>
+            <p class="text-gray-700 leading-relaxed">
+              The bathroom continues the minimalist theme with premium fixtures.
+            </p>
+          </div>
+
+          <div class="lg:w-1/2">
+            <div
+              class="image-anchor"
+              data-image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000"
+            >
+              <div
+                class="w-full h-[65vh] rounded-b-xl rounded-t-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center"
+              >
+                <p class="text-gray-400">Image preview: Bathroom</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="bg-white rounded-2xl p-8 md:p-12 shadow-lg mt-20">
+        <div class="text-center">
+          <h3 class="font-serif text-3xl md:text-4xl text-gray-800 mb-4">
+            Experience It Yourself
+          </h3>
+          <p class="text-gray-700 mb-8 max-w-2xl mx-auto">
+            Book your stay today and experience our minimalist comfort.
+          </p>
+          <button
+            class="px-8 py-3 rounded-full text-white font-medium transition-all duration-300 hover:scale-105 active:scale-95"
+            style="background-color: #d89cc1"
+          >
+            Book Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GSAP SCRIPT -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollTrigger, Flip);
+
+    const moving = document.getElementById("moving-image");
+    const wrapper = document.getElementById("floating-wrapper");
+    const anchors = gsap.utils.toArray(".image-anchor");
+    const img = moving.querySelector("img");
+
+    if (window.innerWidth < 1024) {
+      moving.style.display = "none";
+      return;
+    }
+
+    let currentAnchor = anchors[0];
+
+    // Ensure absolute-position animation
+    gsap.set(moving, { position: "absolute", top: 0, left: 0 });
+
+    // Initial placement
+    Flip.fit(moving, currentAnchor, {
+      absolute: true,
+      scale: true,
+      fitChild: img,
+      duration: 0,
+    });
+
+    gsap.to(moving, { opacity: 1, duration: 0.6 });
+
+    function moveToAnchor(anchor) {
+      if (anchor === currentAnchor) return;
+
+      currentAnchor = anchor;
+
+      // Update image
+      const newImage = anchor.dataset.image;
+      if (newImage) img.src = newImage;
+
+      const state = Flip.getState(moving);
+
+      Flip.fit(moving, anchor, {
+        absolute: true,
+        scale: true,
+        fitChild: img,
+      });
+
+      Flip.from(state, {
+        duration: 1.1,
+        ease: "power2.inOut",
+      });
+    }
+
+    // MAIN SCROLLTRIGGERS
+    anchors.forEach((anchor) => {
+      ScrollTrigger.create({
+        trigger: anchor,
+        start: "top 60%",
+        end: "bottom 40%",
+        onEnter: () => moveToAnchor(anchor),
+        onEnterBack: () => moveToAnchor(anchor),
+      });
+    });
+
+    // Prevent fade out after last anchor (keep floating image visible)
+    const lastAnchor = anchors[anchors.length - 1];
+    ScrollTrigger.create({
+      trigger: lastAnchor,
+      start: "bottom center",
+      onEnter: () => {}, // do nothing
+      onLeaveBack: () => {}, // do nothing
+    });
+
+    // Handle window resizing
+    window.addEventListener("resize", () => {
+      Flip.fit(moving, currentAnchor, {
+        duration: 0,
+        absolute: true,
+        scale: true,
+        fitChild: img,
+      });
+      ScrollTrigger.refresh();
+    });
+  });
+</script>
+
+<!-- Styling -->
+<style>
+  .story-step-number {
+    @apply inline-flex items-center text-sm font-medium text-gray-700 mb-3;
+  }
+
+  .step-circle {
+    @apply flex w-8 h-8 rounded-full mr-3 justify-center items-center text-white;
+    background-color: #d89cc1;
+  }
+
+  .image-anchor {
+    @apply w-full transition-all duration-300;
+  }
+
+  #moving-image,
+  #moving-image img {
+    transform: translateZ(0);
+  }
+
+  @media (max-width: 1023px) {
+    #moving-image {
+      display: none;
+    }
+  }
+</style>
