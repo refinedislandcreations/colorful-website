@@ -30,7 +30,8 @@
 
   <div class="container mx-auto px-4 md:px-8 relative z-10">
     <div class="text-center mb-12 md:mb-20">
-      <h2 class="text-4xl md:text-5xl text-gray-800 mb-4">
+      <!-- Animated H2 with REVERSED letter-by-letter transition -->
+      <h2 id="animated-title" class="text-4xl md:text-5xl mb-4 font-bold">
         The Standard Room
       </h2>
     </div>
@@ -71,7 +72,7 @@
         >
           <div class="md:w-1/2">
             <p class="text-gray-700 leading-relaxed">
-             The room is simple and comfortable, with soft lighting and uncluttered spaces. It’s a quiet retreat where you can relax and recharge.
+             The room is simple and comfortable, with soft lighting and uncluttered spaces. It's a quiet retreat where you can relax and recharge.
             </p>
           </div>
 
@@ -123,38 +124,6 @@
           </div>
         </div>
       </div>
-
-      <!-- CTA -->
-      <!-- <div
-        class="bg-white/90 backdrop-blur-sm rounded-3xl p-6 md:p-8 lg:p-12 shadow-xl mt-16 md:mt-20 border border-white/20"
-      >
-        <div class="text-center max-w-2xl mx-auto">
-          <div class="mb-6">
-            <h3
-              class="text-2xl md:text-3xl lg:text-4xl text-gray-800 mb-3"
-            >
-              Ready to Unwind?
-            </h3>
-            <p class="text-gray-600 text-base md:text-lg">
-              Experience a room designed for simplicity, comfort, and rest.
-            </p>
-          </div>
-
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              class="group relative px-8 py-4 rounded-full text-white font-medium transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl"
-              style="
-                background: linear-gradient(135deg, #d89cc1 0%, #c976a7 100%);
-              "
-            >
-              <span class="relative z-10">Reserve Your Room</span>
-              <div
-                class="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              ></div>
-            </button>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
 </section>
@@ -164,6 +133,42 @@
   document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger, Flip);
 
+    // H2 Text Animation - REVERSED: White to Dark Gray per letter
+    const title = document.getElementById("animated-title");
+    const text = title.textContent;
+    
+    // Split the text into individual letters (including spaces)
+    const letters = text.split("");
+    
+    // Clear the original text
+    title.textContent = "";
+    
+    // Wrap each letter in a span for individual animation
+    letters.forEach((letter, index) => {
+      const span = document.createElement("span");
+      span.textContent = letter === " " ? "\u00A0" : letter;
+      span.className = "letter inline-block";
+      span.style.color = "#ffffff"; // Start with WHITE text
+      title.appendChild(span);
+    });
+    
+    // Create REVERSED letter-by-letter animation on scroll
+    gsap.to(".letter", {
+      color: "rgb(31, 41, 55)", // End with DARK GRAY (text-gray-800)
+      stagger: {
+        each: 0.05, // Time between each letter animation
+        from: "start" // Start from the first letter
+      },
+      scrollTrigger: {
+        trigger: "#animated-title",
+        start: "top 80%", // Start when title is 80% from top
+        end: "top 30%", // End when title is 30% from top
+        scrub: true, // Smooth scrubbing effect
+        toggleActions: "play none none reverse" // Play forward and reverse
+      }
+    });
+
+    // Original floating image animation
     const moving = document.getElementById("moving-image");
     const wrapper = document.getElementById("floating-wrapper");
     const anchors = gsap.utils.toArray(".image-anchor");
@@ -258,6 +263,11 @@
   #moving-image,
   #moving-image img {
     transform: translateZ(0);
+  }
+
+  /* Smooth transition for letter colors */
+  .letter {
+    transition: color 0.3s ease;
   }
 
   @media (max-width: 1023px) {
