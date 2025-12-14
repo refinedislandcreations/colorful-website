@@ -1,0 +1,466 @@
+<section
+  class="relative overflow-hidden py-16 md:py-24"
+  style="background-color: #eec1dc"
+  id="rooms-section"
+>
+  <!-- Background decorative circles -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div
+      class="absolute -top-24 -right-24 w-64 h-64 rounded-full opacity-20"
+      style="background-color: #d89cc1"
+    ></div>
+    <div
+      class="absolute bottom-0 left-10 w-96 h-96 rounded-full opacity-10"
+      style="background-color: #d89cc1"
+    ></div>
+  </div>
+
+  <!-- FLOATING IMAGE WRAPPER -->
+  <div class="absolute inset-0 pointer-events-none z-20" id="floating-wrapper">
+    <div id="moving-image" class="absolute opacity-0 will-change-transform">
+      <img
+        src="https://images.unsplash.com/photo-1668067446629-307d4ef9e0f7?q=80&w=1297&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="Floating visual"
+        class="w-full h-full object-cover rounded-t-full rounded-b-xl shadow-2xl"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 md:px-8 relative z-10">
+    <div class="text-center mb-12 md:mb-20">
+      <!-- Animated H2 with REVERSED letter-by-letter transition -->
+      <h2 id="animated-title" class="text-4xl md:text-5xl mb-4 font-bold">
+        Our Rooms & Suites
+      </h2>
+      <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+        Discover our carefully designed accommodations, each offering a unique
+        experience tailored to your needs.
+      </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto relative">
+      <!-- Standard Room -->
+      <div class="story-step mb-32 md:mb-48" id="step1">
+        <div class="mb-8">
+          <h3
+            class="text-2xl md:text-3xl font-bold mb-2"
+            style="color: #c94f8c"
+          >
+            Standard Room
+          </h3>
+          <p class="text-gray-600">
+            Comfortable and inviting with all essential amenities
+          </p>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-16">
+          <div class="md:w-1/2">
+            <div class="mb-4">
+              <span
+                class="inline-flex w-8 h-8 rounded-full mr-3 justify-center items-center text-white"
+                style="background-color: #d89cc1"
+                >1</span
+              >
+              <span class="text-lg font-semibold text-gray-800"
+                >Warm Welcome</span
+              >
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-6">
+              As you step inside, a warm and inviting atmosphere welcomes you,
+              instantly making you feel at ease and ready to unwind after a long
+              day.
+            </p>
+
+            <div class="mb-4">
+              <span
+                class="inline-flex w-8 h-8 rounded-full mr-3 justify-center items-center text-white"
+                style="background-color: #d89cc1"
+                >2</span
+              >
+              <span class="text-lg font-semibold text-gray-800"
+                >Simple Comfort</span
+              >
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+              The room is designed with simplicity and comfort in mind,
+              featuring soft lighting and uncluttered spaces. A quiet retreat to
+              relax and recharge.
+            </p>
+          </div>
+
+          <div class="block md:hidden w-full">
+            <img
+              src="https://images.unsplash.com/photo-1668067446629-307d4ef9e0f7?q=80&w=1297&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="w-full h-[45vh] rounded-b-xl rounded-t-full flex items-center justify-center object-cover"
+              alt="Standard Room"
+            />
+          </div>
+
+          <div class="hidden md:block md:w-1/2">
+            <div
+              class="image-anchor"
+              data-image="https://images.unsplash.com/photo-1668067446629-307d4ef9e0f7?q=80&w=1297&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            >
+              <div
+                class="w-full md:h-[40vh] lg:h-[65vh] rounded-b-xl rounded-t-full flex items-center justify-center"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deluxe Room -->
+      <div class="story-step mb-32 md:mb-48" id="step2">
+        <div class="mb-8">
+          <h3
+            class="text-2xl md:text-3xl font-bold mb-2"
+            style="color: #4a90e2"
+          >
+            Deluxe Room
+          </h3>
+          <p class="text-gray-600">
+            Enhanced comfort with extra space and premium amenities
+          </p>
+        </div>
+
+        <div
+          class="flex flex-col md:flex-row-reverse items-center gap-8 lg:gap-16"
+        >
+          <div class="md:w-1/2">
+            <div class="mb-4">
+              <span
+                class="inline-flex w-8 h-8 rounded-full mr-3 justify-center items-center text-white"
+                style="background-color: #89b8e0"
+                >1</span
+              >
+              <span class="text-lg font-semibold text-gray-800"
+                >Spacious Elegance</span
+              >
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-6">
+              Step into a generously sized room with elegant decor and premium
+              furnishings. Enjoy more space to move and relax, with a
+              comfortable seating area perfect for lounging.
+            </p>
+
+            <div class="mb-4">
+              <span
+                class="inline-flex w-8 h-8 rounded-full mr-3 justify-center items-center text-white"
+                style="background-color: #89b8e0"
+                >2</span
+              >
+              <span class="text-lg font-semibold text-gray-800"
+                >Premium Amenities</span
+              >
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+              Enjoy upgraded amenities including a king-sized bed with luxury
+              linens, a work desk with ergonomic chair, high-speed internet, and
+              premium coffee selection.
+            </p>
+          </div>
+
+          <div class="block md:hidden w-full">
+            <img
+              src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="w-full h-[45vh] rounded-b-xl rounded-t-full flex items-center justify-center object-cover"
+              alt="Deluxe Room"
+            />
+          </div>
+
+          <div class="hidden md:block md:w-1/2">
+            <div
+              class="image-anchor"
+              data-image="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            >
+              <div
+                class="w-full h-[25vh] md:h-[40vh] lg:h-[65vh] rounded-b-xl rounded-t-full flex items-center justify-center"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Suite Room -->
+      <div class="story-step mb-32" id="step3">
+        <div class="mb-8">
+          <h3
+            class="text-2xl md:text-3xl font-bold mb-2"
+            style="color: #8a9a5b"
+          >
+            Suite
+          </h3>
+          <p class="text-gray-600">
+            Ultimate luxury with separate living areas and exclusive services
+          </p>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-16">
+          <div class="md:w-1/2">
+            <div class="mb-4">
+              <span
+                class="inline-flex w-8 h-8 rounded-full mr-3 justify-center items-center text-white"
+                style="background-color: #c4d489"
+                >1</span
+              >
+              <span class="text-lg font-semibold text-gray-800"
+                >Separate Living Space</span
+              >
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-6">
+              The Suite features distinct living and sleeping areas, providing
+              ample space for both relaxation and entertainment. Perfect for
+              longer stays or those who appreciate extra room.
+            </p>
+
+            <div class="mb-4">
+              <span
+                class="inline-flex w-8 h-8 rounded-full mr-3 justify-center items-center text-white"
+                style="background-color: #c4d489"
+                >2</span
+              >
+              <span class="text-lg font-semibold text-gray-800"
+                >Exclusive Perks</span
+              >
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+              Suite guests enjoy exclusive benefits including priority check-in,
+              complimentary breakfast, access to the executive lounge, and
+              personalized concierge services.
+            </p>
+          </div>
+
+          <div class="block md:hidden w-full">
+            <img
+              src="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              class="w-full h-[45vh] rounded-b-xl rounded-t-full flex items-center justify-center object-cover"
+              alt="Suite"
+            />
+          </div>
+
+          <div class="hidden md:block md:w-1/2">
+            <div
+              class="image-anchor"
+              data-image="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            >
+              <div
+                class="w-full h-[25vh] md:h-[40vh] lg:h-[65vh] rounded-b-xl rounded-t-full flex items-center justify-center"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GSAP SCRIPT -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    gsap.registerPlugin(ScrollTrigger, Flip);
+
+    // H2 Text Animation - REVERSED: White to Dark Gray per letter
+    const title = document.getElementById("animated-title");
+    const text = title.textContent;
+
+    // Split the text into individual letters (including spaces)
+    const letters = text.split("");
+
+    // Clear the original text
+    title.textContent = "";
+
+    // Wrap each letter in a span for individual animation
+    letters.forEach((letter, index) => {
+      const span = document.createElement("span");
+      span.textContent = letter === " " ? "\u00A0" : letter;
+      span.className = "letter inline-block";
+      span.style.color = "#ffffff"; // Start with WHITE text
+      title.appendChild(span);
+    });
+
+    // Create REVERSED letter-by-letter animation on scroll
+    gsap.to(".letter", {
+      color: "rgb(31, 41, 55)", // End with DARK GRAY (text-gray-800)
+      stagger: {
+        each: 0.05, // Time between each letter animation
+        from: "start", // Start from the first letter
+      },
+      scrollTrigger: {
+        trigger: "#animated-title",
+        start: "top 80%", // Start when title is 80% from top
+        end: "top 30%", // End when title is 30% from top
+        scrub: true, // Smooth scrubbing effect
+        toggleActions: "play none none reverse", // Play forward and reverse
+      },
+    });
+
+    // Original floating image animation
+    const moving = document.getElementById("moving-image");
+    const wrapper = document.getElementById("floating-wrapper");
+    const anchors = gsap.utils.toArray(".image-anchor");
+    const img = moving.querySelector("img");
+
+    if (window.innerWidth < 768) {
+      moving.style.display = "none";
+      return;
+    }
+
+    let currentAnchor = anchors[0];
+
+    // Ensure absolute-position animation
+    gsap.set(moving, { position: "absolute", top: 0, left: 0 });
+
+    // Initial placement
+    Flip.fit(moving, currentAnchor, {
+      absolute: true,
+      scale: true,
+      fitChild: img,
+      duration: 0,
+    });
+
+    gsap.to(moving, { opacity: 1, duration: 0.6 });
+
+    function moveToAnchor(anchor) {
+      if (anchor === currentAnchor) return;
+
+      currentAnchor = anchor;
+
+      // Update image
+      const newImage = anchor.dataset.image;
+      if (newImage) img.src = newImage;
+
+      const state = Flip.getState(moving);
+
+      Flip.fit(moving, anchor, {
+        absolute: true,
+        scale: true,
+        fitChild: img,
+      });
+
+      Flip.from(state, {
+        duration: 1.1,
+        ease: "power2.inOut",
+      });
+    }
+
+    // MAIN SCROLLTRIGGERS
+    anchors.forEach((anchor) => {
+      ScrollTrigger.create({
+        trigger: anchor,
+        start: "top 60%",
+        end: "bottom 40%",
+        onEnter: () => moveToAnchor(anchor),
+        onEnterBack: () => moveToAnchor(anchor),
+      });
+    });
+
+    const lastAnchor = anchors[anchors.length - 1];
+    ScrollTrigger.create({
+      trigger: lastAnchor,
+      start: "bottom center",
+      onEnter: () => {}, // do nothing
+      onLeaveBack: () => {}, // do nothing
+    });
+
+    // Handle window resizing
+    window.addEventListener("resize", () => {
+      Flip.fit(moving, currentAnchor, {
+        duration: 0,
+        absolute: true,
+        scale: true,
+        fitChild: img,
+      });
+      ScrollTrigger.refresh();
+    });
+
+    // Add animation for room titles on scroll
+    const roomTitles = document.querySelectorAll(".story-step h3");
+
+    roomTitles.forEach((title, index) => {
+      gsap.fromTo(
+        title,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: title.parentElement,
+            start: "top 80%",
+            end: "top 50%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
+
+    // Add animation for room descriptions
+    const roomDescriptions = document.querySelectorAll(
+      ".story-step > div > p.text-gray-600"
+    );
+
+    roomDescriptions.forEach((desc, index) => {
+      gsap.fromTo(
+        desc,
+        { opacity: 0, y: 10 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          delay: 0.2,
+          scrollTrigger: {
+            trigger: desc.parentElement,
+            start: "top 80%",
+            end: "top 50%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    });
+  });
+</script>
+
+<!-- Styling -->
+<style>
+  .step-circle {
+    @apply flex w-8 h-8 rounded-full mr-3 justify-center items-center text-white;
+    background-color: #d89cc1;
+  }
+
+  .image-anchor {
+    @apply w-full transition-all duration-300;
+  }
+
+  #moving-image,
+  #moving-image img {
+    transform: translateZ(0);
+  }
+
+  /* Smooth transition for letter colors */
+  .letter {
+    transition: color 0.3s ease;
+  }
+
+  /* Room title styling */
+  .story-step h3 {
+    transition: all 0.3s ease;
+  }
+
+  .story-step:hover h3 {
+    transform: translateX(10px);
+  }
+
+  @media (max-width: 1023px) {
+    #moving-image {
+      display: none;
+    }
+
+    .story-step {
+      margin-bottom: 4rem !important;
+    }
+  }
+</style>
+
+{% include wave.html unique="hero" %}

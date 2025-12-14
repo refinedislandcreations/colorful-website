@@ -1,12 +1,11 @@
-{% assign wave_id = include.id | default: 'wave-' | append: include.unique |
-default: site.time | replace: ' ', '-' %}
+{% assign wave_id = include.id | default: 'wave-rotate-' | append:
+include.unique | default: site.time | replace: ' ', '-' %}
 
 <style>
   /* Scoped styles */
   #{{ wave_id }} {
     position: relative;
     width: 100%;
-    /* background-color: #eec1dc; */
     background-color: #f7e7ee;
     overflow: hidden;
   }
@@ -72,25 +71,26 @@ default: site.time | replace: ' ', '-' %}
 
 <script>
   (function () {
-    const svg2 = document.querySelector("#{{ wave_id }}-svg2");
-    const svg3 = document.querySelector("#{{ wave_id }}-svg3");
+    const waveID = "{{ wave_id }}";
+    const svg2_rot = document.querySelector("#" + waveID + "-svg2");
+    const svg3_rot = document.querySelector("#" + waveID + "-svg3");
 
     if (!window.gsap || !window.ScrollTrigger) return;
 
-    gsap.to(svg2, {
+    gsap.to(svg2_rot, {
       left: "-30vw",
       scrollTrigger: {
-        trigger: svg2,
+        trigger: svg2_rot,
         start: "top 95%",
         end: "top 5%",
         scrub: true,
       },
     });
 
-    gsap.to(svg3, {
+    gsap.to(svg3_rot, {
       left: "-90vw",
       scrollTrigger: {
-        trigger: svg3,
+        trigger: svg3_rot,
         start: "top 85%",
         end: "top 10%",
         scrub: true,
