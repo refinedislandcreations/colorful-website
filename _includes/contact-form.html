@@ -1,0 +1,760 @@
+{% comment %} Hotel Contact Form Section Background color: #FE953D Fully rounded
+on one side for modern hotel design Requires: TailwindCSS and GSAP {% endcomment
+%}
+
+<section
+  id="contact"
+  class="relative overflow-hidden py-16 md:py-24"
+  style="background-color: #fe953d"
+>
+  <!-- Decorative hotel-themed elements -->
+  <div
+    class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-32 translate-x-32"
+  ></div>
+  <div
+    class="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full translate-y-48 -translate-x-48"
+  ></div>
+
+  <!-- Main container with rounded side -->
+  <div class="relative max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+      <!-- Left Column: Form with rounded right side -->
+      <div
+        class="contact-form-container bg-white p-8 md:p-12 lg:p-16 rounded-tl-4xl rounded-bl-4xl lg:rounded-tr-none lg:rounded-br-none shadow-2xl"
+      >
+        <div class="max-w-lg mx-auto">
+          <div class="mb-10">
+            <span
+              class="inline-block px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-semibold mb-4"
+            >
+              Contact Our Concierge
+            </span>
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Plan Your Perfect<br />
+              <span class="text-orange-600">Hotel Stay</span>
+            </h2>
+            <p class="text-gray-600 text-lg">
+              Our dedicated team is here to ensure your experience is nothing
+              short of exceptional.
+            </p>
+          </div>
+
+          <form id="hotelContactForm" class="space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label
+                  for="firstName"
+                  class="block text-gray-700 mb-3 font-medium"
+                  >First Name *</label
+                >
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  required
+                  class="w-full px-5 py-4 border-2 border-gray-200 rounded-2xl focus:border-orange-500 focus:ring-4 focus:ring-orange-100 transition-all duration-300"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="lastName"
+                  class="block text-gray-700 mb-3 font-medium"
+                  >Last Name *</label
+                >
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  required
+                  class="w-full px-5 py-4 border-2 border-gray-200 rounded-2xl focus:border-orange-500 focus:ring-4 focus:ring-orange-100 transition-all duration-300"
+                />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="email" class="block text-gray-700 mb-3 font-medium"
+                  >Email *</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full px-5 py-4 border-2 border-gray-200 rounded-2xl focus:border-orange-500 focus:ring-4 focus:ring-orange-100 transition-all duration-300"
+                />
+              </div>
+
+              <div>
+                <label for="phone" class="block text-gray-700 mb-3 font-medium"
+                  >Phone</label
+                >
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="w-full px-5 py-4 border-2 border-gray-200 rounded-2xl focus:border-orange-500 focus:ring-4 focus:ring-orange-100 transition-all duration-300"
+                  placeholder="+1 (555) 123-4567"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                for="arrivalDate"
+                class="block text-gray-700 mb-3 font-medium"
+                >Arrival Date *</label
+              >
+              <div class="relative">
+                <input
+                  type="date"
+                  id="arrivalDate"
+                  name="arrivalDate"
+                  required
+                  class="w-full px-5 py-4 border-2 border-gray-200 rounded-2xl focus:border-orange-500 focus:ring-4 focus:ring-orange-100 transition-all duration-300 appearance-none"
+                />
+                <div
+                  class="absolute right-5 top-1/2 transform -translate-y-1/2 text-gray-400"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label for="roomType" class="block text-gray-700 mb-3 font-medium"
+                >Room Preference</label
+              >
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <button
+                  type="button"
+                  class="room-type-btn py-3 px-4 border-2 border-gray-200 rounded-xl hover:border-orange-500 hover:bg-orange-50 transition-all duration-300 text-center"
+                  data-type="standard"
+                >
+                  Standard
+                </button>
+                <button
+                  type="button"
+                  class="room-type-btn py-3 px-4 border-2 border-gray-200 rounded-xl hover:border-orange-500 hover:bg-orange-50 transition-all duration-300 text-center"
+                  data-type="deluxe"
+                >
+                  Deluxe
+                </button>
+                <button
+                  type="button"
+                  class="room-type-btn py-3 px-4 border-2 border-gray-200 rounded-xl hover:border-orange-500 hover:bg-orange-50 transition-all duration-300 text-center"
+                  data-type="suite"
+                >
+                  Suite
+                </button>
+                <button
+                  type="button"
+                  class="room-type-btn py-3 px-4 border-2 border-gray-200 rounded-xl hover:border-orange-500 hover:bg-orange-50 transition-all duration-300 text-center"
+                  data-type="penthouse"
+                >
+                  Penthouse
+                </button>
+              </div>
+              <input type="hidden" id="roomType" name="roomType" value="" />
+            </div>
+
+            <div>
+              <label
+                for="specialRequests"
+                class="block text-gray-700 mb-3 font-medium"
+                >Special Requests</label
+              >
+              <textarea
+                id="specialRequests"
+                name="specialRequests"
+                rows="3"
+                class="w-full px-5 py-4 border-2 border-gray-200 rounded-2xl focus:border-orange-500 focus:ring-4 focus:ring-orange-100 transition-all duration-300 resize-none"
+                placeholder="Early check-in, dietary requirements, room location preference..."
+              ></textarea>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <input
+                type="checkbox"
+                id="terms"
+                name="terms"
+                required
+                class="mt-1 h-5 w-5 text-orange-600 rounded-lg focus:ring-orange-500 focus:ring-offset-0"
+              />
+              <label for="terms" class="text-gray-700">
+                I agree to the
+                <a
+                  href="#"
+                  class="text-orange-600 hover:text-orange-700 underline"
+                  >terms and conditions</a
+                >
+                and understand my data will be used for booking purposes.
+              </label>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-5 px-8 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl group"
+            >
+              <span class="flex items-center justify-center">
+                <span class="mr-3">Send Booking Inquiry</span>
+                <span
+                  class="transform transition-transform duration-300 group-hover:translate-x-2"
+                  >→</span
+                >
+              </span>
+            </button>
+          </form>
+
+          <div
+            id="formSuccess"
+            class="hidden mt-8 p-6 bg-green-50 border-2 border-green-200 rounded-2xl"
+          >
+            <div class="flex items-start">
+              <div class="mr-4 text-green-600">
+                <svg
+                  class="w-8 h-8"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-green-800 mb-2">
+                  Booking Request Sent!
+                </h3>
+                <p class="text-green-700">
+                  Our concierge will contact you within 2 hours to confirm your
+                  reservation. Check your email for a confirmation receipt.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Hotel Info with rounded left side on mobile, full rounded on desktop -->
+      <div
+        class="contact-info-container p-8 md:p-12 lg:p-16 lg:pl-24 rounded-tr-4xl rounded-br-4xl lg:rounded-tl-none lg:rounded-bl-none flex items-center"
+      >
+        <div class="max-w-lg">
+          <div class="mb-12">
+            <h3 class="text-3xl md:text-4xl font-bold text-white mb-6">
+              Experience Luxury Redefined
+            </h3>
+            <p class="text-white/90 text-lg leading-relaxed">
+              Nestled in the heart of the city, our 5-star hotel offers
+              unparalleled service, exquisite dining, and breathtaking views.
+            </p>
+          </div>
+
+          <div class="space-y-8 mb-12">
+            <div class="flex items-start">
+              <div class="mr-5 bg-white/20 p-3 rounded-2xl">
+                <svg
+                  class="w-8 h-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold text-white mb-2">
+                  Prime Location
+                </h4>
+                <p class="text-white/80">
+                  123 Luxury Boulevard<br />Downtown District
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="mr-5 bg-white/20 p-3 rounded-2xl">
+                <svg
+                  class="w-8 h-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold text-white mb-2">
+                  24/7 Concierge
+                </h4>
+                <p class="text-white/80">
+                  Round-the-clock service to cater to your every need
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="mr-5 bg-white/20 p-3 rounded-2xl">
+                <svg
+                  class="w-8 h-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold text-white mb-2">
+                  Global Recognition
+                </h4>
+                <p class="text-white/80">
+                  Award-winning hospitality since 1995
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+          >
+            <h4 class="text-xl font-bold text-white mb-4">Direct Contact</h4>
+            <div class="space-y-4">
+              <a
+                href="tel:+15551234567"
+                class="flex items-center text-white hover:text-white/90 transition-colors duration-300 group"
+              >
+                <div
+                  class="mr-4 group-hover:scale-110 transition-transform duration-300"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-semibold">Reservation Hotline</p>
+                  <p class="text-white/80">+1 (555) 123-4567</p>
+                </div>
+              </a>
+
+              <a
+                href="mailto:reservations@luxuryhotel.com"
+                class="flex items-center text-white hover:text-white/90 transition-colors duration-300 group"
+              >
+                <div
+                  class="mr-4 group-hover:scale-110 transition-transform duration-300"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-semibold">Email Reservations</p>
+                  <p class="text-white/80">reservations@luxuryhotel.com</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GSAP Animation Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof gsap !== "undefined") {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Animate the decorative circles
+      gsap.from("section#contact > div:first-child > div", {
+        scrollTrigger: {
+          trigger: "#contact",
+          start: "top 90%",
+          toggleActions: "play none none reverse",
+        },
+        duration: 1.5,
+        scale: 0,
+        opacity: 0,
+        stagger: 0.3,
+        ease: "back.out(1.7)",
+      });
+
+      // Form container animation (rounded side entrance)
+      gsap.from(".contact-form-container", {
+        scrollTrigger: {
+          trigger: "#contact",
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+        duration: 1.2,
+        x: -100,
+        opacity: 0,
+        borderRadius: "0px",
+        ease: "power3.out",
+        onComplete: function () {
+          gsap.to(".contact-form-container", {
+            duration: 0.8,
+            borderRadius: "4rem 0 0 4rem",
+            ease: "elastic.out(1, 0.5)",
+          });
+        },
+      });
+
+      // Info container animation (rounded side entrance)
+      gsap.from(".contact-info-container", {
+        scrollTrigger: {
+          trigger: "#contact",
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+        duration: 1.2,
+        x: 100,
+        opacity: 0,
+        borderRadius: "0px",
+        ease: "power3.out",
+        onComplete: function () {
+          gsap.to(".contact-info-container", {
+            duration: 0.8,
+            borderRadius: "0 4rem 4rem 0",
+            ease: "elastic.out(1, 0.5)",
+          });
+        },
+      });
+
+      // Stagger animation for form elements
+      gsap.from("#hotelContactForm > div, #hotelContactForm button", {
+        scrollTrigger: {
+          trigger: ".contact-form-container",
+          start: "top 70%",
+          toggleActions: "play none none reverse",
+        },
+        duration: 0.8,
+        y: 30,
+        opacity: 0,
+        stagger: 0.1,
+        delay: 0.5,
+        ease: "power2.out",
+      });
+
+      // Stagger animation for info elements
+      gsap.from(".contact-info-container > div > div", {
+        scrollTrigger: {
+          trigger: ".contact-info-container",
+          start: "top 70%",
+          toggleActions: "play none none reverse",
+        },
+        duration: 0.8,
+        x: 20,
+        opacity: 0,
+        stagger: 0.15,
+        delay: 0.5,
+        ease: "power2.out",
+      });
+    }
+
+    // Room type selection
+    const roomTypeButtons = document.querySelectorAll(".room-type-btn");
+    const roomTypeInput = document.getElementById("roomType");
+
+    roomTypeButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        // Remove active class from all buttons
+        roomTypeButtons.forEach((btn) => {
+          btn.classList.remove(
+            "border-orange-500",
+            "bg-orange-50",
+            "text-orange-700"
+          );
+          btn.classList.add("border-gray-200");
+        });
+
+        // Add active class to clicked button
+        this.classList.add(
+          "border-orange-500",
+          "bg-orange-50",
+          "text-orange-700"
+        );
+        this.classList.remove("border-gray-200");
+
+        // Set the value in hidden input
+        roomTypeInput.value = this.getAttribute("data-type");
+
+        // GSAP animation for selection
+        if (typeof gsap !== "undefined") {
+          gsap.to(this, {
+            duration: 0.3,
+            scale: 1.05,
+            yoyo: true,
+            repeat: 1,
+            ease: "power2.out",
+          });
+        }
+      });
+    });
+
+    // Form submission
+    const contactForm = document.getElementById("hotelContactForm");
+    const formSuccess = document.getElementById("formSuccess");
+
+    if (contactForm) {
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Validate required fields
+        const requiredFields = [
+          "firstName",
+          "lastName",
+          "email",
+          "arrivalDate",
+          "terms",
+        ];
+        let isValid = true;
+
+        requiredFields.forEach((fieldId) => {
+          const field = document.getElementById(fieldId);
+          if (!field.value && fieldId !== "terms") {
+            isValid = false;
+            field.classList.add("border-red-500");
+
+            // Shake animation for invalid field
+            if (typeof gsap !== "undefined") {
+              gsap.to(field, {
+                duration: 0.4,
+                x: [-5, 5, -5, 5, 0],
+                ease: "power2.out",
+              });
+            }
+          }
+
+          if (fieldId === "terms" && !field.checked) {
+            isValid = false;
+            // Highlight terms checkbox
+            if (typeof gsap !== "undefined") {
+              gsap.to(field, {
+                duration: 0.4,
+                scale: [1, 1.2, 1],
+                ease: "power2.out",
+              });
+            }
+          }
+        });
+
+        if (!isValid) return;
+
+        // Show success message with GSAP animation
+        if (typeof gsap !== "undefined") {
+          gsap.to("#hotelContactForm", {
+            duration: 0.5,
+            opacity: 0,
+            y: -20,
+            onComplete: function () {
+              formSuccess.classList.remove("hidden");
+              gsap.fromTo(
+                formSuccess,
+                { opacity: 0, y: 30, scale: 0.9 },
+                {
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  duration: 0.6,
+                  ease: "back.out(1.7)",
+                }
+              );
+            },
+          });
+        } else {
+          formSuccess.classList.remove("hidden");
+        }
+
+        // Reset form after 5 seconds
+        setTimeout(() => {
+          if (typeof gsap !== "undefined") {
+            gsap.to(formSuccess, {
+              duration: 0.5,
+              opacity: 0,
+              y: -20,
+              onComplete: function () {
+                formSuccess.classList.add("hidden");
+                contactForm.reset();
+                roomTypeButtons.forEach((btn) => {
+                  btn.classList.remove(
+                    "border-orange-500",
+                    "bg-orange-50",
+                    "text-orange-700"
+                  );
+                  btn.classList.add("border-gray-200");
+                });
+                roomTypeInput.value = "";
+
+                gsap.to("#hotelContactForm", {
+                  duration: 0.5,
+                  opacity: 1,
+                  y: 0,
+                });
+              },
+            });
+          } else {
+            formSuccess.classList.add("hidden");
+            contactForm.reset();
+          }
+        }, 5000);
+      });
+    }
+
+    // Input focus animations
+    const inputs = document.querySelectorAll(
+      "#hotelContactForm input, #hotelContactForm textarea"
+    );
+
+    inputs.forEach((input) => {
+      input.addEventListener("focus", function () {
+        if (typeof gsap !== "undefined") {
+          gsap.to(this.parentElement, {
+            duration: 0.3,
+            scale: 1.02,
+            ease: "power2.out",
+          });
+        }
+        this.classList.remove("border-red-500");
+      });
+
+      input.addEventListener("blur", function () {
+        if (typeof gsap !== "undefined") {
+          gsap.to(this.parentElement, {
+            duration: 0.3,
+            scale: 1,
+            ease: "power2.out",
+          });
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  /* Custom rounded corners for the full rounded side effect */
+  .rounded-tl-4xl {
+    border-top-left-radius: 4rem;
+  }
+  .rounded-bl-4xl {
+    border-bottom-left-radius: 4rem;
+  }
+  .rounded-tr-4xl {
+    border-top-right-radius: 4rem;
+  }
+  .rounded-br-4xl {
+    border-bottom-right-radius: 4rem;
+  }
+
+  @media (max-width: 1024px) {
+    .contact-form-container {
+      border-radius: 4rem 4rem 0 0 !important;
+    }
+    .contact-info-container {
+      border-radius: 0 0 4rem 4rem !important;
+    }
+  }
+
+  /* Smooth transitions for all form elements */
+  #hotelContactForm input,
+  #hotelContactForm textarea,
+  #hotelContactForm select {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #fe953d;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #e08535;
+  }
+
+  /* Floating animation for decorative elements */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  section#contact > div:first-child > div {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  section#contact > div:first-child > div:last-child {
+    animation-delay: 2s;
+  }
+</style>
