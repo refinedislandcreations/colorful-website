@@ -1,0 +1,217 @@
+<section class="bg-[#FE953D] py-12 md:py-16 lg:py-24 overflow-hidden relative">
+  <!-- GSAP Animation Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Title Animation - REVERSED letter-by-letter
+        const diningTitle = document.getElementById("animated-dining-title");
+        if (diningTitle) {
+          const text = diningTitle.textContent;
+          const letters = text.split("");
+
+          diningTitle.textContent = "";
+
+          letters.forEach((letter) => {
+            const span = document.createElement("span");
+            span.textContent = letter === " " ? "\u00A0" : letter;
+            span.className = "dining-letter inline-block";
+            span.style.color = "#ffffff";
+            diningTitle.appendChild(span);
+          });
+
+          gsap.to(".dining-letter", {
+            color: "#000000",
+            stagger: {
+              each: 0.05,
+              from: "start",
+            },
+            scrollTrigger: {
+              trigger: "#animated-dining-title",
+              start: "top 80%",
+              end: "top 30%",
+              scrub: true,
+              toggleActions: "play none none reverse",
+            },
+          });
+        }
+      }
+    });
+  </script>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Title Section -->
+    <div class="text-center mb-8 md:mb-12">
+      <h2
+        id="animated-dining-title"
+        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4"
+      >
+        Dining Experience
+      </h2>
+      <p class="text-base sm:text-lg text-white/90 max-w-2xl mx-auto px-4">
+        Evening service from seven until ten.
+      </p>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="flex flex-col lg:flex-row items-stretch gap-6 md:gap-8">
+      <!-- Image Section -->
+      <div class="lg:w-2/5 relative">
+        <div class="h-full w-full">
+          <img
+            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1470&auto=format&fit=crop"
+            alt="Hotel dining room during evening service with soft lighting"
+            class="w-full h-full object-cover rounded-l-full sm:rounded-l-full lg:rounded-l-full shadow-lg sm:shadow-xl lg:shadow-2xl"
+            loading="lazy"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-l from-[#FE953D]/10 to-transparent rounded-l-full sm:rounded-l-full lg:rounded-l-full"
+          ></div>
+        </div>
+      </div>
+
+      <!-- Content Section -->
+      <div class="lg:w-3/5 flex items-center">
+        <div
+          class="bg-white/10 backdrop-blur-sm rounded-3xl p-6 sm:p-8 md:p-10 lg:p-12 border border-white/20 rounded-r-full sm:rounded-r-full lg:rounded-r-full w-full"
+        >
+          <div class="space-y-4 md:space-y-6">
+            <!-- Description -->
+            <div class="mb-4 md:mb-6">
+              <p
+                class="text-white text-base sm:text-lg leading-relaxed mb-3 sm:mb-4 lg:max-w-xl"
+              >
+                The room feels calm but alive. Tables are neat, glasses catching
+                the light.
+              </p>
+              <p
+                class="text-white text-base sm:text-lg leading-relaxed mb-3 sm:mb-4"
+              >
+                Soft clinks and quiet footsteps drift from the servers. Warmth
+                and the faint scent of food hang in the air.
+              </p>
+              <p class="text-white text-base sm:text-lg leading-relaxed">
+                Conversation moves in gentle waves, never loud, never rushed.
+              </p>
+            </div>
+
+            <!-- Details -->
+            <div class="pt-4 sm:pt-6 border-t border-white/30">
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+                <div class="text-center">
+                  <div
+                    class="text-lg sm:text-xl md:text-xl font-medium text-white mb-1"
+                  >
+                    7–10 PM
+                  </div>
+                  <p class="text-white/80 text-xs sm:text-sm">
+                    Evening seating
+                  </p>
+                </div>
+                <div class="text-center">
+                  <div
+                    class="text-lg sm:text-xl md:text-xl font-medium text-white mb-1"
+                  >
+                    Five courses
+                  </div>
+                  <p class="text-white/80 text-xs sm:text-sm">Set menu</p>
+                </div>
+                <div class="text-center">
+                  <div
+                    class="text-lg sm:text-xl md:text-xl font-medium text-white mb-1"
+                  >
+                    Jackets
+                  </div>
+                  <p class="text-white/80 text-xs sm:text-sm">Suggested</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center pt-4 sm:pt-6">
+              <button
+                class="px-6 sm:px-8 py-2.5 sm:py-3 bg-white text-[#FE953D] rounded-full font-medium hover:bg-white/90 transition-colors duration-300 text-sm sm:text-base w-full sm:w-auto"
+              >
+                Reserve for evening
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background element -->
+  <div
+    class="absolute top-1/4 -left-12 w-32 h-32 rounded-full opacity-5 bg-white hidden lg:block"
+  ></div>
+</section>
+
+<style>
+  .dining-letter {
+    transition: color 0.3s ease;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .lg\:w-2\/5,
+    .lg\:w-3\/5 {
+      width: 100%;
+    }
+
+    .rounded-r-full {
+      border-radius: 0 2rem 2rem 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .h-\[280px\] {
+      height: 250px;
+    }
+
+    .rounded-l-full,
+    .rounded-r-full {
+      border-radius: 0 1.5rem 1.5rem 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .h-\[280px\] {
+      height: 220px;
+    }
+
+    .text-3xl {
+      font-size: 2rem;
+      line-height: 2.25rem;
+    }
+
+    .p-6 {
+      padding: 1.25rem;
+    }
+
+    .rounded-l-full,
+    .rounded-r-full {
+      border-radius: 0 1rem 1rem 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .h-\[280px\] {
+      height: 200px;
+    }
+
+    .py-12 {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+
+    .grid-cols-1 {
+      gap: 0.75rem;
+    }
+
+    .text-base {
+      font-size: 0.9375rem;
+    }
+  }
+</style>
