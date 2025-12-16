@@ -1,39 +1,50 @@
-{% assign wave_id = include.id | default: 'wave-' | append: include.unique |
-default: site.time | replace: ' ', '-' %}
+{% assign wave_config = site.data.waves[include.unique] %} {% assign wave_id =
+include.id | default: 'wave-' | append: include.unique | replace: ' ', '-' %} {%
+assign bg_color = include.bg_color | default: wave_config.bg_color %} {% assign
+svg2_color = include.svg2_color | default: wave_config.svg2_color %} {% assign
+svg3_color = include.svg3_color | default: wave_config.svg3_color %}
 
 <style>
-    /* Scoped styles */
-    #{{ wave_id }} {
-      position: relative;
-      width: 100%;
-      background-color: #f7e7ee;
-      overflow: hidden;
-      padding-top: 0;
-      padding-bottom: 30px;
-    }
+  /* Scoped styles */
+  #{{ wave_id }} {
+    position: relative;
+    width: 100%;
+    background-color: {{ bg_color }};
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 30px;
+  }
 
-    #{{ wave_id }} svg {
-      display: block;
-      pointer-events: none;
-    }
+  #{{ wave_id }} svg {
+    display: block;
+    pointer-events: none;
+  }
 
-    #{{ wave_id }}-svg2 {
-      position: absolute;
-      width: 320vw;
-      fill: #EEC1DC;
-      left: -50vw;
-      bottom: 0;
-      z-index: 11;
-    }
+  #{{ wave_id }}-svg2 {
+    position: absolute;
+    width: 320vw;
+    fill: {{ svg2_color }};
+    left: -50vw;
+    bottom: 0;
+    z-index: 11;
+  }
 
-    #{{ wave_id }}-svg3 {
-      position: absolute;
-      width: 280vw;
-      fill: #fe953d;
-      left: -50vw;
-      bottom: 0;
-      z-index: 10;
-    }
+  #{{ wave_id }}-svg3 {
+    position: absolute;
+    width: 280vw;
+    fill: {{ svg3_color }};
+    left: -50vw;
+    bottom: 0;
+    z-index: 10;
+  }
+
+  #{{ wave_id }}-svg2 {
+  fill: {{ svg2_color }};
+  }
+
+  #{{ wave_id }}-svg3 {
+    fill: {{ svg3_color }};
+  }
 
   @media (min-width: 480px) {
     #{{ wave_id }} {

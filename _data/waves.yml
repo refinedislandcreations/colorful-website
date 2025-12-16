@@ -1,0 +1,33 @@
+# _data/waves.yml
+
+# Default colors if none specified
+default:
+  bg_color: "#f7e7ee"
+  svg2_color: "#EEC1DC"
+  svg3_color: "#fe953d"
+
+# Specific wave sections
+room-opening:
+  bg_color: "#f7e7ee"
+  svg2_color: "#EEC1DC"
+  svg3_color: "#fe953d"
+
+room-end:
+  bg_color: "#f7e7ee"
+  svg2_color: "#EEC1DC"
+  svg3_color: "#fe953d"
+
+amenities-end:
+  bg_color: "#f7e7ee"
+  svg2_color: "#FE953D"
+  svg3_color: "#EEC1DC"
+
+contact-start:
+  bg_color: "#FE953D"
+  svg2_color: "#EEC1DC"
+  svg3_color: "#fbbf24"
+
+contact-end:
+  bg_color: "#FE953D"
+  svg2_color: "#EEC1DC"
+  svg3_color: "#fbbf24"
