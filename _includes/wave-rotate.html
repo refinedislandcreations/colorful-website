@@ -2,37 +2,67 @@
 default: site.time | replace: ' ', '-' %}
 
 <style>
-  /* Scoped styles */
-  #{{ wave_id }} {
-    position: relative;
-    width: 100%;
-    background-color: #f7e7ee;
-    overflow: hidden;
-    padding-top: 0;
-    padding-bottom: 200px
+    /* Scoped styles */
+    #{{ wave_id }} {
+      position: relative;
+      width: 100%;
+      background-color: #f7e7ee;
+      overflow: hidden;
+      padding-top: 0;
+      padding-bottom: 30px;
+    }
+
+    #{{ wave_id }} svg {
+      display: block;
+      pointer-events: none;
+    }
+
+    #{{ wave_id }}-svg2 {
+      position: absolute;
+      width: 320vw;
+      fill: #EEC1DC;
+      left: -50vw;
+      bottom: 0;
+      z-index: 11;
+    }
+
+    #{{ wave_id }}-svg3 {
+      position: absolute;
+      width: 280vw;
+      fill: #fe953d;
+      left: -50vw;
+      bottom: 0;
+      z-index: 10;
+    }
+
+  @media (min-width: 480px) {
+    #{{ wave_id }} {
+      padding-bottom: 60px;
+    }
   }
 
-  #{{ wave_id }} svg {
-    display: block;
-    pointer-events: none;
+  @media (min-width: 640px) {
+    #{{ wave_id }} {
+      padding-bottom: 80px;
+    }
   }
 
-  #{{ wave_id }}-svg2 {
-    position: absolute;
-    width: 320vw;
-    fill: #EEC1DC;
-    left: -50vw;
-    bottom: 0;
-    z-index: 11;
+  @media (min-width: 768px) {
+    #{{ wave_id }} {
+      padding-bottom: 100px;
+    }
   }
 
-  #{{ wave_id }}-svg3 {
-    position: absolute;
-    width: 280vw;
-    fill: #fe953d;
-    left: -50vw;
-    bottom: 0;
-    z-index: 10;
+  @media (min-width: 1024px) {
+    #{{ wave_id }} {
+      padding-bottom: 120px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    #{{ wave_id }} {
+      padding-bottom: 130px;
+    }
   }
 </style>
 
