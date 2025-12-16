@@ -99,10 +99,13 @@ contact:
   {% include room-suite.html %} {% include wave-rotate.html unique="room-end" %}
 </div>
 
-<div>{% include amenities.html %}</div>
+<div>
+  {% include amenities.html %} {% include wave.html unique="amenities-end" %}
+</div>
 
-{% include dining.html %} {% include gallery-section.html section=page.gallery
-%} {% include contact-form.html %}
+<div>{% include dining.html %}</div>
+{% include gallery-section.html section=page.gallery %} {% include
+contact-form.html %}
 
 <!-- GSAP Animation Script -->
 <script src="/assets/js/animations.js"></script>
