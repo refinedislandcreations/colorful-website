@@ -1,3 +1,20 @@
+<style>
+  /* Add to existing styles */
+  .image-anchor {
+    @apply w-full transition-all duration-300;
+  }
+
+  .floating-image-active {
+    opacity: 1 !important;
+  }
+
+  /* Visibility toggle class */
+  .floating-image-hidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+</style>
+
 <section
   class="relative overflow-hidden py-16 md:py-24"
   style="background-color: #eec1dc"
@@ -30,10 +47,15 @@
 
   <div class="container mx-auto px-4 md:px-8 relative z-10">
     <div class="text-center mb-12 md:mb-20">
-      <!-- Animated H2 with REVERSED letter-by-letter transition -->
-      <h2 id="animated-title" class="text-4xl md:text-5xl mb-4 font-bold">
-        Our Rooms & Suites
-      </h2>
+      <!-- Animated H2 -->
+      <div class="flex justify-center">
+        <h2
+          id="animated-title"
+          class="text-4xl md:text-5xl mb-4 font-bold text-center inline-block"
+        >
+          Our Rooms & Suites
+        </h2>
+      </div>
       <p class="text-lg text-gray-700 max-w-2xl mx-auto">
         Discover our carefully designed accommodations, each offering a unique
         experience tailored to your needs.
@@ -261,6 +283,20 @@
   document.addEventListener("DOMContentLoaded", () => {
     gsap.registerPlugin(ScrollTrigger, Flip);
 
+    // ============================================
+    // CONFIGURATION - Choose starting anchor point
+    // Options: "first", "second", "last", or "auto"
+    // "auto" will detect which anchor is currently in view
+    // ============================================
+    const FLOATING_IMAGE_CONFIG = {
+      startFrom: "first", // Change to "second", "last", or "auto"
+      enableOnMobile: false,
+      animationDuration: 1.1,
+      animationEase: "power2.inOut",
+      fadeInDuration: 0.6,
+    };
+    // ============================================
+
     // H2 Text Animation - REVERSED: White to Dark Gray per letter
     const title = document.getElementById("animated-title");
     const text = title.textContent;
@@ -296,84 +332,248 @@
       },
     });
 
-    // Original floating image animation
+    // FLOATING IMAGE ANIMATION - Flexible starting point
     const moving = document.getElementById("moving-image");
     const wrapper = document.getElementById("floating-wrapper");
     const anchors = gsap.utils.toArray(".image-anchor");
     const img = moving.querySelector("img");
 
-    if (window.innerWidth < 768) {
+    // Check if we should disable on mobile
+    const isMobile = window.innerWidth < 768;
+    const shouldEnable = FLOATING_IMAGE_CONFIG.enableOnMobile || !isMobile;
+
+    if (!shouldEnable || FLOATING_IMAGE_CONFIG.startFrom === "none") {
       moving.style.display = "none";
-      return;
-    }
+      // Continue with other animations
+    } else if (anchors.length > 0 && shouldEnable) {
+      let currentAnchor = null;
+      let startingAnchor = null;
 
-    let currentAnchor = anchors[0];
+      // Function to check which anchor is currently in view
+      function getAnchorInViewport() {
+        const viewportHeight = window.innerHeight;
+        const scrollY = window.scrollY;
 
-    // Ensure absolute-position animation
-    gsap.set(moving, { position: "absolute", top: 0, left: 0 });
+        for (let i = 0; i < anchors.length; i++) {
+          const anchor = anchors[i];
+          const rect = anchor.getBoundingClientRect();
+          const anchorTop = rect.top + scrollY;
+          const anchorBottom = rect.bottom + scrollY;
 
-    // Initial placement
-    Flip.fit(moving, currentAnchor, {
-      absolute: true,
-      scale: true,
-      fitChild: img,
-      duration: 0,
-    });
+          // Check if anchor is in viewport (with some threshold)
+          if (
+            (anchorTop <= scrollY + viewportHeight * 0.6 &&
+              anchorBottom >= scrollY + viewportHeight * 0.4) ||
+            (scrollY >= anchorTop && scrollY <= anchorBottom)
+          ) {
+            return anchor;
+          }
+        }
 
-    gsap.to(moving, { opacity: 1, duration: 0.6 });
+        // If no anchor is in view, return the one closest to the viewport
+        let closestAnchor = anchors[0];
+        let closestDistance = Infinity;
 
-    function moveToAnchor(anchor) {
-      if (anchor === currentAnchor) return;
+        anchors.forEach((anchor) => {
+          const rect = anchor.getBoundingClientRect();
+          const anchorCenter = rect.top + rect.height / 2;
+          const viewportCenter = viewportHeight / 2;
+          const distance = Math.abs(anchorCenter - viewportCenter);
 
-      currentAnchor = anchor;
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestAnchor = anchor;
+          }
+        });
 
-      // Update image
-      const newImage = anchor.dataset.image;
-      if (newImage) img.src = newImage;
+        return closestAnchor;
+      }
 
-      const state = Flip.getState(moving);
+      // Determine starting anchor based on configuration and current scroll
+      if (FLOATING_IMAGE_CONFIG.startFrom === "auto") {
+        // Auto-detect based on current scroll position
+        startingAnchor = getAnchorInViewport() || anchors[0];
+      } else {
+        // Use the configured starting anchor
+        switch (FLOATING_IMAGE_CONFIG.startFrom) {
+          case "first":
+            startingAnchor = anchors[0];
+            break;
+          case "second":
+            startingAnchor = anchors.length >= 2 ? anchors[1] : anchors[0];
+            break;
+          case "last":
+            startingAnchor = anchors[anchors.length - 1];
+            break;
+          default:
+            startingAnchor = anchors[0];
+        }
 
-      Flip.fit(moving, anchor, {
+        // But if we're already scrolled past the configured anchor,
+        // we should start at the anchor that's currently in view
+        const currentScroll = window.scrollY;
+        const sectionTop = document.getElementById("rooms-section").offsetTop;
+
+        // Only override if we're significantly scrolled down
+        if (currentScroll > sectionTop + 200) {
+          const anchorInView = getAnchorInViewport();
+          if (anchorInView) {
+            // Check if we're past the configured starting anchor
+            const configuredIndex = anchors.indexOf(startingAnchor);
+            const viewIndex = anchors.indexOf(anchorInView);
+
+            if (viewIndex > configuredIndex) {
+              startingAnchor = anchorInView;
+            }
+          }
+        }
+      }
+
+      currentAnchor = startingAnchor;
+
+      // Ensure absolute-position animation
+      gsap.set(moving, {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        opacity: 0, // Start hidden, will fade in after positioning
+      });
+
+      // Position immediately at starting anchor
+      Flip.fit(moving, startingAnchor, {
         absolute: true,
         scale: true,
         fitChild: img,
-      });
-
-      Flip.from(state, {
-        duration: 1.1,
-        ease: "power2.inOut",
-      });
-    }
-
-    // MAIN SCROLLTRIGGERS
-    anchors.forEach((anchor) => {
-      ScrollTrigger.create({
-        trigger: anchor,
-        start: "top 60%",
-        end: "bottom 40%",
-        onEnter: () => moveToAnchor(anchor),
-        onEnterBack: () => moveToAnchor(anchor),
-      });
-    });
-
-    const lastAnchor = anchors[anchors.length - 1];
-    ScrollTrigger.create({
-      trigger: lastAnchor,
-      start: "bottom center",
-      onEnter: () => {}, // do nothing
-      onLeaveBack: () => {}, // do nothing
-    });
-
-    // Handle window resizing
-    window.addEventListener("resize", () => {
-      Flip.fit(moving, currentAnchor, {
         duration: 0,
-        absolute: true,
-        scale: true,
-        fitChild: img,
       });
-      ScrollTrigger.refresh();
-    });
+
+      // Update image immediately
+      const startingImage = startingAnchor.dataset.image;
+      if (startingImage && startingImage !== img.src) {
+        img.src = startingImage;
+      }
+
+      // Fade in the image immediately
+      gsap.to(moving, {
+        opacity: 1,
+        duration: FLOATING_IMAGE_CONFIG.fadeInDuration,
+        delay: 0.1,
+      });
+
+      // Function to move to an anchor
+      function moveToAnchor(anchor) {
+        if (anchor === currentAnchor) return;
+
+        // Store previous anchor for reference
+        const previousAnchor = currentAnchor;
+        currentAnchor = anchor;
+
+        // Update image
+        const newImage = anchor.dataset.image;
+        if (newImage && newImage !== img.src) {
+          img.src = newImage;
+        }
+
+        const state = Flip.getState(moving);
+
+        Flip.fit(moving, anchor, {
+          absolute: true,
+          scale: true,
+          fitChild: img,
+        });
+
+        Flip.from(state, {
+          duration: FLOATING_IMAGE_CONFIG.animationDuration,
+          ease: FLOATING_IMAGE_CONFIG.animationEase,
+          onComplete: () => {
+            // Ensure opacity stays at 1 after animation
+            gsap.set(moving, { opacity: 1 });
+          },
+        });
+      }
+
+      // Create ScrollTriggers for all anchors
+      anchors.forEach((anchor) => {
+        ScrollTrigger.create({
+          trigger: anchor,
+          start: "top 60%",
+          end: "bottom 40%",
+          onEnter: () => moveToAnchor(anchor),
+          onEnterBack: () => moveToAnchor(anchor),
+        });
+      });
+
+      // Handle edge cases based on starting position
+      const firstAnchor = anchors[0];
+      const lastAnchor = anchors[anchors.length - 1];
+
+      // If we started at a later anchor, also trigger when scrolling up to earlier anchors
+      if (startingAnchor !== firstAnchor) {
+        ScrollTrigger.create({
+          trigger: firstAnchor,
+          start: "top 90%",
+          end: "bottom 90%",
+          onEnter: () => moveToAnchor(firstAnchor),
+          onEnterBack: () => moveToAnchor(firstAnchor),
+        });
+      }
+
+      // If we started at last anchor, create a trigger for when we scroll up from it
+      if (startingAnchor === lastAnchor) {
+        ScrollTrigger.create({
+          trigger: lastAnchor,
+          start: "top 50%",
+          end: "bottom 50%",
+          onLeaveBack: () => {
+            // When scrolling up from last anchor, go to second last if exists
+            if (anchors.length >= 2) {
+              moveToAnchor(anchors[anchors.length - 2]);
+            }
+          },
+        });
+      }
+
+      // Handle window resizing
+      let resizeTimeout;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          if (currentAnchor) {
+            Flip.fit(moving, currentAnchor, {
+              duration: 0,
+              absolute: true,
+              scale: true,
+              fitChild: img,
+            });
+          }
+          ScrollTrigger.refresh();
+        }, 100);
+      });
+
+      // Clean up on mobile resize
+      window.addEventListener("resize", () => {
+        const newIsMobile = window.innerWidth < 768;
+        if (newIsMobile && !FLOATING_IMAGE_CONFIG.enableOnMobile) {
+          gsap.set(moving, { opacity: 0 });
+          moving.style.pointerEvents = "none";
+        } else if (!newIsMobile && isMobile && shouldEnable) {
+          moving.style.pointerEvents = "auto";
+          // Reinitialize position
+          if (currentAnchor) {
+            Flip.fit(moving, currentAnchor, {
+              duration: 0,
+              absolute: true,
+              scale: true,
+              fitChild: img,
+            });
+            gsap.to(moving, {
+              opacity: 1,
+              duration: FLOATING_IMAGE_CONFIG.fadeInDuration,
+            });
+          }
+        }
+      });
+    }
 
     // Add animation for room titles on scroll
     const roomTitles = document.querySelectorAll(".story-step h3");
@@ -421,44 +621,3 @@
     });
   });
 </script>
-
-<!-- Styling -->
-<style>
-  .step-circle {
-    @apply flex w-8 h-8 rounded-full mr-3 justify-center items-center text-white;
-    background-color: #d89cc1;
-  }
-
-  .image-anchor {
-    @apply w-full transition-all duration-300;
-  }
-
-  #moving-image,
-  #moving-image img {
-    transform: translateZ(0);
-  }
-
-  /* Smooth transition for letter colors */
-  .letter {
-    transition: color 0.3s ease;
-  }
-
-  /* Room title styling */
-  .story-step h3 {
-    transition: all 0.3s ease;
-  }
-
-  .story-step:hover h3 {
-    transform: translateX(10px);
-  }
-
-  @media (max-width: 1023px) {
-    #moving-image {
-      display: none;
-    }
-
-    .story-step {
-      margin-bottom: 4rem !important;
-    }
-  }
-</style>
