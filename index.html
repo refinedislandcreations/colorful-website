@@ -104,8 +104,12 @@ contact:
 </div>
 
 <div>{% include dining.html %}</div>
-{% include gallery-section.html section=page.gallery %} {% include
-contact-form.html %}
+{% include gallery-section.html section=page.gallery %}
+
+<div>
+  {% include wave-rotate.html unique="contact-start" %} {% include
+  contact-form.html %} {% include wave.html unique="contact-end" %}
+</div>
 
 <!-- GSAP Animation Script -->
 <script src="/assets/js/animations.js"></script>
