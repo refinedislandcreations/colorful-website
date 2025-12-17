@@ -1,51 +1,10 @@
 <section class="bg-[#FE953D] py-12 md:py-16 lg:py-24 overflow-hidden relative">
-  <!-- GSAP Animation Script -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Title Animation - REVERSED letter-by-letter
-        const diningTitle = document.getElementById("animated-dining-title");
-        if (diningTitle) {
-          const text = diningTitle.textContent;
-          const letters = text.split("");
-
-          diningTitle.textContent = "";
-
-          letters.forEach((letter) => {
-            const span = document.createElement("span");
-            span.textContent = letter === " " ? "\u00A0" : letter;
-            span.className = "dining-letter inline-block";
-            span.style.color = "#ffffff";
-            diningTitle.appendChild(span);
-          });
-
-          gsap.to(".dining-letter", {
-            color: "#000000",
-            stagger: {
-              each: 0.05,
-              from: "start",
-            },
-            scrollTrigger: {
-              trigger: "#animated-dining-title",
-              start: "top 80%",
-              end: "top 30%",
-              scrub: true,
-              toggleActions: "play none none reverse",
-            },
-          });
-        }
-      }
-    });
-  </script>
-
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Title Section -->
     <div class="text-center mb-8 md:mb-12">
       <h2
         id="animated-dining-title"
-        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4"
+        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 text-white"
       >
         Dining Experience
       </h2>
@@ -149,17 +108,12 @@
 </section>
 
 <style>
-  .dining-letter {
-    transition: color 0.3s ease;
-  }
-
   /* Responsive adjustments */
   @media (max-width: 1024px) {
     .lg\:w-2\/5,
     .lg\:w-3\/5 {
       width: 100%;
     }
-
     .rounded-r-full {
       border-radius: 0 2rem 2rem 0;
     }
@@ -169,7 +123,6 @@
     .h-\[280px\] {
       height: 250px;
     }
-
     .rounded-l-full,
     .rounded-r-full {
       border-radius: 0 1.5rem 1.5rem 0;
@@ -180,16 +133,13 @@
     .h-\[280px\] {
       height: 220px;
     }
-
     .text-3xl {
       font-size: 2rem;
       line-height: 2.25rem;
     }
-
     .p-6 {
       padding: 1.25rem;
     }
-
     .rounded-l-full,
     .rounded-r-full {
       border-radius: 0 1rem 1rem 0;
@@ -200,16 +150,13 @@
     .h-\[280px\] {
       height: 200px;
     }
-
     .py-12 {
       padding-top: 2.5rem;
       padding-bottom: 2.5rem;
     }
-
     .grid-cols-1 {
       gap: 0.75rem;
     }
-
     .text-base {
       font-size: 0.9375rem;
     }
