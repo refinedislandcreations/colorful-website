@@ -73,14 +73,12 @@
         <p class="text-[#D81B60] text-lg">Luxury Boutique Hotel & Spa</p>
       </div>
 
-      <!-- Menu Grid -->
-      <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
-      >
-        <!-- Home -->
+      <!-- Menu Grid - Only 4 items as requested -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <!-- Room & Suites -->
         <a
-          href="{{ '/' | relative_url }}"
-          class="menu-item group relative overflow-hidden rounded-xl border-2 border-[#E6397C] p-6 md:p-8 flex flex-col justify-center min-h-[160px] transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:border-[#D81B60]"
+          href="{{ '/rooms/' | relative_url }}"
+          class="menu-item group relative overflow-hidden rounded-xl border-2 border-[#E6397C] p-6 md:p-8 flex flex-col justify-center min-h-[160px] transition-all duration-300 hover:shadow-lg hover:border-[#D81B60]"
         >
           <span
             class="absolute -right-3 -bottom-3 text-[80px] font-black text-[#F7D9E7] leading-none opacity-60 group-hover:opacity-80 transition-opacity"
@@ -91,34 +89,7 @@
             <h3
               class="text-2xl md:text-3xl font-bold text-[#E6397C] mb-2 group-hover:text-[#D81B60] transition-colors"
             >
-              Home
-            </h3>
-            <p
-              class="text-[#D81B60] text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              Welcome to Cloudora
-            </p>
-          </div>
-          <div
-            class="absolute inset-0 bg-[#E6397C] opacity-0 group-hover:opacity-5 transition-opacity duration-300"
-          ></div>
-        </a>
-
-        <!-- Rooms & Suites -->
-        <a
-          href="{{ '/rooms/' | relative_url }}"
-          class="menu-item group relative overflow-hidden rounded-xl border-2 border-[#E6397C] p-6 md:p-8 flex flex-col justify-center min-h-[160px] transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:border-[#D81B60]"
-        >
-          <span
-            class="absolute -right-3 -bottom-3 text-[80px] font-black text-[#F7D9E7] leading-none opacity-60 group-hover:opacity-80 transition-opacity"
-          >
-            02
-          </span>
-          <div class="relative z-10">
-            <h3
-              class="text-2xl md:text-3xl font-bold text-[#E6397C] mb-2 group-hover:text-[#D81B60] transition-colors"
-            >
-              Rooms & Suites
+              Room & Suites
             </h3>
             <p
               class="text-[#D81B60] text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -131,10 +102,37 @@
           ></div>
         </a>
 
+        <!-- Amenities -->
+        <a
+          href="{{ '/amenities/' | relative_url }}"
+          class="menu-item group relative overflow-hidden rounded-xl border-2 border-[#E6397C] p-6 md:p-8 flex flex-col justify-center min-h-[160px] transition-all duration-300 hover:shadow-lg hover:border-[#D81B60]"
+        >
+          <span
+            class="absolute -right-3 -bottom-3 text-[80px] font-black text-[#F7D9E7] leading-none opacity-60 group-hover:opacity-80 transition-opacity"
+          >
+            02
+          </span>
+          <div class="relative z-10">
+            <h3
+              class="text-2xl md:text-3xl font-bold text-[#E6397C] mb-2 group-hover:text-[#D81B60] transition-colors"
+            >
+              Amenities
+            </h3>
+            <p
+              class="text-[#D81B60] text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              Spa & facilities
+            </p>
+          </div>
+          <div
+            class="absolute inset-0 bg-[#E6397C] opacity-0 group-hover:opacity-5 transition-opacity duration-300"
+          ></div>
+        </a>
+
         <!-- Dining -->
         <a
           href="{{ '/dining/' | relative_url }}"
-          class="menu-item group relative overflow-hidden rounded-xl border-2 border-[#E6397C] p-6 md:p-8 flex flex-col justify-center min-h-[160px] transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:border-[#D81B60]"
+          class="menu-item group relative overflow-hidden rounded-xl border-2 border-[#E6397C] p-6 md:p-8 flex flex-col justify-center min-h-[160px] transition-all duration-300 hover:shadow-lg hover:border-[#D81B60]"
         >
           <span
             class="absolute -right-3 -bottom-3 text-[80px] font-black text-[#F7D9E7] leading-none opacity-60 group-hover:opacity-80 transition-opacity"
@@ -158,69 +156,15 @@
           ></div>
         </a>
 
-        <!-- Amenities -->
+        <!-- Contact Us -->
         <a
-          href="{{ '/amenities/' | relative_url }}"
-          class="menu-item group relative overflow-hidden rounded-xl border-2 border-[#E6397C] p-6 md:p-8 flex flex-col justify-center min-h-[160px] transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:border-[#D81B60]"
+          href="{{ '/contact/' | relative_url }}"
+          class="menu-item group relative overflow-hidden rounded-xl border-2 border-[#E6397C] p-6 md:p-8 flex flex-col justify-center min-h-[160px] transition-all duration-300 hover:shadow-lg hover:border-[#D81B60]"
         >
           <span
             class="absolute -right-3 -bottom-3 text-[80px] font-black text-[#F7D9E7] leading-none opacity-60 group-hover:opacity-80 transition-opacity"
           >
             04
-          </span>
-          <div class="relative z-10">
-            <h3
-              class="text-2xl md:text-3xl font-bold text-[#E6397C] mb-2 group-hover:text-[#D81B60] transition-colors"
-            >
-              Amenities
-            </h3>
-            <p
-              class="text-[#D81B60] text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              Spa & facilities
-            </p>
-          </div>
-          <div
-            class="absolute inset-0 bg-[#E6397C] opacity-0 group-hover:opacity-5 transition-opacity duration-300"
-          ></div>
-        </a>
-
-        <!-- Special Offers -->
-        <a
-          href="{{ '/offers/' | relative_url }}"
-          class="menu-item group relative overflow-hidden rounded-xl border-2 border-[#E6397C] p-6 md:p-8 flex flex-col justify-center min-h-[160px] transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:border-[#D81B60]"
-        >
-          <span
-            class="absolute -right-3 -bottom-3 text-[80px] font-black text-[#F7D9E7] leading-none opacity-60 group-hover:opacity-80 transition-opacity"
-          >
-            05
-          </span>
-          <div class="relative z-10">
-            <h3
-              class="text-2xl md:text-3xl font-bold text-[#E6397C] mb-2 group-hover:text-[#D81B60] transition-colors"
-            >
-              Special Offers
-            </h3>
-            <p
-              class="text-[#D81B60] text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-            >
-              Exclusive deals
-            </p>
-          </div>
-          <div
-            class="absolute inset-0 bg-[#E6397C] opacity-0 group-hover:opacity-5 transition-opacity duration-300"
-          ></div>
-        </a>
-
-        <!-- Contact Us -->
-        <a
-          href="{{ '/contact/' | relative_url }}"
-          class="menu-item group relative overflow-hidden rounded-xl border-2 border-[#E6397C] p-6 md:p-8 flex flex-col justify-center min-h-[160px] transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:border-[#D81B60]"
-        >
-          <span
-            class="absolute -right-3 -bottom-3 text-[80px] font-black text-[#F7D9E7] leading-none opacity-60 group-hover:opacity-80 transition-opacity"
-          >
-            06
           </span>
           <div class="relative z-10">
             <h3
