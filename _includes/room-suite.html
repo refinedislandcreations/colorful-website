@@ -51,7 +51,7 @@
       <div class="flex justify-center">
         <h2
           id="animated-title"
-          class="text-4xl md:text-5xl mb-4 font-bold text-center inline-block"
+          class="text-4xl md:text-5xl mb-4 font-bold text-center mx-auto"
         >
           Our Rooms & Suites
         </h2>
@@ -284,117 +284,63 @@
     gsap.registerPlugin(ScrollTrigger, Flip);
 
     // ============================================
-    // CONFIGURATION - Choose starting anchor point
-    // Options: "first", "second", "last", or "auto"
-    // "auto" will detect which anchor is currently in view
+    // FLOATING IMAGE ANIMATION
     // ============================================
     const FLOATING_IMAGE_CONFIG = {
-      startFrom: "first", // Change to "second", "last", or "auto"
+      startFrom: "first", // "first", "second", "last", "auto"
       enableOnMobile: false,
       animationDuration: 1.1,
       animationEase: "power2.inOut",
       fadeInDuration: 0.6,
     };
-    // ============================================
 
-    // H2 Text Animation - REVERSED: White to Dark Gray per letter
-    const title = document.getElementById("animated-title");
-    const text = title.textContent;
-
-    // Split the text into individual letters (including spaces)
-    const letters = text.split("");
-
-    // Clear the original text
-    title.textContent = "";
-
-    // Wrap each letter in a span for individual animation
-    letters.forEach((letter, index) => {
-      const span = document.createElement("span");
-      span.textContent = letter === " " ? "\u00A0" : letter;
-      span.className = "letter inline-block";
-      span.style.color = "#ffffff"; // Start with WHITE text
-      title.appendChild(span);
-    });
-
-    // Create REVERSED letter-by-letter animation on scroll
-    gsap.to(".letter", {
-      color: "rgb(31, 41, 55)", // End with DARK GRAY (text-gray-800)
-      stagger: {
-        each: 0.05, // Time between each letter animation
-        from: "start", // Start from the first letter
-      },
-      scrollTrigger: {
-        trigger: "#animated-title",
-        start: "top 80%", // Start when title is 80% from top
-        end: "top 30%", // End when title is 30% from top
-        scrub: true, // Smooth scrubbing effect
-        toggleActions: "play none none reverse", // Play forward and reverse
-      },
-    });
-
-    // FLOATING IMAGE ANIMATION - Flexible starting point
     const moving = document.getElementById("moving-image");
     const wrapper = document.getElementById("floating-wrapper");
     const anchors = gsap.utils.toArray(".image-anchor");
     const img = moving.querySelector("img");
 
-    // Check if we should disable on mobile
     const isMobile = window.innerWidth < 768;
     const shouldEnable = FLOATING_IMAGE_CONFIG.enableOnMobile || !isMobile;
 
     if (!shouldEnable || FLOATING_IMAGE_CONFIG.startFrom === "none") {
       moving.style.display = "none";
-      // Continue with other animations
     } else if (anchors.length > 0 && shouldEnable) {
       let currentAnchor = null;
       let startingAnchor = null;
 
-      // Function to check which anchor is currently in view
       function getAnchorInViewport() {
         const viewportHeight = window.innerHeight;
         const scrollY = window.scrollY;
-
         for (let i = 0; i < anchors.length; i++) {
-          const anchor = anchors[i];
-          const rect = anchor.getBoundingClientRect();
+          const rect = anchors[i].getBoundingClientRect();
           const anchorTop = rect.top + scrollY;
           const anchorBottom = rect.bottom + scrollY;
-
-          // Check if anchor is in viewport (with some threshold)
           if (
             (anchorTop <= scrollY + viewportHeight * 0.6 &&
               anchorBottom >= scrollY + viewportHeight * 0.4) ||
             (scrollY >= anchorTop && scrollY <= anchorBottom)
           ) {
-            return anchor;
+            return anchors[i];
           }
         }
-
-        // If no anchor is in view, return the one closest to the viewport
         let closestAnchor = anchors[0];
         let closestDistance = Infinity;
-
         anchors.forEach((anchor) => {
           const rect = anchor.getBoundingClientRect();
           const anchorCenter = rect.top + rect.height / 2;
           const viewportCenter = viewportHeight / 2;
           const distance = Math.abs(anchorCenter - viewportCenter);
-
           if (distance < closestDistance) {
             closestDistance = distance;
             closestAnchor = anchor;
           }
         });
-
         return closestAnchor;
       }
 
-      // Determine starting anchor based on configuration and current scroll
       if (FLOATING_IMAGE_CONFIG.startFrom === "auto") {
-        // Auto-detect based on current scroll position
         startingAnchor = getAnchorInViewport() || anchors[0];
       } else {
-        // Use the configured starting anchor
         switch (FLOATING_IMAGE_CONFIG.startFrom) {
           case "first":
             startingAnchor = anchors[0];
@@ -408,20 +354,13 @@
           default:
             startingAnchor = anchors[0];
         }
-
-        // But if we're already scrolled past the configured anchor,
-        // we should start at the anchor that's currently in view
         const currentScroll = window.scrollY;
         const sectionTop = document.getElementById("rooms-section").offsetTop;
-
-        // Only override if we're significantly scrolled down
         if (currentScroll > sectionTop + 200) {
           const anchorInView = getAnchorInViewport();
           if (anchorInView) {
-            // Check if we're past the configured starting anchor
             const configuredIndex = anchors.indexOf(startingAnchor);
             const viewIndex = anchors.indexOf(anchorInView);
-
             if (viewIndex > configuredIndex) {
               startingAnchor = anchorInView;
             }
@@ -431,15 +370,13 @@
 
       currentAnchor = startingAnchor;
 
-      // Ensure absolute-position animation
       gsap.set(moving, {
         position: "absolute",
         top: 0,
         left: 0,
-        opacity: 0, // Start hidden, will fade in after positioning
+        opacity: 0,
       });
 
-      // Position immediately at starting anchor
       Flip.fit(moving, startingAnchor, {
         absolute: true,
         scale: true,
@@ -447,35 +384,22 @@
         duration: 0,
       });
 
-      // Update image immediately
       const startingImage = startingAnchor.dataset.image;
-      if (startingImage && startingImage !== img.src) {
-        img.src = startingImage;
-      }
+      if (startingImage && startingImage !== img.src) img.src = startingImage;
 
-      // Fade in the image immediately
       gsap.to(moving, {
         opacity: 1,
         duration: FLOATING_IMAGE_CONFIG.fadeInDuration,
         delay: 0.1,
       });
 
-      // Function to move to an anchor
       function moveToAnchor(anchor) {
         if (anchor === currentAnchor) return;
-
-        // Store previous anchor for reference
-        const previousAnchor = currentAnchor;
         currentAnchor = anchor;
-
-        // Update image
         const newImage = anchor.dataset.image;
-        if (newImage && newImage !== img.src) {
-          img.src = newImage;
-        }
+        if (newImage && newImage !== img.src) img.src = newImage;
 
         const state = Flip.getState(moving);
-
         Flip.fit(moving, anchor, {
           absolute: true,
           scale: true,
@@ -485,14 +409,10 @@
         Flip.from(state, {
           duration: FLOATING_IMAGE_CONFIG.animationDuration,
           ease: FLOATING_IMAGE_CONFIG.animationEase,
-          onComplete: () => {
-            // Ensure opacity stays at 1 after animation
-            gsap.set(moving, { opacity: 1 });
-          },
+          onComplete: () => gsap.set(moving, { opacity: 1 }),
         });
       }
 
-      // Create ScrollTriggers for all anchors
       anchors.forEach((anchor) => {
         ScrollTrigger.create({
           trigger: anchor,
@@ -503,37 +423,7 @@
         });
       });
 
-      // Handle edge cases based on starting position
-      const firstAnchor = anchors[0];
-      const lastAnchor = anchors[anchors.length - 1];
-
-      // If we started at a later anchor, also trigger when scrolling up to earlier anchors
-      if (startingAnchor !== firstAnchor) {
-        ScrollTrigger.create({
-          trigger: firstAnchor,
-          start: "top 90%",
-          end: "bottom 90%",
-          onEnter: () => moveToAnchor(firstAnchor),
-          onEnterBack: () => moveToAnchor(firstAnchor),
-        });
-      }
-
-      // If we started at last anchor, create a trigger for when we scroll up from it
-      if (startingAnchor === lastAnchor) {
-        ScrollTrigger.create({
-          trigger: lastAnchor,
-          start: "top 50%",
-          end: "bottom 50%",
-          onLeaveBack: () => {
-            // When scrolling up from last anchor, go to second last if exists
-            if (anchors.length >= 2) {
-              moveToAnchor(anchors[anchors.length - 2]);
-            }
-          },
-        });
-      }
-
-      // Handle window resizing
+      // Handle resize
       let resizeTimeout;
       window.addEventListener("resize", () => {
         clearTimeout(resizeTimeout);
@@ -548,17 +438,13 @@
           }
           ScrollTrigger.refresh();
         }, 100);
-      });
 
-      // Clean up on mobile resize
-      window.addEventListener("resize", () => {
         const newIsMobile = window.innerWidth < 768;
         if (newIsMobile && !FLOATING_IMAGE_CONFIG.enableOnMobile) {
           gsap.set(moving, { opacity: 0 });
           moving.style.pointerEvents = "none";
         } else if (!newIsMobile && isMobile && shouldEnable) {
           moving.style.pointerEvents = "auto";
-          // Reinitialize position
           if (currentAnchor) {
             Flip.fit(moving, currentAnchor, {
               duration: 0,
@@ -575,10 +461,11 @@
       });
     }
 
-    // Add animation for room titles on scroll
+    // ============================================
+    // ROOM TITLES & DESCRIPTIONS ANIMATION
+    // ============================================
     const roomTitles = document.querySelectorAll(".story-step h3");
-
-    roomTitles.forEach((title, index) => {
+    roomTitles.forEach((title) => {
       gsap.fromTo(
         title,
         { opacity: 0, y: 20 },
@@ -596,12 +483,10 @@
       );
     });
 
-    // Add animation for room descriptions
     const roomDescriptions = document.querySelectorAll(
       ".story-step > div > p.text-gray-600"
     );
-
-    roomDescriptions.forEach((desc, index) => {
+    roomDescriptions.forEach((desc) => {
       gsap.fromTo(
         desc,
         { opacity: 0, y: 10 },
