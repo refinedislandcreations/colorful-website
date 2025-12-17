@@ -31,9 +31,9 @@ gallery:
       alt: "Hotel bathroom"
 ---
 
-{% include hero-section.html section=page.hero %}
+<div id="home">{% include hero-section.html section=page.hero %}</div>
 
-<div>
+<div id="room-suite">
   {% include opening-section.html %} {% include wave.html unique="room-opening"
   %}
 </div>
@@ -42,14 +42,14 @@ gallery:
   {% include room-suite.html %} {% include wave-rotate.html unique="room-end" %}
 </div>
 
-<div>
+<div id="amenities">
   {% include amenities.html %} {% include wave.html unique="amenities-end" %}
 </div>
 
-<div>{% include dining.html %}</div>
+<div id="dining">{% include dining.html %}</div>
 {% include gallery-section.html section=page.gallery %}
 
-<div>
+<div id="contact">
   {% include wave-rotate.html unique="contact-start" %} {% include
   contact-form.html %} {% include wave.html unique="contact-end" %}
 </div>
