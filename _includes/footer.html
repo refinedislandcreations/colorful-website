@@ -1,6 +1,5 @@
-<!-- _includes/footer-section.html -->
 <!---------------- FOOTER SECTION ---------------->
-<footer class="grid grid-cols-1 md:grid-cols-5 gap-8 bg-brand-pink p-5p">
+<footer class="grid grid-cols-1 md:grid-cols-4 gap-8 bg-brand-pink p-5p">
   <div class="md:col-span-2">
     <h3 class="font-bold mb-2 text-xl">Cloudora Hotel</h3>
     <p>{{ include.section.description }}</p>
@@ -17,19 +16,6 @@
       <li>
         <a href="{{ link.url }}" class="hover:text-brand-orange"
           >{{ link.text }}</a
-        >
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-
-  <div>
-    <h3 class="font-bold mb-2">Guest Services</h3>
-    <ul class="space-y-1">
-      {% for service in include.section.guest_services %}
-      <li>
-        <a href="{{ service.url }}" class="hover:text-brand-orange"
-          >{{ service.text }}</a
         >
       </li>
       {% endfor %}
@@ -57,7 +43,7 @@
   </div>
 
   <div
-    class="md:col-span-5 border-t border-black mt-6 pt-6 text-center text-sm space-y-4"
+    class="md:col-span-4 border-t border-black mt-6 pt-6 text-center text-sm space-y-4"
   >
     <p>
       &copy; {{ site.time | date: '%Y' }} {{ include.section.copyright }} |
